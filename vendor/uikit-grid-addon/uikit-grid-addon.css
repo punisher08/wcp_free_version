@@ -1,0 +1,785 @@
+/* Even grid cell widths addon
+ ========================================================================== */
+ [class*='frxp-grid-width'] > * {
+  box-sizing: border-box;
+  width: 100%;
+}
+.frxp-grid-width-1-2 > * {
+  width: 50%;
+}
+.frxp-grid-width-1-3 > * {
+  width: 33.333%;
+}
+.frxp-grid-width-1-4 > * {
+  width: 25%;
+}
+.frxp-grid-width-1-5 > * {
+  width: 20%;
+}
+.frxp-grid-width-1-6 > * {
+  width: 16.666%;
+}
+.frxp-grid-width-1-7 > * {
+  width: 14.285%;
+}
+.frxp-grid-width-1-8 > * {
+  width: 12.5%;
+}
+.frxp-grid-width-1-9 > * {
+  width: 11.111%;
+}
+.frxp-grid-width-1-10 > * {
+  width: 10%;
+}
+.frxp-grid-width-auto > * {
+  width: auto;
+}
+/* Phone landscape and bigger */
+@media (min-width: 480px) {
+  .frxp-grid-width-small-1-1 > * {
+    width: 100%;
+  }
+  .frxp-grid-width-small-1-2 > * {
+    width: 50%;
+  }
+  .frxp-grid-width-small-1-3 > * {
+    width: 33.333%;
+  }
+  .frxp-grid-width-small-1-4 > * {
+    width: 25%;
+  }
+  .frxp-grid-width-small-1-5 > * {
+    width: 20%;
+  }
+  .frxp-grid-width-small-1-6 > * {
+    width: 16.666%;
+  }
+  .frxp-grid-width-small-1-7 > * {
+    width: 14.285%;
+  }
+  .frxp-grid-width-small-1-8 > * {
+    width: 12.5%;
+  }
+  .frxp-grid-width-small-1-9 > * {
+    width: 11.111%;
+  }
+  .frxp-grid-width-small-1-10 > * {
+    width: 10%;
+  }
+}
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  .frxp-grid-width-medium-1-1 > * {
+    width: 100%;
+  }
+  .frxp-grid-width-medium-1-2 > * {
+    width: 50%;
+  }
+  .frxp-grid-width-medium-1-3 > * {
+    width: 33.333%;
+  }
+  .frxp-grid-width-medium-1-4 > * {
+    width: 25%;
+  }
+  .frxp-grid-width-medium-1-5 > * {
+    width: 20%;
+  }
+  .frxp-grid-width-medium-1-6 > * {
+    width: 16.666%;
+  }
+  .frxp-grid-width-medium-1-7 > * {
+    width: 14.285%;
+  }
+  .frxp-grid-width-medium-1-8 > * {
+    width: 12.5%;
+  }
+  .frxp-grid-width-medium-1-9 > * {
+    width: 11.111%;
+  }
+  .frxp-grid-width-medium-1-10 > * {
+    width: 10%;
+  }
+}
+/* Desktop and bigger */
+@media (min-width: 960px) {
+  .frxp-grid-width-large-1-1 > * {
+    width: 100%;
+  }
+  .frxp-grid-width-large-1-2 > * {
+    width: 50%;
+  }
+  .frxp-grid-width-large-1-3 > * {
+    width: 33.333%;
+  }
+  .frxp-grid-width-large-1-4 > * {
+    width: 25%;
+  }
+  .frxp-grid-width-large-1-5 > * {
+    width: 20%;
+  }
+  .frxp-grid-width-large-1-6 > * {
+    width: 16.666%;
+  }
+  .frxp-grid-width-large-1-7 > * {
+    width: 14.285%;
+  }
+  .frxp-grid-width-large-1-8 > * {
+    width: 12.5%;
+  }
+  .frxp-grid-width-large-1-9 > * {
+    width: 11.111%;
+  }
+  .frxp-grid-width-large-1-10 > * {
+    width: 10%;
+  }
+}
+/* Large screen and bigger */
+@media (min-width: 1220px) {
+  .frxp-grid-width-xlarge-1-1 > * {
+    width: 100%;
+  }
+  .frxp-grid-width-xlarge-1-2 > * {
+    width: 50%;
+  }
+  .frxp-grid-width-xlarge-1-3 > * {
+    width: 33.333%;
+  }
+  .frxp-grid-width-xlarge-1-4 > * {
+    width: 25%;
+  }
+  .frxp-grid-width-xlarge-1-5 > * {
+    width: 20%;
+  }
+  .frxp-grid-width-xlarge-1-6 > * {
+    width: 16.666%;
+  }
+  .frxp-grid-width-xlarge-1-7 > * {
+    width: 14.285%;
+  }
+  .frxp-grid-width-xlarge-1-8 > * {
+    width: 12.5%;
+  }
+  .frxp-grid-width-xlarge-1-9 > * {
+    width: 11.111%;
+  }
+  .frxp-grid-width-xlarge-1-10 > * {
+    width: 10%;
+  }
+}
+/* Sub-objects: `frxp-width-*`
+ ========================================================================== */
+/*
+ * Widths
+ */
+/* Whole */
+.frxp-width-1-1 {
+  width: 100%;
+}
+/* Halves */
+.frxp-width-1-2,
+.frxp-width-2-4,
+.frxp-width-3-6,
+.frxp-width-4-8,
+.frxp-width-5-10 {
+  width: 50%;
+}
+/* Thirds */
+.frxp-width-1-3,
+.frxp-width-2-6,
+.frxp-width-3-9 {
+  width: 33.333%;
+}
+.frxp-width-2-3,
+.frxp-width-4-6,
+.frxp-width-6-9 {
+  width: 66.666%;
+}
+/* Quarters */
+.frxp-width-1-4,
+.frxp-width-2-8 {
+  width: 25%;
+}
+.frxp-width-3-4,
+.frxp-width-6-8 {
+  width: 75%;
+}
+/* Fifths */
+.frxp-width-1-5,
+.frxp-width-2-10 {
+  width: 20%;
+}
+.frxp-width-2-5,
+.frxp-width-4-10 {
+  width: 40%;
+}
+.frxp-width-3-5,
+.frxp-width-6-10 {
+  width: 60%;
+}
+.frxp-width-4-5,
+.frxp-width-8-10 {
+  width: 80%;
+}
+/* Sixths */
+.frxp-width-1-6 {
+  width: 16.666%;
+}
+.frxp-width-5-6 {
+  width: 83.333%;
+}
+/* Seven */
+.frxp-width-1-7 {
+  width: 14.285%;
+}
+.frxp-width-2-7 {
+  width: 28.571%;
+}
+.frxp-width-3-7 {
+  width: 42.857%;
+}
+.frxp-width-4-7 {
+  width: 57.142%;
+}
+.frxp-width-5-7 {
+  width: 71.428%;
+}
+.frxp-width-6-7 {
+  width: 85.714%;
+}
+/* Eight */
+.frxp-width-1-8 {
+  width: 12.5%;
+}
+.frxp-width-3-8 {
+  width: 37.5%;
+}
+.frxp-width-5-8 {
+  width: 65.5%;
+}
+.frxp-width-7-8 {
+  width: 87.5%;
+}
+/* Nine */
+.frxp-width-1-9 {
+  width: 11.11%;
+}
+.frxp-width-2-9 {
+  width: 22.22%;
+}
+.frxp-width-4-9 {
+  width: 44.44%;
+}
+.frxp-width-5-9 {
+  width: 55.55%;
+}
+.frxp-width-7-9 {
+  width: 77.77%;
+}
+.frxp-width-8-9 {
+  width: 88.88%;
+}
+/* Tenths */
+.frxp-width-1-10 {
+  width: 10%;
+}
+.frxp-width-3-10 {
+  width: 30%;
+}
+.frxp-width-7-10 {
+  width: 70%;
+}
+.frxp-width-9-10 {
+  width: 90%;
+}
+/* Phone landscape and bigger */
+@media (min-width: 480px) {
+  /* Whole */
+  .frxp-width-small-1-1 {
+    width: 100%;
+  }
+  /* Halves */
+  .frxp-width-small-1-2,
+  .frxp-width-small-2-4,
+  .frxp-width-small-3-6,
+  .frxp-width-small-4-8,
+  .frxp-width-small-5-10 {
+    width: 50%;
+  }
+  /* Thirds */
+  .frxp-width-small-1-3,
+  .frxp-width-small-2-6,
+  .frxp-width-small-3-9 {
+    width: 33.333%;
+  }
+  .frxp-width-small-2-3,
+  .frxp-width-small-4-6,
+  .frxp-width-small-6-9 {
+    width: 66.666%;
+  }
+  /* Quarters */
+  .frxp-width-small-1-4,
+  .frxp-width-small-2-8 {
+    width: 25%;
+  }
+  .frxp-width-small-3-4,
+  .frxp-width-small-6-8 {
+    width: 75%;
+  }
+  /* Fifths */
+  .frxp-width-small-1-5,
+  .frxp-width-small-2-10 {
+    width: 20%;
+  }
+  .frxp-width-small-2-5,
+  .frxp-width-small-4-10 {
+    width: 40%;
+  }
+  .frxp-width-small-3-5,
+  .frxp-width-small-6-10 {
+    width: 60%;
+  }
+  .frxp-width-small-4-5,
+  .frxp-width-small-8-10 {
+    width: 80%;
+  }
+  /* Sixths */
+  .frxp-width-small-1-6 {
+    width: 16.666%;
+  }
+  .frxp-width-small-5-6 {
+    width: 83.333%;
+  }
+  /* Seven */
+.frxp-width-small-1-7 {
+  width: 14.285%;
+}
+.frxp-width-small-2-7 {
+  width: 28.571%;
+}
+.frxp-width-small-3-7 {
+  width: 42.857%;
+}
+.frxp-width-small-4-7 {
+  width: 57.142%;
+}
+.frxp-width-small-5-7 {
+  width: 71.428%;
+}
+.frxp-width-small-6-7 {
+  width: 85.714%;
+}
+/* Eight */
+.frxp-width-small-1-8 {
+  width: 12.5%;
+}
+.frxp-width-small-3-8 {
+  width: 37.5%;
+}
+.frxp-width-small-5-8 {
+  width: 65.5%;
+}
+.frxp-width-small-7-8 {
+  width: 87.5%;
+}
+/* Nine */
+.frxp-width-small-1-9 {
+  width: 11.11%;
+}
+.frxp-width-small-2-9 {
+  width: 22.22%;
+}
+.frxp-width-small-4-9 {
+  width: 44.44%;
+}
+.frxp-width-small-5-9 {
+  width: 55.55%;
+}
+.frxp-width-small-7-9 {
+  width: 77.77%;
+}
+.frxp-width-small-8-9 {
+  width: 88.88%;
+}
+  /* Tenths */
+  .frxp-width-small-1-10 {
+    width: 10%;
+  }
+  .frxp-width-small-3-10 {
+    width: 30%;
+  }
+  .frxp-width-small-7-10 {
+    width: 70%;
+  }
+  .frxp-width-small-9-10 {
+    width: 90%;
+  }
+}
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  /* Whole */
+  .frxp-width-medium-1-1 {
+    width: 100%;
+  }
+  /* Halves */
+  .frxp-width-medium-1-2,
+  .frxp-width-medium-2-4,
+  .frxp-width-medium-3-6,
+  .frxp-width-medium-4-8,
+  .frxp-width-medium-5-10 {
+    width: 50%;
+  }
+  /* Thirds */
+  .frxp-width-medium-1-3,
+  .frxp-width-medium-2-6,
+  .frxp-width-medium-3-9 {
+    width: 33.333%;
+  }
+  .frxp-width-medium-2-3,
+  .frxp-width-medium-4-6,
+  .frxp-width-medium-6-9 {
+    width: 66.666%;
+  }
+  /* Quarters */
+  .frxp-width-medium-1-4,
+  .frxp-width-medium-2-8 {
+    width: 25%;
+  }
+  .frxp-width-medium-3-4,
+  .frxp-width-medium-6-8 {
+    width: 75%;
+  }
+  /* Fifths */
+  .frxp-width-medium-1-5,
+  .frxp-width-medium-2-10 {
+    width: 20%;
+  }
+  .frxp-width-medium-2-5,
+  .frxp-width-medium-4-10 {
+    width: 40%;
+  }
+  .frxp-width-medium-3-5,
+  .frxp-width-medium-6-10 {
+    width: 60%;
+  }
+  .frxp-width-medium-4-5,
+  .frxp-width-medium-8-10 {
+    width: 80%;
+  }
+  /* Sixths */
+  .frxp-width-medium-1-6 {
+    width: 16.666%;
+  }
+  .frxp-width-medium-5-6 {
+    width: 83.333%;
+  }
+  /* Seven */
+.frxp-width-medium-1-7 {
+  width: 14.285%;
+}
+.frxp-width-medium-2-7 {
+  width: 28.571%;
+}
+.frxp-width-medium-3-7 {
+  width: 42.857%;
+}
+.frxp-width-medium-4-7 {
+  width: 57.142%;
+}
+.frxp-width-medium-5-7 {
+  width: 71.428%;
+}
+.frxp-width-medium-6-7 {
+  width: 85.714%;
+}
+/* Eight */
+.frxp-width-medium-1-8 {
+  width: 12.5%;
+}
+.frxp-width-medium-3-8 {
+  width: 37.5%;
+}
+.frxp-width-medium-5-8 {
+  width: 65.5%;
+}
+.frxp-width-medium-7-8 {
+  width: 87.5%;
+}
+/* Nine */
+.frxp-width-medium-1-9 {
+  width: 11.11%;
+}
+.frxp-width-medium-2-9 {
+  width: 22.22%;
+}
+.frxp-width-medium-4-9 {
+  width: 44.44%;
+}
+.frxp-width-medium-5-9 {
+  width: 55.55%;
+}
+.frxp-width-medium-7-9 {
+  width: 77.77%;
+}
+.frxp-width-medium-8-9 {
+  width: 88.88%;
+}
+  /* Tenths */
+  .frxp-width-medium-1-10 {
+    width: 10%;
+  }
+  .frxp-width-medium-3-10 {
+    width: 30%;
+  }
+  .frxp-width-medium-7-10 {
+    width: 70%;
+  }
+  .frxp-width-medium-9-10 {
+    width: 90%;
+  }
+}
+/* Desktop and bigger */
+@media (min-width: 960px) {
+  /* Whole */
+  .frxp-width-large-1-1 {
+    width: 100%;
+  }
+  /* Halves */
+  .frxp-width-large-1-2,
+  .frxp-width-large-2-4,
+  .frxp-width-large-3-6,
+  .frxp-width-large-4-8,
+  .frxp-width-large-5-10 {
+    width: 50%;
+  }
+  /* Thirds */
+  .frxp-width-large-1-3,
+  .frxp-width-large-2-6,
+  .frxp-width-large-3-9 {
+    width: 33.333%;
+  }
+  .frxp-width-large-2-3,
+  .frxp-width-large-4-6,
+  .frxp-width-large-6-9 {
+    width: 66.666%;
+  }
+  /* Quarters */
+  .frxp-width-large-1-4,
+  .frxp-width-large-2-8 {
+    width: 25%;
+  }
+  .frxp-width-large-3-4,
+  .frxp-width-large-6-8 {
+    width: 75%;
+  }
+  /* Fifths */
+  .frxp-width-large-1-5,
+  .frxp-width-large-2-10 {
+    width: 20%;
+  }
+  .frxp-width-large-2-5,
+  .frxp-width-large-4-10 {
+    width: 40%;
+  }
+  .frxp-width-large-3-5,
+  .frxp-width-large-6-10 {
+    width: 60%;
+  }
+  .frxp-width-large-4-5,
+  .frxp-width-large-8-10 {
+    width: 80%;
+  }
+  /* Sixths */
+  .frxp-width-large-1-6 {
+    width: 16.666%;
+  }
+  .frxp-width-large-5-6 {
+    width: 83.333%;
+  }
+    /* Seven */
+.frxp-width-large-1-7 {
+  width: 14.285%;
+}
+.frxp-width-large-2-7 {
+  width: 28.571%;
+}
+.frxp-width-large-3-7 {
+  width: 42.857%;
+}
+.frxp-width-large-4-7 {
+  width: 57.142%;
+}
+.frxp-width-large-5-7 {
+  width: 71.428%;
+}
+.frxp-width-large-6-7 {
+  width: 85.714%;
+}
+/* Eight */
+.frxp-width-large-1-8 {
+  width: 12.5%;
+}
+.frxp-width-large-3-8 {
+  width: 37.5%;
+}
+.frxp-width-large-5-8 {
+  width: 65.5%;
+}
+.frxp-width-large-7-8 {
+  width: 87.5%;
+}
+/* Nine */
+.frxp-width-large-1-9 {
+  width: 11.11%;
+}
+.frxp-width-large-2-9 {
+  width: 22.22%;
+}
+.frxp-width-large-4-9 {
+  width: 44.44%;
+}
+.frxp-width-large-5-9 {
+  width: 55.55%;
+}
+.frxp-width-large-7-9 {
+  width: 77.77%;
+}
+.frxp-width-large-8-9 {
+  width: 88.88%;
+}
+  /* Tenths */
+  .frxp-width-large-1-10 {
+    width: 10%;
+  }
+  .frxp-width-large-3-10 {
+    width: 30%;
+  }
+  .frxp-width-large-7-10 {
+    width: 70%;
+  }
+  .frxp-width-large-9-10 {
+    width: 90%;
+  }
+}
+/* Large screen and bigger */
+@media (min-width: 1220px) {
+  /* Whole */
+  .frxp-width-xlarge-1-1 {
+    width: 100%;
+  }
+  /* Halves */
+  .frxp-width-xlarge-1-2,
+  .frxp-width-xlarge-2-4,
+  .frxp-width-xlarge-3-6,
+  .frxp-width-xlarge-4-8,
+  .frxp-width-xlarge-5-10 {
+    width: 50%;
+  }
+  /* Thirds */
+  .frxp-width-xlarge-1-3,
+  .frxp-width-xlarge-2-6,
+  .frxp-width-xlarge-3-9 {
+    width: 33.333%;
+  }
+  .frxp-width-xlarge-2-3,
+  .frxp-width-xlarge-4-6,
+  .frxp-width-xlarge-6-9 {
+    width: 66.666%;
+  }
+  /* Quarters */
+  .frxp-width-xlarge-1-4,
+  .frxp-width-xlarge-2-8 {
+    width: 25%;
+  }
+  .frxp-width-xlarge-3-4,
+  .frxp-width-xlarge-6-8 {
+    width: 75%;
+  }
+  /* Fifths */
+  .frxp-width-xlarge-1-5,
+  .frxp-width-xlarge-2-10 {
+    width: 20%;
+  }
+  .frxp-width-xlarge-2-5,
+  .frxp-width-xlarge-4-10 {
+    width: 40%;
+  }
+  .frxp-width-xlarge-3-5,
+  .frxp-width-xlarge-6-10 {
+    width: 60%;
+  }
+  .frxp-width-xlarge-4-5,
+  .frxp-width-xlarge-8-10 {
+    width: 80%;
+  }
+  /* Sixths */
+  .frxp-width-xlarge-1-6 {
+    width: 16.666%;
+  }
+  .frxp-width-xlarge-5-6 {
+    width: 83.333%;
+  }
+      /* Seven */
+.frxp-width-xlarge-1-7 {
+  width: 14.285%;
+}
+.frxp-width-xlarge-2-7 {
+  width: 28.571%;
+}
+.frxp-width-xlarge-3-7 {
+  width: 42.857%;
+}
+.frxp-width-xlarge-4-7 {
+  width: 57.142%;
+}
+.frxp-width-xlarge-5-7 {
+  width: 71.428%;
+}
+.frxp-width-xlarge-6-7 {
+  width: 85.714%;
+}
+/* Eight */
+.frxp-width-xlarge-1-8 {
+  width: 12.5%;
+}
+.frxp-width-xlarge-3-8 {
+  width: 37.5%;
+}
+.frxp-width-xlarge-5-8 {
+  width: 65.5%;
+}
+.frxp-width-xlarge-7-8 {
+  width: 87.5%;
+}
+/* Nine */
+.frxp-width-xlarge-1-9 {
+  width: 11.11%;
+}
+.frxp-width-xlarge-2-9 {
+  width: 22.22%;
+}
+.frxp-width-xlarge-4-9 {
+  width: 44.44%;
+}
+.frxp-width-xlarge-5-9 {
+  width: 55.55%;
+}
+.frxp-width-xlarge-7-9 {
+  width: 77.77%;
+}
+.frxp-width-xlarge-8-9 {
+  width: 88.88%;
+}
+  /* Tenths */
+  .frxp-width-xlarge-1-10 {
+    width: 10%;
+  }
+  .frxp-width-xlarge-3-10 {
+    width: 30%;
+  }
+  .frxp-width-xlarge-7-10 {
+    width: 70%;
+  }
+  .frxp-width-xlarge-9-10 {
+    width: 90%;
+  }
+}

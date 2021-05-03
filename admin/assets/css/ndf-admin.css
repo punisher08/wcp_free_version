@@ -1,0 +1,238 @@
+/**
+ * Admin styles
+ * 
+ * Contents :
+ * @group Filters
+ * @group Data Table
+ * @group Load More
+ * 
+ * @package 	Wordpress_Comparison_Plugin
+ * @subpackage 	Wordpress_Comparison_Plugin/assets/css
+ * @since 		1.0.1.0
+ * @author 		Netseek Pty Ltd
+ */
+
+.wrap .button.ndf_remove_saved_image{
+	vertical-align: top;
+}
+.wrap .button.ndf_remove_saved_image .dashicons{
+	vertical-align: middle;
+	padding-bottom: 2px;
+}
+.wrap .ndf_dropdown{
+}
+.wrap .ndf_settings_image{
+	max-width:200px;
+	max-height:100px;
+}
+table.wp-list-table.ndf_no_border{
+	border: 0px;
+}
+.wp-list-table label.error{
+	color: #f00;
+	font-weight: bold;
+}
+.wrap .more_info_fields{
+	display: none;
+} 
+.wrap .more_info_fields .item{
+	margin: 10px 0;
+}
+.wrap .more_info_fields .item h3{
+	margin: 0;
+}
+.wrap .more_info_fields .item .ui-accordion-content{
+	position: relative;
+}
+.wrap .more_info_fields .item .ui-accordion-content form.ndf_delete_field{
+	position: absolute;
+	bottom: 40px;
+    right: 40px;
+}
+.wrap .more_info_fields .item .ui-accordion-content .ndf_confirm_delete_more_info_field{
+	display: none;
+}
+#post-body .nav-tab-active{
+	background-color: #FFFFFF;
+}
+#poststuff h2.nav-tab-wrapper.current{
+	padding: 0px;
+	margin-bottom:20px;
+}
+#poststuff h2 a{
+	margin-left: 0px;
+	margin-right: 5px;
+}
+
+#ndf_more_info_fields_add td{
+	vertical-align: top;
+	padding: 10px 0;
+}
+.ndf_more_info_fields_options_checkbox, .ndf_more_info_fields_options{
+	border-collapse: collapse;
+}
+.ndf_more_info_fields_options_checkbox td, .ndf_more_info_fields_options td{
+	border: 1px solid #CCC;
+	padding: 2px;
+	text-align: center;
+	vertical-align: middle;
+}
+.ndf_more_info_fields_options_checkbox td.add_option, .ndf_more_info_fields_options td.add_option{
+	border: none;
+	padding-bottom: 10px;
+}
+.ndf_more_info_fields_options_checkbox td.title, .ndf_more_info_fields_options td.title{
+	font-weight: bold;
+	text-align: center;
+}
+#poststuff h1.ndf_section_title, #poststuff h2.ndf_section_title, #poststuff h3.ndf_section_title, #poststuff h4.ndf_section_title, #poststuff h5.ndf_section_title, #poststuff h6.ndf_section_title{
+	padding-left: 0px;
+}
+.wrap .ndf_required{
+	color: #f00;
+}
+#button_generator_form:after{
+	content: '';
+	display: table;
+	clear: both;
+}
+.button_generator_label{
+	width: 33%;
+	float: left;
+}
+.button_generator_fields{
+	width: 66%;
+	float: left;
+}
+.button_generator_fields:after{
+	content: '';
+	display: table;
+	clear: both;
+}
+.button_generator_fields label{
+	padding-right: 20px;
+}
+.button_generator_label p{
+	padding: 3px 10px 3px 5px;
+	margin: 0;
+	font-size: 15px;
+	text-align: right;
+}
+p.button_generator_radio_label{
+	padding: 0px 10px 0px 5px;
+}
+#button_generator_submit{
+	margin-top: 30px;
+}
+#ndf_generated_button{
+	height: 50px;
+}
+#ndf_generated_button *, #ndf_generated_button_preview_label{
+	display: none;
+}
+.ndf_grid_row:after{
+	content: '';
+	display: table;
+	clear: both;
+}
+.wrap .clearfix{
+	clear: both;
+}
+.ndf_grid_col_1_3{
+	width: 28%;
+	float: left;
+	padding: 10px;
+	text-align: center;
+}
+.ndf_grid_col_1_3 img{
+	max-width: 100%;
+	height: auto;
+	margin: 10px auto;
+}
+.wrap .frxp-list{
+	padding-left: 20px;
+	padding-top: 6px;
+	/* max-height: 200px; */
+	/* overflow-y: auto; */
+}
+.wrap .ndf_more_info_fields_filters .frxp-list{
+	display: flex;
+	flex-wrap: wrap;
+}
+.wrap .ndf_filter_container > .frxp-list{
+	padding-left: 0px;
+}
+.wrap .ndf_filter_container{
+	width: 16.666%;
+	float: left;
+}
+.wrap .ndf_filter_container.ndf_more_info_filter_container{
+	width: 100%;
+}
+.wrap .ndf_filter_container.ndf_more_info_filter_container select, .wrap .ndf_filter_container.ndf_more_info_filter_container .ndf_fields_text{
+	display: none;
+}
+.wrap .ndf_shortcode_initial_tooltip, .wrap .ndf_shortcode_step_tooltip{
+	padding-top: 6px;
+}
+.wrap .clipboard-message.alert.alert-success{
+	color: #F00;
+}
+.wrap .ndf-icon{
+	padding-top: 6px;
+	cursor: pointer;
+}
+.wrap table.ndf_license_info{
+	margin-top: 20px;
+}
+.wrap .ndf-shortcode-label{
+	width: 60px;
+	display: inline-block;
+}
+.wrap #ndf_results_section_more_info{
+	width: 100%;
+	max-width: 800px;
+	margin-top: 60px;
+}
+.wrap #ndf_results_section_more_info th{
+	text-align: center;
+	font-weight: bold;
+}
+.wrap #ndf_results_section_more_info .ndf_field{
+	text-align: center;
+}
+.wrap #ndf_results_section_more_info .ndf_field select{
+	width: 80%;
+}
+.wrap #ndf_results_section_more_info .ndf_more_info_fields_section{
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	background: #f9f9f9;
+	font-weight: bold;
+}
+#ndf_results_section_more_info .ui-sortable-handle { 
+	cursor: pointer;
+	border: 1px solid #CCC;
+}
+#ndf_results_section_more_info .ndf_order{ 
+	display: none;
+}
+.wrap #ndf_field-error.error{
+	color: #F00;
+}
+#ndf_enquiry_details-enquiry-details .ndf_enquiry_notification{
+  padding: 8px 20px;
+  border: 1px solid #FFF;
+  display:none;
+}
+#ndf_enquiry_details-enquiry-details .ndf_enquiry_notification.failed{
+  border-color: #ab0000;
+  color: #ab0000;
+}
+#ndf_enquiry_details-enquiry-details .ndf_enquiry_notification.sent{
+  border-color: #0b6700;
+  color: #0b6700;
+}
+.post-type-wcp_outbound_clicks .tablenav.top .alignleft.actions{
+	clear: both;
+}

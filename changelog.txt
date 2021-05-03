@@ -1,0 +1,215 @@
+== Changelog ==
+
+= 1.7.2.5 =
+1. Improve category column structure.
+
+= 1.7.2.4 =
+1. Add Options Display settings to Categories 1-5 settings.
+
+= 1.7.2.3 =
+1. Update plugin update checker.
+2. Update authentication token and branch.
+
+= 1.7.2.2 =
+1. Re-structure plugin files.
+2. Fix hiding notices to WCP Editor Role.
+3. Add index.php to plugin folders.
+4. Improve fixing of data results table layout.
+
+= 1.7.2.1 =
+1. Improve data results table layout.
+2. Fix data results table cell width on mobile.
+
+= 1.7.2.0 =
+1. Add More Info button outbound clicks tracking functionality.
+2. Fix timestamp value on Outbound Clicks table and meta box. 
+3. Fix results table cell min-width on small devices.
+
+= 1.6.2.11 =
+1. Add support to Multi Rating form submission in the More Info pop-up.
+2. Re-calculate rating rank if rating is deleted (Multi Rating Pro).
+
+= 1.6.2.10 =
+1. Make More Info button and generated button full width in Tabular View.
+
+= 1.6.2.9 =
+1. Add WCP capabilities to administrator role after account creation (if license is active).
+
+= 1.6.2.8 =
+1. Show meta key in More Info Settings > Fields list.
+2. Move more info content after enquiry button (tabular).
+
+= 1.6.2.7 =
+1. Save More Info's Name field type as serialized array.
+
+= 1.6.2.6 =
+1. Update saving and retrieving  of list field type (More Info fields).
+
+= 1.6.2.5 =
+1. Fix script in adding WCP Data Editor role in Authors dropdown.
+
+= 1.6.2.4 =
+1. Add WCP Data Editor role.
+2. Add and remove capabilites to WCP Data Editor role based on license status.
+3. Add WCP Date Editor roles to Author options.
+
+= 1.6.2.3 =
+1. Improve keyword search form styles.
+
+= 1.6.2.2 =
+1. Fix shortcode generator more info field options style.
+
+= 1.6.2.1 =
+1. Fix More Info Content bug on Horizontal layout.
+2. Add fixes to More Info Fields > Preview Tab.
+3. Update generated button styles.
+4. Add More Info UI Settings.
+5. Improve license checking script.
+6. Improve shortcode generator more info field options style.
+7. Minor style fixes.
+
+= 1.6.2.0 =
+1. Fix bug in adding more info fields to data results table.
+2. Fix non-existent $_POST variables.
+3. Fix overlapping image (AJAX function).
+4. Minor style fixes.
+
+= 1.5.2.17 =
+1. Minor style fix.
+
+= 1.5.2.15 =
+1. Fix outbound clicks bug.
+
+= 1.5.2.14 =
+1. Fix data results table on mobile (tabular).
+
+= 1.5.2.13 =
+1. Fix issue on FF (tabular layout).
+2. Fix issue on admin license notices.
+
+= 1.5.2.11 =
+1. Fix initial and step shortcode attribute value to use in query.
+
+= 1.5.2.10 =
+1. Add Rating Rank script support for MR Premium.
+
+= 1.5.2.9 =
+1. Add Rating Rank computation.
+2. Add Rating option to Query Order By field options.
+
+= 1.5.2.7 =
+1. Fix keyword phrase search
+2. Enable total count parameter even if no filter is added to shortcode and enable filter limit settings.
+3. Fix line-height issue on filter labels.
+4. Enable Filter Options Limit settings.
+
+= 1.5.2.6 =
+1. Update keyword search ui settings.
+2. Update reset button ui settings.
+3. Apply new ui settings to visual presets to keyword search and reset buttons.
+
+= 1.5.2.5 =
+1. Reposition keyword search form.
+2. Add enter key event handler on keyword search form.
+
+= 1.5.2.4 =
+1. Add keyword search form ui settings.
+
+= 1.5.2.3 =
+1. Fix jQuery noConflict function.
+
+= 1.5.2.2 =
+1. Add excerpt field to data results query.
+2. Update search button cursor on hover.
+
+= 1.5.2.1 =
+1. Fix reset button function.
+
+= 1.5.2.0 =
+1. Add Keyword search form and styles.
+
+= 1.4.2.3 =
+1. Add jQuery noConflict function.
+
+= 1.4.2.2 =
+1. Add WCP Data sorting field.
+
+= 1.4.2.1 =
+1. Add admin email as Bcc to enquiry form email.
+
+= 1.4.2.0 =
+1. Add Custom Star Rating option.
+2. Add Categories 1-5 results (Tabular Layout) table header label settings.
+3. Add attribute escaping on more info fields.
+3. Add sanitize_email function to recipient email.
+
+= 1.3.2.5 =
+1. Fix protocol issue on jquery ui - smoothness theme css enqueue.
+2. Add assigning of parent terms on WCP Data post save_post hook.
+
+= 1.3.2.4 =
+1. Improve license checking scripts
+
+= 1.3.2.3 =
+1. Minor bug fixes
+
+= 1.3.2.2 =
+1. Add Outbound Source Tag filtering
+2. Fix license check bug (Failed/Interrupted remote check)
+3. Minor bug fixes
+
+= 1.3.2.1 =
+1. Fix License Manager bugs
+2. Fix deleting WCP plugin internal server error bug
+
+= 1.3.2.0 =
+1. Fix license page bug.
+2. Update caching variables
+3. Update shortcode generator
+4. Update shortcode attributes
+5. Add more info fields as shortcode attributes
+6. Add URL filtering of data (Categories 1-5)
+7. Fix minor bugs on frontend
+8. Fix minor bugs on WCP Settings fields
+
+= 1.2.2.0 =
+1. Improve license checking.
+2. Add update plugin restriction.
+3. Add Outbound Clicks tracking.
+4. Add Enquiry Form function.
+5. Add Data Result Table Horizontal layout option.
+6. Add option to add More Info fields to data results table.
+7. Add caching of filters selections.
+8. Redirect to license page settings after plugin activation.
+
+= 1.1.2.1 =
+1. Minor bug fixes.
+
+= 1.1.2.0 =
+1. Update plugin name to Wordpress Comparison Plugin.
+2. Update plugin folder name to wordpress-comparison-plugin.
+3. Rename main plugin file to wordpress-comparison-plugin.php
+4. Add license management script.
+5. Update plugin's admin menu labels.
+6. Replace UIKit slider with Slick slider.
+7. Fix slider nav styles.
+8. Add filter option limit.
+9. Add Show More/Show Less function.
+10. Remove "Featured" tag styles and functions.
+11. Add featured query priority to data listings.
+12. Update modal width.
+13. Fix layout issues.
+
+= 1.0.2.2 =
+1. Fix Modal Pop-up logo styles.
+2. Fix More Info link font color.
+3. Add justify text alignment option on modal UI settings.
+
+= 1.0.2.1 =
+1. Tested plugin to Wordpress 4.7.3
+
+= 1.0.2.0 =
+1. Beta version.
+
+= 1.0.1.0 =
+1. Alpha version.
