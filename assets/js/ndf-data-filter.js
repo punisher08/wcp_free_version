@@ -8,7 +8,8 @@
  */
 var $ = jQuery.noConflict();
 
-$(document).ready( function($) {
+// $(document).ready( function($) {
+$(function($) {
 
 	$( ".ndf_filters_wrapper .ndf_filter_container:last-child" ).addClass('ndf_last_filter');
 
@@ -56,7 +57,8 @@ $(document).ready( function($) {
 
 	ndf_current_path = window.location.href;
 
-	ndf_cookie_current_path = $.parseJSON( Cookies.get(ndf_current_path) );
+	ndf_cookie_current_path = JSON.parse( Cookies.get(ndf_current_path) );
+	console.log(ndf_cookie_current_path);
 
 	if( ndf_cookie_current_path != null ){
 		//console.log(ndf_cookie_current_path);
@@ -264,7 +266,8 @@ $(document).ready( function($) {
 								$('#ndf_plugin_html table.horizontal tr').addClass('frxp-flex frxp-flex-column');								
 							}
 							$('.horizontal .wcp_cell_wrap').matchHeight();
-							$('.ndf_header_logo').load(function(){
+							// $('.ndf_header_logo').load(function(){
+							$('.ndf_header_logo').on("load",function(){
 								$('.horizontal .wcp_cell_wrap').matchHeight();
 							});
 						}
@@ -276,7 +279,8 @@ $(document).ready( function($) {
 					}
 				},
                 complete: function (data) {
-                     $('#ndf_filtered_data_content *').load(function(){
+                    //  $('#ndf_filtered_data_content *').load(function(){
+                     $('#ndf_filtered_data_content *').on("load",function(){
                          //if( last_width == '' ){
     						last_width = parseInt( $('#ndf_filtered_data_content thead th:not(.tablesaw-cell-hidden):last .label_wrapper').parent().css('width') );
     						
@@ -398,7 +402,7 @@ $(document).ready( function($) {
 
 	$(this).ndfMatchHeight();
 	
-	$(window).load(function(){
+	$(window).on("load",function(){
 		$(this).ndfcheckwidth();
 		$(this).ndfMatchHeight();
 		$( "#ndf_filtered_data_content.tabular" ).trigger( "enhance.tablesaw" );
