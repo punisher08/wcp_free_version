@@ -58,10 +58,8 @@ $(function($) {
 	ndf_current_path = window.location.href;
 
 	ndf_cookie_current_path = JSON.parse( Cookies.get(ndf_current_path) );
-	console.log(ndf_cookie_current_path);
 
 	if( ndf_cookie_current_path != null ){
-		//console.log(ndf_cookie_current_path);
 		ndf_cookie_fc_1 = ndf_cookie_current_path[1];
 		ndf_cookie_fc_2 = ndf_cookie_current_path[2];
 		ndf_cookie_fc_3 = ndf_cookie_current_path[3];
