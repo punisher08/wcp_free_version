@@ -6,10 +6,12 @@
  * @since 		1.0.1.0
  * @author 		Netseek Pty Ltd
  */
+ 
 var $ = jQuery.noConflict();
 
-// $(document).ready( function($) {
+// $(document).ready( function($) {}
 $(function($) {
+	
 
 	$( ".ndf_filters_wrapper .ndf_filter_container:last-child" ).addClass('ndf_last_filter');
 
@@ -17,15 +19,19 @@ $(function($) {
 	var load_limit = load_limit_original;
 	var load_limit_step = ndf_data_filter_vars.ndf_limit_results_step;
 	
+	
 	if( parseInt( $( "#ndf_filtered_data_content" ).data('ndf-step') ) >= 1 ){
 		load_limit_step = parseInt( $( "#ndf_filtered_data_content" ).data('ndf-step') );
+		
 	}
 	if( parseInt( $( "#ndf_filtered_data_content" ).data('ndf-limit') ) >= 1 ){
 		load_limit_original = parseInt( $( "#ndf_filtered_data_content" ).data('ndf-limit') );
 		load_limit = load_limit_original;
+	
 	}
 
 	var ndf_table_layout = $( "#ndf_filtered_data_content" ).attr('data-ndf-layout');
+
 
 	if( ndf_table_layout == 'tabular' ){
 		$( "#ndf_filtered_data_content.tabular" ).tablesaw();
@@ -40,9 +46,11 @@ $(function($) {
 		if(event.keyCode == 13){
 			$("#wcp_keyword_search_button").click();
 		}
-	});
+	})
+
 
 	var viewportWidth = $(window).width();
+	
 
 	var ndf_cookie_fc_1 = '';
 	var ndf_cookie_fc_2 = '';
@@ -56,11 +64,11 @@ $(function($) {
 	var ndf_reset = 'no';
 
 	ndf_current_path = window.location.href;
-
-	// ndf_cookie_current_path = parse.JSON( Cookies.get(ndf_current_path) );
+	// ndf_cookie_current_path = $.parseJSON( Cookies.get(ndf_current_path) );
 	ndf_cookie_current_path = '';
 	try {
-		ndf_cookie_current_path = parse.JSON( Cookies.get(ndf_current_path) );
+		ndf_cookie_current_path = $.parseJSON( Cookies.get(ndf_current_path) );
+		
 		} catch (error) {
 		ndf_cookie_current_path = {};
 		}
