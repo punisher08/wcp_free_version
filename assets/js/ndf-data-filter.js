@@ -57,7 +57,13 @@ $(function($) {
 
 	ndf_current_path = window.location.href;
 
-	ndf_cookie_current_path = JSON.parse( Cookies.get(ndf_current_path) );
+	// ndf_cookie_current_path = parse.JSON( Cookies.get(ndf_current_path) );
+	ndf_cookie_current_path = '';
+	try {
+		ndf_cookie_current_path = parse.JSON( Cookies.get(ndf_current_path) );
+		} catch (error) {
+		ndf_cookie_current_path = {};
+		}
 
 	if( ndf_cookie_current_path != null ){
 		ndf_cookie_fc_1 = ndf_cookie_current_path[1];

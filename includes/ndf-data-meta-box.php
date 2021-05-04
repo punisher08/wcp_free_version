@@ -183,7 +183,8 @@ function ndf_data_more_info_html( $post) {
 		if( empty(  $field_rows ) ){
 			?>
 			<tr>
-				<td><em><a href="<?php echo admin_url('admin.php?page=ndf-more-info-settings'); ?>">Add fields here</a></em></td>
+				<!-- <td><em><a href="< ?php echo admin_url('admin.php?page=ndf-more-info-settings'); ?>">Add fields here</a></em></td> -->
+				<td><em><a href="<?php echo admin_url('admin.php?page=wcp-more-info-settings'); ?>">Add fields here</a></em></td>
 			</tr>
 			<?php
 		}
