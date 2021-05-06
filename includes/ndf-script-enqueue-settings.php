@@ -189,8 +189,16 @@ $ndf_more_info_fields_table_border_radius = get_option( 'ndf_more_info_fields_ta
 $ndf_more_info_fields_table_background_color = get_option( 'ndf_more_info_fields_table_background_color', '#FFFFFF' );
 $ndf_more_info_fields_table_font_color = get_option( 'ndf_more_info_fields_table_font_color', '#161616' );
 $ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_fields_summary_label_fontcolor', '#000000' );
+
+// for logo postion
+$ndf_data_logo_position = get_option( 'ndf_data_results_table_logo_position','left');
+// 
+
 ?>
 <style type="text/css">
+.ndf_data_title_cell {
+	text-align:<?=$ndf_data_logo_position;?>;
+}
 /* Data Filters Heading Style */
 h1.ndf_filters_heading, h2.ndf_filters_heading, h3.ndf_filters_heading, h4.ndf_filters_heading, h5.ndf_filters_heading, h6.ndf_filters_heading{
 	color: <?php echo $ndf_filters_heading_label_fontcolor; ?>;

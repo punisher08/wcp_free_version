@@ -54,6 +54,24 @@ function ndf_data_results_table_section_register_settings() {
 		'ndf_data_results_table_settings_option',
 		'ndf_data_results_table_settings_section'
 	);
+
+
+
+	
+	add_settings_field( 
+		'ndf_data_results_table_logo_position',
+		'Logo Position',
+		'ndf_data_results_table_logo_position_callback',
+		'ndf_data_results_table_settings_option',
+		'ndf_data_results_table_settings_section',
+		array(
+			'Left' => 'left',
+			'Center' => 'center',
+			'Right' => 'right',
+		)
+	);
+
+
 	
 	add_settings_field( 
 		'ndf_data_results_category_font_size',
@@ -221,6 +239,7 @@ function ndf_data_results_table_section_register_settings() {
 	register_setting( 'ndf_data_results_table_settings_option', 'ndf_data_results_table_border_color' );
 	// register_setting( 'ndf_data_results_table_settings_option', 'ndf_data_results_table_border_width', 'intval' );
 	register_setting( 'ndf_data_results_table_settings_option', 'ndf_data_results_table_border_radius', 'intval' );
+	register_setting( 'ndf_data_results_table_settings_option', 'ndf_data_results_table_logo_position' );
 
 } /* end ndf_data_results_table_section_register_settings */
 
@@ -362,3 +381,16 @@ function ndf_data_results_table_border_radius_callback($args) {
 	$html = '<input type="number" min="0" class="small-text" id="ndf_data_results_table_border_radius" name="ndf_data_results_table_border_radius" value="'.esc_attr__( $ndf_data_results_table_border_radius ).'" /> px';
 	echo $html;
 } /* end ndf_data_results_table_border_radius_callback */
+
+function ndf_data_results_table_logo_position_callback($args){
+	$ndf_data_logo_position = get_option( 'ndf_data_results_table_logo_position','left');
+
+	$html =  '<select name="ndf_data_results_table_logo_position" id="ndf_data_results_table_logo_position">';
+	foreach( $args as $option_key => $option_value ){
+		
+		$html.= "<option value='".$option_value."' ".selected( $ndf_data_logo_position, $option_value, false ).">".$option_key."</option>";
+	}
+	$html.='</select>';	
+	echo $html;
+}//end ndf_data_results_table_logo_position_callback
+ 
