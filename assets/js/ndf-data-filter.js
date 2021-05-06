@@ -64,14 +64,9 @@ $(function($) {
 	var ndf_reset = 'no';
 
 	ndf_current_path = window.location.href;
-	// ndf_cookie_current_path = $.parseJSON( Cookies.get(ndf_current_path) );
-	ndf_cookie_current_path = '';
-	try {
-		ndf_cookie_current_path = $.parseJSON( Cookies.get(ndf_current_path) );
-		
-		} catch (error) {
-		ndf_cookie_current_path = {};
-		}
+	var current_cookie = (Cookies.get(ndf_current_path) || "null");
+
+	ndf_cookie_current_path = JSON.parse(current_cookie);
 
 	if( ndf_cookie_current_path != null ){
 		ndf_cookie_fc_1 = ndf_cookie_current_path[1];
@@ -83,27 +78,27 @@ $(function($) {
 
 		if( ndf_cookie_fc_1 != null ){
 			$.each( ndf_cookie_fc_1, function( index, value ){
-				$("[data-ndf-fc-1='"+value+"']").attr('checked', 'checked');
+				$("[data-ndf-fc-1='"+value+"']").prop('checked', 'checked');				
 			});
 		}
 		if( ndf_cookie_fc_2 != null ){
 			$.each( ndf_cookie_fc_2, function( index, value ){
-				$("[data-ndf-fc-2='"+value+"']").attr('checked', 'checked');
+				$("[data-ndf-fc-2='"+value+"']").prop('checked', 'checked');
 			});
 		}
 		if( ndf_cookie_fc_3 != null ){
 			$.each( ndf_cookie_fc_3, function( index, value ){
-				$("[data-ndf-fc-3='"+value+"']").attr('checked', 'checked');
+				$("[data-ndf-fc-3='"+value+"']").prop('checked', 'checked');
 			});
 		}
 		if( ndf_cookie_fc_4 != null ){
 			$.each( ndf_cookie_fc_4, function( index, value ){
-				$("[data-ndf-fc-4='"+value+"']").attr('checked', 'checked');
+				$("[data-ndf-fc-4='"+value+"']").prop('checked', 'checked');
 			});
 		}
 		if( ndf_cookie_fc_5 != null ){
 			$.each( ndf_cookie_fc_5, function( index, value ){
-				$("[data-ndf-fc-5='"+value+"']").attr('checked', 'checked');
+				$("[data-ndf-fc-5='"+value+"']").prop('checked', 'checked');
 			});
 		}
 		if( results_count != null ){
