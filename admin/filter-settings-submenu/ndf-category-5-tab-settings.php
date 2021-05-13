@@ -16,7 +16,7 @@ function ndf_category_5_filter_section_register_settings() {
 	/* Register Filters Section Category 5 Settings Section */
 	add_settings_section(
 		'ndf_category_5_filter_settings_section',
-		'Category 5 UI',
+		'Category 5',
 		'ndf_category_5_filter_settings_callback',
 		'ndf_category_5_filter_settings_option'
 	);

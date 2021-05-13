@@ -8,8 +8,12 @@
  * @author 		Netseek Pty Ltd
  */
 ?>
+<div class="navigation-bar-wcp-settings d-flex justify-content-between">
+	<div class="tab-title"><?php echo esc_html( get_admin_page_title() ); ?></div>
+	<?php $logo = plugin_dir_url( __FILE__ ).'assets/images/wcp-logo.png'; ?>
+	<a href="https://wordpresscomparisonplugin.com/" target="_blank"><img src="<?php echo $logo;?>" alt="" class="wcp-logo"></a>
+</div>
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
 	<?php if( isset($_GET['settings-updated']) ) { ?>
 		<div id="message" class="updated">
@@ -135,16 +139,20 @@
 		<p><strong><?php _e('Field deleted.') ?></strong></p>
 		</div>
 	<?php } ?>
-
-	<h2 class="nav-tab-wrapper">
-		<a href="?page=wcp-more-info-settings&tab=fields" class="nav-tab <?php echo $active_tab == 'fields' ? 'nav-tab-active' : ''; ?>">Fields</a>
-		<a href="?page=wcp-more-info-settings&tab=preview" class="nav-tab <?php echo $active_tab == 'preview' ? 'nav-tab-active' : ''; ?>">Preview</a>
-		<a href="?page=wcp-more-info-settings&tab=summary" class="nav-tab <?php echo $active_tab == 'summary' ? 'nav-tab-active' : ''; ?>">Summary</a>
-		<a href="?page=wcp-more-info-settings&tab=ui-settings" class="nav-tab <?php echo $active_tab == 'ui-settings' ? 'nav-tab-active' : ''; ?>">UI Settings</a>
-		<a href="?page=wcp-more-info-settings&tab=slug-settings" class="nav-tab <?php echo $active_tab == 'slug-settings' ? 'nav-tab-active' : ''; ?>">Slug Settings</a>
-		<a href="?page=wcp-more-info-settings&tab=button-generator" class="nav-tab <?php echo $active_tab == 'button-generator' ? 'nav-tab-active' : ''; ?>">Button Generator</a>
-	</h2>	
+<div class="row custom-card">
+	<div class="col-lg-3 col-md-3 sidebar">
+		<!-- <h2 class="nav-tab-wrapper"> -->
+		<h2 class="sidenav">
+			<a href="?page=wcp-more-info-settings&tab=fields" class="nav-tab-new <?php echo $active_tab == 'fields' ? 'nav-tab-active' : ''; ?>">Fields</a>
+			<a href="?page=wcp-more-info-settings&tab=preview" class="nav-tab-new <?php echo $active_tab == 'preview' ? 'nav-tab-active' : ''; ?>">Preview</a>
+			<a href="?page=wcp-more-info-settings&tab=summary" class="nav-tab-new <?php echo $active_tab == 'summary' ? 'nav-tab-active' : ''; ?>">Summary</a>
+			<a href="?page=wcp-more-info-settings&tab=ui-settings" class="nav-tab-new <?php echo $active_tab == 'ui-settings' ? 'nav-tab-active' : ''; ?>">UI Settings</a>
+			<a href="?page=wcp-more-info-settings&tab=slug-settings" class="nav-tab-new <?php echo $active_tab == 'slug-settings' ? 'nav-tab-active' : ''; ?>">Slug Settings</a>
+			<a href="?page=wcp-more-info-settings&tab=button-generator" class="nav-tab-new <?php echo $active_tab == 'button-generator' ? 'nav-tab-active' : ''; ?>">Button Generator</a>
+		</h2>
+	</div>	
 	<br>
+	<div class="col-lg-9 col-md-9 scroll">
 	<?php
 	if( $active_tab == 'fields' ) {
 		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-add-new-field.php';
@@ -190,4 +198,6 @@
 		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-preview.php';
 	}
 	?>
+		</div>
+	</div>
 </div>

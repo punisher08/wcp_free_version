@@ -12,6 +12,103 @@
  * @author 		Netseek Pty Ltd
  */
 
+.navigation-bar-wcp-settings{
+	display: flex;
+    justify-content: space-between;
+}
+ .nav-tab-active:after{
+	position: relative;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid#DD3E3E;
+    float: right;
+	margin-right: -30px;
+}
+.nav-tab-active{
+	text-decoration: none;
+	background: linear-gradient(
+		180deg
+		, #DD3E3E 0%, rgba(166, 38, 38, 0) 100%), #272E38;	
+}
+.nav-tab-new:hover{
+	text-decoration: none;
+	background: linear-gradient(
+		180deg
+		, #DD3E3E 0%, rgba(166, 38, 38, 0) 100%), #272E38;
+		border: none;
+		color: #fff;
+}
+
+ h1.tab-title{
+	margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+ }
+ .sidebar{
+	 padding-left: 0;
+	 width: 20%;
+ }
+ .nav-tab-new{
+	font-size: 14px;
+    color: white;
+    padding: 20px;
+    font-family: inherit;
+    text-decoration: none !important;
+    border: none;
+	font-weight: 400;
+ }
+ .scroll{
+	padding: 10px 10px 10px 40px;
+}
+@media screen and (max-width: 600px) {
+	.custom-card{
+		display: inline !important;
+	 }
+	 .sidebar{
+		width: 100%;
+	}
+  }
+ .custom-card{
+	margin-top: 3rem!important;
+	margin-left: 10px;
+	display: flex;
+ }
+ .nav-tab-new{
+	 font-size: 14px;
+	 color: white;
+	 padding: 20px;
+	 font-family: sans-serif;
+	 text-decoration: none !important;
+	 border: none;
+	 
+ }
+ .sidenav {
+	background-color: #272E38;
+    display: grid;
+    text-align: center;
+	height: auto;
+	margin-left: 0;
+	border-right: 3px solid #d63638;
+  }
+ .tab-title{
+	padding: 10px 10px 10px 20px;
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 500;
+    text-transform: uppercase;
+ }
+.navigation-bar-wcp-settings{
+	background-color:#B70922;
+	height: auto;
+    color: white;
+	margin-left: -20px;
+}
+/*END  WCP PLUGIN */
 .wrap .button.ndf_remove_saved_image{
 	vertical-align: top;
 }
@@ -19,8 +116,8 @@
 	vertical-align: middle;
 	padding-bottom: 2px;
 }
-.wrap .ndf_dropdown{
-}
+/* .wrap .ndf_dropdown{
+} */
 .wrap .ndf_settings_image{
 	max-width:200px;
 	max-height:100px;

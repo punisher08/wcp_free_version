@@ -81,7 +81,7 @@ add_action( 'wp_enqueue_scripts', 'ndf_enqueue');
 
 function ndf_admin_enqueue( $hook ) {
 	global $post;
-	
+
 	wp_register_style( 'ndf-jquery-css', '//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css', array(), '1.10.4', 'all' ); 
 	wp_enqueue_style( 'ndf-jquery-css' );
 

@@ -8,8 +8,13 @@
  * @author 		Netseek Pty Ltd
  */
 ?>
+<div class="navigation-bar-wcp-settings d-flex justify-content-between">
+	<div class="tab-title"><?php echo esc_html( get_admin_page_title() ); ?></div>
+	<?php $logo = plugin_dir_url( __FILE__ ).'assets/images/wcp-logo.png'; ?>
+	<a href="https://wordpresscomparisonplugin.com/" target="_blank"><img src="<?php echo $logo;?>" alt="" class="wcp-logo"></a>
+</div>
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+
 	<p>Use the shortcode below to show the data filtering table on your posts/pages.</p>
 	<?php
 	global $wpdb;
