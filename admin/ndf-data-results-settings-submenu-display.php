@@ -31,15 +31,15 @@
 		<div class="sidebar">
 			<!-- <h2 class="nav-tab-wrapper"> -->
 			<h2 class="sidenav">
-				<a href="?page=wcp-data-results-settings&tab=heading" class="nav-tab-new <?php echo $active_tab == 'heading' ? 'nav-tab-active' : ''; ?>">Heading</a>
-				<a href="?page=wcp-data-results-settings&tab=tables" class="nav-tab-new <?php echo $active_tab == 'tables' ? 'nav-tab-active' : ''; ?>">Table Properties</a>
-				<a href="?page=wcp-data-results-settings&tab=more-information" class="nav-tab-new <?php echo $active_tab == 'more-information' ? 'nav-tab-active' : ''; ?>">More Information</a>
-				<a href="?page=wcp-data-results-settings&tab=more-info-fields" class="nav-tab-new <?php echo $active_tab == 'more-info-fields' ? 'nav-tab-active' : ''; ?>">More Info Fields Settings</a>
-				<a href="?page=wcp-data-results-settings&tab=star-rating" class="nav-tab-new <?php echo $active_tab == 'star-rating' ? 'nav-tab-active' : ''; ?>">Star Rating</a>
-				<a href="?page=wcp-data-results-settings&tab=load-more-button" class="nav-tab-new <?php echo $active_tab == 'load-more-button' ? 'nav-tab-active' : ''; ?>">Load More Button</a>
-				<a href="?page=wcp-data-results-settings&tab=tooltip" class="nav-tab-new <?php echo $active_tab == 'tooltip' ? 'nav-tab-active' : ''; ?>">Tooltip</a>
-				<a href="?page=wcp-data-results-settings&tab=query-results" class="nav-tab-new <?php echo $active_tab == 'query-results' ? 'nav-tab-active' : ''; ?>">Query Results</a>
-				<a href="?page=wcp-data-results-settings&tab=table-visual-presets" class="nav-tab-new <?php echo $active_tab == 'table-visual-presets' ? 'nav-tab-active' : ''; ?>">Table Visual Presets</a>
+				<a href="?page=wcp-data-results-settings&tab=heading" class="nav-tab-new <?php echo $active_tab == 'heading' ? 'nav-tab-active-set' : ''; ?>">Heading</a>
+				<a href="?page=wcp-data-results-settings&tab=tables" class="nav-tab-new <?php echo $active_tab == 'tables' ? 'nav-tab-active-set' : ''; ?>">Table Properties</a>
+				<a href="?page=wcp-data-results-settings&tab=more-information" class="nav-tab-new <?php echo $active_tab == 'more-information' ? 'nav-tab-active-set' : ''; ?>">More Information</a>
+				<a href="?page=wcp-data-results-settings&tab=more-info-fields" class="nav-tab-new <?php echo $active_tab == 'more-info-fields' ? 'nav-tab-active-set' : ''; ?>">More Info Fields Settings</a>
+				<a href="?page=wcp-data-results-settings&tab=star-rating" class="nav-tab-new <?php echo $active_tab == 'star-rating' ? 'nav-tab-active-set' : ''; ?>">Star Rating</a>
+				<a href="?page=wcp-data-results-settings&tab=load-more-button" class="nav-tab-new <?php echo $active_tab == 'load-more-button' ? 'nav-tab-active-set' : ''; ?>">Load More Button</a>
+				<a href="?page=wcp-data-results-settings&tab=tooltip" class="nav-tab-new <?php echo $active_tab == 'tooltip' ? 'nav-tab-active-set' : ''; ?>">Tooltip</a>
+				<a href="?page=wcp-data-results-settings&tab=query-results" class="nav-tab-new <?php echo $active_tab == 'query-results' ? 'nav-tab-active-set' : ''; ?>">Query Results</a>
+				<a href="?page=wcp-data-results-settings&tab=table-visual-presets" class="nav-tab-new <?php echo $active_tab == 'table-visual-presets' ? 'nav-tab-active-set' : ''; ?>">Table Visual Presets</a>
 			</h2>
 		</div>
 	<div class="scroll">

@@ -143,12 +143,12 @@
 	<div class="col-lg-3 col-md-3 sidebar">
 		<!-- <h2 class="nav-tab-wrapper"> -->
 		<h2 class="sidenav">
-			<a href="?page=wcp-more-info-settings&tab=fields" class="nav-tab-new <?php echo $active_tab == 'fields' ? 'nav-tab-active' : ''; ?>">Fields</a>
-			<a href="?page=wcp-more-info-settings&tab=preview" class="nav-tab-new <?php echo $active_tab == 'preview' ? 'nav-tab-active' : ''; ?>">Preview</a>
-			<a href="?page=wcp-more-info-settings&tab=summary" class="nav-tab-new <?php echo $active_tab == 'summary' ? 'nav-tab-active' : ''; ?>">Summary</a>
-			<a href="?page=wcp-more-info-settings&tab=ui-settings" class="nav-tab-new <?php echo $active_tab == 'ui-settings' ? 'nav-tab-active' : ''; ?>">UI Settings</a>
-			<a href="?page=wcp-more-info-settings&tab=slug-settings" class="nav-tab-new <?php echo $active_tab == 'slug-settings' ? 'nav-tab-active' : ''; ?>">Slug Settings</a>
-			<a href="?page=wcp-more-info-settings&tab=button-generator" class="nav-tab-new <?php echo $active_tab == 'button-generator' ? 'nav-tab-active' : ''; ?>">Button Generator</a>
+			<a href="?page=wcp-more-info-settings&tab=fields" class="nav-tab-new <?php echo $active_tab == 'fields' ? 'nav-tab-active-set' : ''; ?>">Fields</a>
+			<a href="?page=wcp-more-info-settings&tab=preview" class="nav-tab-new <?php echo $active_tab == 'preview' ? 'nav-tab-active-set' : ''; ?>">Preview</a>
+			<a href="?page=wcp-more-info-settings&tab=summary" class="nav-tab-new <?php echo $active_tab == 'summary' ? 'nav-tab-active-set' : ''; ?>">Summary</a>
+			<a href="?page=wcp-more-info-settings&tab=ui-settings" class="nav-tab-new <?php echo $active_tab == 'ui-settings' ? 'nav-tab-active-set' : ''; ?>">UI Settings</a>
+			<a href="?page=wcp-more-info-settings&tab=slug-settings" class="nav-tab-new <?php echo $active_tab == 'slug-settings' ? 'nav-tab-active-set' : ''; ?>">Slug Settings</a>
+			<a href="?page=wcp-more-info-settings&tab=button-generator" class="nav-tab-new <?php echo $active_tab == 'button-generator' ? 'nav-tab-active-set' : ''; ?>">Button Generator</a>
 		</h2>
 	</div>	
 	<br>

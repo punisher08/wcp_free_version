@@ -30,16 +30,16 @@
 		<div class="col-lg-3 col-md-3 sidebar">
 			<!-- <h2 class="nav-tab-wrapper"> -->
 			<h2 class="sidenav">
-				<a href="?page=wcp-filters-settings&tab=heading" class="nav-tab-new <?php echo $active_tab == 'heading' ? 'nav-tab-active' : ''; ?>">Heading</a>
-				<a href="?page=wcp-filters-settings&tab=tables" class="nav-tab-new <?php echo $active_tab == 'tables' ? 'nav-tab-active' : ''; ?>">Table Properties</a>
-				<a href="?page=wcp-filters-settings&tab=category-1" class="nav-tab-new <?php echo $active_tab == 'category-1' ? 'nav-tab-active' : ''; ?>">Category 1</a>
-				<a href="?page=wcp-filters-settings&tab=category-2" class="nav-tab-new <?php echo $active_tab == 'category-2' ? 'nav-tab-active' : ''; ?>">Category 2</a>
-				<a href="?page=wcp-filters-settings&tab=category-3" class="nav-tab-new <?php echo $active_tab == 'category-3' ? 'nav-tab-active' : ''; ?>">Category 3</a>
-				<a href="?page=wcp-filters-settings&tab=category-4" class="nav-tab-new <?php echo $active_tab == 'category-4' ? 'nav-tab-active' : ''; ?>">Category 4</a>
-				<a href="?page=wcp-filters-settings&tab=category-5" class="nav-tab-new <?php echo $active_tab == 'category-5' ? 'nav-tab-active' : ''; ?>">Category 5</a>
-				<a href="?page=wcp-filters-settings&tab=reset" class="nav-tab-new <?php echo $active_tab == 'reset' ? 'nav-tab-active' : ''; ?>">Reset</a>
-				<a href="?page=wcp-filters-settings&tab=keyword-search" class="nav-tab-new <?php echo $active_tab == 'keyword-search' ? 'nav-tab-active' : ''; ?>">Keyword Search</a>
-				<a href="?page=wcp-filters-settings&tab=table-visual-presets" class="nav-tab-new <?php echo $active_tab == 'table-visual-presets' ? 'nav-tab-active' : ''; ?>">Table Visual Presets</a>
+				<a href="?page=wcp-filters-settings&tab=heading" class="nav-tab-new <?php echo $active_tab == 'heading' ? 'nav-tab-active-set' : ''; ?>">Heading</a>
+				<a href="?page=wcp-filters-settings&tab=tables" class="nav-tab-new <?php echo $active_tab == 'tables' ? 'nav-tab-active-set' : ''; ?>">Table Properties</a>
+				<a href="?page=wcp-filters-settings&tab=category-1" class="nav-tab-new <?php echo $active_tab == 'category-1' ? 'nav-tab-active-set' : ''; ?>">Category 1</a>
+				<a href="?page=wcp-filters-settings&tab=category-2" class="nav-tab-new <?php echo $active_tab == 'category-2' ? 'nav-tab-active-set' : ''; ?>">Category 2</a>
+				<a href="?page=wcp-filters-settings&tab=category-3" class="nav-tab-new <?php echo $active_tab == 'category-3' ? 'nav-tab-active-set' : ''; ?>">Category 3</a>
+				<a href="?page=wcp-filters-settings&tab=category-4" class="nav-tab-new <?php echo $active_tab == 'category-4' ? 'nav-tab-active-set' : ''; ?>">Category 4</a>
+				<a href="?page=wcp-filters-settings&tab=category-5" class="nav-tab-new <?php echo $active_tab == 'category-5' ? 'nav-tab-active-set' : ''; ?>">Category 5</a>
+				<a href="?page=wcp-filters-settings&tab=reset" class="nav-tab-new <?php echo $active_tab == 'reset' ? 'nav-tab-active-set' : ''; ?>">Reset</a>
+				<a href="?page=wcp-filters-settings&tab=keyword-search" class="nav-tab-new <?php echo $active_tab == 'keyword-search' ? 'nav-tab-active-set' : ''; ?>">Keyword Search</a>
+				<a href="?page=wcp-filters-settings&tab=table-visual-presets" class="nav-tab-new <?php echo $active_tab == 'table-visual-presets' ? 'nav-tab-active-set' : ''; ?>">Table Visual Presets</a>
 			</h2>
 		</div>
 		<div class="col-lg-9 col-md-9 scroll">

@@ -11,12 +11,15 @@
  * @since 		1.0.1.0
  * @author 		Netseek Pty Ltd
  */
-
+ .preset-btn{
+	text-align: center;
+	padding: 20px;
+}
 .navigation-bar-wcp-settings{
 	display: flex;
     justify-content: space-between;
 }
- .nav-tab-active:after{
+ .nav-tab-active-set:after{
 	position: relative;
     content: "";
     width: 0;
@@ -27,7 +30,7 @@
     float: right;
 	margin-right: -30px;
 }
-.nav-tab-active{
+.nav-tab-active-set{
 	text-decoration: none;
 	background: linear-gradient(
 		180deg
