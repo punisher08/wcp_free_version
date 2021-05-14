@@ -11,6 +11,9 @@
  * @since 		1.0.1.0
  * @author 		Netseek Pty Ltd
  */
+ .button-generator{
+	width: 40% !important;
+}
  .preset-btn{
 	text-align: center;
 	padding: 20px;
@@ -66,7 +69,7 @@
 	font-weight: 400;
  }
  .scroll{
-	padding: 10px 10px 10px 40px;
+	padding: 10px 10px 10px 20px;
 }
 @media screen and (max-width: 600px) {
 	.custom-card{

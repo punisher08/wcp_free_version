@@ -139,8 +139,9 @@
 		<p><strong><?php _e('Field deleted.') ?></strong></p>
 		</div>
 	<?php } ?>
+	<?php $slug_title = $_GET['tab'];?>
 <div class="row custom-card">
-	<div class="col-lg-3 col-md-3 sidebar">
+	<div class="col-lg-3 col-md-3 sidebar <?=$slug_title;?>">
 		<!-- <h2 class="nav-tab-wrapper"> -->
 		<h2 class="sidenav">
 			<a href="?page=wcp-more-info-settings&tab=fields" class="nav-tab-new <?php echo $active_tab == 'fields' ? 'nav-tab-active-set' : ''; ?>">Fields</a>

@@ -21,7 +21,9 @@ if( isset( $_GET[ 'generator-page' ] ) ) {
 	<li class="button-style-configuration"><a href="?page=wcp-more-info-settings&tab=button-generator&generator-page=style-configuration" class="<?php echo $active_generator_page == 'style-configuration' ? 'current' : ''; ?>">Button Style Configuration</a></li>
 </ul>
 <br><br><br>
-<div class="more_info_fields">
+<!-- <div class="more_info_fields"> -->
+<div class="">
+
 <?php
 $field_saved = false;
 if( $active_generator_page == 'style-configuration' ){
