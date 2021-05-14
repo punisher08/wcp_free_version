@@ -27,7 +27,7 @@
 	}
 	?>
 	<div class="row custom-card">
-		<div class="col-lg-3 col-md-3 sidebar">
+		<div class="sidebar">
 			<!-- <h2 class="nav-tab-wrapper"> -->
 			<h2 class="sidenav">
 				<a href="?page=wcp-filters-settings&tab=heading" class="nav-tab-new <?php echo $active_tab == 'heading' ? 'nav-tab-active-set' : ''; ?>">Heading</a>
@@ -42,7 +42,7 @@
 				<a href="?page=wcp-filters-settings&tab=table-visual-presets" class="nav-tab-new <?php echo $active_tab == 'table-visual-presets' ? 'nav-tab-active-set' : ''; ?>">Table Visual Presets</a>
 			</h2>
 		</div>
-		<div class="col-lg-9 col-md-9 scroll">
+		<div class="scroll">
 	<?php
 	if( $active_tab == 'table-visual-presets' ) {
 		include NDF_BASE_DIR . '/admin/filter-settings-submenu/ndf-table-visual-presets.php';

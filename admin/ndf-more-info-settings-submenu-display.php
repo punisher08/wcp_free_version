@@ -141,7 +141,7 @@
 	<?php } ?>
 	<?php $slug_title = $_GET['tab'];?>
 <div class="row custom-card">
-	<div class="col-lg-3 col-md-3 sidebar <?=$slug_title;?>">
+	<div class="sidebar <?=$slug_title;?>">
 		<!-- <h2 class="nav-tab-wrapper"> -->
 		<h2 class="sidenav">
 			<a href="?page=wcp-more-info-settings&tab=fields" class="nav-tab-new <?php echo $active_tab == 'fields' ? 'nav-tab-active-set' : ''; ?>">Fields</a>
@@ -153,7 +153,7 @@
 		</h2>
 	</div>	
 	<br>
-	<div class="col-lg-9 col-md-9 scroll">
+	<div class="scroll">
 	<?php
 	if( $active_tab == 'fields' ) {
 		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-add-new-field.php';
