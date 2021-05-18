@@ -31,21 +31,24 @@
     border-bottom: 10px solid transparent;
     border-left: 10px solid#DD3E3E;
     float: right;
-	margin-right: -30px;
+	margin-right: -25px;
 }
 .nav-tab-active-set{
 	text-decoration: none;
-	background: linear-gradient(
+	background: #d63638;
+	/* background: linear-gradient(
 		180deg
-		, #DD3E3E 0%, rgba(166, 38, 38, 0) 100%), #272E38;	
+		, #DD3E3E 0%, rgba(166, 38, 38, 0) 100%), #272E38;	 */
 }
 .nav-tab-new:hover{
 	text-decoration: none;
-	background: linear-gradient(
+	background: #d63638;
+	color: #fff;
+	/* background: linear-gradient(
 		180deg
 		, #DD3E3E 0%, rgba(166, 38, 38, 0) 100%), #272E38;
 		border: none;
-		color: #fff;
+		color: #fff; */
 }
 
  h1.tab-title{
@@ -59,7 +62,7 @@
 	 padding-left: 0;
 	 width: 20%;
  }
- .nav-tab-new{
+ /* .nav-tab-new{
 	font-size: 14px;
     color: white;
     padding: 20px;
@@ -67,7 +70,7 @@
     text-decoration: none !important;
     border: none;
 	font-weight: 400;
- }
+ } */
  .scroll{
 	padding: 10px 10px 10px 20px;
 }
@@ -87,10 +90,11 @@
  .nav-tab-new{
 	 font-size: 14px;
 	 color: white;
-	 padding: 20px;
+	 padding: 15px;
 	 font-family: sans-serif;
 	 text-decoration: none !important;
 	 border: none;
+	 font-weight: 400;
 	 
  }
  .sidenav {
@@ -102,11 +106,13 @@
 	border-right: 3px solid #d63638;
   }
  .tab-title{
-	padding: 10px 10px 10px 20px;
+	/* padding: 10px 10px 10px 20px; */
     font-size: 18px;
     font-family: inherit;
     font-weight: 500;
     text-transform: uppercase;
+	margin: auto;
+	margin-left: 25px;
  }
 .navigation-bar-wcp-settings{
 	background-color:#B70922;
