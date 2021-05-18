@@ -8,8 +8,10 @@
  * @author 		Netseek Pty Ltd
  */
 ?>
-<div class="more_info_ajax_result"></div>
-<div class="more_info_fields">
+<div class="fields-second-section">
+	<div class="more_info_ajax_result"></div>
+	<div class="more_info_fields">
+	
 	<?php
 	$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields ORDER BY field_order ASC" );
 
@@ -21,6 +23,7 @@
 	else{
 	foreach( $field_rows as $field_row ){
 		?>
+		
 		<div id="item_<?php echo $field_row->ID; ?>" class="item">
 			<h3><?php echo $field_row->label; ?></h3>
 			<div>
@@ -164,4 +167,6 @@
 	}
 	}
 	?>
-</div>
+		</div>
+	</div>
+</div>  <!-- end row -->

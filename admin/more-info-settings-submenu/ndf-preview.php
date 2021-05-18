@@ -8,12 +8,13 @@
  * @author 		Netseek Pty Ltd
  */
 ?>
-<table class="wp-list-table widefat ndf_no_border" style="width:800px;">
+<!-- <table class="wp-list-table widefat ndf_no_border" style="width:800px;"> -->
+<table class="wp-list-table widefat ndf_no_border preview">
 <?php
 $field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields ORDER BY field_order ASC" );
 
 if( empty( $field_rows ) ){
-	echo '<tr>';
+	echo '<tr class="row-tr">';
 	echo '<td><em>No fields added.</em></td>';
 	echo '<tr>';
 }

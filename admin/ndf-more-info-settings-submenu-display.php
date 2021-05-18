@@ -165,7 +165,7 @@
 			<?php
 			settings_fields( 'ndf_more_info_fields_summary_settings_option' );
 			do_settings_sections( 'ndf_more_info_fields_summary_settings_option' );
-			submit_button();
+			submit_button( 'Save Changes', 'primary custom-btn');
 			?>
 		</form>
 		<?php
@@ -176,7 +176,7 @@
 			<?php
 			settings_fields( 'ndf_more_info_fields_ui_settings_option' );
 			do_settings_sections( 'ndf_more_info_fields_ui_settings_option' );
-			submit_button();
+			submit_button( 'Save Changes', 'primary custom-btn' );
 			?>
 		</form>
 		<?php
@@ -187,7 +187,7 @@
 			<?php
 			settings_fields( 'ndf_more_info_fields_slug_settings_option' );
 			do_settings_sections( 'ndf_more_info_fields_slug_settings_option' );
-			submit_button();
+			submit_button( 'Save Changes', 'primary custom-btn' );
 			?>
 		</form>
 		<?php

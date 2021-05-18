@@ -20,7 +20,7 @@
 		</div>
 	<?php } ?>
 	
-	<?php
+	<?php 
 	$active_tab = 'heading';
 	if( isset( $_GET[ 'tab' ] ) ) {
 		$active_tab = $_GET[ 'tab' ];
@@ -87,7 +87,7 @@
 				settings_fields( 'ndf_filters_heading_settings_option' );
 				do_settings_sections( 'ndf_filters_heading_settings_option' );
 			}
-			submit_button();
+			submit_button( 'Save Changes', 'primary custom-btn' );
 			?>
 		</form>
 		<?php

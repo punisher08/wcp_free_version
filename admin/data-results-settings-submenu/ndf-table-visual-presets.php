@@ -209,21 +209,21 @@ if( isset( $_POST['ndf_save_preset'] ) ){
 <h2>Table Visual Presets</h2>
 <p>Select from the presets below to implement theme in the results table.</p>
 <div class="ndf_grid_row">
-	<div class="">
+	<div class="ndf_grid_col_1_3">
 		<img src="<?php echo NDF_BASE_URL . '/admin/assets/images'; ?>/presets-results-table-screens-1.jpg" alt="">
 		<form class="preset-btn"  action="" method="post">
 			<input type="hidden" name="ndf_preset" value="1">
 			<input type="submit" name="ndf_save_preset" value="Set Preset 1">
 		</form>
 	</div>
-	<div class="">
+	<div class="ndf_grid_col_1_3">
 		<img src="<?php echo NDF_BASE_URL . '/admin/assets/images'; ?>/presets-results-table-screens-2.jpg" alt="">
 		<form class="preset-btn"  action="" method="post">
 			<input type="hidden" name="ndf_preset" value="2">
 			<input type="submit" name="ndf_save_preset" value="Set Preset 2">
 		</form>
 	</div>
-	<div class="">
+	<div class="ndf_grid_col_1_3">
 		<img src="<?php echo NDF_BASE_URL . '/admin/assets/images'; ?>/presets-results-table-screens-3.jpg" alt="">
 		<form class="preset-btn" action="" method="post">
 			<input type="hidden" name="ndf_preset" value="3">
