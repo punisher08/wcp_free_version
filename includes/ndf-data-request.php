@@ -402,6 +402,7 @@ function ndf_filter_data_request() {
 							/* Check Data Item Enquiry Form settings */ 
 							if( $ndf_data_enquiry_form != 'hide' ){
 								/* Check Data Item Recipient Email settings */ 
+							
 								if( !empty( $ndf_data_recipient_email ) && is_email( $ndf_data_recipient_email ) ){
 									$output .= "<a href='#' data-modal-id='".$wcp_data_ID."' data-button-style='".$ndf_enquiry_button_style."' class='ndf_more_info_enquiry ndf_more_info_enquiry_modal ndf_button_style_".$ndf_enquiry_button_style."' ".$ndf_outbound_clicks_data_attribute.">";
 									$output .= get_option( 'ndf_enquiry_button_label', 'Request Info' );

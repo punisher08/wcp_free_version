@@ -18,6 +18,108 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
+ .request-quotes{
+  padding: 10px;
+  color: #fff;
+  background: #009ce0;
+ }
+ .request-quotes:hover{
+  padding: 10px;
+  color: #fff;
+  background: #009ce0;
+  box-shadow: 0 9px 25px -5px #3337ae;
+ }
+.close{
+  position: absolute;
+    right: 0;
+    background: none;
+    color: black;
+}
+.close:hover{
+  background: red;
+
+}
+ #quotes-form-container{
+	background-image: linear-gradient(to top, rgba(205, 156, 242, 0.40) 0%, rgba(246, 255, 255, 0.71) 100%);
+	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	text-align: center;
+	border-radius: 5px;
+	margin: 3em auto;
+	background: rgba(255, 255, 255, 0.95);
+	height: fit-content;
+	width: 480px;
+	padding: 1em;
+	
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 10px;	
+	z-index: 100;
+	
+}
+
+.get-form-title {
+	/* background: url(https://static.pexels.com/photos/5782/nature-flowers-vintage-plant.jpg); */
+  /* -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; */
+	/* font-family: 'Playfair Display', serif; */
+  font-family: inherit;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:cover;
+	letter-spacing: 2px;
+	font-size: 25px !important;
+	margin: 0;
+  color: black;
+
+	
+	
+}
+#quotes-form-container p {
+	/* font-family: 'Farsan', cursive; */
+	font-family: inherit;
+	margin: 3px 0 1.5em 0;
+	font-size: 1.3em;
+	color: #7d7d7d;
+}
+
+#quotes-form-container input,.text-area-form {
+/* 	background: rgba(255, 13, 254, 0.90); */
+	width: 80%;
+	display: inline-block;
+	text-align: left;
+	border-radius: 7px;
+	background: #eee;
+	padding: 1em 2em;
+	outline: none;
+	border: none;
+	color: #222;
+	transition: 0.3s linear;
+  margin-top: 10px;
+}
+::placeholder{color: #999;}
+/* #container input:focus {background: rgba(0, 0, 333, 0.10);} */
+
+.get-quotes {
+	background-image: linear-gradient(to left, rgba(255, 146, 202, 0.75) 0%, rgba(145, 149, 251, 0.86) 100%) !important;
+	box-shadow: 0 9px 25px -5px #df91fb;
+	font-family: 'Abel', sans-serif;
+	/* padding: 0.5em 1.9em; */
+	margin: 2.3em 0 0 0;
+	border-radius: 7px;
+	font-size: 1.4em;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 1em;
+	outline: none;
+	border: none;
+	transition: 0.3s linear;
+
+}
+#quotes-form-container button:hover{transform: translatey(2px);}
+#quotes-form-container button:active{transform: translatey(5px);}
+/* end Request Quotes */
 
 /** @group Filters **/
 .ndf_filter_container{

@@ -676,4 +676,15 @@ $(function($) {
 			$( this ).css( 'height', max_ndf_height );
 		});
 	});
+
+	// for request-form-quotes
+	$(document).on('click', '#request-quotes', function(e) {
+		e.preventDefault();
+		$("#quotes-form-container").css("display","block")
+	});	
+	$(document).on('click', '#close-form', function(e) {
+		e.preventDefault();
+		$("#quotes-form-container").css("display","none")
+	});	
+	// end request form-quotes
 });

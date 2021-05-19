@@ -18,8 +18,8 @@
 		<tbody>
 			<tr>
 				<h1>Add More Info fields</h1>
-				<td style="width:20%;" class="field-label-title">Field Label</td>
-				<td style="width:80%;"><input type="text" name="label" value=""></td>
+				<td style="width:30%;" class="field-label-title">Field Label</td>
+				<td style="width:70%;"><input type="text" name="label" value=""></td>
 			</tr>
 			<tr>
 				<td class="field-label-title">Field Type</td>

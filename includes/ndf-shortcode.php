@@ -22,6 +22,7 @@
  */
 include( NDF_BASE_DIR . '/includes/shortcodes/ndf-data-filter.php' );
 include( NDF_BASE_DIR . '/includes/shortcodes/ndf-data-more-info.php' );
+include( NDF_BASE_DIR . '/includes/shortcodes/request-a-quotes-form.php' );
 
 
 /**
@@ -32,5 +33,7 @@ include( NDF_BASE_DIR . '/includes/shortcodes/ndf-data-more-info.php' );
 function ndf_register_shortcodes(){
 	add_shortcode( 'wp_comparison', 'ndf_data_filter_shortcode' );
 	add_shortcode( 'wp_comparison_more_info', 'ndf_data_more_info_shortcode' );
+	add_shortcode( 'get_quotes', 'wcp_form_shortcode' );
 }
 add_action('init', 'ndf_register_shortcodes');
+

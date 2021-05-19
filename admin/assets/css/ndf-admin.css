@@ -11,14 +11,21 @@
  * @since 		1.0.1.0
  * @author 		Netseek Pty Ltd
  */
+
+ /*  */
  #ndf_more_info_fields_add td{
-vertical-align: middle !important;
- }
+	vertical-align: baseline !important;
+	padding: 10px 3px;
+	border: none;
+}
  .fields-row{
 	 display: flex;
  }
  .fields-first-section{
-	 width: 40%;
+	/* width: auto; */
+	width: 60%;
+	margin-right: 20px;
+	min-width: 30%;
  }
  .fields-second-section{
 	width: -webkit-fill-available;
@@ -166,10 +173,10 @@ table.wp-list-table.ndf_no_border{
 	margin-right: 5px;
 }
 
-#ndf_more_info_fields_add td{
+/* #ndf_more_info_fields_add td{
 	vertical-align: top;
 	padding: 10px 0;
-}
+} */
 .ndf_more_info_fields_options_checkbox, .ndf_more_info_fields_options{
 	border-collapse: collapse;
 }
