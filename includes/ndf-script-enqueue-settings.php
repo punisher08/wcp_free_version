@@ -194,8 +194,10 @@ $ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_field
 $ndf_data_logo_position = get_option( 'ndf_data_results_table_logo_position','left');
 // 
 
+
 ?>
 <style type="text/css">
+
 .ndf_data_title_cell {
 	text-align:<?=$ndf_data_logo_position;?>;
 }

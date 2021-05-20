@@ -138,7 +138,7 @@ jQuery(document).ready( function($) {
             $('#ndf_data_results_h_layout_options').parent().parent().hide();
         }
     });
-
+   
     $('#ndf_data_category_1_content_option').change();
     $('#ndf_data_category_2_content_option').change();
     $('#ndf_data_category_3_content_option').change();
@@ -613,4 +613,27 @@ jQuery(document).ready( function($) {
             }
         });
     });
+
+
+    //  show form shortcode
+    // $(document).on('change', '#show_request_quotes_form', function(){
+    //     if( $(this).val() == "1" ){
+    //         $('#show-shortcode').show();
+    //     }
+    //     else{
+    //         $('#show-shortcode').hide();
+    //     }
+    // });
+   
+
+    //  $( "#show_request_quotes_form" ).change(function() {
+    //     //  e.preventDefault()
+    //     // console.log('test');
+    //     $("#show-shortcode").css("display","none")
+    // });
+    // $(document).on('click', '#show_request_quotes_form', function() {
+	// 	// e.preventDefault();
+	// 	$("#show-shortcode").css("display","none");
+    //     // console.log('test');
+	// });	
 });

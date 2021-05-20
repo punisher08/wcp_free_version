@@ -12,7 +12,7 @@
  */
  // $ndf_data_recipient_email = sanitize_email( ndf_data_settings_get_meta( 'ndf_data_recipient_email','1006' ) );
 
-    function wcp_form_shortcode() 
+    function request_quotes_form_shortcode() 
     { 
     ?>
     <button class="request-quotes" id="request-quotes"> Request A Quote</button>
@@ -28,7 +28,7 @@
             <input type="text" placeholder="Phone"  name="client-phone">
             <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" ></textarea>
                 <br>
-            <button class="get-quotes" name="request-quotes-btn" >Get Quotes</button><br>   
+            <button class="get-quotes" name="request-quotes-btn" >Submit</button><br>   
         </form>
     </div>  
     <?php    
@@ -39,11 +39,9 @@
         global $wpdb;
         $recipients = $wpdb->get_col("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'ndf_data_recipient_email'" );
       
-       
-        
         $to = get_option('admin_email');
         $name = $_POST['client-name'];
-        $client_email = $_POST['client-emai'];
+        $client_email = $_POST['client-email'];
         $client_phone = $_POST['client-phone'];
         $client_request = $_POST['client-request'];
 
@@ -58,19 +56,23 @@
             $random_numbers = array_rand($recipients);
             $sent = wp_mail($recipients[$random_numbers], $subject, strip_tags($client_request), $headers);
             if($sent){
-                echo '<pre>';
-                print_r('success sending  to :'.$recipients[$random_numbers]);
-                echo '</pre>'; 
-              
+
+            $request_form_quote_entries = $wpdb->prefix .'request_quotes_entries';
+               $result_test =  $wpdb->insert($request_form_quote_entries, array(
+                    'subject_title'=> $subject,
+                    'sender'=> $client_email,
+                    'sent_to' => $recipients[$random_numbers]
+                ), 
+                array( '%s', '%s' ) );
             }
             else{
                 echo '<pre>';
                 print_r('not success sending to :'.$recipients[$random_numbers]);
-                echo '</pre>';
-             
+                echo '</pre>'; 
             }
         }
-
-       
+        request_quotes_thank_you();
     }
 } 
+// Call Function to save Details
+include( NDF_BASE_DIR . '/admin/wcp-tools-submenu/request-quotes-form-settings.php' );

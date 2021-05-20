@@ -16,7 +16,7 @@ function ndf_outbound_clicks_track_register_settings() {
 	/* Register Outbound Clicks Settings Section */
 	add_settings_section(
 		'ndf_outbound_clicks_settings_section',
-		'Outbound Clicks Settings',
+		'Outbound Clicks Settings Test',
 		'ndf_outbound_clicks_settings_callback',
 		'ndf_outbound_clicks_settings_option'
 	);
@@ -24,7 +24,7 @@ function ndf_outbound_clicks_track_register_settings() {
 	/* Initialize Outbound Clicks Settings Fields */
 	add_settings_field( 
 		'ndf_outbound_clicks_track',
-		'Track Outbound Clicks',
+		'Track Outbound Clicks Test',
 		'ndf_outbound_clicks_track_callback',
 		'ndf_outbound_clicks_settings_option',
 		'ndf_outbound_clicks_settings_section'

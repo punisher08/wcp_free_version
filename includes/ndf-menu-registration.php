@@ -14,6 +14,19 @@
  * @author 		Netseek Pty Ltd
  */
 
+// function request_quotes_form_registration(){
+// 	add_menu_page(
+//         'WCP Settings',
+//         'WCP Settings',
+//         'manage_options',
+//         'wcp-settings',
+//         'ndf_settings_menu_display',
+//         'dashicons-index-card',
+//         11
+//     );
+
+// } 
+// end Request Quotes 
 function ndf_menu_registration(){
 	add_menu_page(
         'WCP Settings',
@@ -32,6 +45,8 @@ function ndf_menu_registration(){
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Outbound Clicks Settings', 'Outbound Clicks Settings', 'manage_options', 'wcp-outbound-clicks-settings', 'ndf_outbound_clicks_settings_submenu_display');
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Enquiry Form Entries', 'manage_options', 'edit.php?post_type=wcp_enquiry_entries', NULL);
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Settings', 'Enquiry Form Settings', 'manage_options', 'wcp-enquiry-form-settings', 'ndf_enquiry_form_settings_submenu_display');
+    add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes', 'Quotes Form Settings', 'manage_options', 'request_quotes_form_settings', 'request_quotes_form_settings_submenu_display');
+    add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes Form Entries', 'Quotes Form Entries', 'manage_options', 'request_quotes_form_entries', 'request_quotes_form_entries_submenu_display');
 }
 add_action( 'admin_menu', 'ndf_menu_registration' );
 
@@ -83,6 +98,23 @@ function ndf_enquiry_form_settings_submenu_display() {
 	include( NDF_BASE_DIR . '/admin/ndf-enquiry-form-settings-submenu-display.php' );
 }
 
+function request_quotes_form_settings_submenu_display() {
+	if( !current_user_can('manage_options') ) {
+		wp_die( __('You do not have sufficient permissions to access this page.') );
+	}
+	
+	include( NDF_BASE_DIR . '/admin/request-quotes-form-display.php' );
+}
+
+function request_quotes_form_entries_submenu_display() {
+	if( !current_user_can('manage_options') ) {
+		wp_die( __('You do not have sufficient permissions to access this page.') );
+	}
+	
+	include( NDF_BASE_DIR . '/admin/request-quotes-form-entries.php' );
+}
+
+
 /* Settings Registration Scripts */
 include( NDF_BASE_DIR . '/admin/filter-settings-submenu/ndf-heading-tab-settings.php' );
 include( NDF_BASE_DIR . '/admin/filter-settings-submenu/ndf-table-tab-settings.php' );
@@ -105,3 +137,4 @@ include( NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-ui-settings.php' 
 include( NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-slug-settings.php' );
 include( NDF_BASE_DIR . '/admin/outbound-clicks-settings-submenu/ndf-outbound-clicks-settings.php' );
 include( NDF_BASE_DIR . '/admin/wcp-tools-submenu/ndf-enquiry-form-settings.php' );
+// include( NDF_BASE_DIR . '/admin/wcp-tools-submenu/request-quotes-form-entries-settings.php' );

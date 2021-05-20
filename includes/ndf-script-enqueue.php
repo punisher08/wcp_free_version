@@ -117,11 +117,23 @@ function ndf_admin_enqueue( $hook ) {
     wp_enqueue_style('jquery-ui-datepicker');
 
 	$ndf_button_style_configuration = get_option( 'ndf_button_style_configuration' );
+	// 
+	$show_hide_quote_shortcode = $show_request_quotes_form = get_option( 'show_request_quotes_form', 0 );
+	if($show_hide_quote_shortcode != 1){
+		$hide_shortcode = 'none';
+	}
+	else{
+		$hide_shortcode = 'block';
+	}
+	// 
 
 	$button_css = "";
 	if( is_array( $ndf_button_style_configuration ) ){
 		foreach( $ndf_button_style_configuration as $style_id => $settings ){
 			$button_css .= "
+				.quotes_shortcode{
+					display:".$hide_shortcode." !important;
+				}
 				a.ndf_button_style_{$style_id}{
         			background-color: ".$settings['background'].";
         			color: ".$settings['text_color']." !important;
