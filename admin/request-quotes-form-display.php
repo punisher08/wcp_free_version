@@ -21,7 +21,7 @@
         $show_request_quotes_form = get_option( 'show_request_quotes_form', 0 );
         ?>
         <div id="show-shortcode" class="quotes_shortcode">
-            <label for="male"> Use the shortcode below to show the data filtering table on your posts/pages</label><br><br>
+            <label for="male"> Use the shortcode below to show button for Request Quotes</label><br><br>
             <input type="text" name="gender" disabled id="male" value="[get_quotes]">
         </div>
         <?php

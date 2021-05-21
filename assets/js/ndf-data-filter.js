@@ -680,11 +680,12 @@ $(function($) {
 	// for request-form-quotes
 	$(document).on('click', '#request-quotes', function(e) {
 		e.preventDefault();
-		$("#quotes-form-container").css("display","block")
+		$("#quotes-form-container").css("display","block");
+		$("html").css("background-color","black");
 	});	
 	$(document).on('click', '#close-form', function(e) {
 		e.preventDefault();
-		$("#quotes-form-container").css("display","none")
+		$("#quotes-form-container").css("display","none");
 	});	
 	// end request form-quotes
 });

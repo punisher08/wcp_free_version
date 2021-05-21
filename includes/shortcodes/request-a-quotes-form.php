@@ -16,20 +16,20 @@
     { 
     ?>
     <button class="request-quotes" id="request-quotes"> Request A Quote</button>
-    <div id="quotes-form-container" style="display:none;">
-    <a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a>
-        <h2 class="get-form-title">Get Quotes</h2>
-        <p>Please provide some contact details.</p>
-      
-        
-        <form method="post" action="">
-            <input type="text" placeholder="Name" name="client-name">
-            <input type="email" placeholder="Email" name="client-email" >
-            <input type="text" placeholder="Phone"  name="client-phone">
-            <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" ></textarea>
-                <br>
-            <button class="get-quotes" name="request-quotes-btn" >Submit</button><br>   
-        </form>
+    <div id="quotes-form-container" style="display:none;" class="class-quotes-form-container">
+        <div class="form-box">
+            <div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>
+            <div class="get-form-title">Get Quotes</div>
+            <p>Please provide some contact details.</p>    
+            <form method="post" action="">
+                <input type="text" placeholder="Name" name="client-name" required>
+                <input type="email" placeholder="Email" name="client-email" required>
+                <input type="text" placeholder="Phone"  name="client-phone">
+                <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
+                    <br>
+                <button class="get-quotes" name="request-quotes-btn" >Submit</button><br>   
+            </form>
+        </div>
     </div>  
     <?php    
 
@@ -50,28 +50,47 @@
         $subject = "Requesting a Quotes";
         $headers = 'From: '. $client_email . "\r\n" .
           'Reply-To: ' . $client_email . "\r\n";
-
-        for($send_email = 0; $send_email < 3; $send_email++)
-        {
-            $random_numbers = array_rand($recipients);
-            $sent = wp_mail($recipients[$random_numbers], $subject, strip_tags($client_request), $headers);
-            if($sent){
-
-            $request_form_quote_entries = $wpdb->prefix .'request_quotes_entries';
-               $result_test =  $wpdb->insert($request_form_quote_entries, array(
-                    'subject_title'=> $subject,
-                    'sender'=> $client_email,
-                    'sent_to' => $recipients[$random_numbers]
-                ), 
-                array( '%s', '%s' ) );
-            }
-            else{
-                echo '<pre>';
-                print_r('not success sending to :'.$recipients[$random_numbers]);
-                echo '</pre>'; 
-            }
-        }
-        request_quotes_thank_you();
+        
+          $to_send = array();
+          $counter = 0;
+          while($counter < 3):
+              $random_numbers = array_rand($recipients);
+                if(!empty($recipients[$random_numbers]))
+                {
+                    if(in_array($recipients[$random_numbers],$to_send))
+                    {   
+                        // do something
+                    }
+                    else
+                    {
+                        $to_send [] = $recipients[$random_numbers];
+                        $counter++;
+                    }
+                }
+                else
+                {
+                //   do something
+                }
+          endwhile;
+          foreach($to_send as $recipient_email):
+              $sent = wp_mail($recipient_email, $subject, strip_tags($client_request), $headers);
+              if($sent)
+              {
+                  // insert to database
+                  $request_form_quote_entries = $wpdb->prefix .'request_quotes_entries';
+                  $result_test =  $wpdb->insert($request_form_quote_entries, array(
+                          'subject_title'=> $subject,
+                          'sender'=> $client_email,
+                          'sent_to' => $recipient_email), array( '%s', '%s' ) );
+              }
+              else
+              {
+                  echo '<pre>';
+                  print_r('not success sending to :'.$recipient_email);
+                  echo '</pre>'; 
+              }
+          endforeach;  
+          request_quotes_thank_you();
     }
 } 
 // Call Function to save Details

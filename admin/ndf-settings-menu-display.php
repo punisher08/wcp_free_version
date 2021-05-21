@@ -15,7 +15,7 @@
 </div>
 <div class="wrap">
 
-	<p>Use the shortcode below to show the data filtering table on your posts/pages.</p>
+	<p>Copy the shortcode below to display both filter and results section on any page/posts. Use the filters to show specific results on a page.</p>
 	<?php
 	global $wpdb;
 
