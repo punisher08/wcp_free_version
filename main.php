@@ -606,7 +606,8 @@ if ( !function_exists( 'wcp_fs' ) ) {
         return $defaults;
     }
     
-    add_filter( 'manage_wcp_enquiry_entries_posts_columns', 'ndf_enquiry_entries_columns_head' );
+    add_filter( 'manage_wcp_enquiry_entries_posts_columns', 'ndf_enquiry_entries_columns_head' );      
+   
     /**
      * Update WCP Enquiry Entries table columns values.
      * 
@@ -614,10 +615,12 @@ if ( !function_exists( 'wcp_fs' ) ) {
      */
     function ndf_enquiry_entries_columns_content( $column_name, $post_ID )
     {
+     
+       
         
         if ( $column_name == 'from_name' ) {
             echo  get_post_meta( $post_ID, 'ndf_enquiry_details_name', true ) ;
-            echo  '<br>' ;
+            echo  '<br>'.$post_ID ;
             echo  get_post_meta( $post_ID, 'ndf_enquiry_details_email', true ) ;
         }
         
@@ -651,6 +654,7 @@ if ( !function_exists( 'wcp_fs' ) ) {
         10,
         2
     );
+  
     /**
      * Remove Date and Title columns in WCP Enquiry Entries table.
      * 
@@ -664,6 +668,7 @@ if ( !function_exists( 'wcp_fs' ) ) {
     }
     
     add_filter( 'manage_wcp_enquiry_entries_posts_columns', 'ndf_enquiry_entries_remove_column' );
+
     /**
      * Update WCP Enquiry Entries table header columns.
      * 

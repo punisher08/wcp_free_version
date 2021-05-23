@@ -33,7 +33,6 @@
     </div>  
     <?php    
 
-
     if(isset($_POST['request-quotes-btn']))
     {
         global $wpdb;
@@ -44,9 +43,6 @@
         $client_email = $_POST['client-email'];
         $client_phone = $_POST['client-phone'];
         $client_request = $_POST['client-request'];
-
-
-        // $to = get_option('admin_email');
         $subject = "Requesting a Quotes";
         $headers = 'From: '. $client_email . "\r\n" .
           'Reply-To: ' . $client_email . "\r\n";
@@ -57,37 +53,32 @@
               $random_numbers = array_rand($recipients);
                 if(!empty($recipients[$random_numbers]))
                 {
-                    if(in_array($recipients[$random_numbers],$to_send))
-                    {   
-                        // do something
-                    }
-                    else
-                    {
-                        $to_send [] = $recipients[$random_numbers];
-                        $counter++;
-                    }
+                    if(in_array($recipients[$random_numbers],$to_send)){ /* do something */}
+                    else {    $to_send [] = $recipients[$random_numbers]; $counter++; }
                 }
-                else
-                {
-                //   do something
-                }
+                else{ /*  do something */ }
           endwhile;
+
           foreach($to_send as $recipient_email):
               $sent = wp_mail($recipient_email, $subject, strip_tags($client_request), $headers);
               if($sent)
               {
-                  // insert to database
-                  $request_form_quote_entries = $wpdb->prefix .'request_quotes_entries';
-                  $result_test =  $wpdb->insert($request_form_quote_entries, array(
-                          'subject_title'=> $subject,
-                          'sender'=> $client_email,
-                          'sent_to' => $recipient_email), array( '%s', '%s' ) );
+                        $post_type = 'quotesentry';
+                        $front_post = array(
+                        'post_title'    => $subject,
+                        'post_status'   => 'publish',          
+                        'post_type'     => $post_type 
+                        );
+                        $post_id = wp_insert_post($front_post);
+                        update_post_meta($post_id, "quotes_email_subject_field", $subject);
+                        update_post_meta($post_id, "quotes_sender_email_field", $client_email);
+                        update_post_meta($post_id, "quotes_sent_to_field", $recipient_email);
+                        update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
+                        update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
               }
               else
               {
-                  echo '<pre>';
-                  print_r('not success sending to :'.$recipient_email);
-                  echo '</pre>'; 
+                  echo 'Unable to send';
               }
           endforeach;  
           request_quotes_thank_you();

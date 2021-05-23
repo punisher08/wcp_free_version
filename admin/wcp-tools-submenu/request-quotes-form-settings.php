@@ -11,14 +11,13 @@
 add_action('admin_init', 'request_quotes_form_register_settings');
 function request_quotes_form_register_settings() {
 
-	/* Register Filters Section Category 1 Settings Section */
+	/* Register Request Quotes Settings */
 	add_settings_section(
 		'request_quotes_form_settings_section',
 		'',
 		'request_quotes_form_settings_callback',
 		'request_quotes_form_settings_option'
 	);
-
 	add_settings_field( 
 		'show_request_quotes_form',
 		'Show  Request Quotes Shortcode',
@@ -26,14 +25,16 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_option',
 		'request_quotes_form_settings_section'
 	);
-	
-	
-
-	/* Register Filters Section Category 1 Settings Section Fields */
+	/* Register Request Quotes Settings */
 	register_setting( 'request_quotes_form_settings_option', 'show_request_quotes_form' );
-
 } 
 
+/**
+ * Register Request Quotes Setting Callbacks
+ *
+ * @param  mixed $args
+ * @return void
+ */
 function request_quotes_form_settings_callback($args) {
     echo '<p></p>';
 } /* end request_quotes_form_settings_callback */

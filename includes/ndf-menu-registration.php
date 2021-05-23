@@ -14,19 +14,11 @@
  * @author 		Netseek Pty Ltd
  */
 
-// function request_quotes_form_registration(){
-// 	add_menu_page(
-//         'WCP Settings',
-//         'WCP Settings',
-//         'manage_options',
-//         'wcp-settings',
-//         'ndf_settings_menu_display',
-//         'dashicons-index-card',
-//         11
-//     );
-
-// } 
-// end Request Quotes 
+/**
+ * ndf_menu_registration
+ *
+ * @return void
+ */
 function ndf_menu_registration(){
 	add_menu_page(
         'WCP Settings',
@@ -46,7 +38,11 @@ function ndf_menu_registration(){
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Enquiry Form Entries', 'manage_options', 'edit.php?post_type=wcp_enquiry_entries', NULL);
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Settings', 'Enquiry Form Settings', 'manage_options', 'wcp-enquiry-form-settings', 'ndf_enquiry_form_settings_submenu_display');
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes', 'Quotes Form Settings', 'manage_options', 'request_quotes_form_settings', 'request_quotes_form_settings_submenu_display');
-    add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes Form Entries', 'Quotes Form Entries', 'manage_options', 'request_quotes_form_entries', 'request_quotes_form_entries_submenu_display');
+	// 
+	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes Form Entries', 'Custom Quotes Entries', 'manage_options', 'request_quotes_form_entries', 'request_quotes_form_entries_submenu_display');
+	// redirect to quotesentry post type
+	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Quotes Form Entries', 'manage_options', 'edit.php?post_type=quotesentry', NULL);
+
 }
 add_action( 'admin_menu', 'ndf_menu_registration' );
 
@@ -106,6 +102,12 @@ function request_quotes_form_settings_submenu_display() {
 	include( NDF_BASE_DIR . '/admin/request-quotes-form-display.php' );
 }
 
+/**
+ * request_quotes_form_entries_submenu_display 
+ * Display Data on Custom Table
+ *
+ * @return void
+ */
 function request_quotes_form_entries_submenu_display() {
 	if( !current_user_can('manage_options') ) {
 		wp_die( __('You do not have sufficient permissions to access this page.') );
@@ -137,4 +139,6 @@ include( NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-ui-settings.php' 
 include( NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-slug-settings.php' );
 include( NDF_BASE_DIR . '/admin/outbound-clicks-settings-submenu/ndf-outbound-clicks-settings.php' );
 include( NDF_BASE_DIR . '/admin/wcp-tools-submenu/ndf-enquiry-form-settings.php' );
-// include( NDF_BASE_DIR . '/admin/wcp-tools-submenu/request-quotes-form-entries-settings.php' );
+// Request Quotes Scripts
+include( NDF_BASE_DIR . '/admin/wcp-tools-submenu/request-quotes-form-entries-settings.php' );
+
