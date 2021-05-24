@@ -242,23 +242,6 @@ if ( !function_exists( 'wcp_fs' ) ) {
         $sql = "CREATE TABLE IF NOT EXISTS {$ndf_table_name} (\r\n\t\t`ID` bigint(20) NOT NULL AUTO_INCREMENT,\r\n\t\t`field_type` varchar(200) DEFAULT NULL,\r\n\t\t`label` varchar(200) DEFAULT NULL,\r\n\t\t`field_order` int(9) NOT NULL DEFAULT '0',\r\n\t\t`hidden` int(1) NOT NULL DEFAULT '0',\r\n\t\t`required` int(1) NOT NULL DEFAULT '0',\r\n\t\t`field_values` text,\r\n\t\t`default_value` text,\r\n\t\tPRIMARY KEY (`ID`)\r\n\t) {$wp_charset_collate};";
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         dbDelta( $sql );
-
-        // For Request Quotes Entries
-        $request_form_quote_entries = $wpdb->prefix .'request_quotes_entries';
-        $wp_charset_collate = $wpdb->get_charset_collate();
-        $create_table_query = "
-            CREATE TABLE IF NOT EXISTS `{$request_form_quote_entries}` (
-                `ID` INT AUTO_INCREMENT PRIMARY KEY,
-                `subject_title` VARCHAR(255) NOT NULL,
-                `sender` VARCHAR(255) NOT NULL,
-                `sent_to` VARCHAR(255) NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
-
-            require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-            dbDelta( $create_table_query );
-        //End For Request Quotes Table 
-
         $ndf_button_style_configuration = array(
             1 => array(
             'label'            => 'Style 1',

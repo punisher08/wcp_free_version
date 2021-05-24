@@ -37,9 +37,8 @@ function ndf_menu_registration(){
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Outbound Clicks Settings', 'Outbound Clicks Settings', 'manage_options', 'wcp-outbound-clicks-settings', 'ndf_outbound_clicks_settings_submenu_display');
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Enquiry Form Entries', 'manage_options', 'edit.php?post_type=wcp_enquiry_entries', NULL);
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Settings', 'Enquiry Form Settings', 'manage_options', 'wcp-enquiry-form-settings', 'ndf_enquiry_form_settings_submenu_display');
+	// Request Quotes Form Settings
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes', 'Quotes Form Settings', 'manage_options', 'request_quotes_form_settings', 'request_quotes_form_settings_submenu_display');
-	// redirect to custom page
-	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes Form Entries', 'Custom Quotes Entries', 'manage_options', 'request_quotes_form_entries', 'request_quotes_form_entries_submenu_display');
 	// redirect to quotesentry post type
 	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Quotes Form Entries', 'manage_options', 'edit.php?post_type=quotesentry', NULL);
 
@@ -101,21 +100,6 @@ function request_quotes_form_settings_submenu_display() {
 	
 	include( NDF_BASE_DIR . '/admin/request-quotes-form-display.php' );
 }
-
-/**
- * request_quotes_form_entries_submenu_display 
- * Display Data on Custom Table
- *
- * @return void
- */
-function request_quotes_form_entries_submenu_display() {
-	if( !current_user_can('manage_options') ) {
-		wp_die( __('You do not have sufficient permissions to access this page.') );
-	}
-	
-	include( NDF_BASE_DIR . '/admin/request-quotes-form-entries.php' );
-}
-
 
 /* Settings Registration Scripts */
 include( NDF_BASE_DIR . '/admin/filter-settings-submenu/ndf-heading-tab-settings.php' );

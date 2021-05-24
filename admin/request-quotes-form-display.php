@@ -15,10 +15,6 @@
 </div>
 <div class="wrap">
 	<form method="post" action="options.php" enctype="multipart/form-data"> 
-        <div id="show-shortcode" class="quotes_shortcode">
-            <label for="male"> Use the shortcode below to show button for Request Quotes</label><br><br>
-            <input type="text" name="gender" disabled id="male" value="[get_quotes]">
-        </div>
         <?php
 		settings_fields( 'request_quotes_form_settings_option' );
 		do_settings_sections( 'request_quotes_form_settings_option' );

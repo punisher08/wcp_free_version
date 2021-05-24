@@ -33,7 +33,7 @@ include( NDF_BASE_DIR . '/includes/shortcodes/request-a-quotes-form.php' );
 function ndf_register_shortcodes(){
 	add_shortcode( 'wp_comparison', 'ndf_data_filter_shortcode' );
 	add_shortcode( 'wp_comparison_more_info', 'ndf_data_more_info_shortcode' );
-	add_shortcode( 'get_quotes', 'request_quotes_form_shortcode' );
+	add_shortcode( 'wcpquote', 'request_quotes_form_shortcode' );
 }
 add_action('init', 'ndf_register_shortcodes');
 

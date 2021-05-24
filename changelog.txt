@@ -1,4 +1,16 @@
 == Changelog ==
+= 1.7.3.2 =
+Quotes Form Settings Field
+1 change form background color
+2 Change text Color
+3 Edit Form Title
+4 Change title font size
+5 Title Font weight
+6 Edit Form Subtitle
+7 Change input field width
+8 change button color
+9 change button width
+10.Change table heading and added Custom fields on Quotes Form Entries
 
 = 1.7.3.1 =
 1.update the look of tables on More info settings field
@@ -7,7 +19,7 @@
 4.Add WCP Tools submenu to copy the shortcode for Quote Request.
 5.Add checkbox to enable Quote Request shortcode.
 6.added file "request-quotes-form-settings.php" under wcp-tools-submenu
-7.
+
 
 = 1.7.3.0 =
 improve Admin UI

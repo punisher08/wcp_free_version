@@ -192,12 +192,41 @@ $ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_field
 
 // for logo postion
 $ndf_data_logo_position = get_option( 'ndf_data_results_table_logo_position','left');
-// 
+// Request Quotes Forms Display Settngs
+$request_quotes_formbackground_color = get_option( 'request_quotes_formbackground_color', '#fff' );
+$request_quotes_form_text_color = get_option( 'request_quotes_form_text_color', '#fff' );
+$request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '25px' );
+$request_quotes_form_font_weight = get_option( 'request_quotes_form_font_weight', '400' );
+$request_quotes_form_submit_button_color = get_option( 'request_quotes_form_submit_button_color', '#fff' );
+$request_quotes_form_input_width = get_option( 'request_quotes_form_input_width', '100%' );
+$request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', 'auto' );
+
 
 
 ?>
 <style type="text/css">
+#default-quotes-form-container input,.text-area-form-default{
+	width:<?=$request_quotes_form_input_width;?>;
+}
+#default-quotes-form-container{
+	color:<?=$request_quotes_form_text_color;?>;
+}
 
+.get-quotes{
+	background-color:<?=$request_quotes_form_submit_button_color;?>;
+	width:<?=$request_quotes_form_submit_button_width?>;
+}
+#quotes-form-container p{
+	color:<?=$request_quotes_form_text_color;?>;
+}
+.get-form-title{
+	color:<?=$request_quotes_form_text_color;?>;
+	font-size:<?=$request_quotes_form_title_font_size;?>;
+	font-weight:<?=$request_quotes_form_font_weight;?>;
+}
+.form-box{
+	background-color:<?=$request_quotes_formbackground_color;?>;
+}
 .ndf_data_title_cell {
 	text-align:<?=$ndf_data_logo_position;?>;
 }

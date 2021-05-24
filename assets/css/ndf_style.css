@@ -18,6 +18,27 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
+ #default-quotes-form-container input,.text-area-form-default {
+	display: inline-block;
+	text-align: left;
+	border-radius: 7px;
+	background: #eee;
+	padding: 1em 2em;
+	outline: none;
+	border: none;
+	color: #222;
+	transition: 0.3s linear;
+  margin-top: 10px;
+}
+::placeholder{color: #999;}
+.text-area-form:focus {background: rgba(0, 0, 333, 0.10);} 
+
+ .default-form-box{
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+  padding: 20px;
+  border-radius: 15px;
+ }
+ /* End Default Form Quotes */
  .request-quotes{
   padding: 10px;
   color: #fff;
@@ -30,15 +51,11 @@
   box-shadow: 0 9px 25px -5px #3337ae;
  }
 .close{
-  /* position: absolute; */
     right: 0;
     background: none;
     color: black;
+    text-decoration: none;
 }
-/* .close:hover{
-  background-image: linear-gradient(to left, rgb(196 35 118 / 75%) 0%, rgb(22 24 69 / 86%) 100%) !important;
-
-} */
 #quotes-form-container{
     left: 0;
     width: 100%;
@@ -57,14 +74,9 @@
 }
 
  .form-box{
-  background-image: linear-gradient(to top, rgba(205, 156, 242, 0.40) 0%, rgba(246, 255, 255, 0.71) 100%);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
 	border-radius: 5px;
-	background: rgba(255, 255, 255, 0.95);
   text-align: center;
-  background: #1412126d;
-  background-color: white;
   padding: 20px;
   width: 40%;
   margin: auto;
@@ -78,15 +90,12 @@
 	background-attachment: fixed;
 	background-size:cover;
 	letter-spacing: 2px;
-	font-size: 25px !important;
 	margin: 0;
-  color: black;
 }
 #quotes-form-container p {
 	font-family: inherit;
 	margin: 0;
 	font-size: 14px;
-	color: #7d7d7d;
 
 }
 
@@ -107,12 +116,8 @@
 .text-area-form:focus {background: rgba(0, 0, 333, 0.10);} 
 
 .get-quotes {
-	/* background-image: linear-gradient(to left, rgba(255, 146, 202, 0.75) 0%, rgba(145, 149, 251, 0.86) 100%) !important; */
-  background-image: linear-gradient(to left, rgb(196 35 118 / 75%) 0%, rgb(22 24 69 / 86%) 100%) !important;
-
-	box-shadow: 0 9px 25px -5px #df91fb;
+	
 	font-family: 'Abel', sans-serif;
-	/* padding: 0.5em 1.9em; */
 	margin: 2.3em 0 0 0;
 	border-radius: 7px;
 	font-size: 1.4em;
@@ -122,6 +127,7 @@
 	outline: none;
 	border: none;
 	transition: 0.3s linear;
+  padding:5px;
 
 }
 #quotes-form-container button:hover{transform: translatey(2px);}

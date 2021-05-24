@@ -10,29 +10,56 @@
  * @since 		1.7.3.0
  * @author 		Netseek Pty Ltd
  */
-
-    function request_quotes_form_shortcode() 
+    function request_quotes_form_shortcode( $atts ) 
     { 
+        // Get Quotes Form Settings Data to render on Front Page the style is 
         $request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
-    ?>
-    <button class="request-quotes" id="request-quotes"> Request A Quote</button>
-    <div id="quotes-form-container" style="display:none;" class="class-quotes-form-container">
-        <div class="form-box">
-            <div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>
-            <div class="get-form-title"><?=$request_quotes_form_title;?></div>
-            <p>Please provide some contact details.</p>    
-            <form method="post" action="">
-                <input type="text" placeholder="Name" name="client-name" required>
-                <input type="email" placeholder="Email" name="client-email" required>
-                <input type="text" placeholder="Phone"  name="client-phone">
-                <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
-                    <br>
-                <button class="get-quotes" name="request-quotes-btn" >Submit</button><br>   
-            </form>
-        </div>
-    </div>  
-    <?php    
+        $request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );
+        $request_quotes_form_submit_button_text = get_option( 'request_quotes_form_submit_button_text', 'Submit' );
 
+        $args = shortcode_atts( array(
+            'type' => 'default'
+        ), $atts );
+        $type = $args['type'];
+        if($type == "popup"){ ?>
+        <!-- Start Popup -->
+            <button class="request-quotes" id="request-quotes"> Request A Quote</button>
+
+            <div id="quotes-form-container" style="display:none;" class="class-quotes-form-container">
+                <div class="form-box">
+                    <div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>
+                    <div class="get-form-title"><?=$request_quotes_form_title;?></div>
+                    <p><?=$request_quotes_form_subtitle;?></p>    
+                    <form method="post" action="">
+                        <input type="text" placeholder="Name" name="client-name" required>
+                        <input type="email" placeholder="Email" name="client-email" required>
+                        <input type="text" placeholder="Phone"  name="client-phone">
+                        <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
+                            <br>
+                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button><br>   
+                    </form>
+                </div>
+            </div>  
+        <?php } 
+        else{
+          ?>
+            <div id="default-quotes-form-container">
+                <div class="form-box-default">
+                <div class="get-form-title"><?=$request_quotes_form_title;?></div>
+                <p><?=$request_quotes_form_subtitle;?></p> 
+                    <form action="" method="post">
+                        <input type="text" placeholder="Name" name="client-name" required><br>
+                        <input type="email" placeholder="Email" name="client-email" required><br>
+                        <input type="text" placeholder="Phone"  name="client-phone">
+                        <textarea name="client-request" id="" class="text-area-form-default" placeholder="Request/Description" required></textarea><br>
+                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button><br> 
+                    </form>
+                </div>
+            </div>
+          <?php
+        }
+        ?>
+    <?php    
     if(isset($_POST['request-quotes-btn']))
     {
         global $wpdb;
