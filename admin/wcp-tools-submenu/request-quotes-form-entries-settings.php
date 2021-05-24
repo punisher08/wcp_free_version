@@ -4,7 +4,7 @@
  * 
  * @package 	Wordpress_Comparison_Plugin
  * @subpackage 	Wordpress_Comparison_Plugin/admin
- * @since 		1.1.2.1
+ * @since 		1.7.3.0
  * @author 		Netseek Pty Ltd
  */
 
@@ -265,7 +265,7 @@ function quotesentry_remove_column( $columns )
 add_filter( 'manage_quotesentry_posts_columns', 'quotesentry_remove_column');
 
 /**
- * Define the content of $defaults
+ * Define the content of $defaults table headers
  *
  * @param  mixed $column_name
  * @param  mixed $post_ID

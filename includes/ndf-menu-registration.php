@@ -38,7 +38,7 @@ function ndf_menu_registration(){
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Enquiry Form Entries', 'manage_options', 'edit.php?post_type=wcp_enquiry_entries', NULL);
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Settings', 'Enquiry Form Settings', 'manage_options', 'wcp-enquiry-form-settings', 'ndf_enquiry_form_settings_submenu_display');
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes', 'Quotes Form Settings', 'manage_options', 'request_quotes_form_settings', 'request_quotes_form_settings_submenu_display');
-	// 
+	// redirect to custom page
 	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes Form Entries', 'Custom Quotes Entries', 'manage_options', 'request_quotes_form_entries', 'request_quotes_form_entries_submenu_display');
 	// redirect to quotesentry post type
 	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Quotes Form Entries', 'manage_options', 'edit.php?post_type=quotesentry', NULL);

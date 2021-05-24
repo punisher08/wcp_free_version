@@ -4,7 +4,7 @@
  * 
  * @package 	Wordpress_Comparison_Plugin
  * @subpackage 	Wordpress_Comparison_Plugin/admin
- * @since 		1.1.2.1
+ * @since 		1.7.3.0
  * @author 		Netseek Pty Ltd
  */
 ?>
@@ -15,17 +15,13 @@
 </div>
 <div class="wrap">
 	<form method="post" action="options.php" enctype="multipart/form-data"> 
-		<?php
-		settings_fields( 'request_quotes_form_settings_option' );
-		do_settings_sections( 'request_quotes_form_settings_option' );
-        $show_request_quotes_form = get_option( 'show_request_quotes_form', 0 );
-        ?>
         <div id="show-shortcode" class="quotes_shortcode">
             <label for="male"> Use the shortcode below to show button for Request Quotes</label><br><br>
             <input type="text" name="gender" disabled id="male" value="[get_quotes]">
         </div>
         <?php
-       
+		settings_fields( 'request_quotes_form_settings_option' );
+		do_settings_sections( 'request_quotes_form_settings_option' );
 		submit_button();
 		?>
 	</form>

@@ -7,19 +7,19 @@
  * 
  * @package 	Netseek_Data_Filter
  * @subpackage 	Netseek_Data_Filter/includes/shortcodes
- * @since 		1.0.1.0
+ * @since 		1.7.3.0
  * @author 		Netseek Pty Ltd
  */
- // $ndf_data_recipient_email = sanitize_email( ndf_data_settings_get_meta( 'ndf_data_recipient_email','1006' ) );
 
     function request_quotes_form_shortcode() 
     { 
+        $request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
     ?>
     <button class="request-quotes" id="request-quotes"> Request A Quote</button>
     <div id="quotes-form-container" style="display:none;" class="class-quotes-form-container">
         <div class="form-box">
             <div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>
-            <div class="get-form-title">Get Quotes</div>
+            <div class="get-form-title"><?=$request_quotes_form_title;?></div>
             <p>Please provide some contact details.</p>    
             <form method="post" action="">
                 <input type="text" placeholder="Name" name="client-name" required>
@@ -65,7 +65,7 @@
               {
                         $post_type = 'quotesentry';
                         $front_post = array(
-                        'post_title'    => $subject,
+                        'post_title'    => $client_email,
                         'post_status'   => 'publish',          
                         'post_type'     => $post_type 
                         );

@@ -4,7 +4,7 @@
  * 
  * @package 	Wordpress_Comparison_Plugin
  * @subpackage 	Wordpress_Comparison_Plugin/admin
- * @since 		1.1.2.1
+ * @since 		1.7.3.0
  * @author 		Netseek Pty Ltd
  */
 ?>

@@ -1,10 +1,18 @@
 == Changelog ==
 
-= 1.9.3.0 =
+= 1.7.3.1 =
+1.update the look of tables on More info settings field
+2.Make the buttons on WCP settings the same blue as the navigation bar
+3.make 2 columns on more info section  fields tab
+4.Add WCP Tools submenu to copy the shortcode for Quote Request.
+5.Add checkbox to enable Quote Request shortcode.
+6.added file "request-quotes-form-settings.php" under wcp-tools-submenu
+7.
+
+= 1.7.3.0 =
 improve Admin UI
 1.added topnav bar on WCP Settings
-2.change Navigation bar to Side Navigation bar
-3. Update Navigation bar design
+2. Update Navigation bar design
 
 = 1.7.2.9 =
 1. Added logo position settings on Result table propeties
@@ -16,7 +24,7 @@ improve Admin UI
 3.fix More Info fields redirecting to 404 page
 4.fix Table results not fitted on the screen when resize
 5.fix swithching table ( when tabular selected horizontal settings should hide)
-
+////////////////////////////////////////////////////////////////////////////////
 = 1.7.2.6 =
 1. Update deprecated functions
 2. Update jQuery framework js files.
