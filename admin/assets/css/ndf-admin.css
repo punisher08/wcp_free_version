@@ -208,7 +208,7 @@ table.wp-list-table.ndf_no_border{
 	border-collapse: collapse;
 }
 .ndf_more_info_fields_options_checkbox td, .ndf_more_info_fields_options td{
-	border: 1px solid #CCC;
+	border:none;
 	padding: 2px;
 	text-align: center;
 	vertical-align: middle;

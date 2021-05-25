@@ -34,6 +34,7 @@ $ndf_category_3_filter_accent_color = get_option( 'ndf_category_3_filter_accent_
 $ndf_category_4_filter_accent_color = get_option( 'ndf_category_4_filter_accent_color', '#ef8923' );
 $ndf_category_5_filter_accent_color = get_option( 'ndf_category_5_filter_accent_color', '#eeee22' );
 
+
 /** 
  * Data Filters Override Styles. 
  */
@@ -203,10 +204,28 @@ $request_quotes_form_submit_button_width = get_option( 'request_quotes_form_subm
 $request_quotes_form_title_position = get_option( 'request_quotes_form_title_position', 'center' );
 $request_quotes_form_content_position = get_option( 'request_quotes_form_content_position', 'center' );
 
+// 
+$ndf_filters_show_filter_table = get_option( 'ndf_filters_show_filter_table', 0 );
+
+if($ndf_filters_show_filter_table == 1 ){
+	$ndf_filters_show_filter_table_settings = "none";
+}
+else{
+	$ndf_filters_show_filter_table_settings = "block";
+}
+
 
 
 ?>
 <style type="text/css">
+.ndf_filters_wrapper{
+	display:<?=$ndf_filters_show_filter_table_settings;?> !important;
+}
+.ndf_filters_heading{
+	display:<?=$ndf_filters_show_filter_table_settings;?> !important;
+}
+
+
 .quotes-form-content{
 	text-align:<?=$request_quotes_form_content_position;?>
 }
@@ -309,6 +328,8 @@ p#wcp_keyword_search_p{
 	-moz-border-radius: <?php echo $ndf_filters_table_border_radius; ?>px;
 	border-radius: <?php echo $ndf_filters_table_border_radius; ?>px;
 	overflow: hidden;
+	
+
 }
 .ndf_filter_container p{
 	font-size: <?php echo $ndf_filters_table_category_title_font_size; ?>;

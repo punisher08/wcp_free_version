@@ -515,7 +515,7 @@ jQuery(document).ready( function($) {
 
 	$( document ).on('click', '.ndf_shortcode_clear_filter', function() {
 		$( '.wrap .ndf_filter_container input[type=checkbox]' ).each(function(){
-			$( this ).attr( 'checked', false );
+			$( this ).prop( 'checked', false );
 		});
 		$( '.wrap .ndf_shortcode_initial' ).val('0');
 		$( '.wrap .ndf_shortcode_step' ).val('0');

@@ -32,6 +32,14 @@ function ndf_filters_heading_section_register_settings() {
 			'Display filter heading?'
 		)
 	);
+	add_settings_field( 
+		'ndf_filters_show_filter_table',
+		'Hide Filter Table and use search bar',
+		'ndf_filters_show_filter_table_callback',
+		'ndf_filters_heading_settings_option',
+		'ndf_filters_heading_settings_section'
+
+	);
 
 	add_settings_field( 
 		'ndf_filters_heading_icon',
@@ -158,6 +166,7 @@ function ndf_filters_heading_section_register_settings() {
 
 	/* Register Heading Settings Section Fields */
 	register_setting( 'ndf_filters_heading_settings_option', 'ndf_filters_heading_show' );
+	register_setting( 'ndf_filters_heading_settings_option', 'ndf_filters_show_filter_table' );
 	register_setting( 'ndf_filters_heading_settings_option', 'ndf_filters_heading_icon');
 	register_setting( 'ndf_filters_heading_settings_option', 'ndf_filters_heading_label' );
 	register_setting( 'ndf_filters_heading_settings_option', 'ndf_filters_heading_style' );
@@ -188,6 +197,15 @@ function ndf_filters_heading_show_callback($args) {
     echo $html;
      
 } /* end ndf_filters_heading_show_callback */
+
+function ndf_filters_show_filter_table_callback($args) {
+	$ndf_filters_show_filter_table = get_option( 'ndf_filters_show_filter_table', 0 );
+
+    $html = '<input type="checkbox" id="ndf_filters_show_filter_table" name="ndf_filters_show_filter_table" value="1" ' . checked( 1, $ndf_filters_show_filter_table, false ) . '/>'; 
+    echo $html;
+     
+} /* end ndf_filters_show_filter_table_callback */
+
  
 function ndf_filters_heading_label_callback($args) {
 	$ndf_filters_heading_label = get_option( 'ndf_filters_heading_label', 'Filters' );

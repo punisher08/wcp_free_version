@@ -77,7 +77,7 @@
                         <tr><td>Request:</td><td>'.$client_request.'</td></tr>
                     </table>';
                     
-        $subject = get_site_url()." Requesting Quotes";
+        $subject = "You have received a quote request from :".get_site_url();
         $headers = array('Content-Type: text/html; charset=UTF-8');
         
           $to_send = array();

@@ -274,8 +274,7 @@ add_filter( 'manage_quotesentry_posts_columns', 'quotesentry_remove_column');
 function quotesentry_entries_columns_content( $column_name, $post_ID )
     {
         if ( $column_name == 'requesting' ) {
-            echo  get_post_meta( $post_ID, 'quotes_sender_email_field', true ) ;
-			echo $post_ID;
+            echo  get_post_meta( $post_ID, 'quotes_sender_email_field', true ) ;		
         }
 		if ( $column_name == 'status' ) {
 			$status = get_post_status($post_ID);
