@@ -45,6 +45,18 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_section'
 	);
 	add_settings_field( 
+		'request_quotes_form_title_position',
+		'Form Title Align',
+		'request_quotes_form_title_position_callback',
+		'request_quotes_form_settings_option',
+		'request_quotes_form_settings_section',
+		array(
+			'Left' => 'left',
+			'Center' => 'center',
+			'Right' => 'right'
+		)
+	);
+	add_settings_field( 
 		'request_quotes_form_title_font_size',
 		'Title Font Size',
 		'request_quotes_form_title_font_size_callback',
@@ -76,6 +88,18 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_subtitle_callback',
 		'request_quotes_form_settings_option',
 		'request_quotes_form_settings_section'
+	);
+	add_settings_field( 
+		'request_quotes_form_content_position',
+		'Content Align',
+		'request_quotes_form_content_position_callback',
+		'request_quotes_form_settings_option',
+		'request_quotes_form_settings_section',
+		array(
+			'Left' => 'left',
+			'Center' => 'center',
+			'Right' => 'right'
+		)
 	);
 	add_settings_field( 
 		'request_quotes_form_input_width',
@@ -111,10 +135,12 @@ function request_quotes_form_register_settings() {
 		
 	register_setting( 'request_quotes_form_settings_option', 'show_request_quotes_form' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title' );
+	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_position' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_font_size' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_font_weight' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_text_color' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_subtitle' );
+	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_content_position' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_formbackground_color' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_input_width' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_submit_button_text' );
@@ -148,6 +174,15 @@ function request_quotes_form_title_callback($args){
 	$html = '<input style="width:50%" type="text" id="request_quotes_form_title" name="request_quotes_form_title" value="'.$request_quotes_form_title.'" />'; 
 	echo $html;
 }
+function request_quotes_form_title_position_callback($args){
+	$request_quotes_form_title_position = get_option( 'request_quotes_form_title_position', 'center' );
+	$html = "<select name='request_quotes_form_title_position' class='ndf_dropdown'>";
+	foreach( $args as $option_key => $option_value ){
+		$html .= "<option value='".$option_key."' ".selected( $request_quotes_form_title_position, $option_key, false ).">".$option_key."</option>";
+	}
+	$html .= "</select>";
+	echo $html;;
+}
 function request_quotes_form_title_font_size_callback($args){
 	$request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '25px' );
 	$html = '<input type="text" id="request_quotes_form_title_font_size" name="request_quotes_form_title_font_size" value="'.$request_quotes_form_title_font_size.'" />'; 
@@ -175,6 +210,15 @@ function request_quotes_form_subtitle_callback($args){
 	echo $html;
 }
 
+function request_quotes_form_content_position_callback($args){
+	$request_quotes_form_content_position = get_option( 'request_quotes_form_content_position', 'center' );
+	$html = "<select name='request_quotes_form_content_position' class='ndf_dropdown'>";
+	foreach( $args as $option_key => $option_value ){
+		$html .= "<option value='".$option_key."' ".selected( $request_quotes_form_content_position, $option_key, false ).">".$option_key."</option>";
+	}
+	$html .= "</select>";
+	echo $html;;
+}
 function request_quotes_form_input_width_callback($args){
 	$request_quotes_form_input_width = get_option( 'request_quotes_form_input_width', '100%' );
 	$html = '<input type="text" id="request_quotes_form_input_width" name="request_quotes_form_input_width" value="'.$request_quotes_form_input_width.'" />'; 

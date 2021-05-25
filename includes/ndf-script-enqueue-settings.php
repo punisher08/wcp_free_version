@@ -200,29 +200,40 @@ $request_quotes_form_font_weight = get_option( 'request_quotes_form_font_weight'
 $request_quotes_form_submit_button_color = get_option( 'request_quotes_form_submit_button_color', '#fff' );
 $request_quotes_form_input_width = get_option( 'request_quotes_form_input_width', '100%' );
 $request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', 'auto' );
+$request_quotes_form_title_position = get_option( 'request_quotes_form_title_position', 'center' );
+$request_quotes_form_content_position = get_option( 'request_quotes_form_content_position', 'center' );
 
 
 
 ?>
 <style type="text/css">
+.quotes-form-content{
+	text-align:<?=$request_quotes_form_content_position;?>
+}
 #default-quotes-form-container input,.text-area-form-default{
 	width:<?=$request_quotes_form_input_width;?>;
 }
-#default-quotes-form-container{
+#default-quotes-form-container p{
 	color:<?=$request_quotes_form_text_color;?>;
+	text-align:<?=$request_quotes_form_title_position;?>;
 }
 
 .get-quotes{
 	background-color:<?=$request_quotes_form_submit_button_color;?>;
 	width:<?=$request_quotes_form_submit_button_width?>;
 }
+#quotes-form-container input,.text-area-form{
+	width:<?=$request_quotes_form_input_width;?>;
+}
 #quotes-form-container p{
 	color:<?=$request_quotes_form_text_color;?>;
+	text-align:<?=$request_quotes_form_title_position;?>;
 }
 .get-form-title{
 	color:<?=$request_quotes_form_text_color;?>;
 	font-size:<?=$request_quotes_form_title_font_size;?>;
 	font-weight:<?=$request_quotes_form_font_weight;?>;
+	text-align:<?=$request_quotes_form_title_position;?>;
 }
 .form-box{
 	background-color:<?=$request_quotes_formbackground_color;?>;

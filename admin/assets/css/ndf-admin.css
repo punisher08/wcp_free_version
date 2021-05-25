@@ -48,14 +48,14 @@
  .fields-row{
 	 display: flex;
  }
- .fields-first-section{
+ .fields-second-section{
 	/* width: auto; */
-	width: 60%;
-	margin-right: 20px;
+	/* width: 60%; */
 	min-width: 30%;
  }
- .fields-second-section{
+ .fields-first-section{
 	width: -webkit-fill-available;
+	margin-right: 20px;
 }
  
  .custom-btn{

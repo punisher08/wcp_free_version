@@ -30,7 +30,7 @@
                     <div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>
                     <div class="get-form-title"><?=$request_quotes_form_title;?></div>
                     <p><?=$request_quotes_form_subtitle;?></p>    
-                    <form method="post" action="">
+                    <form method="post" action="" class="quotes-form-content">
                         <input type="text" placeholder="Name" name="client-name" required>
                         <input type="email" placeholder="Email" name="client-email" required>
                         <input type="text" placeholder="Phone"  name="client-phone">
@@ -47,7 +47,7 @@
                 <div class="form-box-default">
                 <div class="get-form-title"><?=$request_quotes_form_title;?></div>
                 <p><?=$request_quotes_form_subtitle;?></p> 
-                    <form action="" method="post">
+                    <form action="" method="post" class="quotes-form-content">
                         <input type="text" placeholder="Name" name="client-name" required><br>
                         <input type="email" placeholder="Email" name="client-email" required><br>
                         <input type="text" placeholder="Phone"  name="client-phone">
@@ -70,9 +70,15 @@
         $client_email = $_POST['client-email'];
         $client_phone = $_POST['client-phone'];
         $client_request = $_POST['client-request'];
-        $subject = "Requesting a Quotes";
-        $headers = 'From: '. $client_email . "\r\n" .
-          'Reply-To: ' . $client_email . "\r\n";
+        $message = '<table>
+                        <tr><td>Name:</td><td>'.$name.'</td></tr>
+                        <tr><td>Email:</td><td>'.$client_email.'</td></tr><tr>
+                        <td>Phone:</td><td>'.$client_phone.'</td></tr>
+                        <tr><td>Request:</td><td>'.$client_request.'</td></tr>
+                    </table>';
+                    
+        $subject = get_site_url()." Requesting Quotes";
+        $headers = array('Content-Type: text/html; charset=UTF-8');
         
           $to_send = array();
           $counter = 0;
@@ -87,7 +93,7 @@
           endwhile;
 
           foreach($to_send as $recipient_email):
-              $sent = wp_mail($recipient_email, $subject, strip_tags($client_request), $headers);
+              $sent = wp_mail($recipient_email, $subject,$message, $headers);
               if($sent)
               {
                         $post_type = 'quotesentry';

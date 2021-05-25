@@ -8,16 +8,16 @@
  * @author 		Netseek Pty Ltd
  */
 ?>
-<div class="fields-second-section">
-	<div class="more_info_ajax_result"></div>
-	<div class="more_info_fields">
-	
+<div class="fields-row">
+	<div class="fields-first-section">
+		<div class="more_info_ajax_result"></div>
+		<div class="more_info_fields">
 	<?php
 	$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields ORDER BY field_order ASC" );
 
 	if( empty( $field_rows ) ){
 		echo '<table class="wp-list-table widefat ndf_no_border" style="width:100%;"><tbody><tr>';
-		echo '<td><em>No fields added.</em></td>';
+		echo '<td><em>More info settings doesn`t have any fields yet. Select the fields on the Add more info field. </em> <span class="dashicons dashicons-arrow-right-alt"></span></td>';
 		echo '<tr></tbody></table>';
 	}
 	else{
@@ -169,4 +169,3 @@
 	?>
 		</div>
 	</div>
-</div>  <!-- end row -->

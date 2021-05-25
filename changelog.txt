@@ -11,6 +11,9 @@ Quotes Form Settings Field
 8 change button color
 9 change button width
 10.Change table heading and added Custom fields on Quotes Form Entries
+11. Change Content alignment
+12. Change title alignment
+13. change input field width
 
 = 1.7.3.1 =
 1.update the look of tables on More info settings field

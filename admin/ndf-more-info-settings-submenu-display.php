@@ -156,8 +156,8 @@
 	<div class="scroll">
 	<?php
 	if( $active_tab == 'fields' ) {
-		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-add-new-field.php';
 		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-fields.php';
+		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-add-new-field.php';
 	}
 	else if( $active_tab == 'summary' ){
 		?>

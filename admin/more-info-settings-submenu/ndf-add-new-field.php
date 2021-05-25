@@ -10,10 +10,9 @@
  */
 ?>
 <div class="errorText"></div>
-<form id="ndf_more_info_fields_add" method="post" action="admin.php?page=wcp-more-info-settings&tab=fields&field-saved">
+<div class="fields-second-section">
+	<form id="ndf_more_info_fields_add" method="post" action="admin.php?page=wcp-more-info-settings&tab=fields&field-saved">
 <!-- <table style="width:800px;"> -->
-<div class="fields-row">
-	<div class="fields-first-section">
 		<table>
 		<tbody>
 			<tr>
@@ -117,4 +116,5 @@
 		<?php submit_button( 'Add Field', 'primary custom-btn', 'add_fields' ); ?>
 		</form>
 	</div><!-- end field first section -->
+</div>  <!-- end row -->
 			
