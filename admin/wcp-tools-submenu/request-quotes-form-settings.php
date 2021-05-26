@@ -63,6 +63,13 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_option',
 		'request_quotes_form_settings_section'
 	);
+	add_settings_field( 
+		'request_quotes_form_title_line_height',
+		'Title line height',
+		'request_quotes_form_title_line_height_callback',
+		'request_quotes_form_settings_option',
+		'request_quotes_form_settings_section'
+	);
 	add_settings_field(
 		'request_quotes_form_font_weight',
 		'Title Font Weight',
@@ -137,6 +144,7 @@ function request_quotes_form_register_settings() {
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_position' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_font_size' );
+	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_line_height' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_font_weight' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_text_color' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_subtitle' );
@@ -186,6 +194,11 @@ function request_quotes_form_title_position_callback($args){
 function request_quotes_form_title_font_size_callback($args){
 	$request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '25px' );
 	$html = '<input type="text" id="request_quotes_form_title_font_size" name="request_quotes_form_title_font_size" value="'.$request_quotes_form_title_font_size.'" />'; 
+	echo $html;;
+}
+function request_quotes_form_title_line_height_callback($args){
+	$request_quotes_form_title_line_height = get_option( 'request_quotes_form_title_line_height', '' );
+	$html = '<input type="text" id="request_quotes_form_title_line_height" name="request_quotes_form_title_line_height" value="'.$request_quotes_form_title_line_height.'" />'; 
 	echo $html;;
 }
 function request_quotes_form_font_weight_callback($args){

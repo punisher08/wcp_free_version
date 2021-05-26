@@ -14,6 +14,7 @@ Quotes Form Settings Field
 11. Change Content alignment
 12. Change title alignment
 13. change input field width
+14.Change title line height
 
 = 1.7.3.1 =
 1.update the look of tables on More info settings field

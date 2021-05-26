@@ -203,7 +203,7 @@ $request_quotes_form_input_width = get_option( 'request_quotes_form_input_width'
 $request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', 'auto' );
 $request_quotes_form_title_position = get_option( 'request_quotes_form_title_position', 'center' );
 $request_quotes_form_content_position = get_option( 'request_quotes_form_content_position', 'center' );
-
+$request_quotes_form_title_line_height = get_option( 'request_quotes_form_title_line_height', '' );
 // 
 $ndf_filters_show_filter_table = get_option( 'ndf_filters_show_filter_table', 0 );
 
@@ -379,7 +379,12 @@ p#wcp_keyword_search_p{
 }
 
 @media all and (max-width: 768px) {
-	.ndf_filter_container{
+.form-box{
+	width:90% !important;
+	top:50px !important;
+	line-height:<?=$request_quotes_form_title_line_height;?>;
+}
+.ndf_filter_container{
 		border: <?php echo $ndf_filters_table_border_width; ?>px solid <?php echo $ndf_filters_table_border_color; ?>;
 	}
 }
