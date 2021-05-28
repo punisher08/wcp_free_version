@@ -20,7 +20,7 @@
 		echo '<td><em>More info settings doesn`t have any fields yet. Select the fields on the Add more info field. </em> <span class="dashicons dashicons-arrow-right-alt"></span></td>';
 		echo '<tr></tbody></table>';
 	}
-	else{
+	else{ 
 	foreach( $field_rows as $field_row ){
 		?>
 		
@@ -33,7 +33,8 @@
 						<tr>
 							<td style="width:20%;">Field Key</td>
 							<td style="width:80%;"><input type="text" value="ndf_fields_<?php echo esc_attr__( $field_row->ID ); ?>" disabled="disabled"></td>
-						</tr><tr>
+						</tr>
+						<tr>
 							<td style="width:20%;">Field Label</td>
 							<td style="width:80%;"><input type="text" name="label" value="<?php echo esc_attr__( $field_row->label ); ?>" required data-msg="Please enter a field label"></td>
 						</tr>
@@ -148,6 +149,36 @@
 							<td>
 								<label><input type="radio" name="required" value="0" <?php echo checked( $field_row->required, 0 ) ?>> No</label>
 								<label><input type="radio" name="required" value="1" <?php echo checked( $field_row->required, 1 ) ?>> Yes</label>
+							</td>
+						</tr>
+						<tr>
+							<td style="width:20%;">Field Section</td>
+							<!-- <td style="width:80%;"><input type="text" name="field_group"value="ndf_fields_< ?php echo esc_attr__( $field_row->field_group ); ?>"></td> -->
+							<td style="width:80%;">
+							<?php
+							$field_groups_settings = array();
+							$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
+							$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
+							$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
+							$register_section_4_name = get_option( 'register_section_4_name', 'Section 4' );
+							$register_section_5_name = get_option( 'register_section_5_name', 'Section 5' );
+							$field_groups_settings [] =  $register_section_1_name;
+							$field_groups_settings [] =  $register_section_2_name;
+							$field_groups_settings [] =  $register_section_3_name;
+							$field_groups_settings [] =  $register_section_4_name;
+							$field_groups_settings [] =  $register_section_5_name;
+
+							$val = isset($field_row->field_group) ? esc_attr($field_row->field_group) : '';
+							?>
+							<select name="field_group" value="">
+							<?php
+							foreach($field_groups_settings as $section_id => $section_name):
+							?>
+							<option <?php echo (($val==$section_name)?"selected":"") ?>><?php  echo $section_name; ?></option>
+							<?php
+							endforeach;
+							?>
+							</select>
 							</td>
 						</tr>
 						<?php echo $field_attributes; ?>

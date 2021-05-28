@@ -109,6 +109,7 @@
 					<label><input type="radio" name="required" value="1"> Yes</label>
 				</td>
 			</tr>
+			
 			<?php echo $field_attributes; ?>
 		</tbody>
 		</table>

@@ -22,13 +22,14 @@
 	display: inline-block;
 	text-align: left;
 	border-radius: 7px;
-	background: #eee;
+	/* background: #eee; */
 	padding: 1em 2em;
 	outline: none;
 	border: none;
 	color: #222;
 	transition: 0.3s linear;
   margin-top: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 ::placeholder{color: #999;}
 .text-area-form:focus {background: rgba(0, 0, 333, 0.10);} 
@@ -103,7 +104,8 @@
 	display: inline-block;
 	text-align: left;
 	border-radius: 7px;
-	background: #eee;
+	/* background: #eee; */
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 	padding: 1em 2em;
 	outline: none;
 	border: none;

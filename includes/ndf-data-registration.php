@@ -470,3 +470,16 @@ function ndf_register_data() {
 	register_post_type( 'wcp_enquiry_entries', $args );
 }
 add_action( 'init', 'ndf_register_data', 0 );
+
+
+// NDF SINGLE POST TEMPLATES
+function load_quotesentry_template( $template ) {
+    global $post;
+    if ( $post->post_type == 'test'   ) {
+		if ( file_exists( NDF_BASE_DIR . '/single-post.php' ) ) {
+			return NDF_BASE_DIR. '/single-post.php';
+        }
+    }
+    return $template;
+}
+add_filter( 'single_template', 'load_quotesentry_template' );

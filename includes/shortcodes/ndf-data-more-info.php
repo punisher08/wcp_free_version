@@ -195,6 +195,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 	}
 	.ndf_more_info_summary ul.frxp-list li div{
 		text-align: left;
+		border:none;
 	}
 	.ndf_more_info_summary ul.frxp-list ul{
 		padding-left: 10px;
@@ -451,7 +452,8 @@ function ndf_data_more_info_shortcode( $atts ) {
 			
 			if( !empty( $data_cat_1_value ) ){
 				if( empty( $ndf_summary_divider ) ){
-					$ndf_summary_divider = '<hr class="ndf_summary_divider">';
+					// $ndf_summary_divider = '';
+					$ndf_summary_divider = '';
 				}
 				else{
 					$output .= $ndf_summary_divider;
@@ -483,7 +485,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 			}
 			if( !empty( $data_cat_2_value ) ){
 				if( empty( $ndf_summary_divider ) ){
-					$ndf_summary_divider = '<hr class="ndf_summary_divider">';
+					$ndf_summary_divider = '';
 				}
 				else{
 					$output .= $ndf_summary_divider;
@@ -516,7 +518,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 			
 			if( !empty( $data_cat_3_value ) ){
 				if( empty( $ndf_summary_divider ) ){
-					$ndf_summary_divider = '<hr class="ndf_summary_divider">';
+					$ndf_summary_divider = '';
 				}
 				else{
 					$output .= $ndf_summary_divider;
@@ -548,7 +550,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 			
 			if( !empty( $data_cat_4_value ) ){
 				if( empty( $ndf_summary_divider ) ){
-					$ndf_summary_divider = '<hr class="ndf_summary_divider">';
+					$ndf_summary_divider = '';
 				}
 				else{
 					$output .= $ndf_summary_divider;
@@ -580,7 +582,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 			
 			if( !empty( $data_cat_5_value ) ){
 				if( empty( $ndf_summary_divider ) ){
-					$ndf_summary_divider = '<hr class="ndf_summary_divider">';
+					$ndf_summary_divider = '';
 				}
 				else{
 					$output .= $ndf_summary_divider;
@@ -616,7 +618,11 @@ function ndf_data_more_info_shortcode( $atts ) {
 				$ndf_more_info_value = '';
 				$fields_holder = '';
 				$ndf_meta_field_data = ndf_data_settings_get_meta( 'ndf_fields_'.$field_row->ID, $id );
-
+				// section fields checker
+				if($field_row->field_group == 'section1'){
+					echo $field_row->field_group;
+				}
+				// end section field
 				if( $field_row->field_type == 'section' ){
 					$section_holder .= '<div class="frxp-grid">';
 						$section_holder .= '<div class="frxp-width-1-1 title full">';
@@ -645,7 +651,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 						if( !empty( $name_fields_holder ) ){
 							echo $name_holder.$name_fields_holder;
 						}
-					}
+					} 
 					else{
 						if( $field_row->field_type == 'checkbox' || $field_row->field_type == 'list' ){
 							$list_class = 'ndf_list_pill';

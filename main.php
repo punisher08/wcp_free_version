@@ -49,6 +49,10 @@ if ( !function_exists( 'wcp_fs' ) ) {
     // Signal that SDK was initiated.
     do_action( 'wcp_fs_loaded' );
     /*
+    * Field Groups Section Settings
+    */
+    include NDF_BASE_DIR . '/admin/more-info-settings-submenu/field-section-group.php';
+    /*
      * Enqueue Scripts and Styles.
      */
     require_once NDF_BASE_DIR . '/includes/ndf-script-enqueue.php';

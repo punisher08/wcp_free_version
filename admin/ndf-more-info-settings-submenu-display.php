@@ -145,6 +145,7 @@
 		<!-- <h2 class="nav-tab-wrapper"> -->
 		<h2 class="sidenav">
 			<a href="?page=wcp-more-info-settings&tab=fields" class="nav-tab-new <?php echo $active_tab == 'fields' ? 'nav-tab-active-set' : ''; ?>">Fields</a>
+			<a href="?page=wcp-more-info-settings&tab=fieldgroup" class="nav-tab-new <?php echo $active_tab == 'fieldgroup' ? 'nav-tab-active-set' : ''; ?>">Field Groups</a>
 			<a href="?page=wcp-more-info-settings&tab=preview" class="nav-tab-new <?php echo $active_tab == 'preview' ? 'nav-tab-active-set' : ''; ?>">Preview</a>
 			<a href="?page=wcp-more-info-settings&tab=summary" class="nav-tab-new <?php echo $active_tab == 'summary' ? 'nav-tab-active-set' : ''; ?>">Summary</a>
 			<a href="?page=wcp-more-info-settings&tab=ui-settings" class="nav-tab-new <?php echo $active_tab == 'ui-settings' ? 'nav-tab-active-set' : ''; ?>">UI Settings</a>
@@ -158,6 +159,10 @@
 	if( $active_tab == 'fields' ) {
 		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-fields.php';
 		include NDF_BASE_DIR . '/admin/more-info-settings-submenu/ndf-add-new-field.php';
+	}
+	elseif($active_tab == 'fieldgroup'){
+		// include NDF_BASE_DIR . '/admin/more-info-settings-submenu/field-section-group.php';
+		include NDF_BASE_DIR . '/admin/field-section-group-display.php';
 	}
 	else if( $active_tab == 'summary' ){
 		?>
