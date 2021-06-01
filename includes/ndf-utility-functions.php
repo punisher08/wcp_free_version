@@ -254,7 +254,7 @@ function ndf_show_filters_hierarchy( $taxonomy, $parent = 0, $term_slug = array(
 				}
 				else if( $style == 3 ){
 					/* Data Results Section List */
-					$output .= '<li class="' . $ndf_category_display_type . '"><div>';
+					$output .= '<div class="' . $ndf_category_display_type . '"><div>';
 					if( $parent != 0 ){
 						if( $ndf_category_display_type == 'icon' ){
 							$output .= '<img src="' . esc_url( $ndf_category_term_image_icon ) . '" title="' . $term->name .'" alt="' . $term->name .'" class="ndf_category_small_image">';
@@ -272,7 +272,7 @@ function ndf_show_filters_hierarchy( $taxonomy, $parent = 0, $term_slug = array(
 						}
 					}
 					$output .= ndf_show_filters_hierarchy( $taxonomy, $current_term_id, $term_slug, $style );
-					$output .= '</div></li>';
+					$output .= '</div></div>';
 				}
 				else if( $style == 4 ){
 					/* Data Results Section List - New */
@@ -337,6 +337,7 @@ function ndf_show_filters_hierarchy( $taxonomy, $parent = 0, $term_slug = array(
 			else{
 				$output_start = '<ul class="frxp-list">';
 				if( $parent != 0 && $style == 3 ){
+					// $output_start = '<ul class="">';
 					$output_start = '<ul class="">';
 				}
 				$output_end = "</ul>";

@@ -18,6 +18,31 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
+ .categories-row{
+  margin-left: 60px;
+  margin-right: 60px;
+ }
+ .cat-title{
+   color: #FF6600;
+   font-weight: 700;
+ }
+ .col-one-half{
+   width: 50%;
+ }
+
+ .cat-rows{
+   display: flex;
+ }
+ .ndf_data_summary_star_rating{
+   width: 50%;
+ }
+ .ndf_data_row_title{
+   display: flex;
+ }
+ .title-logo-row{
+   display: grid;
+   width: 50%;
+ }
  #default-quotes-form-container input,.text-area-form-default {
 	display: inline-block;
 	text-align: left;

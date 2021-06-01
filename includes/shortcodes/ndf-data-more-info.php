@@ -198,10 +198,13 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border:none;
 	}
 	.ndf_more_info_summary ul.frxp-list ul{
-		padding-left: 10px;
+		padding-left: 0px;
+		margin-bottom:10px !important;
+		font-weight:600;
+		/* display:flex; */
 	}
 	.ndf_data_summary_star_rating{
-		text-align: left;
+		text-align: right;
 		padding: 5px 0px;
 	}
 	.ndf_data_summary_star_rating i{
@@ -209,8 +212,8 @@ function ndf_data_more_info_shortcode( $atts ) {
 		font-size: 2em;
 	}
 	img.ndf_data_summary_logo{
-		max-height: 90px;
-    	max-width: 170px;
+		/* max-height: 90px; */
+    	/* max-width: 170px; */
 		float: left;
 		display:inline-block;
 		padding-right: 20px;
@@ -237,6 +240,15 @@ function ndf_data_more_info_shortcode( $atts ) {
 	#ndf_more_info_fields ol, #ndf_more_info_fields ul, .ndf_more_info_summary ol, .ndf_more_info_summary ul{
 		margin-left: 0px;
 		list-style-position: inside;
+
+}
+	.ndf_more_info_summary{
+		padding: 20px;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			box-sizing: border-box;
+			border-radius: 10px;
+	}
+
 	}
 	#ndf_more_info_fields .data ol, #ndf_more_info_fields .data ul{
 		display: inline-block;
@@ -305,6 +317,36 @@ function ndf_data_more_info_shortcode( $atts ) {
 		font-size: <?php echo $ndf_more_info_fields_summary_table_header_font_size; ?>;
 		color: <?php echo $ndf_more_info_fields_summary_table_header_fontcolor; ?>;
 	}
+	.ndf_data_sections{
+	display: flex;
+    justify-content: space-evenly;
+	font-size: 18px;
+	font-weight:600;
+	margin-top:30px;
+	margin-bottom:30px;
+	}
+	.ndf_data_sections a:hover{
+	text-decoration:none;
+	color:#FF6600;
+	
+	}
+	.ndf_data_sections a{
+	color:#000000;
+	font-weight:700;
+	}
+	.ndf_data_sections .active{
+		color:#FF6600;
+	}
+	.ndf_data_sections .active::after{
+	    content: '';
+		border-bottom: 3px solid #C4C4C4;
+		display: block;
+		margin: 0 auto;
+		width: 180%;
+		margin-left: -25px;
+		margin-top: 10px;
+
+	}
 	<?php
 	$ndf_button_style_configuration = get_option( 'ndf_button_style_configuration' );
 
@@ -340,9 +382,13 @@ function ndf_data_more_info_shortcode( $atts ) {
 		}
 	}
 	echo $button_css;
+
 	?>
 	</style>
-	<div class="frxp-flex frxp-flex-left frxp-flex-middle">
+
+	<!-- <div class="frxp-flex frxp-flex-left frxp-flex-middle"> -->
+	<div class="ndf_data_row_title">
+	<div class="title-logo-row">
 		<?php
 		$data_title = esc_url( ndf_data_settings_get_meta( 'ndf_data_settings_data_heading', $id ) );
 		if( $data_title ){
@@ -350,6 +396,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 			echo '<div>' . $data_title . '</div>';
 		}
 		?>
+		
 		<div><<?php echo $ndf_more_info_fields_heading_style; ?> class="ndf_summary_title"><?php echo get_the_title($id); ?></<?php echo $ndf_more_info_fields_heading_style; ?>></div>
 	</div>	
 		<?php
@@ -380,6 +427,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		}
 		echo $star_output;
 		/* EO Star Ratings */
+		echo '</div>';
 		?>
 		<div class="frxp-clearfix"></div>
 		<?php
@@ -452,17 +500,25 @@ function ndf_data_more_info_shortcode( $atts ) {
 			
 			if( !empty( $data_cat_1_value ) ){
 				if( empty( $ndf_summary_divider ) ){
-					// $ndf_summary_divider = '';
 					$ndf_summary_divider = '';
 				}
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				$output .= "<div class='frxp-grid'>";
-				$output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_1_label."</strong></div>";
-				$output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_1_value)."</div>";
-				$output .= "</div>";
+				// $output .= "<div class='frxp-grid'>";
+				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_1_label."</strong></div>";
+				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_1_value)."</div>";
+				// $output .= "</div>";
+				$output.="<div class='categories-row'>";
+				$output.="<div class='cat-rows'>";
+				$output.="
+				<div class='col-one-half'>
+					<div class='cat-title'>".$get_cat_1_label."</div>
+					<div class='cat-values'>".do_shortcode($data_cat_1_value)."</div>
+				</div>";
+
 			}
+			
 		}
 
 
@@ -490,11 +546,17 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				$output .= "<div class='frxp-grid'>";
-			
-				$output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_2_label."</strong></div>";
-				$output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_2_value)."</div>";
-				$output .= "</div>";
+				// $output .= "<div class='frxp-grid'>";
+				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle' ><strong>".$get_cat_2_label."</strong></div>";
+				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6' >".do_shortcode($data_cat_2_value)."</div>";
+				// $output .= "</div>";
+
+				$output.="
+				<div class='col-one-half'>
+					<div class='cat-title'>".$get_cat_2_label."</div>
+					<div class='cat-values'>".do_shortcode($data_cat_2_value)."</div>
+				</div>";
+				$output.="</div>";/* end row-1 */
 			}
 		}
 
@@ -523,10 +585,16 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				$output .= "<div class='frxp-grid'>";
-				$output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_3_label."</strong></div>";
-				$output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_3_value)."</div>";
-				$output .= "</div>";
+				// $output .= "<div class='frxp-grid'>";
+				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_3_label."</strong></div>";
+				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_3_value)."</div>";
+				// $output .= "</div>";
+				$output.="<div class='cat-rows'>";
+				$output.="
+				<div class='col-one-half'>
+					<div class='cat-title'>".$get_cat_3_label."</div>
+					<div class='cat-values'>".do_shortcode($data_cat_3_value)."</div>
+				</div>";
 			}
 		}
 
@@ -555,10 +623,16 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				$output .= "<div class='frxp-grid'>";
-				$output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_4_label."</strong></div>";
-				$output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_4_value)."</div>";
-				$output .= "</div>";
+				// $output .= "<div class='frxp-grid'>";
+				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_4_label."</strong></div>";
+				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_4_value)."</div>";
+				// $output .= "</div>";
+				$output.="
+				<div class='col-one-half'>
+					<div class='cat-title'>".$get_cat_4_label."</div>
+					<div class='cat-values'>".do_shortcode($data_cat_4_value)."</div>
+				</div>";
+				$output.="</div>";
 			}
 		}
 
@@ -587,42 +661,69 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				$output .= "<div class='frxp-grid'>";
-				$output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  frxp-flex-middle'><strong>".$get_cat_5_label."</strong></div>";
-				$output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_5_value)."</div>";
-				$output .= "</div>";
+				// $output .= "<div class='frxp-grid'>";
+				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  frxp-flex-middle'><strong>".$get_cat_5_label."</strong></div>";
+				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_5_value)."</div>";
+				// $output .= "</div>";
+				$output.="
+				<div>
+					<div class='cat-title'>".$get_cat_5_label."</div>
+					".do_shortcode($data_cat_5_value)."
+				</div>";
 			}
+			$output .= "</div>";
+		
 		}
 		/* EO SUMMARY */
+		$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
+		$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
+		$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
+		$register_section_4_name = get_option( 'register_section_4_name', 'Section 4' );
+		$register_section_5_name = get_option( 'register_section_5_name', 'Section 5' );
+	 	$ndf_more_info_fields_summary_label = get_option('ndf_more_info_fields_summary_label', 'Summary' );
+	 	?>
+<div class="ndf_summary_row">
+	<div class="ndf_more_info_summary">
+		<div class="ndf_data_sections">
+			<a href="" class="active"><?=$ndf_more_info_fields_summary_label;?></a>
+			<a href=""><?=$register_section_1_name;?></a>
+			<a href=""><?=$register_section_2_name;?></a>
+			<a href=""><?=$register_section_3_name;?></a>
+			<!-- <a href=""><?=$register_section_4_name;?></a> -->
+			<!-- <a href="">< ?=$register_section_5_name;?></a> -->
+		</div>
+ 
+	 <?php
 
 		if( !empty( $output ) ){
 			$ndf_more_info_fields_summary_label = get_option('ndf_more_info_fields_summary_label', 'Summary' );
-			echo '<div class="ndf_more_info_summary">';
+
 			if( !empty( $ndf_more_info_fields_summary_label ) ){
-				echo '<'.$ndf_more_info_fields_summary_label_heading_style.' class="ndf_summary_label frxp-text-left">'.$ndf_more_info_fields_summary_label.'</'.$ndf_more_info_fields_summary_label_heading_style.'>';
+				// echo '<'.$ndf_more_info_fields_summary_label_heading_style.' class="ndf_summary_label frxp-text-left">'.$ndf_more_info_fields_summary_label.'</'.$ndf_more_info_fields_summary_label_heading_style.'>';
 			}
 			echo $output;
-			echo '</div>';
+			// echo '</div>';
 		}
-
 		echo '<div id="ndf_more_info_fields">';
 		global $wpdb;
 		$NDFFieldGenerator = new NDFFieldGenerator();
-
+		
 		$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
 		$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' ORDER BY field_order ASC" );
-
-		if( !empty(  $field_rows ) ){
+		$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
+		$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
+		$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
+		$register_section_4_name = get_option( 'register_section_4_name', 'Section 4' );
+		$register_section_5_name = get_option( 'register_section_5_name', 'Section 5' );
+		
+		if( !empty(  $field_rows ) )
+		{
 			$section_holder = '';	
-			foreach( $field_rows as $field_row ){
+			foreach($field_rows as $field_row)
+			{
 				$ndf_more_info_value = '';
 				$fields_holder = '';
 				$ndf_meta_field_data = ndf_data_settings_get_meta( 'ndf_fields_'.$field_row->ID, $id );
-				// section fields checker
-				if($field_row->field_group == 'section1'){
-					echo $field_row->field_group;
-				}
-				// end section field
 				if( $field_row->field_type == 'section' ){
 					$section_holder .= '<div class="frxp-grid">';
 						$section_holder .= '<div class="frxp-width-1-1 title full">';
@@ -632,7 +733,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 						$section_holder .= '</div>';
 					$section_holder .= '</div>';
 				}
-
+		
 				if( $ndf_meta_field_data ){
 					$name_holder = '';
 					$name_fields_holder = '';
@@ -646,6 +747,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 								$name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  frxp-flex-middle title"><strong>'.$label.'</strong></div>';
 								$name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6 data">'.$value.'</div>';
 								$name_fields_holder .= '</div>';
+								
 							}
 						}
 						if( !empty( $name_fields_holder ) ){
@@ -703,8 +805,10 @@ function ndf_data_more_info_shortcode( $atts ) {
 						}
 					}
 				}
+		
 			}
 		}
+		echo '</div>';
 		?>
 	</div>
 	<?php
