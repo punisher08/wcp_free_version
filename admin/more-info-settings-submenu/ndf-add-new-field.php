@@ -14,7 +14,7 @@
 	<form id="ndf_more_info_fields_add" method="post" action="admin.php?page=wcp-more-info-settings&tab=fields&field-saved">
 <!-- <table style="width:800px;"> -->
 		<table>
-		<tbody>
+		<tbody> 
 			<tr>
 				<h1>Add More Info fields</h1>
 				<td style="width:30%;" class="field-label-title">Field Label</td>
@@ -109,7 +109,30 @@
 					<label><input type="radio" name="required" value="1"> Yes</label>
 				</td>
 			</tr>
-			
+			<tr class="ndf_field_group">
+				
+				<td>Field Group</td>
+				<td>
+				<select name="field_group">
+					<?php
+								$field_groups_settings = array();
+								$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
+								$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
+								$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
+					
+								$field_groups_settings [] =  $register_section_1_name;
+								$field_groups_settings [] =  $register_section_2_name;
+								$field_groups_settings [] =  $register_section_3_name;
+
+								foreach($field_groups_settings as $section_id => $section_name):
+									echo '<option>'.$section_name.'</option>';
+								endforeach;
+					
+					?>
+					
+				</select>
+				</td>
+			</tr>
 			<?php echo $field_attributes; ?>
 		</tbody>
 		</table>

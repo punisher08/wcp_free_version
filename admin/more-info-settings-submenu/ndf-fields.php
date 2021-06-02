@@ -160,13 +160,11 @@
 							$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
 							$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
 							$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
-							$register_section_4_name = get_option( 'register_section_4_name', 'Section 4' );
-							$register_section_5_name = get_option( 'register_section_5_name', 'Section 5' );
+				
 							$field_groups_settings [] =  $register_section_1_name;
 							$field_groups_settings [] =  $register_section_2_name;
 							$field_groups_settings [] =  $register_section_3_name;
-							$field_groups_settings [] =  $register_section_4_name;
-							$field_groups_settings [] =  $register_section_5_name;
+				
 
 							$val = isset($field_row->field_group) ? esc_attr($field_row->field_group) : '';
 							?>

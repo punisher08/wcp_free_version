@@ -688,4 +688,24 @@ $(function($) {
 		$("#quotes-form-container").css("display","none");
 	});	
 	// end request form-quotes
+
+	$('.tabs-nav a').click(function(e) {
+		// e.preventDefault();
+		console.log(this);
+		$('.tabs-nav li').removeClass('active');
+		$(this).parent().addClass('active');
+		// let currentTab = $(this).attr('href');
+		// const x = document.querySelectorAll(".tab-content");
+		
+		// x.forEach(element => {
+		// 	$(element).css("display","none");
+		// });
+		// $(currentTab).css("display","block");
+	  });
+	//   end tab content function
+
+	var tabscontent = $('.tab-content >.frxp-grid');
+	for (var i = 0; i < tabscontent.length; i += 2) {
+    tabscontent.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
+}
 });

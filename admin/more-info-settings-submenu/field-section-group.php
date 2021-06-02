@@ -39,25 +39,11 @@ function register_field_groups_settings() {
 		'register_field_groups_option',
 		'register_field_groups_section'
 	);
-	add_settings_field( 
-		'register_section_4_name',
-		'Section 4',
-		'register_section_4_name_callback',
-		'register_field_groups_option',
-		'register_field_groups_section'
-	);
-	add_settings_field( 
-		'register_section_5_name',
-		'Section 5',
-		'register_section_5_name_callback',
-		'register_field_groups_option',
-		'register_field_groups_section'
-	);
+
     register_setting( 'register_field_groups_option', 'register_section_1_name' );
     register_setting( 'register_field_groups_option', 'register_section_2_name' );
     register_setting( 'register_field_groups_option', 'register_section_3_name' );
-    register_setting( 'register_field_groups_option', 'register_section_4_name' );
-    register_setting( 'register_field_groups_option', 'register_section_5_name' );
+    
 
 
 function register_field_groups_section_callback(){
@@ -79,15 +65,6 @@ function register_section_3_name_callback(){
 	$html = '<input type="text" id="register_section_3_name" name="register_section_3_name" value="'.$register_section_3_name.'" />'; 
 	echo $html;
 }
-function register_section_4_name_callback(){
-    $register_section_4_name = get_option( 'register_section_4_name', 'Section 4' );
-	$html = '<input type="text" id="register_section_4_name" name="register_section_4_name" value="'.$register_section_4_name.'" />'; 
-	echo $html;
-}
-function register_section_5_name_callback(){
-    $register_section_5_name = get_option( 'register_section_5_name', 'Section 5' );
-	$html = '<input type="text" id="register_section_5_name" name="register_section_5_name" value="'.$register_section_5_name.'" />'; 
-	echo $html;
-}
+
 
 }

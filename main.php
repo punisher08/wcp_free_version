@@ -244,6 +244,7 @@ if ( !function_exists( 'wcp_fs' ) ) {
         $ndf_table_name = $wpdb->prefix . 'ndf_data_filtering_saved_fields';
         $wp_charset_collate = $wpdb->get_charset_collate();
         $sql = "CREATE TABLE IF NOT EXISTS {$ndf_table_name} (\r\n\t\t`ID` bigint(20) NOT NULL AUTO_INCREMENT,\r\n\t\t`field_type` varchar(200) DEFAULT NULL,\r\n\t\t`label` varchar(200) DEFAULT NULL,\r\n\t\t`field_order` int(9) NOT NULL DEFAULT '0',\r\n\t\t`hidden` int(1) NOT NULL DEFAULT '0',\r\n\t\t`required` int(1) NOT NULL DEFAULT '0',\r\n\t\t`field_values` text,\r\n\t\t`default_value` text,\r\n\t\tPRIMARY KEY (`ID`)\r\n\t) {$wp_charset_collate};";
+    
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         dbDelta( $sql );
         $ndf_button_style_configuration = array(
@@ -474,7 +475,11 @@ if ( !function_exists( 'wcp_fs' ) ) {
         } else {
             $wcp_default_source_tags['more_info_button_click'] = $check_more_info_button_click['term_id'];
         }
-        
+        $add_column_field_group = $wpdb->get_row("SELECT * FROM {$ndf_table_name}");
+        //Add column if not present.
+        if(!isset($add_column_field_group->field_group)){
+            $wpdb->query("ALTER TABLE {$ndf_table_name} ADD field_group VARCHAR(200)");
+        }
         update_option( 'wcp_default_source_tags', $wcp_default_source_tags );
     }
     

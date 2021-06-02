@@ -1,4 +1,16 @@
 == Changelog ==
+
+= 1.7.3.3 =
+1. added field_group table ndf_saved_fields table on the database
+2.created Field Groups tab on the More Info Page Section.
+3.Created 3 section as maximum number of anchored tabs 
+4.created template directory inside include folder
+5.created secttion1.php,section2.php and section3.php template part for the selected section of the field inside template directory
+6.created option to change and to add field groups on Add More Fields section 
+7.created anchored tab navigation on page and modal more info 
+8. created 2 columns for each field rows.
+
+
 = 1.7.3.2 =
 Quotes Form Settings Field
 1 change form background color

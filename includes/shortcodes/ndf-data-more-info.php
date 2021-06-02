@@ -95,7 +95,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border-bottom-right-radius: <?php echo $ndf_more_info_fields_table_border_radius; ?>px;
 
 		background-color: <?php echo $ndf_more_info_fields_table_background_color; ?>;
-		border: <?php echo $ndf_more_info_fields_table_border_width.'px solid '.$ndf_more_info_fields_table_border_color ; ?>;
+		/* border: < ?php echo $ndf_more_info_fields_table_border_width.'px solid '.$ndf_more_info_fields_table_border_color ; ?>; */
 		border-left: none;
 		/*width: 60%;*/
 	}
@@ -122,7 +122,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border-right: none;
 		
 		vertical-align: middle;
-		/*width: 40%;*/
+		width: 100%;
 	}
 	#ndf_more_info_fields .title.full{
 		-webkit-border-top-right-radius: <?php echo $ndf_more_info_fields_table_border_radius; ?>px;
@@ -137,6 +137,9 @@ function ndf_data_more_info_shortcode( $atts ) {
 	}
 	#ndf_more_info_fields .title *{
 		color: <?php echo $ndf_more_info_fields_header_fontcolor; ?>;
+	}
+	.frxp-grid {
+		display:grid;
 	}
 	#ndf_more_info_fields .frxp-grid{
 		margin-top: <?php echo $ndf_more_info_fields_table_row_space; ?>px;
@@ -235,7 +238,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		margin: 10px 0px 10px !important;
 	}
 	#ndf_more_info_fields .ndf_clear.full{
-		/*width: 100%;*/
+		width: 50%;
 	}
 	#ndf_more_info_fields ol, #ndf_more_info_fields ul, .ndf_more_info_summary ol, .ndf_more_info_summary ul{
 		margin-left: 0px;
@@ -243,7 +246,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 
 }
 	.ndf_more_info_summary{
-		padding: 20px;
+			padding: 60px;
 			border: 1px solid rgba(0, 0, 0, 0.2);
 			box-sizing: border-box;
 			border-radius: 10px;
@@ -322,8 +325,8 @@ function ndf_data_more_info_shortcode( $atts ) {
     justify-content: space-evenly;
 	font-size: 18px;
 	font-weight:600;
-	margin-top:30px;
-	margin-bottom:30px;
+	margin-top:40px;
+	margin-bottom:40px !important;
 	}
 	.ndf_data_sections a:hover{
 	text-decoration:none;
@@ -334,7 +337,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 	color:#000000;
 	font-weight:700;
 	}
-	.ndf_data_sections .active{
+	.ndf_data_sections .active a{
 		color:#FF6600;
 	}
 	.ndf_data_sections .active::after{
@@ -342,8 +345,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border-bottom: 3px solid #C4C4C4;
 		display: block;
 		margin: 0 auto;
-		width: 180%;
-		margin-left: -25px;
+		width: 100%;
 		margin-top: 10px;
 
 	}
@@ -684,15 +686,12 @@ function ndf_data_more_info_shortcode( $atts ) {
 	 	?>
 <div class="ndf_summary_row">
 	<div class="ndf_more_info_summary">
-		<div class="ndf_data_sections">
-			<a href="" class="active"><?=$ndf_more_info_fields_summary_label;?></a>
-			<a href=""><?=$register_section_1_name;?></a>
-			<a href=""><?=$register_section_2_name;?></a>
-			<a href=""><?=$register_section_3_name;?></a>
-			<!-- <a href=""><?=$register_section_4_name;?></a> -->
-			<!-- <a href="">< ?=$register_section_5_name;?></a> -->
-		</div>
- 
+		<ul class="ndf_data_sections tabs-nav">
+			<li class="active" id=""><a href="#tab1"><?=$ndf_more_info_fields_summary_label;?></a></li>
+			<li><a href="#tab2"><?=$register_section_1_name;?></a></li>
+			<li><a href="#tab3"><?=$register_section_2_name;?></a></li>
+			<li><a href="#tab4"><?=$register_section_3_name;?></a></li>
+		</ul>
 	 <?php
 
 		if( !empty( $output ) ){
@@ -701,113 +700,47 @@ function ndf_data_more_info_shortcode( $atts ) {
 			if( !empty( $ndf_more_info_fields_summary_label ) ){
 				// echo '<'.$ndf_more_info_fields_summary_label_heading_style.' class="ndf_summary_label frxp-text-left">'.$ndf_more_info_fields_summary_label.'</'.$ndf_more_info_fields_summary_label_heading_style.'>';
 			}
+			?>
+			<!-- <div class="tab-content" id="tab1"> -->
+			<?php
 			echo $output;
 			// echo '</div>';
 		}
-		echo '<div id="ndf_more_info_fields">';
+		echo '<div id="ndf_more_info_fields" >';
 		global $wpdb;
 		$NDFFieldGenerator = new NDFFieldGenerator();
 		
 		$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
 		$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' ORDER BY field_order ASC" );
+	
+
 		$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
 		$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
 		$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
-		$register_section_4_name = get_option( 'register_section_4_name', 'Section 4' );
-		$register_section_5_name = get_option( 'register_section_5_name', 'Section 5' );
+
+		$field_rows_section1 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_1_name' and hidden = '0' ORDER BY field_order ASC" );
+		$field_rows_section2 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_2_name' ORDER BY field_order ASC" );
+		$field_rows_section3 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_3_name' ORDER BY field_order ASC" );
 		
-		if( !empty(  $field_rows ) )
-		{
-			$section_holder = '';	
-			foreach($field_rows as $field_row)
-			{
-				$ndf_more_info_value = '';
-				$fields_holder = '';
-				$ndf_meta_field_data = ndf_data_settings_get_meta( 'ndf_fields_'.$field_row->ID, $id );
-				if( $field_row->field_type == 'section' ){
-					$section_holder .= '<div class="frxp-grid">';
-						$section_holder .= '<div class="frxp-width-1-1 title full">';
-							$section_holder .= $NDFFieldGenerator->generateField( 
-							$field_row->field_type,  $field_row->label, $field_row->field_values, $field_row->default_value, $field_row->required, $field_row->field_values, $field_row->default_value
-							);
-						$section_holder .= '</div>';
-					$section_holder .= '</div>';
-				}
-		
-				if( $ndf_meta_field_data ){
-					$name_holder = '';
-					$name_fields_holder = '';
-					if( $field_row->field_type == 'name' ){
-						$name_holder .= '<div class="frxp-grid">';
-							$name_holder .= '<div class="frxp-width-1-1 title full"><strong>'.$field_row->label.'</strong></div>';
-						$name_holder .= '</div>';
-						foreach( $ndf_meta_field_data as $label => $value ){
-							if( !empty( $value ) ){
-								$name_fields_holder .= '<div class="frxp-grid">';
-								$name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  frxp-flex-middle title"><strong>'.$label.'</strong></div>';
-								$name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6 data">'.$value.'</div>';
-								$name_fields_holder .= '</div>';
-								
-							}
-						}
-						if( !empty( $name_fields_holder ) ){
-							echo $name_holder.$name_fields_holder;
-						}
-					} 
-					else{
-						if( $field_row->field_type == 'checkbox' || $field_row->field_type == 'list' ){
-							$list_class = 'ndf_list_pill';
-							$ndf_meta_field_data = get_post_meta( $id, 'ndf_fields_'.$field_row->ID, false );
-						}
-						
-						if( !empty( $ndf_meta_field_data ) ){
-							if( is_array( $ndf_meta_field_data ) ){
-								
-								$ndf_more_info_value = '<ul class="'.$list_class.'">';
-								foreach( $ndf_meta_field_data as $value ){
-									$ndf_more_info_value .= "<li>$value</li>";
-								}
-								$ndf_more_info_value .= '</ul>';
-							}
-							else{
-								$ndf_more_info_value = $ndf_meta_field_data;
-								if( $field_row->field_type == 'image_upload' ){
-									$ndf_more_info_value = '<img src="'.esc_url($ndf_meta_field_data).'">';
-								}
-								else if( $field_row->field_type == 'address' ){
-									$ndf_more_info_value = '<address>'.$ndf_meta_field_data.'</address>';
-								}
-								else if( $field_row->field_type == 'dropdown' ){
-									$ndf_more_info_value = $NDFFieldGenerator->generateField( 
-									'dropdown_label',  $field_row->label, $field_row->field_values, $field_row->default_value, $field_row->required, $field_row->field_values, $ndf_meta_field_data
-									);
-								}
-								else if( $field_row->field_type == 'radio_button' ){
-									$ndf_more_info_value = $NDFFieldGenerator->generateField( 
-									'radio_button_label',  $field_row->label, $field_row->field_values, $field_row->default_value, $field_row->required, $field_row->field_values, $ndf_meta_field_data
-									);
-								}
-								else if( $field_row->field_type == 'website' ){
-									$ndf_more_info_value = '<a href="'.esc_url( $ndf_meta_field_data ).'" target="_blank">'.$ndf_meta_field_data.'</a>';
-								}
-								else if( $field_row->field_type == 'text_editor' ){
-									$ndf_more_info_value = do_shortcode($ndf_meta_field_data);
-								}
-							}
-							$fields_holder .= '<div class="frxp-grid">';
-								$fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  frxp-flex-middle title"><strong>'.$field_row->label.'</strong></div>';
-								$fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6 data">'.$ndf_more_info_value.'</div>';
-							$fields_holder .= '</div>';
-						}
-						if( !empty( $fields_holder ) ){
-							echo $section_holder.$fields_holder;
-							$section_holder = '';
-						}
-					}
-				}
-		
-			}
+		?>
+		 	<section class="tabs-content">
+		<?php
+		if(!empty($field_rows_section1)){
+			require_once NDF_BASE_DIR . '/includes/templates/section1.php';
 		}
+
+		if(!empty($field_rows_section2)){
+			require_once NDF_BASE_DIR . '/includes/templates/section2.php';
+		}
+		if(!empty($field_rows_section3)){
+			require_once NDF_BASE_DIR . '/includes/templates/section3.php';
+		}
+		// else{
+		// 	require_once NDF_BASE_DIR . '/includes/templates/default.php';
+		// }
+		?>
+			</section>
+		<?php
 		echo '</div>';
 		?>
 	</div>
