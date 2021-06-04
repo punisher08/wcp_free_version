@@ -50,18 +50,18 @@ function register_field_groups_section_callback(){
     echo '<p></p>';
 }
 function register_section_1_name_callback(){
-    $register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
+    $register_section_1_name = get_option( 'register_section_1_name', 'default' );
 
 	$html = '<input type="text" id="register_section_1_name" name="register_section_1_name" value="'.$register_section_1_name.'" />'; 
 	echo $html;
 }
 function register_section_2_name_callback(){
-    $register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
+    $register_section_2_name = get_option( 'register_section_2_name', 'default' );
 	$html = '<input type="text" id="register_section_2_name" name="register_section_2_name" value="'.$register_section_2_name.'" />'; 
 	echo $html;
 }
 function register_section_3_name_callback(){
-    $register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
+    $register_section_3_name = get_option( 'register_section_3_name', 'default' );
 	$html = '<input type="text" id="register_section_3_name" name="register_section_3_name" value="'.$register_section_3_name.'" />'; 
 	echo $html;
 }

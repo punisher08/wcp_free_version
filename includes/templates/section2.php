@@ -7,11 +7,27 @@
 
     $register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
 ?>
+
 <div id="tab3" class="tab-content">
+
 <?php
+
 if( !empty(  $field_rows_section2 ) )
 {
     $section_holder = '';	
+    //check if field group has atleast 1 value or data
+    // for($check_val = 0; $check_val < count($field_rows_section2); $check_val++):
+    //     if(ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section2[$check_val]->ID, $id ) == ''){
+    //         $ndf_meta_field_data_has = false;
+    //     }
+    // endfor;
+
+    // $ndf_meta_field_data_has = ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section2[0]->ID, $id );
+
+    if($ndf_meta_field_data2_has){
+        echo '<div class="field-group-title">'.$register_section_2_name.'</div>';
+    }
+   
     foreach($field_rows_section2 as $field_row)
     {
         $ndf_more_info_value = '';
@@ -38,7 +54,7 @@ if( !empty(  $field_rows_section2 ) )
                     if( !empty( $value ) ){
                         $name_fields_holder .= '<div class="frxp-grid">';
                         $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  title"><strong>'.$label.'</strong></div>';
-                        $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6 data">'.$value.'</div>';
+                        $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 data">'.$value.'</div>';
                         $name_fields_holder .= '</div>';
                         
                     }
@@ -87,10 +103,18 @@ if( !empty(  $field_rows_section2 ) )
                             $ndf_more_info_value = do_shortcode($ndf_meta_field_data);
                         }
                     }
-                    $fields_holder .= '<div class="frxp-grid test">';
-                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  title"><strong>'.$field_row->label.'</strong></div>';
-                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6 data">'.$ndf_more_info_value.'</div>';
+                    if($field_row->field_type == 'text_editor'){
+                        $fields_holder .= '<div class="frxp-grid-text-editor">';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$field_row->label.'</strong></div>';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$ndf_more_info_value.'</div>';
                     $fields_holder .= '</div>';
+                    }
+                    else{
+                        $fields_holder .= '<div class="frxp-grid">';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$field_row->label.'</strong></div>';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$ndf_more_info_value.'</div>';
+                    $fields_holder .= '</div>';
+                    }
                 }
                 if( !empty( $fields_holder ) ){
                     echo $section_holder.$fields_holder;

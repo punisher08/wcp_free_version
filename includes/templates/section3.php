@@ -7,17 +7,30 @@
     $register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
 ?>
 <div id="tab4" class="tab-content">
+    
 <?php
+
 if( !empty(  $field_rows_section3 ) )
 {
     $section_holder = '';	
+    
+    //check if field group has atleast 1 value or data
+    // for($check_val = 0; $check_val <= count($field_rows_section3); $check_val++):
+    //     if(!empty(ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section3[$check_val]->ID, $id ))){
+    //         $ndf_meta_field_data_has = true;
+    //     }
+    // endfor;
+    // $ndf_meta_field_data_has = ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section3[0]->ID, $id );
+    if($ndf_meta_field_data3_has){
+        echo '<div class="field-group-title">'.$register_section_3_name.'</div>';
+    }
     foreach($field_rows_section3 as $field_row)
     {
         $ndf_more_info_value = '';
         $fields_holder = '';
         $ndf_meta_field_data = ndf_data_settings_get_meta( 'ndf_fields_'.$field_row->ID, $id );
         if( $field_row->field_type == 'section' ){
-            $section_holder .= '<div class="frxp-grid test">';
+            $section_holder .= '<div class="frxp-grid">';
                 $section_holder .= '<div class="frxp-width-1-1 title full">';
                     $section_holder .= $NDFFieldGenerator->generateField( 
                     $field_row->field_type,  $field_row->label, $field_row->field_values, $field_row->default_value, $field_row->required, $field_row->field_values, $field_row->default_value
@@ -30,12 +43,12 @@ if( !empty(  $field_rows_section3 ) )
             $name_holder = '';
             $name_fields_holder = '';
             if( $field_row->field_type == 'name' ){
-                $name_holder .= '<div class="frxp-grid test">';
+                $name_holder .= '<div class="frxp-grid">';
                     $name_holder .= '<div class="frxp-width-1-1 title full"><strong>'.$field_row->label.'</strong></div>';
                 $name_holder .= '</div>';
                 foreach( $ndf_meta_field_data as $label => $value ){
                     if( !empty( $value ) ){
-                        $name_fields_holder .= '<div class="frxp-grid test">';
+                        $name_fields_holder .= '<div class="frxp-grid">';
                         $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$label.'</strong></div>';
                         $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$value.'</div>';
                         $name_fields_holder .= '</div>';
@@ -86,10 +99,19 @@ if( !empty(  $field_rows_section3 ) )
                             $ndf_more_info_value = do_shortcode($ndf_meta_field_data);
                         }
                     }
-                    $fields_holder .= '<div class="frxp-grid test">';
+                    if($field_row->field_type == 'text_editor'){
+                        $fields_holder .= '<div class="frxp-grid-text-editor">';
                         $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$field_row->label.'</strong></div>';
                         $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$ndf_more_info_value.'</div>';
                     $fields_holder .= '</div>';
+                    }
+                    else{
+                        $fields_holder .= '<div class="frxp-grid">';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$field_row->label.'</strong></div>';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$ndf_more_info_value.'</div>';
+                    $fields_holder .= '</div>';
+                    }
+
                 }
                 if( !empty( $fields_holder ) ){
                     echo $section_holder.$fields_holder;
@@ -98,7 +120,7 @@ if( !empty(  $field_rows_section3 ) )
             }
         }
 
-    }
+    } 
 }
 ?>
 </div>

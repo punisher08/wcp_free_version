@@ -41,10 +41,20 @@ function ndf_data_more_info_shortcode( $atts ) {
 	$ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_fields_summary_label_fontcolor', '#000000' );
 	$ndf_more_info_fields_summary_table_header_font_size = get_option( 'ndf_more_info_fields_summary_table_header_font_size', '14px' );
 	$ndf_more_info_fields_summary_table_header_fontcolor = get_option( 'ndf_more_info_fields_summary_table_header_fontcolor', '#000000' );
+	$ndf_more_info_fields_logo_width = get_option( 'ndf_more_info_fields_logo_width', 'auto' );
 
 	$ndf_star_rating_color = get_option( 'ndf_star_rating_color', '#f9f922' );
 	?>
 	<style type="text/css">
+	.frxp-grid-text-editor{
+		margin-top:30px;
+	}
+	.cat-values > ul{
+		padding-left:0px;
+	}
+	.ndf_data_summary_logo {
+		width:<?=$ndf_more_info_fields_logo_width;?>;
+	}
 	ul, ol{
 		margin-bottom: 0px;
 	}
@@ -76,7 +86,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border: none;*/
 	}
 	#ndf_more_info_fields .title, #ndf_more_info_fields .data{
-		padding: 5px;
+		padding: 0px;
 		word-break: break-word;
 	}
 	#ndf_more_info_fields .title, #ndf_more_info_fields .data, .ndf_more_info_summary *{
@@ -121,7 +131,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border: <?php echo $ndf_more_info_fields_table_border_width.'px solid '.$ndf_more_info_fields_table_border_color ; ?>;
 		border-right: none;
 		
-		vertical-align: middle;
+		/* vertical-align: middle; */
 		width: 100%;
 	}
 	#ndf_more_info_fields .title.full{
@@ -139,7 +149,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		color: <?php echo $ndf_more_info_fields_header_fontcolor; ?>;
 	}
 	.frxp-grid {
-		display:grid;
+		/* display:inline-block !important; */
 	}
 	#ndf_more_info_fields .frxp-grid{
 		margin-top: <?php echo $ndf_more_info_fields_table_row_space; ?>px;
@@ -204,7 +214,11 @@ function ndf_data_more_info_shortcode( $atts ) {
 		padding-left: 0px;
 		margin-bottom:10px !important;
 		font-weight:600;
-		/* display:flex; */
+		display:flex;
+	}
+	.ndf_more_info_summary ul.frxp-list ul .text{
+		padding-right: 10px;
+		
 	}
 	.ndf_data_summary_star_rating{
 		text-align: right;
@@ -220,7 +234,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		float: left;
 		display:inline-block;
 		padding-right: 20px;
-		width: auto;
+		/* width: auto; */
    		height: auto;
 	}
 	h1.ndf_summary_label, h2.ndf_summary_label, h3.ndf_summary_label, h4.ndf_summary_label, h5.ndf_summary_label{
@@ -246,10 +260,17 @@ function ndf_data_more_info_shortcode( $atts ) {
 
 }
 	.ndf_more_info_summary{
-			padding: 60px;
+			padding: 70px;
 			border: 1px solid rgba(0, 0, 0, 0.2);
 			box-sizing: border-box;
-			border-radius: 10px;
+			border-radius: 10px;		
+	}
+	.ndf_more_info_field_groups{
+		padding: 0px 70px 70px 70px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		box-sizing: border-box;
+		border-radius: 10px;
+		margin-top: 40px;		
 	}
 
 	}
@@ -275,7 +296,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border-radius: <?php echo $ndf_more_info_fields_table_border_radius; ?>px;
 		
 		border: <?php echo $ndf_more_info_fields_table_border_width.'px solid '.$ndf_more_info_fields_table_border_color ; ?>;
-		padding: 0px 6px;
+		padding-right:6px;
 		display: inline-block;
 		margin:2px;
 	}
@@ -322,20 +343,21 @@ function ndf_data_more_info_shortcode( $atts ) {
 	}
 	.ndf_data_sections{
 	display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-between; */
 	font-size: 18px;
 	font-weight:600;
 	margin-top:40px;
 	margin-bottom:40px !important;
 	}
 	.ndf_data_sections a:hover{
-	text-decoration:none;
+	text-decoration:none !important;
 	color:#FF6600;
 	
 	}
 	.ndf_data_sections a{
 	color:#000000;
 	font-weight:700;
+	text-decoration:none !important;
 	}
 	.ndf_data_sections .active a{
 		color:#FF6600;
@@ -348,6 +370,13 @@ function ndf_data_more_info_shortcode( $atts ) {
 		width: 100%;
 		margin-top: 10px;
 
+	}
+	.field-group-title{
+	margin-top: 30px;
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+    /* background-color: #f5f5f5; */
 	}
 	<?php
 	$ndf_button_style_configuration = get_option( 'ndf_button_style_configuration' );
@@ -481,6 +510,8 @@ function ndf_data_more_info_shortcode( $atts ) {
 
 		$output = "";
 		$ndf_summary_divider = '';
+		$output.="<div class='categories-row'>";
+		$output.="<div class='summary-contents'>";
 		
 		if( $show_cat_1 ){
 			/* Determine Cell value based on Content Option settings field in Data CPT */
@@ -507,11 +538,8 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				// $output .= "<div class='frxp-grid'>";
-				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_1_label."</strong></div>";
-				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_1_value)."</div>";
-				// $output .= "</div>";
-				$output.="<div class='categories-row'>";
+
+				// $output.="<div class='categories-row'>";
 				$output.="<div class='cat-rows'>";
 				$output.="
 				<div class='col-one-half'>
@@ -548,10 +576,6 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				// $output .= "<div class='frxp-grid'>";
-				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle' ><strong>".$get_cat_2_label."</strong></div>";
-				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6' >".do_shortcode($data_cat_2_value)."</div>";
-				// $output .= "</div>";
 
 				$output.="
 				<div class='col-one-half'>
@@ -587,10 +611,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				// $output .= "<div class='frxp-grid'>";
-				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_3_label."</strong></div>";
-				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_3_value)."</div>";
-				// $output .= "</div>";
+
 				$output.="<div class='cat-rows'>";
 				$output.="
 				<div class='col-one-half'>
@@ -625,16 +646,12 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				// $output .= "<div class='frxp-grid'>";
-				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex frxp-flex-middle'><strong>".$get_cat_4_label."</strong></div>";
-				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_4_value)."</div>";
-				// $output .= "</div>";
 				$output.="
 				<div class='col-one-half'>
 					<div class='cat-title'>".$get_cat_4_label."</div>
 					<div class='cat-values'>".do_shortcode($data_cat_4_value)."</div>
 				</div>";
-				$output.="</div>";
+				$output.="</div>";//end div row-2
 			}
 		}
 
@@ -663,35 +680,74 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				// $output .= "<div class='frxp-grid'>";
-				// $output .= "<div class='ndf_modal_category_font_color frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  frxp-flex-middle'><strong>".$get_cat_5_label."</strong></div>";
-				// $output .= "<div class='frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-4-6'>".do_shortcode($data_cat_5_value)."</div>";
-				// $output .= "</div>";
+				$output.="<div class='cat-rows'>";
 				$output.="
-				<div>
+				<div class='col-one-half'>
 					<div class='cat-title'>".$get_cat_5_label."</div>
-					".do_shortcode($data_cat_5_value)."
+					<div class='cat-values'>".do_shortcode($data_cat_5_value)."</div>
 				</div>";
 			}
 			$output .= "</div>";
+			$output .= "</div>";//end summary content
+			
 		
 		}
 		/* EO SUMMARY */
-		$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
-		$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
-		$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
-		$register_section_4_name = get_option( 'register_section_4_name', 'Section 4' );
-		$register_section_5_name = get_option( 'register_section_5_name', 'Section 5' );
+		$register_section_1_name = get_option( 'register_section_1_name', 'default' );
+		$register_section_2_name = get_option( 'register_section_2_name', 'default' );
+		$register_section_3_name = get_option( 'register_section_3_name', 'default' );
+
 	 	$ndf_more_info_fields_summary_label = get_option('ndf_more_info_fields_summary_label', 'Summary' );
 	 	?>
 <div class="ndf_summary_row">
 	<div class="ndf_more_info_summary">
 		<ul class="ndf_data_sections tabs-nav">
-			<li class="active" id=""><a href="#tab1"><?=$ndf_more_info_fields_summary_label;?></a></li>
-			<li><a href="#tab2"><?=$register_section_1_name;?></a></li>
-			<li><a href="#tab3"><?=$register_section_2_name;?></a></li>
-			<li><a href="#tab4"><?=$register_section_3_name;?></a></li>
+			<?php
+			global $wpdb;
+			$NDFFieldGenerator = new NDFFieldGenerator();
+			
+			$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
+			$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' AND  field_group IS  NULL  ORDER BY field_order ASC" );
+			$field_rows_section1 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_1_name' and hidden = '0' ORDER BY field_order ASC" );
+			$field_rows_section2 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_2_name' and hidden = '0' ORDER BY field_order ASC" );
+			$field_rows_section3 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_3_name' and hidden = '0'ORDER BY field_order ASC" );
+			$ndf_meta_field_data1_has = array();
+			//check if field group has atleast 1 value or data
+			for($check_val = 0; $check_val <= count($field_rows_section1); $check_val++):
+				if(!empty(ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section1[$check_val]->ID, $id ))){
+					$ndf_meta_field_data1_has [] = ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section1[$check_val]->ID, $id );
+				}
+			endfor;
+			$ndf_meta_field_data2_has = array();
+			//check if field group has atleast 1 value or data
+			for($check_val = 0; $check_val <= count($field_rows_section2); $check_val++):
+				if(!empty(ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section2[$check_val]->ID, $id ))){
+					$ndf_meta_field_data2_has [] = ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section2[$check_val]->ID, $id );
+				}
+			endfor;
+			$ndf_meta_field_data3_has = array();
+			//check if field group has atleast 1 value or data
+			for($check_val = 0; $check_val <= count($field_rows_section3); $check_val++):
+				if(!empty(ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section3[$check_val]->ID, $id ))){
+					$ndf_meta_field_data3_has [] = ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section3[$check_val]->ID, $id );
+				}
+			endfor;
+
+				if(!empty($data_cat_1_value) || !empty($data_cat_2_value) || !empty($data_cat_3_value) || !empty($data_cat_4_value) || !empty($data_cat_5_value)){
+					echo '<li class="active" id=""><a href="#tab1">'.$ndf_more_info_fields_summary_label.'</a></li>';
+				}
+				if(!empty($ndf_meta_field_data1_has)){
+					echo '<li><a href="#tab2">'.$register_section_1_name.'</a></li>';
+				}
+				if(!empty($ndf_meta_field_data2_has)){
+					echo '<li><a href="#tab3">'.$register_section_2_name.'</a></li>';
+				}
+				if(!empty($ndf_meta_field_data3_has)){
+					echo '<li><a href="#tab4">'.$register_section_3_name.'</a></li>';
+				}
+			?>
 		</ul>
+	
 	 <?php
 
 		if( !empty( $output ) ){
@@ -704,44 +760,46 @@ function ndf_data_more_info_shortcode( $atts ) {
 			<!-- <div class="tab-content" id="tab1"> -->
 			<?php
 			echo $output;
-			// echo '</div>';
+			echo '</div>'; //end border
+			echo '</div>'; 
 		}
 		echo '<div id="ndf_more_info_fields" >';
-		global $wpdb;
-		$NDFFieldGenerator = new NDFFieldGenerator();
-		
-		$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
-		$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' ORDER BY field_order ASC" );
-	
-
-		$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
-		$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
-		$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
-
-		$field_rows_section1 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_1_name' and hidden = '0' ORDER BY field_order ASC" );
-		$field_rows_section2 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_2_name' ORDER BY field_order ASC" );
-		$field_rows_section3 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_3_name' ORDER BY field_order ASC" );
-		
 		?>
 		 	<section class="tabs-content">
 		<?php
+		
+		if(!empty($field_rows)){
+			echo '<div class="ndf_more_info_field_groups">';
+			require_once NDF_BASE_DIR . '/includes/templates/default.php';
+			echo '</div>';
+		}
 		if(!empty($field_rows_section1)){
-			require_once NDF_BASE_DIR . '/includes/templates/section1.php';
+			if(!empty($ndf_meta_field_data1_has)){
+				echo '<div class="ndf_more_info_field_groups">';
+				require_once NDF_BASE_DIR . '/includes/templates/section1.php';
+				echo '</div>';
+			}
 		}
 
 		if(!empty($field_rows_section2)){
-			require_once NDF_BASE_DIR . '/includes/templates/section2.php';
+			if(!empty($ndf_meta_field_data2_has)){
+				echo '<div class="ndf_more_info_field_groups">';
+				require_once NDF_BASE_DIR . '/includes/templates/section2.php';
+				echo '</div>';
+			}
 		}
 		if(!empty($field_rows_section3)){
-			require_once NDF_BASE_DIR . '/includes/templates/section3.php';
-		}
-		// else{
-		// 	require_once NDF_BASE_DIR . '/includes/templates/default.php';
-		// }
+			if(!empty($ndf_meta_field_data3_has)){
+				echo '<div class="ndf_more_info_field_groups">';
+				require_once NDF_BASE_DIR . '/includes/templates/section3.php';
+				echo '</div>';
+			}
+		}	
+		
 		?>
 			</section>
 		<?php
-		echo '</div>';
+		// echo '</div>';
 		?>
 	</div>
 	<?php

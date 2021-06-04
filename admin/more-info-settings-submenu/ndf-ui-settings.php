@@ -35,6 +35,13 @@ function ndf_more_info_fields_ui_settings_register_settings() {
 			'h6' => 'H6',
 		)
 	);
+	add_settings_field(
+		'ndf_more_info_fields_logo_width',
+		'Logo width',
+		'ndf_more_info_fields_logo_width_callback',
+		'ndf_more_info_fields_ui_settings_option',
+		'ndf_more_info_fields_ui_settings_section'
+	);
 
 	add_settings_field( 
 		'ndf_more_info_fields_heading_label_fontcolor',
@@ -250,6 +257,7 @@ function ndf_more_info_fields_ui_settings_register_settings() {
 
 	/* Register Table Settings Section Fields */
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_heading_style' );
+	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_logo_width' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_heading_label_fontcolor' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_summary_label_heading_style' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_summary_label_lineheight' );
@@ -290,6 +298,13 @@ function ndf_more_info_fields_heading_style_callback($args) {
 	$html .= "</select>";
 	echo $html;
 } /* end ndf_more_info_fields_heading_style_callback */
+
+function ndf_more_info_fields_logo_width_callback($args) {
+	$ndf_more_info_fields_logo_width = get_option( 'ndf_more_info_fields_logo_width', 'auto' );
+	$html = '<input type="text" id="ndf_more_info_fields_logo_width" name="ndf_more_info_fields_logo_width" value="'.esc_attr__( $ndf_more_info_fields_logo_width ).'"  />';
+    echo $html;
+} /* end ndf_more_info_fields_logo_width_callback */
+
 
 function ndf_more_info_fields_heading_label_fontcolor_callback($args) {
 	$ndf_more_info_fields_heading_label_fontcolor = get_option( 'ndf_more_info_fields_heading_label_fontcolor', '#000000' );

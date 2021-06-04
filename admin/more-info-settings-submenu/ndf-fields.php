@@ -151,33 +151,41 @@
 								<label><input type="radio" name="required" value="1" <?php echo checked( $field_row->required, 1 ) ?>> Yes</label>
 							</td>
 						</tr>
-						<tr>
-							<td style="width:20%;">Field Section</td>
-							<!-- <td style="width:80%;"><input type="text" name="field_group"value="ndf_fields_< ?php echo esc_attr__( $field_row->field_group ); ?>"></td> -->
-							<td style="width:80%;">
+						<tr>	
 							<?php
 							$field_groups_settings = array();
-							$register_section_1_name = get_option( 'register_section_1_name', 'Section 1' );
-							$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
-							$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
+							$register_section_1_name = get_option( 'register_section_1_name', 'default' );
+							$register_section_2_name = get_option( 'register_section_2_name', 'default' );
+							$register_section_3_name = get_option( 'register_section_3_name', 'default' );
 				
-							$field_groups_settings [] =  $register_section_1_name;
-							$field_groups_settings [] =  $register_section_2_name;
-							$field_groups_settings [] =  $register_section_3_name;
-				
-
 							$val = isset($field_row->field_group) ? esc_attr($field_row->field_group) : '';
+
+							if($register_section_1_name != 'default'){
+								$field_groups_settings [] =  $register_section_1_name;
+							}
+							if($register_section_2_name != 'default'){
+								$field_groups_settings [] =  $register_section_2_name;
+							}
+							if($register_section_3_name != 'default'){
+								$field_groups_settings [] =  $register_section_3_name;
+							}
+							if(!empty($field_groups_settings))
+								{
+								echo '<td>Field Group</td>';
+								echo '<td>';
+								echo '<select name="field_group">';
+								foreach($field_groups_settings as $section_id => $section_name):
+								?>
+									<option <?php echo (($val==$section_name)?"selected":"") ?>><?php  echo $section_name; ?></option>
+								<?php
+								endforeach;
+								echo '</select>';
+								echo '</td>';
+								}
+							else{
+								echo '<td class="no-field-groups">Add Field Groups <a href="admin.php?page=wcp-more-info-settings&tab=fieldgroup">here</a></td>';
+							}
 							?>
-							<select name="field_group" value="">
-							<?php
-							foreach($field_groups_settings as $section_id => $section_name):
-							?>
-							<option <?php echo (($val==$section_name)?"selected":"") ?>><?php  echo $section_name; ?></option>
-							<?php
-							endforeach;
-							?>
-							</select>
-							</td>
 						</tr>
 						<?php echo $field_attributes; ?>
 					</tbody>

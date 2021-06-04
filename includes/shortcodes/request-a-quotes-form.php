@@ -35,8 +35,8 @@
                         <input type="email" placeholder="Email" name="client-email" required>
                         <input type="text" placeholder="Phone"  name="client-phone">
                         <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
-                            <br>
-                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button><br>   
+                    
+                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button>
                     </form>
                 </div>
             </div>  
@@ -51,8 +51,8 @@
                         <input type="text" placeholder="Name" name="client-name" required><br>
                         <input type="email" placeholder="Email" name="client-email" required><br>
                         <input type="text" placeholder="Phone"  name="client-phone">
-                        <textarea name="client-request" id="" class="text-area-form-default" placeholder="Request/Description" required></textarea><br>
-                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button><br> 
+                        <textarea name="client-request" id="" class="text-area-form-default" placeholder="Request/Description" required></textarea>
+                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button> 
                     </form>
                 </div>
             </div>

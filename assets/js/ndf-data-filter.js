@@ -689,23 +689,32 @@ $(function($) {
 	});	
 	// end request form-quotes
 
-	$('.tabs-nav a').click(function(e) {
-		// e.preventDefault();
-		console.log(this);
+	$('.tabs-nav a').click(function() {
 		$('.tabs-nav li').removeClass('active');
 		$(this).parent().addClass('active');
-		// let currentTab = $(this).attr('href');
-		// const x = document.querySelectorAll(".tab-content");
-		
-		// x.forEach(element => {
-		// 	$(element).css("display","none");
-		// });
-		// $(currentTab).css("display","block");
+		$('html').css("scroll-behavior","smooth");
+		// html { scroll-behavior: smooth !important; }
+
 	  });
 	//   end tab content function
+	// for generating 2 columns on fields
+	var tabscontent2 = $('#tab2 >.frxp-grid');
+	for (var i = 0; i < tabscontent2.length; i += 2) {
+    tabscontent2.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
+	}
+	var tabscontent3 = $('#tab3 >.frxp-grid');
+	for (var i = 0; i < tabscontent3.length; i += 2) {
+    tabscontent3.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
+	}
+	var tabscontent4 = $('#tab4 >.frxp-grid');
+	for (var i = 0; i < tabscontent4.length; i += 2) {
+    tabscontent4.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
+	}
+	var defaultContent = $('#default >.frxp-grid');
+	for (var i = 0; i < defaultContent.length; i += 2) {
+    defaultContent.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
+	}
+	//end 2 cols field
 
-	var tabscontent = $('.tab-content >.frxp-grid');
-	for (var i = 0; i < tabscontent.length; i += 2) {
-    tabscontent.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
-}
+	
 });

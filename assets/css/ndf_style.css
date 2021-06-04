@@ -18,31 +18,18 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
- 
- /* .tab-content{
-   display: none;
- } */
- /* .title >strong{
-   color: #FF6600 !important;
- } */
- /* .group-frxp:nth-child(even) {
-  background: #CCC;
-  width: 40%;
+ .container-fluid>div{
+   margin:auto !important;
+ }
+ .tab-content ul{
+   padding-left: 0px !important;
+ }
+ .ndf_list_pill{
+   padding-left: 0px !important;
+ }
+.ndf_more_info_summary > ul{
+  padding-left: 0 !important;
 }
-.group-frxp:nth-child(odd) {
-  background: #FFF;
-  width: 40%;
-} */
-/* .ndf_more_info_summary > ul{
-  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
-    padding: 15px;
-    position: fixed;
-    top: 100px;
-    width: 100%;
-    margin: 0;
-    left: 0;
-    background: #fff;
-} */
 .frxp-grid:before{
   display: none;
 }
@@ -62,12 +49,15 @@ width: 50%;
  .tabs-nav li{
    list-style: none;
    cursor: pointer;
+   margin-right: auto;
+  
  }
  .tabs-nav li:hover{
   color: #FF6600;
  }
  .cat-title{
    font-weight: 700;
+   color:#FF6600;
  }
  .col-one-half{
    width: 50%;
@@ -165,6 +155,7 @@ width: 50%;
 	font-family: inherit;
 	margin: 0;
 	font-size: 14px;
+  margin-bottom: 10px;
 
 }
 
@@ -196,7 +187,8 @@ width: 50%;
 	outline: none;
 	border: none;
 	transition: 0.3s linear;
-  padding:5px;
+  padding: 1em 2em;
+  margin-top: 20px;
 
 }
 #quotes-form-container button:hover{transform: translatey(2px);}
