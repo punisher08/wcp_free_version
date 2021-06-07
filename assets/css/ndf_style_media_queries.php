@@ -10,6 +10,36 @@
 
 echo '<style type="text/css">
 @media all and (max-width: 768px) {
+	.ndf_more_info_summary ul.frxp-list ul{
+		display:grid !important;
+	}
+	.field-group-title{
+		margin-top:0px !important;
+	}
+	.group-frxp{
+		display:initial !important;
+	}
+	.group-frxp > .frxp-grid{
+		width:100% !important;
+	}
+	.ndf_more_info_field_groups{
+		padding:20px !important;
+	}
+	.col-one-half{
+		width: -webkit-fill-available !important;
+	}
+	.cat-rows{
+		display:initial !important;
+	}
+	.ndf_data_sections{
+		display:initial !important;
+	}
+	.ndf_data_sections li{
+		padding-bottom:10px;
+	}
+	.ndf_more_info_summary{
+		padding:20px !important;
+	}
 	.ndf_table_cell, #ndf_filtered_data_content .ndf_table_cell p, #ndf_filtered_data_content .ndf_table_cell li, #ndf_filtered_data_content .ndf_data_title_cell, #ndf_filtered_data_content a.ndf_more_info_link, #ndf_filtered_data_content .label_wrapper, #ndf_plugin_html a.ndf_button_style_1, #ndf_plugin_html a.ndf_button_style_2, #ndf_plugin_html a.ndf_button_style_3, #ndf_plugin_html a.ndf_button_style_4, #ndf_plugin_html a.ndf_button_style_5{
 	}
 	a.ndf_more_info_link{

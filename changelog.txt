@@ -1,6 +1,6 @@
 == Changelog ==
 
-= 1.7.3.3 =
+= 1.7.3.4 =
 1. added field_group table ndf_saved_fields table on the database
 2.created Field Groups tab on the More Info Page Section.
 3.Created 3 section as maximum number of anchored tabs 
@@ -9,32 +9,40 @@
 6.created option to change and to add field groups on Add More Fields section 
 7.created anchored tab navigation on page and modal more info 
 8. created 2 columns for each field rows.
+9.seperate field section 
+10.Don't display field if no value.
+11.Fix mobile responsive
+
+== 1.7.3.3 ==
+1.added field_group Column in ndf_saved_fields_data table using
+2.  created Section 1, Section 2 and Section 3 Field Groups
 
 
 = 1.7.3.2 =
 Quotes Form Settings Field
-1 change form background color
-2 Change text Color
-3 Edit Form Title
-4 Change title font size
-5 Title Font weight
-6 Edit Form Subtitle
-7 Change input field width
-8 change button color
-9 change button width
-10.Change table heading and added Custom fields on Quotes Form Entries
-11. Change Content alignment
-12. Change title alignment
-13. change input field width
-14.Change title line height
+1.change form background color
+2.Change text Color
+3.Edit Form Title
+4.Form Title Align
+5.Title Font size
+6.Title Line Height
+7.Title Font weight
+8.Form subtitle
+9.content align
+10.input field width
+11.Button text
+12.Button Color
+13.Button width
+14.Option Show shortcode
+15.Created Quotes Form Entries page
+16.Log status of request data in Quotes Form entries
 
 = 1.7.3.1 =
 1.update the look of tables on More info settings field
 2.Make the buttons on WCP settings the same blue as the navigation bar
 3.make 2 columns on more info section  fields tab
 4.Add WCP Tools submenu to copy the shortcode for Quote Request.
-5.Add checkbox to enable Quote Request shortcode.
-6.added file "request-quotes-form-settings.php" under wcp-tools-submenu
+5.added file "request-quotes-form-settings.php" under wcp-tools-submenu
 
 
 = 1.7.3.0 =
