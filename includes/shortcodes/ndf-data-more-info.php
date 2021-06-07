@@ -175,6 +175,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 	}
 	.ndf_more_info_summary ul.frxp-list > li{
 		padding: 5px;
+		padding-left:0px;
 		margin: 0;
 		margin-bottom: 10px;
 		display: inline-block;
@@ -202,6 +203,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 	}
 	.ndf_more_info_summary ul.frxp-list li div, .ndf_more_info_summary .ndf_summary_category_content p, .ndf_more_info_summary .ndf_summary_category_content{
 		padding: 5px;
+		padding-left:0px;
 		color: <?php echo $ndf_more_info_fields_table_font_color; ?>;
 		font-size: <?php echo $ndf_more_info_fields_table_font_size; ?>;
 		margin-bottom: 0px;

@@ -110,9 +110,6 @@
 				</td>
 			</tr>
 			<tr class="ndf_field_group">
-				
-			
-			
 					<?php
 								$field_groups_settings = array();
 								$register_section_1_name = get_option( 'register_section_1_name', 'default' );
@@ -143,9 +140,6 @@
 									echo '<td class="no-field-groups"><a href="admin.php?page=wcp-more-info-settings&tab=fieldgroup">Add Field Groups here</a></td>';
 								}
 					?>
-					
-				
-				
 			</tr>
 			<?php echo $field_attributes; ?>
 		</tbody>
