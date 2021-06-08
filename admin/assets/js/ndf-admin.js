@@ -552,7 +552,11 @@ jQuery(document).ready( function($) {
 			}
 		}, 3000);
 	});
-
+    //for Show Shortcode Change
+    $(document).on('change', '#show_request_quotes_form', function() {
+        (this.checked) ? $( "#show-shortcode" ).css("display","block") : $( "#show-shortcode" ).css("display","none");
+    });//End for Show Shortcode Change
+    
     $( "#ndf_results_section_more_info tbody" ).sortable();
 
     $("#wcp_data_results_add_field").validate({

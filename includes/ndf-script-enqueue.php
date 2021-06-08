@@ -126,14 +126,10 @@ function ndf_admin_enqueue( $hook ) {
 		$hide_shortcode = 'block';
 	}
 	// 
-
 	$button_css = "";
 	if( is_array( $ndf_button_style_configuration ) ){
 		foreach( $ndf_button_style_configuration as $style_id => $settings ){
 			$button_css .= "
-				.quotes_shortcode{
-					display:".$hide_shortcode." !important;
-				}
 				a.ndf_button_style_{$style_id}{
         			background-color: ".$settings['background'].";
         			color: ".$settings['text_color']." !important;
@@ -157,7 +153,12 @@ function ndf_admin_enqueue( $hook ) {
 		}
 	}
     wp_add_inline_style( 'ndf-admin-css', $button_css );
-	
+	// Shortcode for Quotes Settings 
+	$custom_css = "	.quotes_shortcode{
+		display:".$hide_shortcode.";
+	}";
+	wp_add_inline_style( 'ndf-admin-css', $custom_css );
+	//End Shortcode Settings
 	// Pointer Hook 
     add_action('admin_print_footer_scripts', 'ndf_admin_print_footer_scripts' );
 }
