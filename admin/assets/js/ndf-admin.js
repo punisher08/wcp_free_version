@@ -153,18 +153,18 @@ jQuery(document).ready( function($) {
     jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
         var data_string = settings.data;
         if( (data_string.indexOf('action=add-tag&screen=edit-ndf_category_1&taxonomy=ndf_category_1') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_2&taxonomy=ndf_category_2') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_3&taxonomy=ndf_category_3') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_4&taxonomy=ndf_category_4') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_5&taxonomy=ndf_category_5') != -1) ){
-            location.reload(true);
+            location.reload();
         }
         if( (data_string.indexOf('action=add-tag&screen=edit-ndf_category_2&taxonomy=ndf_category_2') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_2&taxonomy=ndf_category_2') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_3&taxonomy=ndf_category_3') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_4&taxonomy=ndf_category_4') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_5&taxonomy=ndf_category_5') != -1) ){
-            location.reload(true);
+            location.reload();
         }
         if( (data_string.indexOf('action=add-tag&screen=edit-ndf_category_3&taxonomy=ndf_category_3') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_2&taxonomy=ndf_category_2') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_3&taxonomy=ndf_category_3') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_4&taxonomy=ndf_category_4') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_5&taxonomy=ndf_category_5') != -1) ){
-            location.reload(true);
+            location.reload();
         }
         if( (data_string.indexOf('action=add-tag&screen=edit-ndf_category_4&taxonomy=ndf_category_4') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_2&taxonomy=ndf_category_2') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_3&taxonomy=ndf_category_3') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_4&taxonomy=ndf_category_4') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_5&taxonomy=ndf_category_5') != -1) ){
-            location.reload(true);
+            location.reload();
         }        if( (data_string.indexOf('action=add-tag&screen=edit-ndf_category_5&taxonomy=ndf_category_5') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_2&taxonomy=ndf_category_2') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_3&taxonomy=ndf_category_3') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_4&taxonomy=ndf_category_4') != -1) || (data_string.indexOf('action=add-tag&screen=edit-ndf_category_5&taxonomy=ndf_category_5') != -1) ){
-            location.reload(true);
+            location.reload();
         }
 
     });
