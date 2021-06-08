@@ -1,41 +1,43 @@
 == Changelog ==
 
-= 1.7.3.4 =
-1. added field_group table ndf_saved_fields table on the database
-2.created Field Groups tab on the More Info Page Section.
+= 1.7.3.5 =
+1.Added field_group table ndf_saved_fields table on the database
+2.Created Field Groups tab on the More Info Page Section.
 3.Created 3 section as maximum number of anchored tabs 
-4.created template directory inside include folder
-5.created secttion1.php,section2.php and section3.php template part for the selected section of the field inside template directory
-6.created option to change and to add field groups on Add More Fields section 
-7.created anchored tab navigation on page and modal more info 
-8. created 2 columns for each field rows.
-9.seperate field section 
+4.Created template directory inside include folder
+5.Created secttion1.php,section2.php and section3.php template part for the selected section of the field inside template directory
+6.Created option to change and to add field groups on Add More Fields section 
+7.Created anchored tab navigation on page and modal more info 
+8.Created 2 columns for each field rows.
+9.Seperate field section 
 10.Don't display field if no value.
 11.Fix mobile responsive
 
-== 1.7.3.3 ==
-1.added field_group Column in ndf_saved_fields_data table using
-2.  created Section 1, Section 2 and Section 3 Field Groups
+== 1.7.3.4 ==
+1.Added field_group Column in ndf_saved_fields_data table using
+2.Created Section 1, Section 2 and Section 3 field groups
 
+
+= 1.7.3.3 =
+Quotes Form Settings Field
+1.Change form background color
+2.Change text color
+3.Edit form title
+4.Added setting for form title alignment
+5.Added settings for title font size
+6.Added settings for title line height
+7.Added settings for title font weight
+8.Added settings to change form subtitle
+9.Added settings for content alignment
+10.Added setting to change input field width
+11.Added settings to change button text
+12.Added settings to change button Color
+13.Added settings to change button width
+14.Option to show and hide shortcode
 
 = 1.7.3.2 =
-Quotes Form Settings Field
-1.change form background color
-2.Change text Color
-3.Edit Form Title
-4.Form Title Align
-5.Title Font size
-6.Title Line Height
-7.Title Font weight
-8.Form subtitle
-9.content align
-10.input field width
-11.Button text
-12.Button Color
-13.Button width
-14.Option Show shortcode
-15.Created Quotes Form Entries page
-16.Log status of request data in Quotes Form entries
+1.Change the table header of Quotes Form Entries 
+2.Log status of request data in Quotes Form entries
 
 = 1.7.3.1 =
 1.update the look of tables on More info settings field

@@ -422,7 +422,7 @@ $(function($) {
 	$(document).on('click', '#ndf_reset_filters', function(e) {
 		e.preventDefault();
 		$('.ndf_filter').each(function(){
-			$(this).attr('checked', false);
+			$(this).prop('checked', false);
 		});
 		ndf_reset = 'yes';
 		$('#wcp_keyword_search').val('');
