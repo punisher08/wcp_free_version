@@ -235,7 +235,7 @@ function sent_to_detail(){
 }
 
 /**
- * Replace Quotes Forms Table Headers
+ * Modify table headers on quotes entry 
  *
  * @param  mixed $defaults
  * @return void

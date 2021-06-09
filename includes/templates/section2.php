@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for Default display of More Info Fields
+ * Template for Section2 display of More Info Fields
  * @since 1.7.3.2
  * 
  */
@@ -15,15 +15,6 @@
 if( !empty(  $field_rows_section2 ) )
 {
     $section_holder = '';	
-    //check if field group has atleast 1 value or data
-    // for($check_val = 0; $check_val < count($field_rows_section2); $check_val++):
-    //     if(ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section2[$check_val]->ID, $id ) == ''){
-    //         $ndf_meta_field_data_has = false;
-    //     }
-    // endfor;
-
-    // $ndf_meta_field_data_has = ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows_section2[0]->ID, $id );
-
     if($ndf_meta_field_data2_has){
         echo '<div class="field-group-title">'.$register_section_2_name.'</div>';
     }

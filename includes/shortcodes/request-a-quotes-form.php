@@ -3,7 +3,7 @@
  * Shortcode Registration Scripts
  * 
  * Registered Shortcode:
- * - `get_quotes` - Displays the request a quotes form.
+ * - `wcpquote or wcpquote type='popup'` - Displays the request a quotes form.
  * 
  * @package 	Netseek_Data_Filter
  * @subpackage 	Netseek_Data_Filter/includes/shortcodes
@@ -96,6 +96,7 @@
               $sent = wp_mail($recipient_email, $subject,$message, $headers);
               if($sent)
               {
+                        // Save data on quotesentry posttype
                         $post_type = 'quotesentry';
                         $front_post = array(
                         'post_title'    => $client_email,
@@ -108,6 +109,7 @@
                         update_post_meta($post_id, "quotes_sent_to_field", $recipient_email);
                         update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
                         update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
+                        // end saving data
               }
               else
               {

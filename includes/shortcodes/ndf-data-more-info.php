@@ -758,46 +758,38 @@ function ndf_data_more_info_shortcode( $atts ) {
 			if( !empty( $ndf_more_info_fields_summary_label ) ){
 				// echo '<'.$ndf_more_info_fields_summary_label_heading_style.' class="ndf_summary_label frxp-text-left">'.$ndf_more_info_fields_summary_label.'</'.$ndf_more_info_fields_summary_label_heading_style.'>';
 			}
-			?>
-			<!-- <div class="tab-content" id="tab1"> -->
-			<?php
 			echo $output;
-			echo '</div>'; //end border
+			echo '</div>'; //end border div
 			echo '</div>'; 
 		}
 		echo '<div id="ndf_more_info_fields" >';
 		?>
 		 	<section class="tabs-content">
 		<?php
-		
-		if(!empty($field_rows)){
-			echo '<div class="ndf_more_info_field_groups">';
-			require_once NDF_BASE_DIR . '/includes/templates/default.php';
-			echo '</div>';
-		}
-		if(!empty($field_rows_section1)){
+			//if no field group set
+			if(!empty($field_rows)){
+				echo '<div class="ndf_more_info_field_groups">';
+				require_once NDF_BASE_DIR . '/includes/templates/default.php';
+				echo '</div>';
+			}
+			//layout for section 1
 			if(!empty($ndf_meta_field_data1_has)){
 				echo '<div class="ndf_more_info_field_groups">';
 				require_once NDF_BASE_DIR . '/includes/templates/section1.php';
 				echo '</div>';
 			}
-		}
-
-		if(!empty($field_rows_section2)){
+			//layout for section 2
 			if(!empty($ndf_meta_field_data2_has)){
 				echo '<div class="ndf_more_info_field_groups">';
 				require_once NDF_BASE_DIR . '/includes/templates/section2.php';
 				echo '</div>';
 			}
-		}
-		if(!empty($field_rows_section3)){
+			//layout for section 3
 			if(!empty($ndf_meta_field_data3_has)){
 				echo '<div class="ndf_more_info_field_groups">';
 				require_once NDF_BASE_DIR . '/includes/templates/section3.php';
 				echo '</div>';
 			}
-		}	
-		
 		?>
 			</section>
 		<?php

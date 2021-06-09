@@ -110,36 +110,38 @@
 				</td>
 			</tr>
 			<tr class="ndf_field_group">
-					<?php
-								$field_groups_settings = array();
-								$register_section_1_name = get_option( 'register_section_1_name', 'default' );
-								$register_section_2_name = get_option( 'register_section_2_name', 'default' );
-								$register_section_3_name = get_option( 'register_section_3_name', 'default' );
+			<?php
+			// Field Group option
+			$field_groups_settings = array();
+			$register_section_1_name = get_option( 'register_section_1_name', 'default' );
+			$register_section_2_name = get_option( 'register_section_2_name', 'default' );
+			$register_section_3_name = get_option( 'register_section_3_name', 'default' );
 
-								if($register_section_1_name != 'default'){
-									$field_groups_settings [] =  $register_section_1_name;
-								}
-								if($register_section_2_name != 'default'){
-									$field_groups_settings [] =  $register_section_2_name;
-								}
-								if($register_section_3_name != 'default'){
-									$field_groups_settings [] =  $register_section_3_name;
-								}
-								if(!empty($field_groups_settings))
-								{
-								echo '<td>Field Group</td>';
-								echo '<td>';
-								echo '<select name="field_group">';
-								foreach($field_groups_settings as $section_id => $section_name):
-									echo '<option>'.$section_name.'</option>';
-								endforeach;
-								echo '</select>';
-								echo '</td>';
-								}
-								else{
-									echo '<td class="no-field-groups"><a href="admin.php?page=wcp-more-info-settings&tab=fieldgroup">Add Field Groups here</a></td>';
-								}
-					?>
+			if($register_section_1_name != 'default'){
+			$field_groups_settings [] =  $register_section_1_name;
+			}
+			if($register_section_2_name != 'default'){
+				$field_groups_settings [] =  $register_section_2_name;
+			}
+			if($register_section_3_name != 'default'){
+			$field_groups_settings [] =  $register_section_3_name;
+			}
+			if(!empty($field_groups_settings))
+			{
+			echo '<td>Field Group</td>';
+			echo '<td>';
+			echo '<select name="field_group">';
+			foreach($field_groups_settings as $section_id => $section_name):
+				echo '<option>'.$section_name.'</option>';
+			endforeach;
+			echo '</select>';
+			echo '</td>';
+			}
+			else{
+			echo '<td class="no-field-groups"><a href="admin.php?page=wcp-more-info-settings&tab=fieldgroup">Add Field Groups here</a></td>';
+			}
+			// end field group options
+			?>
 			</tr>
 			<?php echo $field_attributes; ?>
 		</tbody>

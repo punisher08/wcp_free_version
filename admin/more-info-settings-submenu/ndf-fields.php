@@ -153,11 +153,12 @@
 						</tr>
 						<tr>	
 							<?php
+							// field group section
 							$field_groups_settings = array();
 							$register_section_1_name = get_option( 'register_section_1_name', 'default' );
 							$register_section_2_name = get_option( 'register_section_2_name', 'default' );
 							$register_section_3_name = get_option( 'register_section_3_name', 'default' );
-				
+			
 							$val = isset($field_row->field_group) ? esc_attr($field_row->field_group) : '';
 
 							if($register_section_1_name != 'default'){
@@ -170,7 +171,7 @@
 								$field_groups_settings [] =  $register_section_3_name;
 							}
 							if(!empty($field_groups_settings))
-								{
+							{
 								echo '<td>Field Group</td>';
 								echo '<td>';
 								echo '<select name="field_group">';
@@ -181,10 +182,11 @@
 								endforeach;
 								echo '</select>';
 								echo '</td>';
-								}
+							}
 							else{
 								echo '<td class="no-field-groups">Add Field Groups <a href="admin.php?page=wcp-more-info-settings&tab=fieldgroup">here</a></td>';
 							}
+							// end field group options
 							?>
 						</tr>
 						<?php echo $field_attributes; ?>

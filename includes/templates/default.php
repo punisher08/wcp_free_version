@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for Default display of More Info Fields
+ * Template for Default display of More Info Fields if no field group is set
  * @since 1.7.3.2
  * 
  */
