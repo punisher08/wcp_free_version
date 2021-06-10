@@ -10,7 +10,7 @@
 
 <?php
 if( !empty(  $field_rows_section1 ) )
-{
+{   
     $section_holder = '';
     if($ndf_meta_field_data1_has){
         echo '<div class="field-group-title">'.$register_section_1_name.'</div>';	

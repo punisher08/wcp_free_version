@@ -706,8 +706,11 @@ function ndf_data_more_info_shortcode( $atts ) {
 		<ul class="ndf_data_sections tabs-nav">
 			<?php
 			global $wpdb;
+			/*Get ndf_data query */
+			$ratings = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_type = 'ndf_data'" );
+			//end ndf_data_query
 			$NDFFieldGenerator = new NDFFieldGenerator();
-			
+
 			$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
 			$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' AND  field_group IS  NULL  ORDER BY field_order ASC" );
 			$field_rows_section1 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_1_name' and hidden = '0' ORDER BY field_order ASC" );

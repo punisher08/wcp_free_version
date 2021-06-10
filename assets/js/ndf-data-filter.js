@@ -676,8 +676,16 @@ $(function($) {
 			$( this ).css( 'height', max_ndf_height );
 		});
 	});
+	// for request-form-quotes Default
+	$(document).on('click', '#request-quotes-single', function(e) {
+	e.preventDefault();
+	var data_modal = $(this).attr('data-modal');
+	$('#single-post-id').val(data_modal)
 
-	// for request-form-quotes
+	$("#quotes-form-container-single").css("display","block");
+
+	});	
+
 	$(document).on('click', '#request-quotes', function(e) {
 		e.preventDefault();
 		$("#quotes-form-container").css("display","block");
@@ -686,6 +694,7 @@ $(function($) {
 	$(document).on('click', '#close-form', function(e) {
 		e.preventDefault();
 		$("#quotes-form-container").css("display","none");
+		$("#quotes-form-container-single").css("display","none")
 	});	
 	// end request form-quotes
 

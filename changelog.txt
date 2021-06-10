@@ -1,4 +1,13 @@
 == Changelog ==
+== 1.7.3.6 ==
+1.Create wcp-single-email.php file 
+2.Add script function when success sending sanitize_email
+3.Create media queries for request forms
+4.Added style for single quotes email
+6.Added Js to get post id and use to get email of current wcp data
+7.Added ndf_data_enable_request_form_meta_box to ndf_data post type and included in more information section groups
+8.Added function on ndf_utility_functions.php for the single request email form
+
 
 = 1.7.3.5 =
 1.Added field_group table ndf_saved_fields table on the database

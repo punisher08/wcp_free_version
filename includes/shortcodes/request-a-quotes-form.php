@@ -12,6 +12,7 @@
  */
     function request_quotes_form_shortcode( $atts ) 
     { 
+        global $post,$wpdb;
         // Get Quotes Form Settings Data to render on Front Page the style is 
         $request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
         $request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );

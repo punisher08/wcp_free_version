@@ -599,8 +599,10 @@ function wcp_get_more_info_template( $wcp_data_ID, $ndf_data_results_layout, $la
 			}
 		}
 		/* EO Star Ratings */
-		
-		/* MORE INFO BUTTON */
+		//QUOTES FORM BUTTON
+		$output .= '<div id="single-modal-'.$wcp_data_ID.'">'.doWhat($wcp_data_ID).'</div>';
+		//QUOTES FORM BUTTON
+		// /* MORE INFO BUTTON */
 		$output .= ndf_get_more_button_template( $wcp_data_ID );
 		/* MORE INFO BUTTON */
 
@@ -748,4 +750,20 @@ function ndf_check_more_info_tracking(){
 		return true;
 	}
 	return false;
+}
+//
+function dowhat($wcp_data_ID){
+
+	$output = '';
+	$ndf_data_enable_request_form_meta_box = get_post_meta($wcp_data_ID);
+	$wcp_data_post_id = $post->ID;
+	if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
+		if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
+			$output .= '<button class="request-quotes-single" id="request-quotes-single" data-modal="'.$wcp_data_ID.'" >Request Quotes</button>';
+			require_once NDF_BASE_DIR . '/wcp-single-email.php';
+			$output .= request_quotes_form_single($wcp_data_ID);
+			return $output;
+		}
+		return $output;
+	endif;
 }

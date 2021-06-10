@@ -241,12 +241,17 @@ else{
 	background-color:<?=$request_quotes_form_submit_button_color;?>;
 	width:<?=$request_quotes_form_submit_button_width?>;
 }
-#quotes-form-container input,.text-area-form{
+#quotes-form-container input,.text-area-form,#quotes-form-container-single input,.text-area-form {
 	width:<?=$request_quotes_form_input_width;?>;
 }
 #quotes-form-container p{
 	color:<?=$request_quotes_form_text_color;?>;
 	text-align:<?=$request_quotes_form_title_position;?>;
+}
+.single-quote-subtitle{
+	color:<?=$request_quotes_form_text_color;?> !important;
+	text-align:<?=$request_quotes_form_title_position;?> !important;
+	padding-top:20px;
 }
 .get-form-title{
 	color:<?=$request_quotes_form_text_color;?>;
@@ -254,7 +259,7 @@ else{
 	font-weight:<?=$request_quotes_form_font_weight;?>;
 	text-align:<?=$request_quotes_form_title_position;?>;
 }
-.form-box{
+.form-box,.form-box-single{
 	background-color:<?=$request_quotes_formbackground_color;?>;
 }
 .ndf_data_title_cell {

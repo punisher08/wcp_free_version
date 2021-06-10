@@ -261,10 +261,11 @@ function request_quotes_form_submit_button_width_callback($args){
 
 
 // Callback Function When success sending Form Email
-function request_quotes_thank_you(){
-	echo '<pre>';
-	print_r('thank you, We will Get back to you soon');
-	echo '</pre>';
+function request_quotes_thank_you(){ ?>
+	<script>
+		alert('Thank you. We will get back to you as soon as posible!');
+	</script>
+<?php
 }
 
 

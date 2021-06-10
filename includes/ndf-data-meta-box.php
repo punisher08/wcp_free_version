@@ -69,6 +69,16 @@ function ndf_data_settings_add_meta_box() {
 		'advanced',
 		'default'
 	);
+	//Enable Request Form Meta box
+		add_meta_box(
+			"ndf_data_enable_request_form_meta_box",
+			"Enable Request Quote Form",
+		
+			"ndf_data",
+			"advance",
+			"default"
+		);
+	///Enable Request Form Meta box
 }
 add_action( 'add_meta_boxes', 'ndf_data_settings_add_meta_box' );
 
@@ -455,6 +465,15 @@ function ndf_data_settings_save( $post_id ) {
 	
 	if ( isset( $_POST['ndf_data_recipient_email'] ) ){
 		update_post_meta( $post_id, 'ndf_data_recipient_email', sanitize_email( $_POST['ndf_data_recipient_email'] ) );
+	}
+	//check box enable email request on each wcp data
+	if ( isset( $_POST['ndf_data_enable_request_form_meta_box'] ) ){
+		update_post_meta( $post_id, 'ndf_data_enable_request_form_meta_box',1 );
+		// update_post_meta($post->ID,'ndf_data_enable_request_form_meta_box',$_POST['ndf_data_enable_request_form_meta_box']);
+	}
+	else{
+		// $check_box = $_POST['ndf_data_enable_request_form_meta_box'] ;
+		update_post_meta( $post_id, 'ndf_data_enable_request_form_meta_box',0);
 	}
 
 	/*

@@ -92,7 +92,7 @@ width: 50%;
 ::placeholder{color: #999;}
 .text-area-form:focus {background: rgba(0, 0, 333, 0.10);} 
 
- .default-form-box{
+ .default-form-box, .form-box-single{
   box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
   padding: 20px;
   border-radius: 15px;
@@ -115,7 +115,7 @@ width: 50%;
     color: black;
     text-decoration: none !important;
 }
-#quotes-form-container{
+#quotes-form-container , #quotes-form-container-single{
     left: 0;
     width: 100%;
     z-index: 100;
@@ -129,10 +129,16 @@ width: 50%;
  
 }
 .close-positon{
-  text-align: right;
+  text-align: right !important;
+}
+.request-quotes-single{
+  margin: 2px;
+  width: -webkit-fill-available;
+  font-size: inherit;
+  padding: 10px;
 }
 
- .form-box{
+ .form-box,.form-box-single{
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	border-radius: 5px;
   text-align: center;
@@ -151,7 +157,7 @@ width: 50%;
 	letter-spacing: 2px;
 	margin: 0;
 }
-#quotes-form-container p {
+#quotes-form-container p, #quotes-form-container-single p {
 	font-family: inherit;
 	margin: 0;
 	font-size: 14px;
@@ -159,7 +165,7 @@ width: 50%;
 
 }
 
-#quotes-form-container input,.text-area-form {
+#quotes-form-container input,.text-area-form , #quotes-form-container-single input,.text-area-form{
 	display: inline-block;
 	text-align: left;
 	border-radius: 7px;
@@ -192,7 +198,9 @@ width: 50%;
 
 }
 #quotes-form-container button:hover{transform: translatey(2px);}
+#quotes-form-container-single button:hover{transform: translatey(2px);}
 #quotes-form-container button:active{transform: translatey(5px);}
+#quotes-form-container-single button:active{transform: translatey(5px);}
 /* end Request Quotes */
 
 /** @group Filters **/

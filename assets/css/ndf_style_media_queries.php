@@ -10,6 +10,12 @@
 
 echo '<style type="text/css">
 @media all and (max-width: 768px) {
+	.form-box-single{
+		width:80% !important;
+	}
+	.form-box{
+		width:80% !important;
+	}
 	.ndf_more_info_summary ul.frxp-list ul{
 		display:grid !important;
 	}
