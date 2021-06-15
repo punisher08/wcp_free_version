@@ -17,6 +17,7 @@
         $request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
         $request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );
         $request_quotes_form_submit_button_text = get_option( 'request_quotes_form_submit_button_text', 'Submit' );
+        $email_request_quotes_form_title_button = get_option( 'email_request_quotes_form_title_button', 'Request A Quotes' );
 
         $args = shortcode_atts( array(
             'type' => 'default'
@@ -24,7 +25,7 @@
         $type = $args['type'];
         if($type == "popup"){ ?>
         <!-- Start Popup -->
-            <button class="request-quotes" id="request-quotes"> Request A Quote</button>
+            <button class="request-quotes" id="request-quotes"><?=$email_request_quotes_form_title_button;?></button>
 
             <div id="quotes-form-container" style="display:none;" class="class-quotes-form-container">
                 <div class="form-box">

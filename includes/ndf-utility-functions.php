@@ -758,8 +758,9 @@ function dowhat($wcp_data_ID){
 	$ndf_data_enable_request_form_meta_box = get_post_meta($wcp_data_ID);
 	$wcp_data_post_id = $post->ID;
 	if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
+		$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
 		if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
-			$output .= '<button class="request-quotes-single" id="request-quotes-single" data-modal="'.$wcp_data_ID.'" >Request Quotes</button>';
+			$output .= '<button class="request-quotes-single" id="request-quotes-single" data-modal="'.$wcp_data_ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
 			require_once NDF_BASE_DIR . '/wcp-single-email.php';
 			$output .= request_quotes_form_single($wcp_data_ID);
 			return $output;

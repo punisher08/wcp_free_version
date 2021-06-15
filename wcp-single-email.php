@@ -20,7 +20,7 @@ function  request_quotes_form_single($wcp_data_ID){
 			$form .= ' <div class="form-box-single">';
 				$form .= '<div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>';
 				$form .= '<div class="get-form-title">'.$request_quotes_form_title.'</div>';
-				$form .= '<p class="single-quote-subtitle"></p>';
+				$form .= '<p class="single-quote-subtitle">'.$request_quotes_form_subtitle.'</p>';
 				$form .= '<form method="post" class="quotes-form-content">';
 				$form .= '<input type="hidden" id="single-post-id" name="post_id"/>
 					<input type="text" placeholder="Name" name="client-name" required><br>

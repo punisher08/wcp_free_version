@@ -38,6 +38,20 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_section'
 	);
 	add_settings_field( 
+		'email_request_quotes_form_title_button',
+		'Button title for [wcpquote] & [wcpquote type="popup"]',
+		'email_request_quotes_form_title_button_callback',
+		'request_quotes_form_settings_option',
+		'request_quotes_form_settings_section'
+	);
+	add_settings_field( 
+		'single_email_request_quotes_form_title_button',
+		'Button title on each wcp data',
+		'single_email_request_quotes_form_title_button_callback',
+		'request_quotes_form_settings_option',
+		'request_quotes_form_settings_section'
+	);
+	add_settings_field( 
 		'request_quotes_form_title',
 		'Form Title',
 		'request_quotes_form_title_callback',
@@ -142,6 +156,8 @@ function request_quotes_form_register_settings() {
 		
 	register_setting( 'request_quotes_form_settings_option', 'show_request_quotes_form' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title' );
+	register_setting( 'request_quotes_form_settings_option', 'email_request_quotes_form_title_button' );
+	register_setting( 'request_quotes_form_settings_option', 'single_email_request_quotes_form_title_button' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_position' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_font_size' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title_line_height' );
@@ -180,6 +196,16 @@ function show_request_quotes_form_callback($args) {
 function request_quotes_form_title_callback($args){
 	$request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
 	$html = '<input style="width:50%" type="text" id="request_quotes_form_title" name="request_quotes_form_title" value="'.$request_quotes_form_title.'" />'; 
+	echo $html;
+}
+function email_request_quotes_form_title_button_callback($args){
+	$email_request_quotes_form_title_button = get_option( 'email_request_quotes_form_title_button', 'Get Quotes' );
+	$html = '<input type="text" id="email_request_quotes_form_title_button" name="email_request_quotes_form_title_button" value="'.$email_request_quotes_form_title_button.'" />'; 
+	echo $html;
+}
+function single_email_request_quotes_form_title_button_callback($args){
+	$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
+	$html = '<input type="text" id="single_email_request_quotes_form_title_button" name="single_email_request_quotes_form_title_button" value="'.$single_email_request_quotes_form_title_button.'" />'; 
 	echo $html;
 }
 function request_quotes_form_title_position_callback($args){
