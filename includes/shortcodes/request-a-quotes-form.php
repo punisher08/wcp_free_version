@@ -35,7 +35,7 @@
                     <form method="post" action="" class="quotes-form-content">
                         <input type="text" placeholder="Name" name="client-name" required>
                         <input type="email" placeholder="Email" name="client-email" required>
-                        <input type="text" placeholder="Phone"  name="client-phone">
+                        <input type="text" placeholder="Phone"  name="client-phone"  id="client-phonne-number">
                         <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
                     
                         <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button>
@@ -52,7 +52,7 @@
                     <form action="" method="post" class="quotes-form-content">
                         <input type="text" placeholder="Name" name="client-name" required><br>
                         <input type="email" placeholder="Email" name="client-email" required><br>
-                        <input type="text" placeholder="Phone"  name="client-phone">
+                        <input type="text" placeholder="Phone"  name="client-phone"  id="client-phonne-number">
                         <textarea name="client-request" id="" class="text-area-form-default" placeholder="Request/Description" required></textarea>
                         <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button> 
                     </form>
@@ -84,41 +84,74 @@
         
           $to_send = array();
           $counter = 0;
-          while($counter < 3):
-              $random_numbers = array_rand($recipients);
-                if(!empty($recipients[$random_numbers]))
-                {
-                    if(in_array($recipients[$random_numbers],$to_send)){ /* do something */}
-                    else {    $to_send [] = $recipients[$random_numbers]; $counter++; }
+          $count_valid_recipients = array();
+          foreach($recipients as $filter_valid_recipients):
+             if(!empty($filter_valid_recipients)){
+                 $count_valid_recipients [] = $filter_valid_recipients;
+             }
+          endforeach;
+          //for sending  less than 3 emails
+          if(count($count_valid_recipients ) < 3)
+          {
+            foreach ($count_valid_recipients as $valid_recipients) {
+                $sent = wp_mail($valid_recipients, $subject,$message, $headers);
+                if($sent){
+                    // Save data on quotesentry posttype
+                    $post_type = 'quotesentry';
+                    $front_post = array(
+                    'post_title'    => $client_email,
+                    'post_status'   => 'publish',          
+                    'post_type'     => $post_type 
+                    );
+                    $post_id = wp_insert_post($front_post);
+                    update_post_meta($post_id, "quotes_email_subject_field", $subject);
+                    update_post_meta($post_id, "quotes_sender_email_field", $client_email);
+                    update_post_meta($post_id, "quotes_sent_to_field", $valid_recipients);
+                    update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
+                    update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
+                    // end saving data
                 }
-                else{ /*  do something */ }
-          endwhile;
+            }
+        
+          }
+          else{
+                while($counter < 3):
+                    $random_numbers = array_rand($recipients);
+                        if(!empty($recipients[$random_numbers]))
+                        {
+                            if(in_array($recipients[$random_numbers],$to_send)){ /* do something */}
+                            else {    $to_send [] = $recipients[$random_numbers]; $counter++; }
+                        }
+                        else{ /*  do something */ }
+                endwhile;
 
-          foreach($to_send as $recipient_email):
-              $sent = wp_mail($recipient_email, $subject,$message, $headers);
-              if($sent)
-              {
-                        // Save data on quotesentry posttype
-                        $post_type = 'quotesentry';
-                        $front_post = array(
-                        'post_title'    => $client_email,
-                        'post_status'   => 'publish',          
-                        'post_type'     => $post_type 
-                        );
-                        $post_id = wp_insert_post($front_post);
-                        update_post_meta($post_id, "quotes_email_subject_field", $subject);
-                        update_post_meta($post_id, "quotes_sender_email_field", $client_email);
-                        update_post_meta($post_id, "quotes_sent_to_field", $recipient_email);
-                        update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
-                        update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
-                        // end saving data
-              }
-              else
-              {
-                  echo 'Unable to send';
-              }
-          endforeach;  
-          request_quotes_thank_you();
+                foreach($to_send as $recipient_email):
+                    $sent = wp_mail($recipient_email, $subject,$message, $headers);
+                    if($sent)
+                    {
+                                // Save data on quotesentry posttype
+                                $post_type = 'quotesentry';
+                                $front_post = array(
+                                'post_title'    => $client_email,
+                                'post_status'   => 'publish',          
+                                'post_type'     => $post_type 
+                                );
+                                $post_id = wp_insert_post($front_post);
+                                update_post_meta($post_id, "quotes_email_subject_field", $subject);
+                                update_post_meta($post_id, "quotes_sender_email_field", $client_email);
+                                update_post_meta($post_id, "quotes_sent_to_field", $recipient_email);
+                                update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
+                                update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
+                                // end saving data
+                    }
+                    else
+                    {
+                        echo 'Unable to send';
+                    }
+                endforeach;  
+                
+            }
+            request_quotes_thank_you();
     }
 } 
 // Call Function to save Details

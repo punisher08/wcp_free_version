@@ -25,7 +25,7 @@ function  request_quotes_form_single($wcp_data_ID){
 				$form .= '<input type="hidden" id="single-post-id" name="post_id"/>
 					<input type="text" placeholder="Name" name="client-name" required><br>
 					<input class="single-input" type="email" placeholder="Email" name="client-email" required><br>
-					<input class="single-input" type="text" placeholder="Phone"  name="client-phone">
+					<input class="single-input" type="text" placeholder="Phone"  name="client-phone" id="client-phonne-number">
 					<textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
 					<button class="get-quotes" id="'.$wcp_data_ID.'" name="request-single-quotes-btn" >Submit</button>
 				</form>';

@@ -716,6 +716,12 @@ function ndf_data_more_info_shortcode( $atts ) {
 			$field_rows_section1 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_1_name' and hidden = '0' ORDER BY field_order ASC" );
 			$field_rows_section2 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_2_name' and hidden = '0' ORDER BY field_order ASC" );
 			$field_rows_section3 = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_group = '$register_section_3_name' and hidden = '0'ORDER BY field_order ASC" );
+			$field_rows_has = array();
+			for($check_val = 0; $check_val <= count($field_rows); $check_val++):
+				if(!empty(ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows[$check_val]->ID, $id ))){
+					$field_rows_has [] = ndf_data_settings_get_meta( 'ndf_fields_'.$field_rows[$check_val]->ID, $id );
+				}
+			endfor;
 			$ndf_meta_field_data1_has = array();
 			//check if field group has atleast 1 value or data
 			for($check_val = 0; $check_val <= count($field_rows_section1); $check_val++):
@@ -770,7 +776,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		 	<section class="tabs-content">
 		<?php
 			//if no field group set
-			if(!empty($field_rows)){
+			if(!empty($field_rows_has)){
 				echo '<div class="ndf_more_info_field_groups">';
 				require_once NDF_BASE_DIR . '/includes/templates/default.php';
 				echo '</div>';

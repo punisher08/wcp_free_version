@@ -35,6 +35,7 @@
 }
 .group-frxp > .frxp-grid{
 width: 50%;
+display: table-column-group;
 
 }
 

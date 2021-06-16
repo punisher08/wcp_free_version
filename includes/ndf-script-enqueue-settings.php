@@ -195,10 +195,10 @@ $ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_field
 $ndf_data_logo_position = get_option( 'ndf_data_results_table_logo_position','left');
 // Request Quotes Forms Display Settngs
 $request_quotes_formbackground_color = get_option( 'request_quotes_formbackground_color', '#fff' );
-$request_quotes_form_text_color = get_option( 'request_quotes_form_text_color', '#fff' );
+$request_quotes_form_text_color = get_option( 'request_quotes_form_text_color', '#000' );
 $request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '25px' );
 $request_quotes_form_font_weight = get_option( 'request_quotes_form_font_weight', '400' );
-$request_quotes_form_submit_button_color = get_option( 'request_quotes_form_submit_button_color', '#fff' );
+$request_quotes_form_submit_button_color = get_option( 'request_quotes_form_submit_button_color', '#0366d6' );
 $request_quotes_form_input_width = get_option( 'request_quotes_form_input_width', '100%' );
 $request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', 'auto' );
 $request_quotes_form_title_position = get_option( 'request_quotes_form_title_position', 'center' );

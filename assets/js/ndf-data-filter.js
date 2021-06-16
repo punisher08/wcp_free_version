@@ -724,6 +724,11 @@ $(function($) {
     defaultContent.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
 	}
 	//end 2 cols field
-
+	$(document).on('keypress', '#client-phonne-number', function(evt) {
+		var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+		if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+			return false;
+		return true;
+	});	
 	
 });

@@ -12,7 +12,7 @@
 if( !empty(  $field_rows ) )
 {
     $section_holder = '';
-    echo '<div class="field-group-title">More Information Fields</div>';
+    echo '<div class="field-group-title">More Info Fields</div>';
     foreach($field_rows as $field_row)
     {
         $ndf_more_info_value = '';
