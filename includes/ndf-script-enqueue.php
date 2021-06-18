@@ -69,6 +69,15 @@ function ndf_enqueue(){
 			'ndf_limit_results_step' => get_option( 'ndf_query_results_step', 5 )
 		) 
 	);
+	//////////////////////////////////////////////////////////////////////////
+	wp_enqueue_script('ndf-image-loader', NDF_BASE_URL . '/assets/images', array( 'jquery' ));
+	wp_localize_script( 'ndf-image-loader', 'ndf_data_image_loader', 
+		array( 
+				'ndf_out' => NDF_BASE_URL,
+			) 
+		);
+	wp_script_add_data( 'ndf-image-loader', 'async/defer' , true );
+	////////////////////////////////////////////////////////////////////////
 
 	$ndf_outbound_clicks_track = get_option( 'ndf_outbound_clicks_track', 0 );
 

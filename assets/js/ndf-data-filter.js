@@ -728,6 +728,7 @@ $(function($) {
 	/**AJAX FOR SINGLE EMAIL QUOTES */
 	$(document).on('click', '#request-quotes-single-horizontal', function(e) {
 		e.preventDefault();
+		var ajaxloader_path = ndf_data_image_loader.ndf_out+'/assets/images/ajax-loader.gif';
 		var data_modal = $(this).attr('data-modal');
 		var data_title = $(this).attr('data-title');
 		var subtitle = $(this).attr('subtitle');
@@ -747,7 +748,8 @@ $(function($) {
 				form += '<input type="text" placeholder="Phone" id="client-phone-number"><br>';
 				form += '<textarea class="text-area-form-horizontal" name="client-message" placeholder="Request/Description*" id="message" required></textarea><br>';
 				form += '<div for="client-message" id="client-message-required" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
-				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" >Submit</button>'
+				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">Submit</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader"></span></button>'
+				// form += '<img src="'+ajaxloader_path+'" style="height:30px; display:none;" id="ajax-sumbit-loader">';
 				form += '</form>';
 			form += '</div>';
 		form += '</div>';
@@ -807,11 +809,18 @@ $(function($) {
 				phone:phone,
 				message: message
 				},
+				beforeSend: function(){
+					$('#ajax-sumbit-loader').css("display", "block");
+					$("#before-submit").css('display','none');
+				  },
 				success:function(res){
-					$("#success-email-sent").html(success_message);
-					$(".modal-horizontal").css("display","none");
-					alert("thank you we will get back to you as soon as possible");
-					}
+					// $("#horizontal-form-submit").html('Sent');
+					$("#horizontal-form-submit").html("your request has been sent");
+					},
+				complete: function(){
+					$('#ajax-sumbit-loader').css("display", "none");
+					// $(".modal-horizontal").css("display","none");
+					  }
 				}); 
 		}
 		else{
