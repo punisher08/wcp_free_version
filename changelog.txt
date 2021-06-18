@@ -1,4 +1,10 @@
 == Changelog ==
+== 1.7.3.7 ==
+1. Create ajax for single send email on tabular and horizontal View
+2.Create validation rule on form input fields jquery
+3.Create wp_ajax hook action to update quotes entries
+
+
 == 1.7.3.6 ==
 1.Create wcp-single-email.php file 
 2.Add script function when success sending sanitize_email

@@ -599,12 +599,26 @@ function wcp_get_more_info_template( $wcp_data_ID, $ndf_data_results_layout, $la
 			}
 		}
 		/* EO Star Ratings */
-		//QUOTES FORM BUTTON
-		$output .= '<div id="single-modal-'.$wcp_data_ID.'">'.request_quotes_button($wcp_data_ID).'</div>';
-		//QUOTES FORM BUTTON
-		// /* MORE INFO BUTTON */
+		/**Single request Quotes function ajax */
+		$ndf_data_enable_request_form_meta_box = get_post_meta($wcp_data_ID);
+		$wcp_data_post_id = $post->ID;
+		if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
+			$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
+			$request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );
+			$request_quotes_form_submit_button_text = get_option( 'request_quotes_form_submit_button_text', 'Submit' );
+			$request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
+
+			if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
+			//added function for email
+				$output .= '<button class="request-quotes-single"  data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$wcp_data_ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
+				$output .= '<div id="quotes-modal">';
+				$output .= '</div>';
+				//end ajax email
+			}
+		endif;
+		//EO QUOTES FORM BUTTON
 		$output .= ndf_get_more_button_template( $wcp_data_ID );
-		/* MORE INFO BUTTON */
+		/* EO MORE INFO BUTTON */
 
 		/* ENQUIRY FORM BUTTON */ 
 		$ndf_show_enquiry_form = get_option( 'ndf_show_enquiry_form', 0 );
@@ -751,20 +765,4 @@ function ndf_check_more_info_tracking(){
 	}
 	return false;
 }
-//
-function request_quotes_button($wcp_data_ID){
 
-	$output = '';
-	$ndf_data_enable_request_form_meta_box = get_post_meta($wcp_data_ID);
-	$wcp_data_post_id = $post->ID;
-	if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
-		$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
-		if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
-			$output .= '<button class="request-quotes-single" id="request-quotes-single" data-modal="'.$wcp_data_ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
-			require_once NDF_BASE_DIR . '/wcp-single-email.php';
-			$output .= request_quotes_form_single($wcp_data_ID);
-			return $output;
-		}
-		return $output;
-	endif;
-}

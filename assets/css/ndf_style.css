@@ -78,9 +78,9 @@ display: table-column-group;
    width: 50%;
  }
  
- #default-quotes-form-container input,.text-area-form-default, .modal-horizontal input,.text-area-form {
+ #default-quotes-form-container input,.text-area-form-default, .modal-horizontal input,.text-area-form-horizontal {
 	display: inline-block;
-	text-align: left;
+	text-align: left !important;
 	border-radius: 7px;
 	/* background: #eee; */
 	padding: 1em 2em;
