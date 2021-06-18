@@ -18,6 +18,61 @@
  * @param 		string `ndf_fc_3` Category 5 terms that will be used in filtering.
  * @return 		mixed Returns the data filtered by selected categories.
  */
+
+
+ 
+function callback_send_email(){
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	  $recipient_id = $_POST['id'];
+	  $name = $_POST['name'];
+	  $email = $_POST['email'];
+	  $phone = $_POST['phone'];
+      $request= $_POST['message'];
+		
+	  global $wpdb;
+	  $to = get_option('admin_email');
+	  $message = '<table>
+					  <tr><td>Name:</td><td>'.$name.'</td></tr>
+					  <tr><td>Email:</td><td>'.$email.'</td></tr><tr>
+					  <td>Phone:</td><td>'.$phone.'</td></tr>
+					  <tr><td>Request:</td><td>'.$request.'</td></tr>
+				  </table>';
+				  
+	  $subject = "You have received a quote request from :".get_site_url();
+	  $headers = array('Content-Type: text/html; charset=UTF-8');
+	  $recipient = $wpdb->get_col("SELECT meta_value FROM $wpdb->postmeta WHERE post_id = $recipient_id and meta_key = 'ndf_data_recipient_email'" );
+	  $sent = wp_mail($recipient[0], $subject,$message, $headers);
+		if($sent)
+		{
+				// Save data on quotesentry posttype
+				$post_type = 'quotesentry';
+				$front_post = array(
+				'post_title'    => $email,
+				'post_status'   => 'publish',          
+				'post_type'     => $post_type 
+				);
+				$post_id = wp_insert_post($front_post);
+				update_post_meta($post_id, "quotes_email_subject_field", $subject);
+				update_post_meta($post_id, "quotes_sender_email_field", $email);
+				update_post_meta($post_id, "quotes_sent_to_field", $recipient[0]);
+				update_post_meta($post_id, "quotes_sender_phone_field", $phone);
+				update_post_meta($post_id, "quotes_sender_request_description_field", $request);
+				// end saving data
+				?>
+				<script>
+					alert('Thank you, we will get back to you as soon as posible');
+				</script>
+				<?php
+		}
+		else{
+
+		}
+
+	}
+}
+add_action( 'wp_ajax_send_email', 'callback_send_email' );
+add_action( 'wp_ajax_nopriv_send_email', 'callback_send_email' );
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function ndf_filter_data_request() {
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 		/*ob_clean();*/
@@ -374,10 +429,27 @@ function ndf_filter_data_request() {
 
 					if( !empty( $grid_moreinfo_column_class ) ){
 						$output .= "<div class='ndf_more_info_section'>";
+						$ndf_data_enable_request_form_meta_box = get_post_meta($wcp_data_ID);
+							$wcp_data_post_id = $post->ID;
+							if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
+								$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
+								$request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );
+								$request_quotes_form_submit_button_text = get_option( 'request_quotes_form_submit_button_text', 'Submit' );
+								$request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
+
+								if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
+									//added function for email
+									$output .= '<button class="request-quotes-single-horizontal"  data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$wcp_data_ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
+									$output .= '<div id="quotes-modal">';
+									$output .= '</div>';
+
+								}
+							endif;
+						/**Request quotes button */
+						// $output .= '<div class="horizontal-quotes-btn" id="single-modal-'.$wcp_data_ID.'">'.request_quotes_button($wcp_data_ID).'</div>';
 						/* MORE INFO BUTTON */
 						$output .= ndf_get_more_button_template( $wcp_data_ID );
 						/* MORE INFO BUTTON */
-
 						/* ENQUIRY FORM BUTTON */ 
 						$ndf_show_enquiry_form = get_option( 'ndf_show_enquiry_form', 0 );
 						$ndf_enquiry_button_style = get_option( 'ndf_enquiry_button_style', 1 );
@@ -719,3 +791,76 @@ function ndf_outbound_clicks_record(){
 }
 add_action( 'wp_ajax_nopriv_ndf_outbound_clicks_call', 'ndf_outbound_clicks_record' );
 add_action( 'wp_ajax_ndf_outbound_clicks_call', 'ndf_outbound_clicks_record' );
+
+
+
+// function request_quotes_button_horizontal($wcp_data_ID){
+
+// 	$ndf_data_enable_request_form_meta_box = get_post_meta($wcp_data_ID);
+// 	$wcp_data_post_id = $post->ID;
+// 	if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
+// 		$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
+// 		if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
+// 			$form .= '<button class="request-quotes-single" id="request-quotes-single" data-modal="'.$wcp_data_ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
+// 		}
+// 	endif;
+
+// 	$request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
+//     $request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );
+//     $request_quotes_form_submit_button_text = get_option( 'request_quotes_form_submit_button_text', 'Submit' );
+
+
+// 		$form .= '<div  class="class-quotes-form-container-single" id="quotes-form-container-single" style="display:none">';
+// 			$form .= ' <div class="form-box-single">';
+// 				$form .= '<div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>';
+// 				$form .= '<div class="get-form-title">'.$request_quotes_form_title.'</div>';
+// 				$form .= '<p class="single-quote-subtitle">'.$request_quotes_form_subtitle.'</p>';
+// 				$form .= '<form method="post" class="quotes-form-content" id="sub">';
+// 				$form .= '<input type="text" id="single-post-id" name="post_id"/>
+// 					<input type="text" placeholder="Name" name="client-name" required><br>
+// 					<input class="single-input" type="email" placeholder="Email" name="client-email" required><br>
+// 					<input class="single-input" type="text" placeholder="Phone"  name="client-phone" id="client-phonne-number">
+// 					<textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
+// 					<button type="submit" class="get-quotes request-single-quotes-btn-horizontal" id="'.$wcp_data_ID.'" name="request-single-quotes-btn-horizontal" >Submit</button>
+// 				</form>';
+// 			$form .= ' </div>';
+// 			$form .= ' </div>';
+// 	return $form;
+// }
+
+// if(isset($_POST['request-single-quotes-btn-horizontal'])){
+// 	global $wpdb;
+// 	$to = get_option('admin_email');
+// 	$id = $_POST['post_id'];
+// 	$name = $_POST['client-name'];
+// 	$client_email = $_POST['client-email'];
+// 	$client_phone = $_POST['client-phone'];
+// 	$client_request = $_POST['client-request'];
+
+// 	$recipient = $wpdb->get_col("SELECT meta_value FROM $wpdb->postmeta WHERE post_id = $id and meta_key = 'ndf_data_recipient_email'" );
+// 	echo '<pre>';
+// 	print_r($recipient);
+// 	echo '</pre>';
+// 	die();
+
+// 	$sent = wp_mail($recipient[0], $subject,$message, $headers);
+// 	if($sent)
+// 	{
+// 			  // Save data on quotesentry posttype
+// 			  $post_type = 'quotesentry';
+// 			  $front_post = array(
+// 			  'post_title'    => $client_email,
+// 			  'post_status'   => 'publish',          
+// 			  'post_type'     => $post_type 
+// 			  );
+// 			  $post_id = wp_insert_post($front_post);
+// 			  update_post_meta($post_id, "quotes_email_subject_field", $subject);
+// 			  update_post_meta($post_id, "quotes_sender_email_field", $client_email);
+// 			  update_post_meta($post_id, "quotes_sent_to_field", $recipient[0]);
+// 			  update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
+// 			  update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
+// 			  // end saving data
+// 	}
+// }
+
+

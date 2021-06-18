@@ -600,7 +600,7 @@ function wcp_get_more_info_template( $wcp_data_ID, $ndf_data_results_layout, $la
 		}
 		/* EO Star Ratings */
 		//QUOTES FORM BUTTON
-		$output .= '<div id="single-modal-'.$wcp_data_ID.'">'.doWhat($wcp_data_ID).'</div>';
+		$output .= '<div id="single-modal-'.$wcp_data_ID.'">'.request_quotes_button($wcp_data_ID).'</div>';
 		//QUOTES FORM BUTTON
 		// /* MORE INFO BUTTON */
 		$output .= ndf_get_more_button_template( $wcp_data_ID );
@@ -752,7 +752,7 @@ function ndf_check_more_info_tracking(){
 	return false;
 }
 //
-function dowhat($wcp_data_ID){
+function request_quotes_button($wcp_data_ID){
 
 	$output = '';
 	$ndf_data_enable_request_form_meta_box = get_post_meta($wcp_data_ID);

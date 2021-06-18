@@ -730,5 +730,112 @@ $(function($) {
 			return false;
 		return true;
 	});	
+
+	//ajax request form
 	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//for horizontal
+$(document).on('click', '#request-quotes-single-horizontal', function(e) {
+	e.preventDefault();
+	var data_modal = $(this).attr('data-modal');
+	var data_title = $(this).attr('data-title');
+	var subtitle = $(this).attr('subtitle');
+	// console.log(data_modal);
+	// $('#single-post-id').val(data_modal)
+	var form;
+	form += '<div class="modal-horizontal id-'+data_modal+'">';
+		form += '<div class="form-box-single horizontal-form">';
+			form += '<div class="close-positon"><a href class="close-horizontal close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>';
+			form += '<div class="get-form-title">'+data_title+'</div>';
+			form += '<p class="single-quote-subtitle">'+subtitle+'</p>';
+			form += '<form class="quotes-form-content" id="form-horizontal-submit" method="post">';
+			form += '<div id="success-email-sent"></div>';
+			form += '<input type="hidden" value="'+data_modal+'" id="recipient_id"><br>';
+			form += '<input type="text" placeholder="Name*" id="client-name" name="client-name" required><br>';
+			form += '<div for="client-name" id="name-required" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
+			// form += '<div class"client-name-required"  style="width:80%; margin:auto; color:red; text-align:left; display:none;">this field is required</div>';
+			form += '<input type="email" placeholder="Email*" name="email" id="client-email" required><br>';
+			form += '<div for="email" id="email-required" style="text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>';
+			form += '<input type="text" placeholder="Phone" id="client-phone"  id="client-phonne-number"><br>';
+			form += '<textarea class="text-area-form-horizontal" name="client-message" placeholder="Request/Description*" id="message" required></textarea><br>';
+			form += '<div for="client-message" id="client-message-required" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
+			form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" >Submit</button>'
+			// form += '<input class="get-quotes" type="submit" id="horizontal-form-submit" value="submit"></input>';
+			form += '</form>';
+		form += '</div>';
+	form += '</div>';
+	$("#quotes-modal").html(form);
+	});	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).on('click', '#horizontal-form-submit', function(e) {
+	e.preventDefault();
+	var success_message = 'Thank you we will get back to you soon';
+	var url = ndf_data_filter_vars.ndf_ajax;
+	var id =  $('#recipient_id').val();
+	var name =  $('#client-name').val();
+	if(name != ''){
+		var validated_name = true;
+	}
+	else{
+		$('#name-required').css('display','block');
+		$('#name-required').css('color','red');
+	}
+	var email =  $('#client-email').val();
+	var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    if (testEmail.test(email)){
+		var validated_email = true;
+	}
+    else {
+		$('#email-required').css('display','block');
+		$('#email-required').css('color','red');
+		var validated_email = false;
+	}
+	var phone =  $('#client-phone').val();
+	var message =  $('#message').val();	
+	if(message !=''){
+		
+		var validated_message = true;
+	}
+	else{
+		$('#client-message-required').css('display','block');
+		$('#client-message-required').css('color','red');
+	}
+	if(validated_name == true && validated_email == true && validated_message == true){
+
+		jQuery.ajax({
+			url: url,
+			type: "POST",
+			cache: false,
+			data:{ 
+			   action: 'send_email', 
+			   id:id,
+			   name: name,
+			   email: email,
+			   phone:phone,
+			   message: message
+			},
+			success:function(res){
+				$("#success-email-sent").html(success_message);
+				$(".modal-horizontal").css("display","none");
+				alert("thank you we will get back to you as soon as possible");
+				}
+			}); 
+	}
+	else{
+		if(validated_name == true){
+			$('#name-required').css('display','none');
+		}
+		if(validated_email == true){
+			$('#email-required').css('display','none');
+		}
+		if(validated_message == true){
+			('#client-message-required').css('display','none');
+		}
+	}	
+});
+$(document).on('click', '.close-horizontal', function(e) {
+	e.preventDefault();
+	$(".modal-horizontal").css("display","none");
+});	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 });

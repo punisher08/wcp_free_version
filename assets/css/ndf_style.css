@@ -18,7 +18,7 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
- .container-fluid>div{
+  .container-fluid>div{
    margin:auto !important;
  }
  .tab-content ul{
@@ -77,7 +77,8 @@ display: table-column-group;
    display: grid;
    width: 50%;
  }
- #default-quotes-form-container input,.text-area-form-default {
+ 
+ #default-quotes-form-container input,.text-area-form-default, .modal-horizontal input,.text-area-form {
 	display: inline-block;
 	text-align: left;
 	border-radius: 7px;
@@ -132,6 +133,13 @@ display: table-column-group;
 .close-positon{
   text-align: right !important;
 }
+.request-quotes-single-horizontal{
+  margin: 0;
+  font-size: inherit;
+  padding: 8px;
+  float: right;
+  width: auto;
+}
 .request-quotes-single{
   margin: 2px;
   width: -webkit-fill-available;
@@ -165,8 +173,20 @@ display: table-column-group;
   margin-bottom: 10px;
 
 }
+.modal-horizontal{
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+  background: #141212ab;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
 
-#quotes-form-container input,.text-area-form , #quotes-form-container-single input,.text-area-form{
+}
+#quotes-form-container input,.text-area-form , #quotes-form-container-single input,.text-area-form,.text-area-form-horizontal,.horizontal-form input{
 	display: inline-block;
 	text-align: left;
 	border-radius: 7px;

@@ -244,6 +244,9 @@ else{
 #quotes-form-container input,.text-area-form,#quotes-form-container-single input,.text-area-form {
 	width:<?=$request_quotes_form_input_width;?>;
 }
+.horizontal-form input,.text-area-form-horizontal{
+	width:<?=$request_quotes_form_input_width;?>;
+ }
 #quotes-form-container p{
 	color:<?=$request_quotes_form_text_color;?>;
 	text-align:<?=$request_quotes_form_title_position;?>;
