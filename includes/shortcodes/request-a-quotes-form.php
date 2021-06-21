@@ -18,6 +18,7 @@
         $request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );
         $request_quotes_form_submit_button_text = get_option( 'request_quotes_form_submit_button_text', 'Submit' );
         $email_request_quotes_form_title_button = get_option( 'email_request_quotes_form_title_button', 'Request A Quotes' );
+        $ajax_image_loader =  NDF_BASE_URL . '/assets/images/ajax-loader.gif';
 
         $args = shortcode_atts( array(
             'type' => 'default'
@@ -32,13 +33,15 @@
                     <div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>
                     <div class="get-form-title"><?=$request_quotes_form_title;?></div>
                     <p><?=$request_quotes_form_subtitle;?></p>    
-                    <form method="post" action="" class="quotes-form-content">
-                        <input type="text" placeholder="Name" name="client-name" required>
-                        <input type="email" placeholder="Email" name="client-email" required>
+                    <form method="post" action="" class="quotes-form-content" id="quotes-form-content">
+                        <input type="text" placeholder="Name" name="client-name" id="client-name" required>
+                        <div for="client-name" id="name-required" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>
+                        <input type="email" placeholder="Email" name="client-email" id="client-email" required>
+                        <div for="email" id="email-required" style="text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>
                         <input type="text" placeholder="Phone"  name="client-phone"  id="client-phonne-number">
-                        <textarea name="client-request" id="" class="text-area-form" placeholder="Request/Description" required></textarea>
-                    
-                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button>
+                        <textarea name="client-request"  class="text-area-form" placeholder="Request/Description"  id="request-description" required></textarea>
+                        <div for="client-message" id="client-message-required" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>
+                        <button class="get-quotes" name="request-quotes-btn-popup" id="request-quotes-btn"  type="popup" ><span id="before-send"><?=$request_quotes_form_submit_button_text;?></span><span><img src="<?=$ajax_image_loader;?>" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader"></span></button>
                     </form>
                 </div>
             </div>  
@@ -49,12 +52,15 @@
                 <div class="form-box-default">
                 <div class="get-form-title"><?=$request_quotes_form_title;?></div>
                 <p><?=$request_quotes_form_subtitle;?></p> 
-                    <form action="" method="post" class="quotes-form-content">
-                        <input type="text" placeholder="Name" name="client-name" required><br>
-                        <input type="email" placeholder="Email" name="client-email" required><br>
-                        <input type="text" placeholder="Phone"  name="client-phone"  id="client-phonne-number">
-                        <textarea name="client-request" id="" class="text-area-form-default" placeholder="Request/Description" required></textarea>
-                        <button class="get-quotes" name="request-quotes-btn" ><?=$request_quotes_form_submit_button_text;?></button> 
+                    <form action="" method="post" class="quotes-form-content" id="quotes-form-content-default">
+                        <input type="text" placeholder="Name" name="client-name" id="client-name-default" required>
+                        <div for="client-name" id="name-required-default" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>
+                        <input type="email" placeholder="Email" name="client-email" id="client-email-default" required>
+                        <div for="email" id="email-required-default" style="text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>
+                        <input type="text" placeholder="Phone"  name="client-phone"  id="client-phone-number-default">
+                        <textarea name="client-request"  class="text-area-form" placeholder="Request/Description"  id="request-description-default" required></textarea>
+                        <div for="client-message" id="client-message-required-default" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>
+                        <button class="get-quotes" name="request-quotes-btn-default" id="request-quotes-btn-default" type="default"><span id="before-send"><?=$request_quotes_form_submit_button_text;?></span><span><img src="<?=$ajax_image_loader;?>" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader"></span></button> 
                     </form>
                 </div>
             </div>
@@ -62,97 +68,6 @@
         }
         ?>
     <?php    
-    if(isset($_POST['request-quotes-btn']))
-    {
-        global $wpdb;
-        $recipients = $wpdb->get_col("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'ndf_data_recipient_email'" );
-      
-        $to = get_option('admin_email');
-        $name = $_POST['client-name'];
-        $client_email = $_POST['client-email'];
-        $client_phone = $_POST['client-phone'];
-        $client_request = $_POST['client-request'];
-        $message = '<table>
-                        <tr><td>Name:</td><td>'.$name.'</td></tr>
-                        <tr><td>Email:</td><td>'.$client_email.'</td></tr><tr>
-                        <td>Phone:</td><td>'.$client_phone.'</td></tr>
-                        <tr><td>Request:</td><td>'.$client_request.'</td></tr>
-                    </table>';
-                    
-        $subject = "You have received a quote request from :".get_site_url();
-        $headers = array('Content-Type: text/html; charset=UTF-8');
-        
-          $to_send = array();
-          $counter = 0;
-          $count_valid_recipients = array();
-          foreach($recipients as $filter_valid_recipients):
-             if(!empty($filter_valid_recipients)){
-                 $count_valid_recipients [] = $filter_valid_recipients;
-             }
-          endforeach;
-          //for sending  less than 3 emails
-          if(count($count_valid_recipients ) < 3)
-          {
-            foreach ($count_valid_recipients as $valid_recipients) {
-                $sent = wp_mail($valid_recipients, $subject,$message, $headers);
-                if($sent){
-                    // Save data on quotesentry posttype
-                    $post_type = 'quotesentry';
-                    $front_post = array(
-                    'post_title'    => $client_email,
-                    'post_status'   => 'publish',          
-                    'post_type'     => $post_type 
-                    );
-                    $post_id = wp_insert_post($front_post);
-                    update_post_meta($post_id, "quotes_email_subject_field", $subject);
-                    update_post_meta($post_id, "quotes_sender_email_field", $client_email);
-                    update_post_meta($post_id, "quotes_sent_to_field", $valid_recipients);
-                    update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
-                    update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
-                    // end saving data
-                }
-            }
-        
-          }
-          else{
-                while($counter < 3):
-                    $random_numbers = array_rand($recipients);
-                        if(!empty($recipients[$random_numbers]))
-                        {
-                            if(in_array($recipients[$random_numbers],$to_send)){ /* do something */}
-                            else {    $to_send [] = $recipients[$random_numbers]; $counter++; }
-                        }
-                        else{ /*  do something */ }
-                endwhile;
-
-                foreach($to_send as $recipient_email):
-                    $sent = wp_mail($recipient_email, $subject,$message, $headers);
-                    if($sent)
-                    {
-                                // Save data on quotesentry posttype
-                                $post_type = 'quotesentry';
-                                $front_post = array(
-                                'post_title'    => $client_email,
-                                'post_status'   => 'publish',          
-                                'post_type'     => $post_type 
-                                );
-                                $post_id = wp_insert_post($front_post);
-                                update_post_meta($post_id, "quotes_email_subject_field", $subject);
-                                update_post_meta($post_id, "quotes_sender_email_field", $client_email);
-                                update_post_meta($post_id, "quotes_sent_to_field", $recipient_email);
-                                update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
-                                update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
-                                // end saving data
-                    }
-                    else
-                    {
-                        echo 'Unable to send';
-                    }
-                endforeach;  
-                
-            }
-            request_quotes_thank_you();
-    }
 } 
 // Call Function to save Details
 include( NDF_BASE_DIR . '/admin/wcp-tools-submenu/request-quotes-form-settings.php' );

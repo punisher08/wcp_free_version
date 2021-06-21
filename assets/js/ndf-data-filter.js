@@ -741,14 +741,14 @@ $(function($) {
 				form += '<form class="quotes-form-content" id="form-horizontal-submit" method="post">';
 				form += '<div id="success-email-sent"></div>';
 				form += '<input type="hidden" value="'+data_modal+'" id="recipient_id"><br>';
-				form += '<input type="text" placeholder="Name*" id="client-name" name="client-name" required><br>';
-				form += '<div for="client-name" id="name-required" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
-				form += '<input type="email" placeholder="Email*" name="email" id="client-email" required><br>';
-				form += '<div for="email" id="email-required" style="text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>';
-				form += '<input type="text" placeholder="Phone" id="client-phone-number"><br>';
-				form += '<textarea class="text-area-form-horizontal" name="client-message" placeholder="Request/Description*" id="message" required></textarea><br>';
-				form += '<div for="client-message" id="client-message-required" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
-				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">Submit</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader"></span></button>'
+				form += '<input type="text" placeholder="Name*" id="client-name-single" name="client-name" required><br>';
+				form += '<div for="client-name" id="name-required-single" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
+				form += '<input type="email" placeholder="Email*" name="email" id="client-email-single" required><br>';
+				form += '<div for="email" id="email-required-single" style="text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>';
+				form += '<input type="text" placeholder="Phone" id="client-phone-number-single"><br>';
+				form += '<textarea class="text-area-form-horizontal" name="client-message" placeholder="Request/Description*" id="message-single" required></textarea><br>';
+				form += '<div for="client-message" id="client-message-required-single" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
+				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">Submit</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-single"></span></button>'
 				// form += '<img src="'+ajaxloader_path+'" style="height:30px; display:none;" id="ajax-sumbit-loader">';
 				form += '</form>';
 			form += '</div>';
@@ -767,33 +767,33 @@ $(function($) {
 		var success_message = 'Thank you we will get back to you soon';
 		var url = ndf_data_filter_vars.ndf_ajax;
 		var id =  $('#recipient_id').val();
-		var name =  $('#client-name').val();
+		var name =  $('#client-name-single').val();
 		if(name != ''){
 			var validated_name = true;
 		}
 		else{
-			$('#name-required').css('display','block');
-			$('#name-required').css('color','red');
+			$('#name-required-single').css('display','block');
+			$('#name-required-single').css('color','red');
 		}
-		var email =  $('#client-email').val();
+		var email =  $('#client-email-single').val();
 		var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
 		if (testEmail.test(email)){
 			var validated_email = true;
 		}
 		else {
-			$('#email-required').css('display','block');
-			$('#email-required').css('color','red');
+			$('#email-required-single').css('display','block');
+			$('#email-required-single').css('color','red');
 			var validated_email = false;
 		}
-		var phone =  $('#client-phone-number').val();
-		var message =  $('#message').val();	
+		var phone =  $('#client-phone-number-single').val();
+		var message =  $('#message-single').val();	
 		if(message !=''){
 			
 			var validated_message = true;
 		}
 		else{
-			$('#client-message-required').css('display','block');
-			$('#client-message-required').css('color','red');
+			$('#client-message-required-single').css('display','block');
+			$('#client-message-required-single').css('color','red');
 		}
 		if(validated_name == true && validated_email == true && validated_message == true){
 
@@ -810,7 +810,7 @@ $(function($) {
 				message: message
 				},
 				beforeSend: function(){
-					$('#ajax-sumbit-loader').css("display", "block");
+					$('#ajax-sumbit-loader-single').css("display", "block");
 					$("#before-submit").css('display','none');
 				  },
 				success:function(res){
@@ -818,19 +818,19 @@ $(function($) {
 					$("#form-horizontal-submit > input[type=text],input[type=email],textarea").val("");
 					},
 				complete: function(){
-					$('#ajax-sumbit-loader').css("display", "none");
+					$('#ajax-sumbit-loader-single').css("display", "none");
 					  }
 				}); 
 		}
 		else{
 			if(validated_name == true){
-				$('#name-required').css('display','none');
+				$('#name-required-single').css('display','none');
 			}
 			if(validated_email == true){
-				$('#email-required').css('display','none');
+				$('#email-required-single').css('display','none');
 			}
 			if(validated_message == true){
-				('#client-message-required').css('display','none');
+				$('#client-message-required-single').css('display','none');
 			}
 		}	
 	});
@@ -839,4 +839,170 @@ $(function($) {
 		$(".modal-horizontal").css("display","none");
 	});	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	/**AJAX FOR SENDING # RANDOM EMAILS */
+	$(document).on('click', '#request-quotes-btn', function(e) {
+		e.preventDefault();
+		var url = ndf_data_filter_vars.ndf_ajax;
+		var name =  $('#client-name').val();
+		var email =  $('#client-email').val();
+		var phone =  $('#client-phonne-number').val();
+		var request =  $('#request-description').val();
+		// var type = $(this).attr("type");
+		
+		
+			if(name != ''){
+				var validated_name = true;
+			}
+			else{
+				$('#name-required').css('display','block');
+				$('#name-required').css('color','red');
+			}
+			
+			var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+			if (testEmail.test(email)){
+				var validated_email = true;
+			}
+			else {
+				$('#email-required').css('display','block');
+				$('#email-required').css('color','red');
+				var validated_email = false;
+			}
+			if(request !=''){
+				
+				var validated_message = true;
+			}
+			else{
+				$('#client-message-required').css('display','block');
+				$('#client-message-required').css('color','red');
+			}
+		
+		
+		
+		if(validated_name == true && validated_email == true && validated_message == true){
+			console.log('test');
+			jQuery.ajax({
+				url: url,
+				type: "POST",
+				cache: false,
+				data:{ 
+					action: 'send_random_email', 
+					name: name,
+					email: email,
+					phone:phone,
+					request:request
+				},
+				beforeSend: function(){
+					$('#ajax-sumbit-loader').css("display", "block");
+					$("#before-send").css('display','none');
+				  },
+				success:function(res){
+						// $("#request-quotes-btn-popup").html("your request has been sent in popup");
+						// $("#quotes-form-container").css("display","none");
+						$("#quotes-form-content > input[type=text],input[type=email],textarea").val("");
+				},
+				complete: function(){
+					$('#ajax-sumbit-loader').css("display", "none");
+					$("#request-quotes-btn").html("your request has been sent");
+					  }
+			});
+		}
+		else{
+			if(validated_name == true){
+				$('#name-required').css('display','none');
+				$('#name-required-default').css('display','none');
+			}
+			if(validated_email == true){
+				$('#email-required').css('display','none');
+				$('#email-required-default').css('display','none');
+			}
+			if(validated_message == true){
+				('#client-message-required').css('display','none');
+				('#client-message-required-default').css('display','none');
+			}
+		}	
+	});	
+	/**FOR POPUP BUTTON */
+	$(document).on('click', '#request-quotes-btn-default', function(e) {
+		e.preventDefault();
+		var url = ndf_data_filter_vars.ndf_ajax;
+		var name =  $('#client-name-default').val();
+		var email =  $('#client-email-default').val();
+		var phone =  $('#client-phonne-number-default').val();
+		var request =  $('#request-description-default').val();
+		
+		
+		if(name != ''){
+			var validated_name = true;
+		
+		
+		}
+		else{
+			$('#name-required-default').css('display','block');
+			$('#name-required-default').css('color','red');
+			
+		}
+		
+		var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+		if (testEmail.test(email)){
+			var validated_email = true;
+		
+		}
+		else {
+			$('#email-required-default').css('display','block');
+			$('#email-required-default').css('color','red');
+			var validated_email = false;
+		}
+		if(request !=''){
+			
+			var validated_message = true;
+			console.log(request);
+		}
+		else{
+			$('#client-message-required-default').css('display','block');
+			$('#client-message-required-default').css('color','red');
+		}
+
+		if(validated_name == true && validated_email == true && validated_message == true){
+			jQuery.ajax({
+				url: url,
+				type: "POST",
+				cache: false,
+				data:{ 
+					action: 'send_random_email', 
+					name: name,
+					email: email,
+					phone:phone,
+					request:request
+				},
+				beforeSend: function(){
+					$('#ajax-sumbit-loader').css("display", "block");
+					$("#before-send").css('display','none');
+				  },
+				success:function(res){
+						// $("#request-quotes-btn-popup").html("your request has been sent in popup");
+						// $("#quotes-form-container").css("display","none");
+						$("#quotes-form-content-default > input[type=text],input[type=email],textarea").val("");
+						$('#client-message-required-default').css('display','none');
+						$('#email-required-default').css('display','none');
+						$('#name-required-default').css('display','none');
+				},
+				complete: function(){
+					$('#ajax-sumbit-loader').css("display", "none");
+					$("#request-quotes-btn-default").html("your request has been sent");
+					  }
+			});
+		}
+		else{
+			if(validated_name == true){
+				$('#name-required-default').css('display','none');
+			}
+			if(validated_email == true){
+				$('#email-required-default').css('display','none');
+			}
+			if(validated_message == true){
+				('#client-message-required-default').css('display','none');
+			}
+		}	
+	});	
+
 });

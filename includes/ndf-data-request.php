@@ -20,7 +20,100 @@
  */
 
 
- 
+function callback_send_random_email(){
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		global $wpdb;
+        $recipients = $wpdb->get_col("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'ndf_data_recipient_email'" );
+		$to = get_option('admin_email');
+		$name = $_POST['name'];
+		$client_email = $_POST['email'];
+		$client_phone = $_POST['phone'];
+		$client_request= $_POST['request'];
+        $message = '<table>
+                        <tr><td>Name:</td><td>'.$name.'</td></tr>
+                        <tr><td>Email:</td><td>'.$client_email.'</td></tr><tr>
+                        <td>Phone:</td><td>'.$client_phone.'</td></tr>
+                        <tr><td>Request:</td><td>'.$client_request.'</td></tr>
+                    </table>';
+                    
+        $subject = "You have received a quote request from :".get_site_url();
+        $headers = array('Content-Type: text/html; charset=UTF-8');
+        
+          $to_send = array();
+          $counter = 0;
+          $count_valid_recipients = array();
+          foreach($recipients as $filter_valid_recipients):
+             if(!empty($filter_valid_recipients)){
+                 $count_valid_recipients [] = $filter_valid_recipients;
+             }
+          endforeach;
+          //for sending  less than 3 emails
+          if(count($count_valid_recipients ) < 3)
+          {
+            foreach ($count_valid_recipients as $valid_recipients) {
+                $sent = wp_mail($valid_recipients, $subject,$message, $headers);
+                if($sent){
+                    // Save data on quotesentry posttype
+                    $post_type = 'quotesentry';
+                    $front_post = array(
+                    'post_title'    => $client_email,
+                    'post_status'   => 'publish',          
+                    'post_type'     => $post_type 
+                    );
+                    $post_id = wp_insert_post($front_post);
+                    update_post_meta($post_id, "quotes_email_subject_field", $subject);
+                    update_post_meta($post_id, "quotes_sender_email_field", $client_email);
+                    update_post_meta($post_id, "quotes_sent_to_field", $valid_recipients);
+                    update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
+                    update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
+                    // end saving data
+                }
+            }
+        
+          }
+          else{
+                while($counter < 3):
+                    $random_numbers = array_rand($recipients);
+                        if(!empty($recipients[$random_numbers]))
+                        {
+                            if(in_array($recipients[$random_numbers],$to_send)){ /* do something */}
+                            else {    $to_send [] = $recipients[$random_numbers]; $counter++; }
+                        }
+                        else{ /*  do something */ }
+                endwhile;
+
+                foreach($to_send as $recipient_email):
+                    $sent = wp_mail($recipient_email, $subject,$message, $headers);
+                    if($sent)
+                    {
+                                // Save data on quotesentry posttype
+                                $post_type = 'quotesentry';
+                                $front_post = array(
+                                'post_title'    => $client_email,
+                                'post_status'   => 'publish',          
+                                'post_type'     => $post_type 
+                                );
+                                $post_id = wp_insert_post($front_post);
+                                update_post_meta($post_id, "quotes_email_subject_field", $subject);
+                                update_post_meta($post_id, "quotes_sender_email_field", $client_email);
+                                update_post_meta($post_id, "quotes_sent_to_field", $recipient_email);
+                                update_post_meta($post_id, "quotes_sender_phone_field", $client_phone);
+                                update_post_meta($post_id, "quotes_sender_request_description_field", $client_request);
+                                // end saving data
+                    }
+                    else
+                    {
+                        echo 'Unable to send';
+                    }
+                endforeach;  
+                
+            }
+	}
+
+}
+add_action( 'wp_ajax_send_random_email', 'callback_send_random_email' );
+add_action( 'wp_ajax_nopriv_send_random_email', 'callback_send_email' );
+/** */
 function callback_send_email(){
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 	  $recipient_id = $_POST['id'];
