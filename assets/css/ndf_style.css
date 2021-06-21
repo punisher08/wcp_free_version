@@ -142,7 +142,8 @@ display: table-column-group;
 }
 .request-quotes-single{
   margin: 2px;
-  width: -webkit-fill-available;
+  /* width: -webkit-fill-available; */
+  width: 100%;
   font-size: inherit;
   padding: 10px;
 }

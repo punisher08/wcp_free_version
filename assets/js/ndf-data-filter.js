@@ -78,27 +78,27 @@ $(function($) {
 
 		if( ndf_cookie_fc_1 != null ){
 			$.each( ndf_cookie_fc_1, function( index, value ){
-				$("[data-ndf-fc-1='"+value+"']").prop('checked', 'checked');				
+				$("[data-ndf-fc-1='"+value+"']").attr('checked', 'checked');				
 			});
 		}
 		if( ndf_cookie_fc_2 != null ){
 			$.each( ndf_cookie_fc_2, function( index, value ){
-				$("[data-ndf-fc-2='"+value+"']").prop('checked', 'checked');
+				$("[data-ndf-fc-2='"+value+"']").attr('checked', 'checked');
 			});
 		}
 		if( ndf_cookie_fc_3 != null ){
 			$.each( ndf_cookie_fc_3, function( index, value ){
-				$("[data-ndf-fc-3='"+value+"']").prop('checked', 'checked');
+				$("[data-ndf-fc-3='"+value+"']").attr('checked', 'checked');
 			});
 		}
 		if( ndf_cookie_fc_4 != null ){
 			$.each( ndf_cookie_fc_4, function( index, value ){
-				$("[data-ndf-fc-4='"+value+"']").prop('checked', 'checked');
+				$("[data-ndf-fc-4='"+value+"']").attr('checked', 'checked');
 			});
 		}
 		if( ndf_cookie_fc_5 != null ){
 			$.each( ndf_cookie_fc_5, function( index, value ){
-				$("[data-ndf-fc-5='"+value+"']").prop('checked', 'checked');
+				$("[data-ndf-fc-5='"+value+"']").attr('checked', 'checked');
 			});
 		}
 		if( results_count != null ){
@@ -814,12 +814,11 @@ $(function($) {
 					$("#before-submit").css('display','none');
 				  },
 				success:function(res){
-					// $("#horizontal-form-submit").html('Sent');
 					$("#horizontal-form-submit").html("your request has been sent");
+					$("#form-horizontal-submit > input[type=text],input[type=email],textarea").val("");
 					},
 				complete: function(){
 					$('#ajax-sumbit-loader').css("display", "none");
-					// $(".modal-horizontal").css("display","none");
 					  }
 				}); 
 		}
