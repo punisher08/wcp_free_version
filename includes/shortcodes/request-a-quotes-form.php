@@ -57,7 +57,7 @@
                         <div for="client-name" id="name-required-default" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>
                         <input type="email" placeholder="Email" name="client-email" id="client-email-default" required>
                         <div for="email" id="email-required-default" style="text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>
-                        <input type="text" placeholder="Phone"  name="client-phone"  id="client-phone-number-default">
+                        <input type="text" placeholder="Phone"  name="client-phone"  id="client-phonne-number-default">
                         <textarea name="client-request"  class="text-area-form" placeholder="Request/Description"  id="request-description-default" required></textarea>
                         <div for="client-message" id="client-message-required-default" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>
                         <button class="get-quotes" name="request-quotes-btn-default" id="request-quotes-btn-default" type="default"><span id="before-send"><?=$request_quotes_form_submit_button_text;?></span><span><img src="<?=$ajax_image_loader;?>" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader"></span></button> 

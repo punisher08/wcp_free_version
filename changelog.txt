@@ -7,6 +7,7 @@
 5.Register wp_localize_script to register image directory
 6.Change .prop to .attr on filter table for returning selected/checked category
 7.Change php send email 3 random emails to ajax function for popup and default
+8.Add wcp_timestamp metabox on wcp_outbound_clicks post type and update when track wcp_outbound_clicks is enable.
 
 == 1.7.3.6 ==
 1.Create wcp-single-email.php file 

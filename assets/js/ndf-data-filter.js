@@ -756,7 +756,7 @@ $(function($) {
 		$("#quotes-modal").html(form);
 		});	
 
-	$(document).on('keypress', '#client-phone-number', function(evt) {
+	$(document).on('keypress', '#client-phone-number-single', function(evt) {
 		var ASCIICode = (evt.which) ? evt.which : evt.keyCode
 		if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
 			return false;
@@ -840,6 +840,12 @@ $(function($) {
 	});	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	/**AJAX FOR SENDING # RANDOM EMAILS */
+	$(document).on('keypress', '#client-phonne-number', function(evt) {
+		var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+		if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+			return false;
+		return true;
+	});	
 	$(document).on('click', '#request-quotes-btn', function(e) {
 		e.preventDefault();
 		var url = ndf_data_filter_vars.ndf_ajax;
@@ -922,6 +928,12 @@ $(function($) {
 		}	
 	});	
 	/**FOR POPUP BUTTON */
+	$(document).on('keypress', '#client-phonne-number-default', function(evt) {
+		var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+		if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+			return false;
+		return true;
+	});	
 	$(document).on('click', '#request-quotes-btn-default', function(e) {
 		e.preventDefault();
 		var url = ndf_data_filter_vars.ndf_ajax;
