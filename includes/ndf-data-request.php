@@ -835,6 +835,7 @@ function ndf_outbound_clicks_record(){
 
 		$current_timestamp = time();
 
+
 		$check_slug = $ID.'-'.$action.'-'.sanitize_title( $url );
 		$args = array(
 		  'name'        => $check_slug,
@@ -849,7 +850,6 @@ function ndf_outbound_clicks_record(){
 			$datetime = date("Y-m-d H:i:s", $current_timestamp);
 
 			$query = "UPDATE $wpdb->posts SET post_modified = '$datetime' WHERE ID = '$outbound_clicks_ID'";
-
 			$wpdb->query( $query );
 		else:
 			$record_click = array(
@@ -870,9 +870,22 @@ function ndf_outbound_clicks_record(){
 			update_post_meta( $outbound_clicks_ID, 'wcp_source_tag', $source_tag );
 		endif;
 
-		$timestamp = get_post_meta( $outbound_clicks_ID, 'wcp_timestamp', true );
-		$timestamp[] = $current_timestamp;
-		update_post_meta( $outbound_clicks_ID, 'wcp_timestamp', $timestamp );
+		$check_timestamp =$wpdb->get_results("SELECT * FROM `wp_postmeta` WHERE `meta_key` = 'wcp_timestamp' AND post_id = '$outbound_clicks_ID'");
+		$existed = count($check_timestamp);
+		if($existed != 1){
+			$add_timestamp = array(
+				$current_timestamp,
+			);
+			update_post_meta( $outbound_clicks_ID, 'wcp_timestamp',$add_timestamp);
+		}
+		else{
+			$timestamp = get_post_meta( $outbound_clicks_ID, 'wcp_timestamp', true );
+			$timestamp[] = $current_timestamp;
+			update_post_meta( $outbound_clicks_ID, 'wcp_timestamp', $timestamp );
+		}
+		// $timestamp = get_post_meta( $outbound_clicks_ID, 'wcp_timestamp', true );
+		// $timestamp[] = $current_timestamp;
+		// update_post_meta( $outbound_clicks_ID, 'wcp_timestamp', $timestamp );
 
 		$return = array();
 

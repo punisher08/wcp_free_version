@@ -78,7 +78,14 @@ function ndf_data_settings_add_meta_box() {
 			"advance",
 			"default"
 		);
-	///Enable Request Form Meta box
+	add_meta_box(
+		"wcp_timestamp",
+		"Sender Request",
+		// no callback , updated when outboundclicks track button is enabled
+		"wcp_outbound_clicks",
+		"normal",
+		"low"
+	);
 }
 add_action( 'add_meta_boxes', 'ndf_data_settings_add_meta_box' );
 

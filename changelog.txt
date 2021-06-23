@@ -6,6 +6,7 @@
 4.Added ajax loader image on jquery forms
 5.Register wp_localize_script to register image directory
 6.Change .prop to .attr on filter table for returning selected/checked category
+7.Change php send email 3 random emails to ajax function for popup and default
 
 == 1.7.3.6 ==
 1.Create wcp-single-email.php file 

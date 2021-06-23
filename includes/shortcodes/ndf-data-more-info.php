@@ -42,10 +42,19 @@ function ndf_data_more_info_shortcode( $atts ) {
 	$ndf_more_info_fields_summary_table_header_font_size = get_option( 'ndf_more_info_fields_summary_table_header_font_size', '14px' );
 	$ndf_more_info_fields_summary_table_header_fontcolor = get_option( 'ndf_more_info_fields_summary_table_header_fontcolor', '#000000' );
 	$ndf_more_info_fields_logo_width = get_option( 'ndf_more_info_fields_logo_width', 'auto' );
-
+	//when summary disable
+	$ndf_more_info_fields_summary_show = get_option( 'ndf_more_info_fields_summary_show', 1 );
+	if($ndf_more_info_fields_summary_show  != 1){
+		$remove_border = 'none !important';
+		$remove_padding = '0px !important';
+	}
 	$ndf_star_rating_color = get_option( 'ndf_star_rating_color', '#f9f922' );
 	?>
 	<style type="text/css">
+	.ndf_more_info_summary{
+		padding:<?=$remove_padding;?>;
+		border:<?=$remove_border;?>;
+	}
 	.frxp-grid-text-editor{
 		margin-top:30px;
 	}
