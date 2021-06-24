@@ -222,10 +222,16 @@ function ndf_data_more_info_shortcode( $atts ) {
 		border:none;
 	}
 	.ndf_more_info_summary ul.frxp-list ul{
-		padding-left: 0px;
+		/* padding-left: 0px;
 		margin-bottom:10px !important;
 		font-weight:600;
-		display:flex;
+		display:flex; */
+		padding-left: 0px;
+		margin-bottom: 10px !important;
+		font-weight: 600;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
 	.ndf_more_info_summary ul.frxp-list ul .text{
 		padding-right: 10px;

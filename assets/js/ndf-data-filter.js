@@ -742,12 +742,12 @@ $(function($) {
 				form += '<div id="success-email-sent"></div>';
 				form += '<input type="hidden" value="'+data_modal+'" id="recipient_id"><br>';
 				form += '<input type="text" placeholder="Name*" id="client-name-single" name="client-name" required><br>';
-				form += '<div for="client-name" id="name-required-single" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
+				form += '<div for="client-name" id="name-required-single" style="font-size:10px; text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
 				form += '<input type="email" placeholder="Email*" name="email" id="client-email-single" required><br>';
-				form += '<div for="email" id="email-required-single" style="text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>';
+				form += '<div for="email" id="email-required-single" style="font-size:10px; text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>';
 				form += '<input type="text" placeholder="Phone" id="client-phone-number-single"><br>';
 				form += '<textarea class="text-area-form-horizontal" name="client-message" placeholder="Request/Description*" id="message-single" required></textarea><br>';
-				form += '<div for="client-message" id="client-message-required-single" style="text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
+				form += '<div for="client-message" id="client-message-required-single" style="font-size:10px;  text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
 				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">Submit</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-single"></span></button>'
 				// form += '<img src="'+ajaxloader_path+'" style="height:30px; display:none;" id="ajax-sumbit-loader">';
 				form += '</form>';
@@ -1017,4 +1017,5 @@ $(function($) {
 		}	
 	});	
 
+    $(".cat-values > .frxp-list > .text > div > ul > .text > div").append("<span id='appended-el'> |</span>");
 });

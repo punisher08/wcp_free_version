@@ -124,7 +124,7 @@ function request_quotes_form_register_settings() {
 	);
 	add_settings_field( 
 		'request_quotes_form_input_width',
-		'input field width',
+		'Input field width',
 		'request_quotes_form_input_width_callback',
 		'request_quotes_form_settings_option',
 		'request_quotes_form_settings_section'
