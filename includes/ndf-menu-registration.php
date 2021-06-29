@@ -38,9 +38,9 @@ function ndf_menu_registration(){
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Enquiry Form Entries', 'manage_options', 'edit.php?post_type=wcp_enquiry_entries', NULL);
     add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Settings', 'Enquiry Form Settings', 'manage_options', 'wcp-enquiry-form-settings', 'ndf_enquiry_form_settings_submenu_display');
 	// Request Quotes Form Settings
-    add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes', 'Quotes Form Settings', 'manage_options', 'request_quotes_form_settings', 'request_quotes_form_settings_submenu_display');
+    add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Request Quotes', 'Quote Form Settings', 'manage_options', 'request_quotes_form_settings', 'request_quotes_form_settings_submenu_display');
 	// redirect to quotesentry post type
-	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Quotes Form Entries', 'manage_options', 'edit.php?post_type=quotesentry', NULL);
+	add_submenu_page( 'edit.php?post_type=wcp_outbound_clicks', 'Enquiry Form Entries', 'Quote Form Entries', 'manage_options', 'edit.php?post_type=quotesentry', NULL);
 
 }
 add_action( 'admin_menu', 'ndf_menu_registration' );

@@ -18,6 +18,26 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
+ #form-success-message-default, #form-success-message-popup{
+  border-color: #0b6700;
+  color: #0b6700;
+  font-weight: 400;
+  font-size: 15px;
+  transition-timing-function: ease-in;
+  margin: auto;
+  border: 1px solid;
+  padding: 10px;
+  text-align: left;
+ }
+
+ #horizontal-form-success-message{
+  border-color: #0b6700;
+  color: #0b6700;
+  font-weight: 400;
+  font-size: 15px;
+  transition-timing-function: ease-in;
+ 
+ }
   .container-fluid>div{
    margin:auto !important;
  }
@@ -141,13 +161,15 @@ display: table-column-group;
   padding: 8px;
   float: right;
   width: auto;
+  font-family:inherit;
 }
 .request-quotes-single{
   margin: 2px;
-  /* width: -webkit-fill-available; */
   width: 100%;
   font-size: inherit;
-  padding: 10px;
+  padding: 7px;
+  font-family:inherit;
+  margin-bottom: 4px;
 }
 
  .form-box,.form-box-single{
@@ -192,10 +214,8 @@ display: table-column-group;
 }
 #quotes-form-container input,.text-area-form , #quotes-form-container-single input,.text-area-form,.text-area-form-horizontal,.horizontal-form input{
 	display: inline-block;
-	text-align: left;
+	text-align: left !important;
 	border-radius: 7px;
-	/* background: #eee; */
-  /* box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px; */
 	padding: 1em 2em;
 	outline: none;
 	border: none;
@@ -219,7 +239,7 @@ display: table-column-group;
 	outline: none;
 	border: none;
 	transition: 0.3s linear;
-  padding: 1em 2em;
+  padding: 10px;
   margin-top: 20px;
 
 }
@@ -448,7 +468,7 @@ p#wcp_keyword_search_p:after{
   z-index: 2;
 }
 #ndf_plugin_html .tablesaw td{
-  padding: 4px;
+  padding: 4px !important;
 }
 #ndf_plugin_html .tablesaw-advance-dots,
 #ndf_plugin_html .tablesaw-advance-dots li,
@@ -560,7 +580,7 @@ em{
 	display: initial;
 }
 #ndf_filtered_data_content .ndf_table_header{
-  padding: 0px;
+  padding: 0px !important;
   min-width: 40px;
   max-width: 100px !important;
 }

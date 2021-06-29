@@ -694,7 +694,8 @@ $(function($) {
 	$(document).on('click', '#close-form', function(e) {
 		e.preventDefault();
 		$("#quotes-form-container").css("display","none");
-		$("#quotes-form-container-single").css("display","none")
+		$("#quotes-form-container-single").css("display","none");
+		$("#form-success-message-popup").css('display','none');
 	});	
 	// end request form-quotes
 
@@ -740,6 +741,7 @@ $(function($) {
 				form += '<p class="single-quote-subtitle">'+subtitle+'</p>';
 				form += '<form class="quotes-form-content" id="form-horizontal-submit" method="post">';
 				form += '<div id="success-email-sent"></div>';
+				form += '<input id="horizontal-form-success-message" disabled style="display:none;" type="text" value="Request Sent">';
 				form += '<input type="hidden" value="'+data_modal+'" id="recipient_id"><br>';
 				form += '<input type="text" placeholder="Name*" id="client-name-single" name="client-name" required><br>';
 				form += '<div for="client-name" id="name-required-single" style="font-size:10px; text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
@@ -814,11 +816,14 @@ $(function($) {
 					$("#before-submit").css('display','none');
 				  },
 				success:function(res){
-					$("#horizontal-form-submit").html("your request has been sent");
+			
 					$("#form-horizontal-submit > input[type=text],input[type=email],textarea").val("");
+					$("#before-submit").css('display','block');
 					},
 				complete: function(){
 					$('#ajax-sumbit-loader-single').css("display", "none");
+					$("#horizontal-form-success-message").css("display","block");
+					$("#horizontal-form-success-message").val("Request Sent");
 					  }
 				}); 
 		}
@@ -898,8 +903,8 @@ $(function($) {
 					request:request
 				},
 				beforeSend: function(){
-					$('#ajax-sumbit-loader').css("display", "block");
-					$("#before-send").css('display','none');
+					$('#ajax-sumbit-loader-popup').css("display", "block");
+					$("#before-send-popup").css('display','none');
 				  },
 				success:function(res){
 						// $("#request-quotes-btn-popup").html("your request has been sent in popup");
@@ -907,8 +912,9 @@ $(function($) {
 						$("#quotes-form-content > input[type=text],input[type=email],textarea").val("");
 				},
 				complete: function(){
-					$('#ajax-sumbit-loader').css("display", "none");
-					$("#request-quotes-btn").html("your request has been sent");
+					$('#ajax-sumbit-loader-popup').css("display", "none");
+					$("#before-send-popup").css('display','block')
+					$("#form-success-message-popup").css('display','block');
 					  }
 			});
 		}
@@ -987,8 +993,8 @@ $(function($) {
 					request:request
 				},
 				beforeSend: function(){
-					$('#ajax-sumbit-loader').css("display", "block");
-					$("#before-send").css('display','none');
+					$('#ajax-sumbit-loader-default').css("display", "block");
+					$("#before-send-default").css('display','none');
 				  },
 				success:function(res){
 						// $("#request-quotes-btn-popup").html("your request has been sent in popup");
@@ -999,8 +1005,10 @@ $(function($) {
 						$('#name-required-default').css('display','none');
 				},
 				complete: function(){
-					$('#ajax-sumbit-loader').css("display", "none");
-					$("#request-quotes-btn-default").html("your request has been sent");
+					$('#ajax-sumbit-loader-default').css("display", "none");
+					$("#request-quotes-btn-default").css("display","block");
+					$("#before-send-default").css('display','block');
+					$('#form-success-message-default').css('display','block');
 					  }
 			});
 		}

@@ -215,7 +215,7 @@ function ndf_category_2_filter_label_callback($args) {
 
 function ndf_category_2_results_label_callback($args) {
 	$ndf_category_2_filter_label = get_option( 'ndf_category_2_filter_label', 'Category 2' );
-	$ndf_categoryaligncenterresults_label = get_option( 'ndf_category_2_results_label', $ndf_category_2_filter_label );
+	$ndf_category_2_results_label = get_option( 'ndf_category_2_results_label', $ndf_category_2_filter_label );
 	$ndf_category_2_results_label = (empty($ndf_category_2_results_label)) ? $ndf_category_2_filter_label : $ndf_category_2_results_label;
 
 	$html = '<input type="text" id="ndf_category_2_results_label" name="ndf_category_2_results_label" value="'.esc_attr__( $ndf_category_2_results_label ).'" class="regular-text" />';
