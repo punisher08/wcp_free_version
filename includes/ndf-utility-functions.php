@@ -610,7 +610,7 @@ function wcp_get_more_info_template( $wcp_data_ID, $ndf_data_results_layout, $la
 
 			if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
 			//added function for email
-				$output .= '<button class="request-quotes-single"  data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$wcp_data_ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
+				$output .= '<button class="request-quotes-single"  btn-title="'.$request_quotes_form_submit_button_text.'" data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$wcp_data_ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
 				$output .= '<div id="quotes-modal">';
 				$output .= '</div>';
 				//end ajax email

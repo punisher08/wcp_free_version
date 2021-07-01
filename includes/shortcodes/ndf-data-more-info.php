@@ -473,9 +473,26 @@ function ndf_data_more_info_shortcode( $atts ) {
 				}
 			}
 		}
+		echo '<div>';
 		echo $star_output;
+		/**ENABLE REQUEST QUOTES ON WCP PAGE */
+		global $post;
+		$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
+		$request_quotes_form_subtitle = get_option( 'request_quotes_form_subtitle', 'Please provide some contact details' );
+		$request_quotes_form_submit_button_text = get_option( 'request_quotes_form_submit_button_text', 'Submit' );
+		$request_quotes_form_title = get_option( 'request_quotes_form_title', 'Get Quotes' );
+		$ndf_data_enable_request_form_meta_box = get_post_meta($post->ID);
+		if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
+			if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
+				echo '<button class="request-quotes-single"  btn-title="'.$request_quotes_form_submit_button_text.'" data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$post->ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
+				echo '<div id="quotes-modal"></div>';
+			}
+		endif;
+		echo '</div>';
+		/**EO GROUP WITH STAR RATINGS */
 		/* EO Star Ratings */
 		echo '</div>';
+	
 		?>
 		<div class="frxp-clearfix"></div>
 		<?php

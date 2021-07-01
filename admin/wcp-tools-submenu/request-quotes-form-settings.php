@@ -39,7 +39,7 @@ function request_quotes_form_register_settings() {
 	);
 	add_settings_field( 
 		'email_request_quotes_form_title_button',
-		'Button title for [wcpquote] & [wcpquote type="popup"]',
+		'Button title for [wcpquote type="popup"]',
 		'email_request_quotes_form_title_button_callback',
 		'request_quotes_form_settings_option',
 		'request_quotes_form_settings_section'
@@ -218,12 +218,12 @@ function request_quotes_form_title_position_callback($args){
 	echo $html;;
 }
 function request_quotes_form_title_font_size_callback($args){
-	$request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '25px' );
+	$request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '30px' );
 	$html = '<input type="text" id="request_quotes_form_title_font_size" name="request_quotes_form_title_font_size" value="'.$request_quotes_form_title_font_size.'" />'; 
 	echo $html;;
 }
 function request_quotes_form_title_line_height_callback($args){
-	$request_quotes_form_title_line_height = get_option( 'request_quotes_form_title_line_height', '' );
+	$request_quotes_form_title_line_height = get_option( 'request_quotes_form_title_line_height', '30px' );
 	$html = '<input type="text" id="request_quotes_form_title_line_height" name="request_quotes_form_title_line_height" value="'.$request_quotes_form_title_line_height.'" />'; 
 	echo $html;;
 }
@@ -238,7 +238,7 @@ function request_quotes_form_font_weight_callback($args){
 }
 function request_quotes_form_text_color_callback($args){
 
-	$request_quotes_form_text_color = get_option( 'request_quotes_form_text_color', '#fff' );
+	$request_quotes_form_text_color = get_option( 'request_quotes_form_text_color', '#000' );
 	$html = '<input type="text" id="request_quotes_form_text_color" name="request_quotes_form_text_color" value="'.esc_attr__( $request_quotes_form_text_color ).'" class="ndf_colorpicker" />';
 	echo $html;
 }
@@ -259,7 +259,7 @@ function request_quotes_form_content_position_callback($args){
 	echo $html;;
 }
 function request_quotes_form_input_width_callback($args){
-	$request_quotes_form_input_width = get_option( 'request_quotes_form_input_width', '100%' );
+	$request_quotes_form_input_width = get_option( 'request_quotes_form_input_width', '80%' );
 	$html = '<input type="text" id="request_quotes_form_input_width" name="request_quotes_form_input_width" value="'.$request_quotes_form_input_width.'" />'; 
 	echo $html;
 }
@@ -275,12 +275,12 @@ function request_quotes_form_submit_button_text_callback($args){
 	echo $html;
 }
 function request_quotes_form_submit_button_color_callback($args){
-	$request_quotes_form_submit_button_color = get_option( 'request_quotes_form_submit_button_color', '#fff' );
+	$request_quotes_form_submit_button_color = get_option( 'request_quotes_form_submit_button_color', '#0366d6' );
 	$html = '<input  type="text" id="request_quotes_form_submit_button_color" name="request_quotes_form_submit_button_color" value="'.$request_quotes_form_submit_button_color.'"  class="ndf_colorpicker"/>'; 
 	echo $html;
 }
 function request_quotes_form_submit_button_width_callback($args){
-	$request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', 'auto' );
+	$request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', '80%' );
 	$html = '<input  type="text" id="request_quotes_form_submit_button_width" name="request_quotes_form_submit_button_width" value="'.$request_quotes_form_submit_button_width.'" "/>'; 
 	echo $html;
 }

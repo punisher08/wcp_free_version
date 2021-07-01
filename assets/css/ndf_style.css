@@ -18,6 +18,35 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
+ .single-quote-subtitle{
+   margin-bottom: 0px;
+ }
+ #name-required-single,#email-required-single,#client-message-required-single{
+  font-family: inherit; 
+  font-size:10px;
+  text-align:left; 
+  display:none; 
+  border: none !important;
+ }
+ .quotes-form-content .text-area-form{
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  /* padding: 1em 2em; */
+ }
+ #name-required,#email-required,#client-message-required{
+  font-family: inherit; 
+  font-size:10px;
+  text-align:left; 
+  display:none; 
+  border: none !important;
+ }
+ #name-required-default,#email-required-default,#client-message-required-default{
+  font-family: inherit; 
+  font-size:10px;
+  text-align:left; 
+  display:none; 
+  border: none !important;
+ }
  #form-success-message-default, #form-success-message-popup{
   border-color: #0b6700;
   color: #0b6700;
@@ -36,7 +65,8 @@
   font-weight: 400;
   font-size: 15px;
   transition-timing-function: ease-in;
- 
+  margin: auto;
+  margin-top: 10px;
  }
   .container-fluid>div{
    margin:auto !important;
@@ -88,10 +118,11 @@ display: table-column-group;
    display: flex;
  }
  .ndf_data_summary_star_rating{
-   width: 50%;
+   width: 100%;
  }
  .ndf_data_row_title{
    display: flex;
+   justify-content: space-between;
  }
  .title-logo-row{
    display: grid;
@@ -102,15 +133,13 @@ display: table-column-group;
 	display: inline-block;
 	text-align: left !important;
 	border-radius: 7px;
-	/* background: #eee; */
-	padding: 1em 2em;
+	/* padding: 1em 2em; */
 	outline: none;
 	border: none;
 	color: #222;
 	transition: 0.3s linear;
   margin-top: 10px;
   border: 1px solid #ccc;
-  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
 ::placeholder{color: #999;}
 
@@ -121,17 +150,59 @@ display: table-column-group;
   border-radius: 15px;
  }
  /* End Default Form Quotes */
- .request-quotes{
+ .request-quotes,.single-page-quotes{
   padding: 10px;
   color: #fff;
-  background: #009ce0;
+  background: #2726a4;
+  text-transform: capitalize;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  margin-bottom: 3px;
+  width: 100%;
  }
  .request-quotes:hover{
+  background-color: #2726a4;
+  color: white;
+ }
+ .single-page-quotes:hover{
+  background-color: #2726a4;
+  color: white;
+ }
+ .request-quotes-single-horizontal{
+  float: right;
+  width: auto;
   padding: 10px;
   color: #fff;
-  background: #009ce0;
-  box-shadow: 0 9px 25px -5px #3337ae;
- }
+  background: #2726a4;
+  text-transform: capitalize;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  margin-bottom: 3px;
+  font-weight: inherit;
+}
+.request-quotes-single-horizontal:hover{
+  background-color: #2726a4;
+  color: white;
+}
+.request-quotes-single{
+  padding: 10px;
+  color: #fff;
+  background: #2726a4;
+  text-transform: capitalize;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  margin-bottom: 3px;
+  width: 100%;
+  font-weight: inherit;
+}
+.request-quotes-single:hover{
+  background-color: #2726a4;
+  color: white;
+}
+
 .close{
     right: 0;
     background: none;
@@ -155,23 +226,6 @@ display: table-column-group;
 .close-positon{
   text-align: right !important;
 }
-.request-quotes-single-horizontal{
-  margin: 0;
-  font-size: inherit;
-  padding: 8px;
-  float: right;
-  width: auto;
-  font-family:inherit;
-}
-.request-quotes-single{
-  margin: 2px;
-  width: 100%;
-  font-size: inherit;
-  padding: 7px;
-  font-family:inherit;
-  margin-bottom: 4px;
-}
-
  .form-box,.form-box-single{
   box-shadow: rgba(204, 163, 163, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	border-radius: 5px;
@@ -216,7 +270,7 @@ display: table-column-group;
 	display: inline-block;
 	text-align: left !important;
 	border-radius: 7px;
-	padding: 1em 2em;
+	/* padding: 1em 2em; */
 	outline: none;
 	border: none;
 	color: #222;
@@ -228,7 +282,6 @@ display: table-column-group;
 
 
 .get-quotes {
-	
 	font-family: inherit;
 	margin: 2.3em 0 0 0;
 	border-radius: 7px;
@@ -241,7 +294,6 @@ display: table-column-group;
 	transition: 0.3s linear;
   padding: 10px;
   margin-top: 20px;
-
 }
 #quotes-form-container button:hover{transform: translatey(2px);}
 #quotes-form-container-single button:hover{transform: translatey(2px);}
@@ -588,6 +640,7 @@ em{
   word-break: break-word;
   white-space: normal;
   min-height: 100px;
+  padding: 0px !important;
 }
 .tabular .ndf_table_cell{
   text-align: center;

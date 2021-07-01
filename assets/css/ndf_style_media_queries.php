@@ -11,7 +11,7 @@
 echo '<style type="text/css">
 @media all and (max-width: 768px) {
 	.form-box-single{
-		width:80% !important;
+		width:90% !important;
 	}
 	.form-box{
 		width:80% !important;

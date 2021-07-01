@@ -196,14 +196,14 @@ $ndf_data_logo_position = get_option( 'ndf_data_results_table_logo_position','le
 // Request Quotes Forms Display Settngs
 $request_quotes_formbackground_color = get_option( 'request_quotes_formbackground_color', '#fff' );
 $request_quotes_form_text_color = get_option( 'request_quotes_form_text_color', '#000' );
-$request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '25px' );
+$request_quotes_form_title_font_size = get_option( 'request_quotes_form_title_font_size', '30px' );
 $request_quotes_form_font_weight = get_option( 'request_quotes_form_font_weight', '400' );
 $request_quotes_form_submit_button_color = get_option( 'request_quotes_form_submit_button_color', '#0366d6' );
 $request_quotes_form_input_width = get_option( 'request_quotes_form_input_width', '100%' );
 $request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', '80%' );
 $request_quotes_form_title_position = get_option( 'request_quotes_form_title_position', 'center' );
 $request_quotes_form_content_position = get_option( 'request_quotes_form_content_position', 'center' );
-$request_quotes_form_title_line_height = get_option( 'request_quotes_form_title_line_height', '' );
+$request_quotes_form_title_line_height = get_option( 'request_quotes_form_title_line_height', '30px' );
 // 
 $ndf_filters_show_filter_table = get_option( 'ndf_filters_show_filter_table', 0 );
 
@@ -218,13 +218,22 @@ else{
 
 ?>
 <style type="text/css">
+#name-required-single,#email-required-single,#client-message-required-single{
+	width:<?=$request_quotes_form_input_width;?>;
+}
+
+ #name-required-default,#email-required-default,#client-message-required-default{
+	width:<?=$request_quotes_form_input_width;?>;
+ }
+ #name-required,#email-required,#client-message-required{
+	width:<?=$request_quotes_form_input_width;?>;
+}
 .ndf_filters_wrapper{
 	display:<?=$ndf_filters_show_filter_table_settings;?> !important;
 }
 .ndf_filters_heading{
 	display:<?=$ndf_filters_show_filter_table_settings;?> !important;
 }
-
 
 .quotes-form-content{
 	text-align:<?=$request_quotes_form_content_position;?>
@@ -241,10 +250,17 @@ else{
 	background-color:<?=$request_quotes_form_submit_button_color;?>;
 	width:<?=$request_quotes_form_submit_button_width?>;
 }
+.get-quotes:hover{
+	background-color:<?=$request_quotes_form_submit_button_color;?>;
+	
+}
 #quotes-form-container input,.text-area-form,#quotes-form-container-single input,.text-area-form {
 	width:<?=$request_quotes_form_input_width;?>;
 }
-.horizontal-form input,.text-area-form-horizontal{
+#form-success-message-popup,#form-success-message-default{
+	width:<?=$request_quotes_form_input_width;?>;
+}
+.modal-horizontal .horizontal-form input,.text-area-form-horizontal{
 	width:<?=$request_quotes_form_input_width;?>;
  }
 #quotes-form-container p{
@@ -254,13 +270,15 @@ else{
 .single-quote-subtitle{
 	color:<?=$request_quotes_form_text_color;?> !important;
 	text-align:<?=$request_quotes_form_title_position;?> !important;
-	padding-top:20px;
+	/* padding-top:20px; */
+	margin:0;
 }
 .get-form-title{
 	color:<?=$request_quotes_form_text_color;?>;
 	font-size:<?=$request_quotes_form_title_font_size;?>;
 	font-weight:<?=$request_quotes_form_font_weight;?>;
-	text-align:<?=$request_quotes_form_title_position;?>;
+	text-align:<?=$request_quotes_form_title_position;?> !important;
+	line-height:<?=$request_quotes_form_title_line_height;?>;
 }
 .form-box,.form-box-single{
 	background-color:<?=$request_quotes_formbackground_color;?>;

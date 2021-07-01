@@ -726,13 +726,15 @@ $(function($) {
 	}
 	/**EO NDF MORE INFO PAGE LAYOUT */
 
-	/**AJAX FOR SINGLE EMAIL QUOTES */
+	/**AJAX FOR SINGLE EMAIL QUOTES ON EACH WCP DATA */
 	$(document).on('click', '#request-quotes-single-horizontal', function(e) {
 		e.preventDefault();
+	
 		var ajaxloader_path = ndf_data_image_loader.ndf_out+'/assets/images/ajax-loader.gif';
 		var data_modal = $(this).attr('data-modal');
 		var data_title = $(this).attr('data-title');
 		var subtitle = $(this).attr('subtitle');
+		var button_text = $(this).attr('btn-title'); 
 		var form = '';
 		form += '<div class="modal-horizontal id-'+data_modal+'">';
 			form += '<div class="form-box-single horizontal-form">';
@@ -744,13 +746,13 @@ $(function($) {
 				form += '<input id="horizontal-form-success-message" disabled style="display:none;" type="text" value="Request Sent">';
 				form += '<input type="hidden" value="'+data_modal+'" id="recipient_id"><br>';
 				form += '<input type="text" placeholder="Name*" id="client-name-single" name="client-name" required><br>';
-				form += '<div for="client-name" id="name-required-single" style="font-size:10px; text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
+				form += '<div for="client-name" id="name-required-single">This field is required</div>';
 				form += '<input type="email" placeholder="Email*" name="email" id="client-email-single" required><br>';
-				form += '<div for="email" id="email-required-single" style="font-size:10px; text-align:left; margin:auto; display:none; width:80%;">Please Enter valid email address</div>';
+				form += '<div for="email" id="email-required-single">Please Enter valid email address</div>';
 				form += '<input type="text" placeholder="Phone" id="client-phone-number-single"><br>';
 				form += '<textarea class="text-area-form-horizontal" name="client-message" placeholder="Request/Description*" id="message-single" required></textarea><br>';
-				form += '<div for="client-message" id="client-message-required-single" style="font-size:10px;  text-align:left; margin:auto; display:none; width:80%;">This field is required</div>';
-				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">Submit</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-single"></span></button>'
+				form += '<div for="client-message" id="client-message-required-single">This field is required</div>';
+				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">'+button_text+'</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-single"></span></button>'
 				// form += '<img src="'+ajaxloader_path+'" style="height:30px; display:none;" id="ajax-sumbit-loader">';
 				form += '</form>';
 			form += '</div>';
@@ -774,7 +776,7 @@ $(function($) {
 			var validated_name = true;
 		}
 		else{
-			$('#name-required-single').css('display','block');
+			$('#name-required-single').css('display','inline-block');
 			$('#name-required-single').css('color','red');
 		}
 		var email =  $('#client-email-single').val();
@@ -783,7 +785,7 @@ $(function($) {
 			var validated_email = true;
 		}
 		else {
-			$('#email-required-single').css('display','block');
+			$('#email-required-single').css('display','inline-block');
 			$('#email-required-single').css('color','red');
 			var validated_email = false;
 		}
@@ -794,7 +796,7 @@ $(function($) {
 			var validated_message = true;
 		}
 		else{
-			$('#client-message-required-single').css('display','block');
+			$('#client-message-required-single').css('display','inline-block');
 			$('#client-message-required-single').css('color','red');
 		}
 		if(validated_name == true && validated_email == true && validated_message == true){
@@ -822,8 +824,12 @@ $(function($) {
 					},
 				complete: function(){
 					$('#ajax-sumbit-loader-single').css("display", "none");
-					$("#horizontal-form-success-message").css("display","block");
+					$("#horizontal-form-success-message").css("display","inline-block");
 					$("#horizontal-form-success-message").val("Request Sent");
+					//remove validation text
+					$('#client-message-required-single').css('display','none');
+					$('#email-required-single').css('display','none');
+					$('#name-required-single').css('display','none');
 					  }
 				}); 
 		}
@@ -865,7 +871,7 @@ $(function($) {
 				var validated_name = true;
 			}
 			else{
-				$('#name-required').css('display','block');
+				$('#name-required').css('display','inline-block');
 				$('#name-required').css('color','red');
 			}
 			
@@ -874,7 +880,7 @@ $(function($) {
 				var validated_email = true;
 			}
 			else {
-				$('#email-required').css('display','block');
+				$('#email-required').css('display','inline-block');
 				$('#email-required').css('color','red');
 				var validated_email = false;
 			}
@@ -883,7 +889,7 @@ $(function($) {
 				var validated_message = true;
 			}
 			else{
-				$('#client-message-required').css('display','block');
+				$('#client-message-required').css('display','inline-block');
 				$('#client-message-required').css('color','red');
 			}
 		
@@ -914,7 +920,14 @@ $(function($) {
 				complete: function(){
 					$('#ajax-sumbit-loader-popup').css("display", "none");
 					$("#before-send-popup").css('display','block')
-					$("#form-success-message-popup").css('display','block');
+					$("#form-success-message-popup").css('display','inline-block');
+					// remove validation text
+					$('#client-message-required').css('display','none');
+					$('#client-message-required-default').css('display','none');
+					$('#email-required').css('display','none');
+					$('#email-required-default').css('display','none');
+					$('#name-required').css('display','none');
+					$('#name-required-default').css('display','none');
 					  }
 			});
 		}
@@ -928,8 +941,8 @@ $(function($) {
 				$('#email-required-default').css('display','none');
 			}
 			if(validated_message == true){
-				('#client-message-required').css('display','none');
-				('#client-message-required-default').css('display','none');
+				$('#client-message-required').css('display','none');
+				$('#client-message-required-default').css('display','none');
 			}
 		}	
 	});	
@@ -955,7 +968,7 @@ $(function($) {
 		
 		}
 		else{
-			$('#name-required-default').css('display','block');
+			$('#name-required-default').css('display','inline-block');
 			$('#name-required-default').css('color','red');
 			
 		}
@@ -966,7 +979,7 @@ $(function($) {
 		
 		}
 		else {
-			$('#email-required-default').css('display','block');
+			$('#email-required-default').css('display','inline-block');
 			$('#email-required-default').css('color','red');
 			var validated_email = false;
 		}
@@ -976,7 +989,7 @@ $(function($) {
 			console.log(request);
 		}
 		else{
-			$('#client-message-required-default').css('display','block');
+			$('#client-message-required-default').css('display','inline-block');
 			$('#client-message-required-default').css('color','red');
 		}
 
@@ -1007,8 +1020,13 @@ $(function($) {
 				complete: function(){
 					$('#ajax-sumbit-loader-default').css("display", "none");
 					$("#request-quotes-btn-default").css("display","block");
+					$("#request-quotes-btn-default").css("margin","auto");
 					$("#before-send-default").css('display','block');
-					$('#form-success-message-default').css('display','block');
+					$('#form-success-message-default').css('display','inline-block');
+					//remove validation text
+					$('#client-message-required-default').css('display','none');
+					$('#email-required-default').css('display','none');
+					$('#name-required-default').css('display','none');
 					  }
 			});
 		}
@@ -1020,10 +1038,11 @@ $(function($) {
 				$('#email-required-default').css('display','none');
 			}
 			if(validated_message == true){
-				('#client-message-required-default').css('display','none');
+				$('#client-message-required-default').css('display','none');
 			}
 		}	
 	});	
 
     $(".cat-values > .frxp-list > .text > div > ul > .text > div").append("<span id='appended-el'> |</span>");
+
 });
