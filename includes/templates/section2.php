@@ -38,20 +38,19 @@ if( !empty(  $field_rows_section2 ) )
             $name_holder = '';
             $name_fields_holder = '';
             if( $field_row->field_type == 'name' ){
-                $name_holder .= '<div class="frxp-grid test">';
-                    $name_holder .= '<div class="frxp-width-1-1 title full"><strong>'.$field_row->label.'</strong></div>';
-                $name_holder .= '</div>';
-                foreach( $ndf_meta_field_data as $label => $value ){
-                    if( !empty( $value ) ){
-                        $name_fields_holder .= '<div class="frxp-grid">';
-                        $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 frxp-width-medium-2-6 frxp-flex  title"><strong>'.$label.'</strong></div>';
-                        $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1 data">'.$value.'</div>';
-                        $name_fields_holder .= '</div>';
-                        
+                $name_fields_holder .= '<div class="frxp-grid name-fields">';
+                    $name_fields_holder .= '<div class="frxp-width-1-1 title full"><strong>'.$field_row->label.'</strong></div>';
+                    foreach(unserialize($ndf_meta_field_data) as $label => $value){
+                        if(!empty($value)){
+                            $name_fields_holder .= '<div class="frxp-grid-name-fields">';
+                            $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$label.'</strong></div>';
+                            $name_fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$value.'</div>';
+                            $name_fields_holder .= '</div>';
+                        }
                     }
-                }
+                $name_fields_holder .= '</div>';
                 if( !empty( $name_fields_holder ) ){
-                    echo $name_holder.$name_fields_holder;
+                    echo $name_fields_holder;
                 }
             } 
             else{

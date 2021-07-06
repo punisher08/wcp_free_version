@@ -152,7 +152,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		-moz-border-radius-bottomright: <?php echo $ndf_more_info_fields_table_border_radius; ?>px;
 		border-bottom-right-radius: <?php echo $ndf_more_info_fields_table_border_radius; ?>px;
 
-		border: <?php echo $ndf_more_info_fields_table_border_width.'px solid '.$ndf_more_info_fields_table_border_color ; ?>;
+		/* border: < ?php echo $ndf_more_info_fields_table_border_width.'px solid '.$ndf_more_info_fields_table_border_color ; ?>; */
 	}
 	#ndf_more_info_fields .title *{
 		color: <?php echo $ndf_more_info_fields_header_fontcolor; ?>;
@@ -319,37 +319,37 @@ function ndf_data_more_info_shortcode( $atts ) {
 	}
 	#ndf_more_info_fields h1{
 		font-size: 3em;
-		line-height: 3.5em;
+		/* line-height: 3.5em; */
 		font-weight: bold;
 		margin:0;
 	}
 	#ndf_more_info_fields h2{
 		font-size: 2em;
-		line-height: 2.5em;
+		/* line-height: 2.5em; */
 		font-weight: bold;
 		margin:0;
 	}
 	#ndf_more_info_fields h3{
 		font-size: 1.5em;
-		line-height: 2em;
+		/* line-height: 2em; */
 		font-weight: bold;
 		margin:0;
 	}
 	#ndf_more_info_fields h4{
 		font-size: 1.35em;
-		line-height: 1.75em;
+		/* line-height: 1.75em; */
 		font-weight: bold;
 		margin:0;
 	}
 	#ndf_more_info_fields h5{
 		font-size: 1.2em;
-		line-height: 1.7em;
+		/* line-height: 1.7em; */
 		font-weight: bold;
 		margin:0;
 	}
 	#ndf_more_info_fields h6{
 		font-size: 1em;
-		line-height: 1.5em;
+		/* line-height: 1.5em; */
 		font-weight: bold;
 		margin:0;
 	}

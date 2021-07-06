@@ -54,6 +54,7 @@
 								echo $generated_field = $NDFFieldGenerator->generateField( 
 									'name',  'ndf_fields_'.$field_row->ID, $field_values, $field_row->default_value, $field_row->required, $ndf_meta_field_data, $ndf_meta_field_data
 								);
+							
 							}
 							else{
 								echo $generated_field = $NDFFieldGenerator->generateField( 

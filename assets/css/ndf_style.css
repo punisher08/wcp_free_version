@@ -18,6 +18,15 @@
  * @since       1.0.1.0
  * @author      Netseek Pty Ltd
  */
+ .tab-content>.name-fields{
+   display: grid;
+ }
+ .group-frxp >.name-fields{
+   display:grid !important;
+ }
+ .frxp-grid-name-fields{
+   padding-left: 0px;
+ }
  .single-quote-subtitle{
    margin-bottom: 0px;
  }

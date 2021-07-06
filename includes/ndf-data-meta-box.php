@@ -614,12 +614,19 @@ function ndf_data_more_info_field_settings_save( $post_id ){
 		else if( $field_row->field_type == 'name' ){
 			if( is_array( $meta_value )){
 				foreach( $meta_value as $field_value ){
-					add_post_meta( $post_id, $ndf_meta_field_data, trim( $field_value ) );
+				
+					// add_post_meta( $post_id, $ndf_meta_field_data, trim( $field_value ) );
+					update_post_meta($post_id,$ndf_meta_field_data,serialize($meta_value));
 				}
+				
 			}
 			else{
-				$meta_value = json_decode($meta_value, true);
-				add_post_meta( $post_id, $ndf_meta_field_data, $meta_value );
+				// $meta_value = json_decode($meta_value, true);
+				// add_post_meta( $post_id, $ndf_meta_field_data, $meta_value );
+				echo '<pre>';
+				print_r($meta_value);
+				echo '<pre>';
+				die();
 			}
 		}
 		else{

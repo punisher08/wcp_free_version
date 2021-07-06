@@ -1226,6 +1226,8 @@ if ( !function_exists( 'wcp_fs' ) ) {
         if ( $form["wcp_more_info_settings"] != "Yes" ) {
             return;
         }
+        
+    
         global  $wpdb ;
         $ndf_data_filtering_saved_fields = $wpdb->prefix . 'ndf_data_filtering_saved_fields';
         $field_rows = $wpdb->get_results( "SELECT ID, field_type FROM {$ndf_data_filtering_saved_fields} WHERE hidden = '0' AND field_type = 'name'" );
@@ -1249,6 +1251,7 @@ if ( !function_exists( 'wcp_fs' ) ) {
         10,
         2
     );
+
     /**
      * Plugin uninstall.
      * 
