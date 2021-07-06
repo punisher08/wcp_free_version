@@ -19,6 +19,55 @@
  * @return 		mixed Returns the data filtered by selected categories.
  */
 
+//Check if field group is empty
+ function save_field_groups_callback(){
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		global $wpdb;
+		$ndf_table_name = $wpdb->prefix . 'ndf_data_filtering_saved_fields';
+
+		$query = ("SELECT * FROM $ndf_table_name");
+		$results = $wpdb->get_results($query);
+		$field_groups_settings = array();
+		$register_section_1_name = get_option( 'register_section_1_name', 'default' );
+		$register_section_2_name = get_option( 'register_section_2_name', 'default' );
+		$register_section_3_name = get_option( 'register_section_3_name', 'default' );
+		$field_groups_settings = [
+            $register_section_1_name,
+            $register_section_2_name,
+            $register_section_3_name
+        ];
+        $db_field_group_values = array();
+        foreach($results as $check_if_present){
+            $db_field_group_values [] = $check_if_present->field_group;
+        }	
+        $remove_this = array_diff($db_field_group_values , $field_groups_settings);
+       foreach($remove_this as $deleted_section_title){
+        $update_values = ("UPDATE `$ndf_table_name` SET `field_group` = NULL  WHERE `field_group` = '$deleted_section_title'");
+        $wpdb->query($update_values);
+       }
+	}
+ }
+add_action( 'wp_ajax_save_field_groups', 'save_field_groups_callback' );
+add_action( 'wp_ajax_nopriv_save_field_groups', 'save_field_groups_callback' );
+
+//Reset ndf_data_filtering_saved_fields field groups to Null 
+function reset_field_groups_callback_function(){
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		global $wpdb;
+		$ndf_table_name = $wpdb->prefix . 'ndf_data_filtering_saved_fields';
+		$query = ("UPDATE $ndf_table_name SET `field_group` = NULL");
+		$wpdb->query($query);
+
+		update_option('register_section_1_name','default');
+		update_option('register_section_2_name','default');
+		update_option('register_section_3_name','default');
+
+		wp_send_json( $return );
+	}
+}
+add_action( 'wp_ajax_reset_field_groups', 'reset_field_groups_callback_function' );
+add_action( 'wp_ajax_nopriv_reset_field_groups', 'reset_field_groups_callback_function' );
+
 
 function callback_send_random_email(){
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {

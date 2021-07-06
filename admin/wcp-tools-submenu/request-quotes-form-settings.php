@@ -132,7 +132,7 @@ function request_quotes_form_register_settings() {
 
 	add_settings_field(
 		'request_quotes_form_submit_button_text',
-		'Button Text',
+		'Form Submit button text',
 		'request_quotes_form_submit_button_text_callback',
 		'request_quotes_form_settings_option',
 		'request_quotes_form_settings_section'

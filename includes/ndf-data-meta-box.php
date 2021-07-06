@@ -193,9 +193,9 @@ function ndf_data_more_info_html( $post) {
 		<?php
 		global $wpdb;
 		$NDFFieldGenerator = new NDFFieldGenerator();
-
 		$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
-		$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' ORDER BY field_order ASC" );
+		// $field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' ORDER BY field_order ASC" );
+		$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields  ORDER BY field_order ASC" );
 
 		if( empty(  $field_rows ) ){
 			?>
@@ -234,6 +234,7 @@ function ndf_data_more_info_html( $post) {
 								echo $generated_field = $NDFFieldGenerator->generateField( 
 									'name',  'ndf_fields_'.$field_row->ID, $field_values, $field_row->default_value, $field_row->required, $ndf_meta_field_data, $ndf_meta_field_data
 								);
+								// print_r($generated_field)
 							}
 							/*else if( $field_row->field_type == 'list' ){
 								echo $generated_field = $NDFFieldGenerator->generateField( 

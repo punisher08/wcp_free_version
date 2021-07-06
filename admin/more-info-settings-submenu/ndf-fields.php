@@ -161,13 +161,13 @@
 			
 							$val = isset($field_row->field_group) ? esc_attr($field_row->field_group) : '';
 
-							if($register_section_1_name != 'default'){
+							if($register_section_1_name != 'default' && $register_section_1_name != ''){
 								$field_groups_settings [] =  $register_section_1_name;
 							}
-							if($register_section_2_name != 'default'){
+							if($register_section_2_name != 'default' && $register_section_2_name != ''){
 								$field_groups_settings [] =  $register_section_2_name;
 							}
-							if($register_section_3_name != 'default'){
+							if($register_section_3_name != 'default' && $register_section_3_name != ''){
 								$field_groups_settings [] =  $register_section_3_name;
 							}
 							if(!empty($field_groups_settings))

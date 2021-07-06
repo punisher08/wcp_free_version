@@ -39,10 +39,18 @@ function register_field_groups_settings() {
 		'register_field_groups_option',
 		'register_field_groups_section'
 	);
+	add_settings_field( 
+		'reset_field_groups',
+		'Reset section field groups',
+		'reset_field_groups_callback',
+		'register_field_groups_option',
+		'register_field_groups_section'
+	);
 
     register_setting( 'register_field_groups_option', 'register_section_1_name' );
     register_setting( 'register_field_groups_option', 'register_section_2_name' );
     register_setting( 'register_field_groups_option', 'register_section_3_name' );
+    register_setting( 'register_field_groups_option', 'reset_field_groups' );
     
 
 
@@ -63,6 +71,11 @@ function register_section_2_name_callback(){
 function register_section_3_name_callback(){
     $register_section_3_name = get_option( 'register_section_3_name', 'default' );
 	$html = '<input type="text" id="register_section_3_name" name="register_section_3_name" value="'.$register_section_3_name.'" />'; 
+	echo $html;
+}
+function reset_field_groups_callback(){
+	$html = '';
+	$html .= '<button class="button button-primary" id="reset-field-groups" >Reset</button>';
 	echo $html;
 }
 

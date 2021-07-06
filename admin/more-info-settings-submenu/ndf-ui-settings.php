@@ -379,7 +379,7 @@ function ndf_more_info_fields_header_font_size_callback($args) {
 } /* end ndf_more_info_fields_header_font_size_callback */
 
 function ndf_more_info_fields_table_background_color_callback($args) {
-	$ndf_more_info_fields_table_background_color = get_option( 'ndf_more_info_fields_table_background_color', '#FFFFFF' );
+	$ndf_more_info_fields_table_background_color = get_option( 'ndf_more_info_fields_table_background_color', 'inherit' );
 
 	$html = '<input type="text" id="ndf_more_info_fields_table_background_color" name="ndf_more_info_fields_table_background_color" value="'.esc_attr__( $ndf_more_info_fields_table_background_color ).'" class="ndf_colorpicker" />';
 	echo $html;
@@ -429,21 +429,21 @@ function ndf_more_info_fields_table_row_space_callback($args) {
 } /* end ndf_more_info_fields_table_row_space_callback */
 
 function ndf_more_info_fields_table_border_color_callback($args) {
-	$ndf_more_info_fields_table_border_color = get_option( 'ndf_more_info_fields_table_border_color', '#efefef' );
+	$ndf_more_info_fields_table_border_color = get_option( 'ndf_more_info_fields_table_border_color', 'inherit' );
 
 	$html = '<input type="text" id="ndf_more_info_fields_table_border_color" name="ndf_more_info_fields_table_border_color" value="'.esc_attr__( $ndf_more_info_fields_table_border_color ).'" class="ndf_colorpicker" />';
 	echo $html;
 } /* end ndf_more_info_fields_table_border_color_callback */
 
 function ndf_more_info_fields_table_border_width_callback($args) {
-	$ndf_more_info_fields_table_border_width = get_option( 'ndf_more_info_fields_table_border_width', 1 );
+	$ndf_more_info_fields_table_border_width = get_option( 'ndf_more_info_fields_table_border_width', 0 );
 
 	$html = '<input type="number" min="0" class="small-text" id="ndf_more_info_fields_table_border_width" name="ndf_more_info_fields_table_border_width" value="'.esc_attr__( $ndf_more_info_fields_table_border_width ).'" /> px';
 	echo $html;
 } /* end ndf_more_info_fields_table_border_width_callback */
 
 function ndf_more_info_fields_table_border_radius_callback($args) {
-	$ndf_more_info_fields_table_border_radius = get_option( 'ndf_more_info_fields_table_border_radius', 8 );
+	$ndf_more_info_fields_table_border_radius = get_option( 'ndf_more_info_fields_table_border_radius', 0 );
 
 	$html = '<input type="number" min="0" class="small-text" id="ndf_more_info_fields_table_border_radius" name="ndf_more_info_fields_table_border_radius" value="'.esc_attr__( $ndf_more_info_fields_table_border_radius ).'" /> px';
 	echo $html;

@@ -677,7 +677,8 @@ class NDFFieldGenerator{
 							if( is_array( $from_db_field_values ) ){
 								$input_value = $from_db_field_values[$value];
 							}
-
+							// $output .= print_r()
+							// $output .= '<p><strong>'.$value.' </strong><input type="text" name="'.esc_attr__($name).'['.esc_attr__($value).']" '.$required_field.' value="'.esc_attr__($input_value).'" class="widefat"></p>';
 							$output .= '<p><strong>'.$value.' </strong><input type="text" name="'.esc_attr__($name).'['.esc_attr__($value).']" '.$required_field.' value="'.esc_attr__($input_value).'" class="widefat"></p>';
 						}
 					}

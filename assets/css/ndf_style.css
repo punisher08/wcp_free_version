@@ -59,7 +59,7 @@
   text-align: left;
  }
 
- #horizontal-form-success-message{
+ #form-horizontal-submit > #horizontal-form-success-message{
   border-color: #0b6700;
   color: #0b6700;
   font-weight: 400;
@@ -212,7 +212,7 @@ display: table-column-group;
 #quotes-form-container , #quotes-form-container-single{
   font-family: inherit;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     z-index: 100;
     text-align: center;
     background: #141212ab;
@@ -264,19 +264,33 @@ display: table-column-group;
   top: 0;
   right: 0;
   bottom: 0;
-
 }
-#quotes-form-container input,.text-area-form , #quotes-form-container-single input,.text-area-form,.text-area-form-horizontal,.horizontal-form input{
-	display: inline-block;
+/* specify targets */
+#form-horizontal-submit > input,#form-horizontal-submit > textarea, #quotes-form-content-default > input, #quotes-form-content-default > textarea ,#quotes-form-content > input{
+  display: inline-block;
 	text-align: left !important;
 	border-radius: 7px;
-	/* padding: 1em 2em; */
 	outline: none;
 	border: none;
 	color: #222;
 	transition: 0.3s linear;
   margin-top: 10px;
   border: 1px solid #ccc;
+  padding: 1rem;
+}
+#form-horizontal-submit
+/* EO specifying targets */
+#quotes-form-container input,.text-area-form , #quotes-form-container-single input,.text-area-form,.text-area-form-horizontal,.horizontal-form input{
+	display: inline-block;
+	text-align: left !important;
+	border-radius: 7px;
+	outline: none;
+	border: none;
+	color: #222;
+	transition: 0.3s linear;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 1rem;
 }
 ::placeholder{color: #999;}
 

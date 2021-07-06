@@ -60,9 +60,10 @@
 						}
 					}
 					echo '</optgroup>';
-
+				
 					$field_types = $NDFFieldGenerator::fieldTypes( 'advanced' );
 					echo '<optgroup label="Advanced">';
+					
 					foreach( $field_types as $field => $value ){
 						echo '<option value="'.$field.'">'.$value['label'].'</option>';
 						if( $value['fields'] ){
@@ -117,13 +118,13 @@
 			$register_section_2_name = get_option( 'register_section_2_name', 'default' );
 			$register_section_3_name = get_option( 'register_section_3_name', 'default' );
 
-			if($register_section_1_name != 'default'){
+			if($register_section_1_name != 'default' & $register_section_1_name != ''){
 			$field_groups_settings [] =  $register_section_1_name;
 			}
-			if($register_section_2_name != 'default'){
+			if($register_section_2_name != 'default' && $register_section_2_name != ''){
 				$field_groups_settings [] =  $register_section_2_name;
 			}
-			if($register_section_3_name != 'default'){
+			if($register_section_3_name != 'default' && $register_section_3_name != ''){
 			$field_groups_settings [] =  $register_section_3_name;
 			}
 			if(!empty($field_groups_settings))
@@ -141,6 +142,7 @@
 			echo '<td class="no-field-groups"><a href="admin.php?page=wcp-more-info-settings&tab=fieldgroup">Add Field Groups here</a></td>';
 			}
 			// end field group options
+			// print_r($field_types);
 			?>
 			</tr>
 			<?php echo $field_attributes; ?>

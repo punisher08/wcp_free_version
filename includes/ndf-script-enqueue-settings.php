@@ -187,7 +187,7 @@ $ndf_more_info_fields_heading_label_fontcolor = get_option( 'ndf_more_info_field
 $ndf_more_info_fields_header_font_size = get_option( 'ndf_more_info_fields_header_font_size', '14px' );
 $ndf_more_info_fields_table_border_color = get_option( 'ndf_more_info_fields_table_border_color', '#efefef' );
 $ndf_more_info_fields_table_border_radius = get_option( 'ndf_more_info_fields_table_border_radius', 8 );
-$ndf_more_info_fields_table_background_color = get_option( 'ndf_more_info_fields_table_background_color', '#FFFFFF' );
+$ndf_more_info_fields_table_background_color = get_option( 'ndf_more_info_fields_table_background_color', 'inherit' );
 $ndf_more_info_fields_table_font_color = get_option( 'ndf_more_info_fields_table_font_color', '#161616' );
 $ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_fields_summary_label_fontcolor', '#000000' );
 
@@ -236,7 +236,7 @@ else{
 }
 
 .quotes-form-content{
-	text-align:<?=$request_quotes_form_content_position;?>
+	text-align:<?=$request_quotes_form_content_position;?>!important;
 }
 #default-quotes-form-container input,.text-area-form-default{
 	width:<?=$request_quotes_form_input_width;?>;
@@ -246,7 +246,7 @@ else{
 	text-align:<?=$request_quotes_form_title_position;?>;
 }
 
-.get-quotes{
+#form-horizontal-submit > button, #quotes-form-content-default > button,#quotes-form-content > button{
 	background-color:<?=$request_quotes_form_submit_button_color;?>;
 	width:<?=$request_quotes_form_submit_button_width?>;
 }

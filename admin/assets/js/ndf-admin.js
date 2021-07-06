@@ -617,4 +617,58 @@ jQuery(document).ready( function($) {
             }
         });
     });
+    
+    //set default value if option is null
+    var register_option1_name = $('#register_section_1_name').val();
+    var register_option2_name = $('#register_section_2_name').val();
+    var register_option3_name = $('#register_section_3_name').val();
+  
+    if(register_option1_name == '' || register_option1_name == 'default'){
+        $('#register_section_1_name').val('default');
+        update_field_values_on_db();
+    }
+    if(register_option2_name == '' || register_option2_name == 'default'){
+        $('#register_section_2_name').val('default');
+        update_field_values_on_db();
+    }
+    if(register_option3_name == '' || register_option3_name == 'default'){
+        $('#register_section_3_name').val('default');
+        update_field_values_on_db();
+    }
+
+    function update_field_values_on_db(){
+        $.ajax({
+            type:"post",
+            dataType:"json",
+            url: ndf_data_filter_vars.ndf_ajax,
+            data:{
+                action: "save_field_groups"
+            },
+        success:function(response){
+          //.. 
+        }
+        });
+    }
+    //EO set default value if option is null
+
+    $(document).on('click', '#reset-field-groups', function(e){
+        e.preventDefault();
+        if(confirm('are you sure you want to reset')){
+            $('#register_section_1_name').val('default');
+            $('#register_section_2_name').val('default');
+            $('#register_section_3_name').val('default');
+            $.ajax({
+                type:"post",
+                dataType:"json",
+                url: ndf_data_filter_vars.ndf_ajax,
+                data:{
+                    action: "reset_field_groups"
+                },
+            success:function(response){
+                //..
+            }
+            }); 
+        }
+        
+    })
 });

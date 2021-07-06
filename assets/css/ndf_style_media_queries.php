@@ -23,7 +23,8 @@ echo '<style type="text/css">
 		margin-top:0px !important;
 	}
 	.group-frxp{
-		display:initial !important;
+		display: flex;
+		flex-direction: column;
 	}
 	.group-frxp > .frxp-grid{
 		width:100% !important;

@@ -736,7 +736,7 @@ $(function($) {
 		var subtitle = $(this).attr('subtitle');
 		var button_text = $(this).attr('btn-title'); 
 		var form = '';
-		form += '<div class="modal-horizontal id-'+data_modal+'">';
+		form += '<div class="modal-horizontal id-'+data_modal+'" id="modal-dialog-for-quotes">';
 			form += '<div class="form-box-single horizontal-form">';
 				form += '<div class="close-positon"><a href class="close-horizontal close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>';
 				form += '<div class="get-form-title">'+data_title+'</div>';
@@ -1045,4 +1045,23 @@ $(function($) {
 
     $(".cat-values > .frxp-list > .text > div > ul > .text > div").append("<span id='appended-el'> |</span>");
 
+	//close form popup when click outside
+	$(document).mouseup(e => {
+		var checker1 = $(e.target).is('#modal-dialog-for-quotes');
+		var checker2 = $(e.target).is('.class-quotes-form-container');
+		if(checker1 != false && checker1 != 'undefined'){
+			$("#modal-dialog-for-quotes").css("display","none");
+		}
+		if(checker2 != false && checker2 != 'undefined'){
+			$("#quotes-form-container").css("display","none");
+		}
+	  });
+	  $(document).keydown(function(event) { 
+		if (event.keyCode == 27) { 
+			$("#quotes-form-container").css("display","none");
+			$("#modal-dialog-for-quotes").css("display","none");
+			console.log('clicked');
+		}
+	  });
+	  //EO close forms
 });
