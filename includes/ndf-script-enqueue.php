@@ -70,10 +70,13 @@ function ndf_enqueue(){
 		) 
 	);
 	//////////////////////////////////////////////////////////////////////////
+	//for vertical and bullet line separator and image loader
+	$ndf_more_info_summary_category_separator = get_option( 'ndf_more_info_summary_category_separator', 'vertical_line' );
 	wp_enqueue_script('ndf-image-loader', NDF_BASE_URL . '/assets/images', array( 'jquery' ));
 	wp_localize_script( 'ndf-image-loader', 'ndf_data_image_loader', 
 		array( 
 				'ndf_out' => NDF_BASE_URL,
+				'ndf_summary_content_list_type' => $ndf_more_info_summary_category_separator,
 			) 
 		);
 	wp_script_add_data( 'ndf-image-loader', 'async/defer' , true );

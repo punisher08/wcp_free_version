@@ -450,7 +450,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 			echo '<div>' . $data_title . '</div>';
 		}
 		?>
-		
+
 		<div><<?php echo $ndf_more_info_fields_heading_style; ?> class="ndf_summary_title"><?php echo get_the_title($id); ?></<?php echo $ndf_more_info_fields_heading_style; ?>></div>
 	</div>	
 		<?php
@@ -490,7 +490,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		$ndf_data_enable_request_form_meta_box = get_post_meta($post->ID);
 		if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
 			if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
-				echo '<button class="request-quotes-single"  btn-title="'.$request_quotes_form_submit_button_text.'" data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$post->ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
+				echo '<button class="request-quotes-single get-quotes-buttons"  btn-title="'.$request_quotes_form_submit_button_text.'" data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$post->ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
 				echo '<div id="quotes-modal"></div>';
 			}
 		endif;

@@ -249,6 +249,10 @@ else{
 #form-horizontal-submit > button, #quotes-form-content-default > button,#quotes-form-content > button{
 	background-color:<?=$request_quotes_form_submit_button_color;?>;
 	width:<?=$request_quotes_form_submit_button_width?>;
+
+}
+.get-quotes-buttons{
+	background-color:<?=$request_quotes_form_submit_button_color;?>!important;
 }
 .get-quotes:hover{
 	background-color:<?=$request_quotes_form_submit_button_color;?>;
@@ -288,9 +292,9 @@ else{
 }
 /* Data Filters Heading Style */
 h1.ndf_filters_heading, h2.ndf_filters_heading, h3.ndf_filters_heading, h4.ndf_filters_heading, h5.ndf_filters_heading, h6.ndf_filters_heading{
-	color: <?php echo $ndf_filters_heading_label_fontcolor; ?>;
+	color: <?php echo $ndf_filters_heading_label_fontcolor; ?>!important;
 	display: inline-block;
-	line-height: <?php echo $ndf_filters_heading_lineheight; ?>em;
+	line-height: <?php echo $ndf_filters_heading_lineheight; ?>em !important;
 	margin: 0px;
 	padding:10px 0px 10px 0px;
 	text-shadow: rgba(0,0,0,.0) 0 0 1px;
@@ -599,7 +603,7 @@ h1.ndf_section_title, h2.ndf_section_title, h3.ndf_section_title, h4.ndf_section
 }
 
 h1.ndf_data_results_heading, h2.ndf_data_results_heading, h3.ndf_data_results_heading, h4.ndf_data_results_heading,h5.ndf_data_results_heading, h6.ndf_data_results_heading{
-	color: <?php echo $ndf_data_results_heading_label_fontcolor; ?>;
+	color: <?php echo $ndf_data_results_heading_label_fontcolor; ?> !important;
 	display: inline-block;
 	margin: 0px;
 	padding: 10px 0px 10px 0px;
@@ -973,7 +977,8 @@ h6.ndf_filters_heading, h6.ndf_data_results_heading, .ndf_table_cell h6{
 	color: <?php echo $ndf_filters_heading_description_font_color; ?>;
 	margin-bottom: 0px;
 }
-.ndf_data_results_heading_description p{
+
+.ndf_data_results_heading_description ,.ndf_data_results_heading_description p{
 	font-size: <?php echo $ndf_data_results_heading_description_font_size; ?>;
 	line-height: <?php echo $ndf_data_results_heading_description_lineheight; ?>em;
 	color: <?php echo $ndf_data_results_heading_description_font_color; ?>;

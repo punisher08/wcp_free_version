@@ -87,6 +87,9 @@ if( !empty(  $field_rows ) )
                         else if( $field_row->field_type == 'text_editor' ){
                             $ndf_more_info_value = do_shortcode($ndf_meta_field_data);
                         }
+                        else if( $field_row->field_type == 'email' ){
+                            $ndf_more_info_value = '<a target="_blank" href="mailto:'.do_shortcode($ndf_meta_field_data).'" >'.do_shortcode($ndf_meta_field_data).'</a>';
+                        }
                     }
                     $fields_holder .= '<div class="frxp-grid">';
                         $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex title"><strong>'.$field_row->label.'</strong></div>';

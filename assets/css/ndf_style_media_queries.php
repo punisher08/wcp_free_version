@@ -14,7 +14,7 @@ echo '<style type="text/css">
 		width:90% !important;
 	}
 	.form-box{
-		width:80% !important;
+		width:90% !important;
 	}
 	.ndf_more_info_summary ul.frxp-list ul{
 		display:grid !important;

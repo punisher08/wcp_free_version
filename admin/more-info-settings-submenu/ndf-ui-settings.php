@@ -126,6 +126,18 @@ function ndf_more_info_fields_ui_settings_register_settings() {
 	);
 
 	add_settings_field( 
+		'ndf_more_info_summary_category_separator',
+		'Summary category separator',
+		'ndf_more_info_summary_category_separator_callback',
+		'ndf_more_info_fields_ui_settings_option',
+		'ndf_more_info_fields_ui_settings_section',
+		array(
+			'vertical_line' => 'Vertical Line',
+			'bullet' => 'Bullet'
+		)
+	);
+
+	add_settings_field( 
 		'ndf_more_info_fields_table_header_background_color',
 		'Table Header Background Color',
 		'ndf_more_info_fields_table_header_background_color_callback',
@@ -264,6 +276,7 @@ function ndf_more_info_fields_ui_settings_register_settings() {
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_summary_label_fontcolor' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_summary_table_header_font_size' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_summary_table_header_fontcolor' );
+	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_summary_category_separator' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_table_header_background_color' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_table_background_color' );
 	register_setting( 'ndf_more_info_fields_ui_settings_option', 'ndf_more_info_fields_header_font_size' );
@@ -336,11 +349,22 @@ function ndf_more_info_fields_summary_label_lineheight_callback($args) {
 } /* end ndf_more_info_fields_summary_label_lineheight_callback */
 
 function ndf_more_info_fields_summary_label_fontcolor_callback($args) {
-	$ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_fields_summary_label_fontcolor', '#000000' );
+	$ndf_more_info_fields_summary_label_fontcolor = get_option( 'ndf_more_info_fields_summary_label_fontcolor', '#000' );
 
     $html = '<input type="text" id="ndf_more_info_fields_summary_label_fontcolor" name="ndf_more_info_fields_summary_label_fontcolor" value="'.esc_attr__( $ndf_more_info_fields_summary_label_fontcolor ).'" class="ndf_colorpicker" />';
     echo $html;
 } /* end ndf_more_info_fields_summary_label_fontcolor_callback */
+
+function ndf_more_info_summary_category_separator_callback($args) {
+	$ndf_more_info_summary_category_separator = get_option( 'ndf_more_info_summary_category_separator', 'vertical_line' );
+
+	$html = "<select name='ndf_more_info_summary_category_separator' class='ndf_dropdown'>";
+	foreach( $args as $option_key => $option_value ){
+		$html .= "<option value='".$option_key."' ".selected( $ndf_more_info_summary_category_separator, $option_key, false ).">".$option_value."</option>";
+	}
+	$html .= "</select>";
+	echo $html;
+} /* end ndf_more_info_summary_category_separator_callback */
 
 function ndf_more_info_fields_summary_table_header_font_size_callback($args) {
 	$ndf_more_info_fields_summary_table_header_font_size = get_option( 'ndf_more_info_fields_summary_table_header_font_size', '14px' );
@@ -361,7 +385,7 @@ function ndf_more_info_fields_summary_table_header_fontcolor_callback($args) {
 } /* end ndf_more_info_fields_summary_table_header_fontcolor_callback */
 
 function ndf_more_info_fields_table_header_background_color_callback($args) {
-	$ndf_more_info_fields_table_header_background_color = get_option( 'ndf_more_info_fields_table_header_background_color', '#ffffff' );
+	$ndf_more_info_fields_table_header_background_color = get_option( 'ndf_more_info_fields_table_header_background_color', '' );
 
 	$html = '<input type="text" id="ndf_more_info_fields_table_header_background_color" name="ndf_more_info_fields_table_header_background_color" value="'.esc_attr__( $ndf_more_info_fields_table_header_background_color ).'" class="ndf_colorpicker" />';
 	echo $html;
