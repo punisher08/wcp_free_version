@@ -91,10 +91,18 @@ if( !empty(  $field_rows ) )
                             $ndf_more_info_value = '<a target="_blank" href="mailto:'.do_shortcode($ndf_meta_field_data).'" >'.do_shortcode($ndf_meta_field_data).'</a>';
                         }
                     }
-                    $fields_holder .= '<div class="frxp-grid">';
-                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex title"><strong>'.$field_row->label.'</strong></div>';
+                    if($field_row->field_type == 'text_editor'){
+                        $fields_holder .= '<div class="frxp-grid-text-editor">';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$field_row->label.'</strong></div>';
                         $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$ndf_more_info_value.'</div>';
                     $fields_holder .= '</div>';
+                    }
+                    else{
+                        $fields_holder .= '<div class="frxp-grid">';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  frxp-flex  title"><strong>'.$field_row->label.'</strong></div>';
+                        $fields_holder .= '<div class="frxp-width-1-1 frxp-width-small-1-1  data">'.$ndf_more_info_value.'</div>';
+                    $fields_holder .= '</div>';
+                    }
                 }
                 if( !empty( $fields_holder ) ){
                     echo $section_holder.$fields_holder;

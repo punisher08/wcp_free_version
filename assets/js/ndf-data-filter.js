@@ -1048,11 +1048,13 @@ $(function($) {
 	var ndf_content_list_type = ndf_data_image_loader.ndf_summary_content_list_type;
 	if(ndf_content_list_type == 'vertical_line'){
 		$(".cat-values > .frxp-list > .text > div > ul > .text > div").append("<span id='appended-el'> |</span>");
-		var test = $(".cat-values > .frxp-list > .text > div > ul");
-		// console.log(test);
+		$(".ndf_list_pill > li").append("<span id='appended-bullet'> |</span>");
 	}
-	else{
+	else if(ndf_content_list_type == 'bullet'){
 		$(".cat-values > .frxp-list > .text > div > ul > .text >div").prepend("<span id='appended-bullet'>&#8226;</span>");
+		$(".ndf_list_pill > li").prepend("<span id='appended-bullet'>&#8226;</span>");
+	}else{
+		// 
 	}
 	//close form popup when click outside
 	$(document).mouseup(e => {
@@ -1073,11 +1075,4 @@ $(function($) {
 		}
 	  });
 	  //EO close forms
-	  var test_test = $(".cat-values > .frxp-list > .text > div > ul");
-	  for(var cat_val = 0; cat_val < test_test.length; cat_val++){
-		  	// console.log(test_test[cat_val])
-	  }
-	// console.log(test_test[0])
-	//   console.log($(".cat-values > .frxp-list").find('span#appended-el'));
-
 });

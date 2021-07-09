@@ -132,6 +132,7 @@ function ndf_more_info_fields_ui_settings_register_settings() {
 		'ndf_more_info_fields_ui_settings_option',
 		'ndf_more_info_fields_ui_settings_section',
 		array(
+			'default' => 'default',
 			'vertical_line' => 'Vertical Line',
 			'bullet' => 'Bullet'
 		)

@@ -394,6 +394,7 @@ display: table-column-group;
 }
 #ndf_plugin_html{
 	max-width: 100%;
+  padding: 0 10px;
 }
 #ndf_plugin_html small{
 	margin: 0px;
