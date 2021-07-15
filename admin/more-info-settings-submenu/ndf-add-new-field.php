@@ -37,7 +37,7 @@
 							$field_attributes .= '<br>';
 							$field_attributes .= $value['fields']['instructions'];
 							$field_attributes .= '</td>';
-							$field_attributes .= '<td>';
+							$field_attributes .= '<td  style="padding-top:40px;">';
 							if( isset( $value['fields']['options'] ) ){
 								if( $value['fields']['field_type'] == 'checkbox' ){
 									$field_name = 'field_values[]';
@@ -73,7 +73,7 @@
 							$field_attributes .= '<br>';
 							$field_attributes .= $value['fields']['instructions'];
 							$field_attributes .= '</td>';
-							$field_attributes .= '<td>';
+							$field_attributes .= '<td  style="padding-top:40px;" >';
 							if( isset( $value['fields']['options'] ) ){
 								$field_name = 'field_values';
 								

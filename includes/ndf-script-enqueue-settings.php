@@ -204,8 +204,16 @@ $request_quotes_form_submit_button_width = get_option( 'request_quotes_form_subm
 $request_quotes_form_title_position = get_option( 'request_quotes_form_title_position', 'center' );
 $request_quotes_form_content_position = get_option( 'request_quotes_form_content_position', 'center' );
 $request_quotes_form_title_line_height = get_option( 'request_quotes_form_title_line_height', '30px' );
+$email_request_quotes_popup_align = get_option( 'email_request_quotes_popup_align', 'center' );
 // 
 $ndf_filters_show_filter_table = get_option( 'ndf_filters_show_filter_table', 0 );
+$request_quotes_form_single_popup_padding =  get_option( 'request_quotes_form_single_popup_padding','10px' );
+$request_quotes_form_single_popup_line_height =  get_option( 'request_quotes_form_single_popup_line_height','inherit' );
+$request_quotes_form_single_popup_font_size =  get_option( 'request_quotes_form_single_popup_font_size','inherit' );
+$request_quotes_form_single_popup_font_weight = get_option( 'request_quotes_form_single_popup_font_weight', 'inherit' );
+
+$request_quotes_form_font_size =  get_option( 'request_quotes_form_font_size','14px' );
+
 
 if($ndf_filters_show_filter_table == 1 ){
 	$ndf_filters_show_filter_table_settings = "none";
@@ -218,7 +226,37 @@ else{
 
 ?>
 <style type="text/css">
-#name-required-single,#email-required-single,#client-message-required-single{
+.single-quote-subtitle,#form-subtitle{
+	font-size:<?=$request_quotes_form_font_size;?> !important;
+}
+.request-quotes-single,.request-quotes-single-horizontal{
+	font-size:<?=$request_quotes_form_single_popup_font_size ;?>;
+	font-weight:<?=$request_quotes_form_single_popup_font_weight;?>;
+}
+.form-box-single, .horizontal-form,.form-box{
+	font-size:<?=$request_quotes_form_font_size;?>;
+}
+.request-quotes-single-horizontal{
+	background-color:<?=$request_quotes_form_submit_button_color;?> !important;
+	
+}
+.request-quotes-single,.request-quotes-single-horizontal{
+	padding:<?=$request_quotes_form_single_popup_padding;?>;
+	line-height:<?=$request_quotes_form_single_popup_line_height;?>;
+	font-size:<?=$request_quotes_form_single_popup_font_size;?>;
+	font-weight: <?=$request_quotes_form_single_popup_font_weight;?>;
+}
+.request-quotes-single,.request-quotes-single-horizontal:hover{
+	color:#fff !important;
+}
+#popup-button-holder{
+	text-align:<?=$email_request_quotes_popup_align;?>;
+}
+#form-subtitle,.single-quote-subtitle{
+	width:<?=$request_quotes_form_input_width;?>;
+	margin:auto;
+}
+#name-required-single,#email-required-single,#client-message-required-single,#button-holder{
 	width:<?=$request_quotes_form_input_width;?>;
 }
 
@@ -235,7 +273,7 @@ else{
 	display:<?=$ndf_filters_show_filter_table_settings;?> !important;
 }
 
-.quotes-form-content{
+.quotes-form-content > #button-holder{
 	text-align:<?=$request_quotes_form_content_position;?>!important;
 }
 #default-quotes-form-container input,.text-area-form-default{
@@ -246,7 +284,7 @@ else{
 	text-align:<?=$request_quotes_form_title_position;?>;
 }
 
-#form-horizontal-submit > button, #quotes-form-content-default > button,#quotes-form-content > button{
+#form-horizontal-submit > button, #quotes-form-content-default > button,#quotes-form-content > button, #button-holder > button{
 	background-color:<?=$request_quotes_form_submit_button_color;?>;
 	width:<?=$request_quotes_form_submit_button_width?>;
 
@@ -275,7 +313,7 @@ else{
 	color:<?=$request_quotes_form_text_color;?> !important;
 	text-align:<?=$request_quotes_form_title_position;?> !important;
 	/* padding-top:20px; */
-	margin:0;
+	margin:auto;
 }
 .get-form-title{
 	color:<?=$request_quotes_form_text_color;?>;
@@ -283,6 +321,8 @@ else{
 	font-weight:<?=$request_quotes_form_font_weight;?>;
 	text-align:<?=$request_quotes_form_title_position;?> !important;
 	line-height:<?=$request_quotes_form_title_line_height;?>;
+	width: <?=$request_quotes_form_input_width;?>;
+	margin:auto;
 }
 .form-box,.form-box-single{
 	background-color:<?=$request_quotes_formbackground_color;?>;

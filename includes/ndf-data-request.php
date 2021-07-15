@@ -818,7 +818,7 @@ function ndf_enquiry_form_submit(){
 		if( !empty( $ndf_enquiry_phone ) ){
 			$message .= '<p><strong>Phone:</strong> '.$ndf_enquiry_phone.'</p>';
 		}
-		$message .= '<p>&nbsp;</p>';
+		$message .= '<p><strong>Request</strong></p>';
 		$message .= '<p>'.nl2br( $ndf_enquiry_content ).'</p>';
 
 		$record_mail = array(

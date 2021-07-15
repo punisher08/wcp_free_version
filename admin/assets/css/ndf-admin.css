@@ -12,7 +12,9 @@
  * @author 		Netseek Pty Ltd
  */
 /* Request Quote Form Entries */
-
+#request-quotes{
+	max-width: 100% !important;
+}
 .no-field-groups{
 	position: absolute;
   }

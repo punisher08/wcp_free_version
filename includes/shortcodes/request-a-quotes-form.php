@@ -27,13 +27,13 @@
         if($type == "popup"){ 
    
         $output = '';
-        $output .= '<button class="request-quotes get-quotes-buttons" id="request-quotes">'.$email_request_quotes_form_title_button.'</button>';
+        $output .= '<div id="popup-button-holder"><button class="request-quotes get-quotes-buttons" id="request-quotes">'.$email_request_quotes_form_title_button.'</button></div>';
 
             $output .= '<div id="quotes-form-container" style="display:none;" class="class-quotes-form-container">';
                 $output .= '<div class="form-box">';
                     $output .= '<div class="close-positon"><a href class="close frxp-modal-close frxp-close frxp-close-alt" id="close-form"></a></div>';
                     $output .= '<div class="get-form-title">'.$request_quotes_form_title.'</div>';
-                    $output .= '<p>'.$request_quotes_form_subtitle.'</p>';
+                    $output .= '<p id="form-subtitle">'.$request_quotes_form_subtitle.'</p>';
                     $output .= '<form method="post" action="" class="quotes-form-content" id="quotes-form-content">';
                        $output .= '<div id="form-success-message-popup" disabled style="display:none;">Request Sent</div>';
                         $output .= '<input type="text" placeholder="Name" name="client-name" id="client-name" required>';
@@ -43,7 +43,7 @@
                         $output .= '<input type="text" placeholder="Phone"  name="client-phone"  id="client-phonne-number">';
                         $output .= '<textarea name="client-request"  class="text-area-form" placeholder="Request/Description"  id="request-description" required></textarea>';
                         $output .= '<div  style="display:none;" id="client-message-required">This field is required</div>';
-                        $output .= '<button class="get-quotes" name="request-quotes-btn-popup" id="request-quotes-btn"  type="popup" ><span id="before-send-popup">'.$request_quotes_form_submit_button_text.'</span><span><img src="'.$ajax_image_loader.'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-popup"></span></button>';
+                        $output .= '<div id="button-holder"><button class="get-quotes" name="request-quotes-btn-popup" id="request-quotes-btn"  type="popup" ><span id="before-send-popup">'.$request_quotes_form_submit_button_text.'</span><span><img src="'.$ajax_image_loader.'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-popup"></span></button></div>';
                     $output .= '</form>';
                 $output .= '</div>';
             $output .= '</div> ';
@@ -55,7 +55,7 @@
             $output .= '<div id="default-quotes-form-container">';
                 $output .= '<div class="form-box-default">';
                 $output .= '<div class="get-form-title">'.$request_quotes_form_title.'</div>';
-                $output .= '<p>'.$request_quotes_form_subtitle.'</p>';
+                $output .= '<p id="form-subtitle">'.$request_quotes_form_subtitle.'</p>';
                    $output .= '<form action="" method="post" class="quotes-form-content" id="quotes-form-content-default">';
                         $output .= '<div id="form-success-message-default" disabled style="display:none;">Request Sent</div>';
                         $output .= '<input type="text" placeholder="Name" name="client-name" id="client-name-default" required>';
@@ -65,7 +65,7 @@
                         $output .= '<input type="text" placeholder="Phone"  name="client-phone"  id="client-phonne-number-default">';
                         $output .= '<textarea name="client-request"  class="text-area-form" placeholder="Request/Description"  id="request-description-default" required></textarea>';
                         $output .= '<div  style="display:none;" id="client-message-required-default">This field is required</div>';
-                        $output .= '<button class="get-quotes default-btn" name="request-quotes-btn-default" id="request-quotes-btn-default" type="default"><span id="before-send-default">'.$request_quotes_form_submit_button_text.'</span><span><img src="'.$ajax_image_loader.'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-default"></span></button>';
+                        $output .= '<div id="button-holder"><button class="get-quotes default-btn" name="request-quotes-btn-default" id="request-quotes-btn-default" type="default"><span id="before-send-default">'.$request_quotes_form_submit_button_text.'</span><span><img src="'.$ajax_image_loader.'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-default"></span></button></div>';
                     $output .= '</form>';
                 $output .= '</div>';
             $output .= '</div>';

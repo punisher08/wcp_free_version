@@ -755,7 +755,7 @@ $(function($) {
 				form += '<input type="text" placeholder="Phone" id="client-phone-number-single"><br>';
 				form += '<textarea class="text-area-form-horizontal" name="client-message" placeholder="Request/Description*" id="message-single" required></textarea><br>';
 				form += '<div for="client-message" id="client-message-required-single">This field is required</div>';
-				form += '<button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">'+button_text+'</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-single"></span></button>'
+				form += '<div id="button-holder"><button class="get-quotes" id="horizontal-form-submit" name="request-single-quotes-btn" ><span id="before-submit">'+button_text+'</span><span><img src="'+ajaxloader_path+'" style="height:30px; display:none; margin:auto;" id="ajax-sumbit-loader-single"></span></button></div>'
 				// form += '<img src="'+ajaxloader_path+'" style="height:30px; display:none;" id="ajax-sumbit-loader">';
 				form += '</form>';
 			form += '</div>';
