@@ -223,7 +223,7 @@ display: table-column-group;
 
 .close{
     right: 0;
-    background: none;
+    background: white;
     color: black;
     text-decoration: none !important;
 }

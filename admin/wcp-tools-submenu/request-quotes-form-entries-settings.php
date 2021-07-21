@@ -292,7 +292,17 @@ function quotesentry_entries_columns_content( $column_name, $post_ID )
     
 add_action('manage_quotesentry_posts_custom_column','quotesentry_entries_columns_content',10,2);
 // end Quotes Entry Functions
+//update hidden simple fields only
+add_action('save_post_ndf_data', 'save_hidden_fields_value');
+function save_hidden_fields_value($post){
+	global $wpdb;
+ 
+	$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
+	$field_rows_hidden = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE field_type = 'simple_text_field' and hidden = '1' ORDER BY field_order ASC" );
 
-
+	foreach($field_rows_hidden as $field_rows_hidden_id){
+		update_post_meta($post,'ndf_fields_'.$field_rows_hidden_id->ID.'',$_POST['ndf_fields_'.$field_rows_hidden_id->ID.'']);	
+	}
+}
 
 

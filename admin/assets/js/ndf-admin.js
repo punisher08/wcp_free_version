@@ -176,7 +176,14 @@ jQuery(document).ready( function($) {
             jQuery('[data-ndf-field-parent] textarea, [data-ndf-field-parent] input, [data-ndf-field-parent] select').attr('disabled', 'disabled')
             jQuery('[data-ndf-field-parent="'+jQuery(this).val()+'"] textarea, [data-ndf-field-parent="'+jQuery(
                 this).val()+'"] input, [data-ndf-field-parent="'+jQuery(this).val()+'"] select').removeAttr('disabled');
-
+            //remove hidden field
+            if($(this).val() == 'simple_text_field'){
+                $('#show-on-simple-fields-only').removeClass('hidden');
+            }
+            else{
+                $('#show-on-simple-fields-only').addClass('hidden');
+            }
+            //end of remove hidden field
             if( jQuery(this).val() == 'section' ){
                 jQuery('.ndf_required_field').addClass('hidden');
                 jQuery('.ndf_required_field input').attr('disabled', true);

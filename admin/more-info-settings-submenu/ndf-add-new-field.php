@@ -96,7 +96,7 @@
 					</select>
 				</td>
 			</tr> 
-			<tr>
+			<tr id="show-on-simple-fields-only" class="hidden">
 				<td>Hidden</td>
 				<td>
 					<label><input type="radio" name="hidden" value="0" checked> No</label>

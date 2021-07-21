@@ -137,13 +137,19 @@
 								</select>
 							</td>
 						</tr>
-						<tr>
-							<td>Hidden</td>
-							<td>
-								<label><input type="radio" name="hidden" value="0" <?php echo checked( $field_row->hidden, 0 ) ?>> No</label>
-								<label><input type="radio" name="hidden" value="1" <?php echo checked( $field_row->hidden, 1 ) ?>> Yes</label>
-							</td>
-						</tr>
+					<?php
+					if($field_row->field_type == 'simple_text_field'){  ?>
+					<tr>
+						<td>Hidden</td>
+						<td>
+							<label><input type="radio" name="hidden" value="0" <?php echo checked( $field_row->hidden, 0 ) ?>> No</label>
+							<label><input type="radio" name="hidden" value="1" <?php echo checked( $field_row->hidden, 1 ) ?>> Yes</label>
+						</td>
+					</tr>	
+				 	<?php
+					 }
+					?>
+						
 						<tr>
 							<td>Required</td>
 							<td>
