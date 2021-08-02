@@ -270,6 +270,7 @@ function ndf_data_filter_shortcode( $atts ) {
 			if( ${"show_cat_{$number}"} ){
 				/* Show Category {$number} Filter Column */
 				$slider_output .= "<div class='ndf_filter_container cat_".$number."_slider_output' id='ndf_filter_cat_".$number."'></div>";
+
 				$grid_output .= "<div class='ndf_filter_container frxp-width-medium-1-".$show_category_column_count." cat_".$number."_grid_output' id='ndf_filter_grid_cat_".$number."'></div>";
 				
 				${"cat_{$number}_filter_contents"} .= "<div class='cat_".$number."_filter_contents frxp-hidden'>";

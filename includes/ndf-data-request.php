@@ -93,7 +93,11 @@ function callback_send_random_email(){
           $count_valid_recipients = array();
           foreach($recipients as $filter_valid_recipients):
              if(!empty($filter_valid_recipients)){
-                 $count_valid_recipients [] = $filter_valid_recipients;
+				if(in_array($filter_valid_recipients,$count_valid_recipients)){
+
+				}else{
+				   $count_valid_recipients [] = $filter_valid_recipients;
+				}
              }
           endforeach;
           //for sending  less than 3 emails
@@ -361,8 +365,18 @@ function ndf_filter_data_request() {
 				}
 			}
 		}
-
-		$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ), 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
+		$total_ndf_data = wp_count_posts('ndf_data')->publish;
+		$query_id_results = $wpdb->get_col("SELECT * FROM `wp_posts` WHERE post_type = 'ndf_data' AND post_status = 'publish' ORDER BY ID DESC");
+		if(count($query_id_results) > 10){
+			for($remove_counter = 0; $remove_counter < 10; $remove_counter++ ){
+				unset($query_id_results[$remove_counter]);
+			}
+			$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ),'post__not_in' => $query_id_results, 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
+		}
+		else{
+			$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ), 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
+		}
+		// $ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ), 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
 		$ndf_args['meta_query'][] = array( 'ndf_sort_order_clause' => array( 'key' => 'ndf_data_settings_sort_order' ));
 
 		if( $ndf_order_by == 'ratings' && ( class_exists( 'MR_Rating_Form' ) || class_exists( 'MRP_Rating_form' ) ) ){
@@ -391,6 +405,7 @@ function ndf_filter_data_request() {
 				);
 			}
 		}
+
 		
 		$ndf_query = new WP_Query( $ndf_args );
 

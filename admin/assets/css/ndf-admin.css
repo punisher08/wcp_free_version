@@ -61,6 +61,7 @@
  .fields-first-section{
 	width: -webkit-fill-available;
 	margin-right: 20px;
+	width: 80%;
 }
  
  .custom-btn{
@@ -104,6 +105,7 @@
  .sidebar{
 	 padding-left: 0;
 	 width:-webkit-fill-available; 
+	 width: -moz-available;
 	 
  }
 

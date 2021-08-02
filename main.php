@@ -48,6 +48,7 @@ if ( !function_exists( 'wcp_fs' ) ) {
     wcp_fs();
     // Signal that SDK was initiated.
     do_action( 'wcp_fs_loaded' );
+    
     /*
     * Field Groups Section Settings
     */

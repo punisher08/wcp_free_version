@@ -244,17 +244,17 @@ function request_quotes_form_register_settings() {
  *  Added styleing options for buttons
  */
 function request_quotes_form_single_popup_padding_callback(){
-	$request_quotes_form_single_popup_padding =  get_option( 'request_quotes_form_single_popup_padding','0' );
+	$request_quotes_form_single_popup_padding =  get_option( 'request_quotes_form_single_popup_padding','10px' );
 	$html = '<input type="text" id="request_quotes_form_single_popup_padding" name="request_quotes_form_single_popup_padding" value="'.$request_quotes_form_single_popup_padding.'" />'; 
 	echo $html;
 }
 function request_quotes_form_single_popup_line_height_callback(){
-	$request_quotes_form_single_popup_line_height =  get_option( 'request_quotes_form_single_popup_line_height','0' );
+	$request_quotes_form_single_popup_line_height =  get_option( 'request_quotes_form_single_popup_line_height','12px' );
 	$html = '<input type="text" id="request_quotes_form_single_popup_line_height" name="request_quotes_form_single_popup_line_height" value="'.$request_quotes_form_single_popup_line_height.'" />'; 
 	echo $html;
 }
 function request_quotes_form_single_popup_font_size_callback(){
-	$request_quotes_form_single_popup_font_size =  get_option( 'request_quotes_form_single_popup_font_size','inherit' );
+	$request_quotes_form_single_popup_font_size =  get_option( 'request_quotes_form_single_popup_font_size','14px' );
 	$html = '<input type="text" id="request_quotes_form_single_popup_font_size" name="request_quotes_form_single_popup_font_size" value="'.$request_quotes_form_single_popup_font_size.'" />'; 
 	echo $html;
 }

@@ -678,4 +678,30 @@ jQuery(document).ready( function($) {
         }
         
     })
+        /**
+         * Check field group if duplicated
+        */ 
+       for(loop_field = 1; loop_field <= 3; loop_field++){
+        $('#register_section_'+loop_field+'_name').keyup(()=>{
+            var section_1 = $('#register_section_1_name').val();
+            var section_2 = $('#register_section_2_name').val();
+            var section_3 = $('#register_section_3_name').val();
+            memberArrData = Array(
+                 section_1,
+                 section_2,
+                 section_3
+            );
+            var reportCheckDuplicate = [];
+            for (var i = 0; i < memberArrData.length - 1; i++) {
+                if (memberArrData[i + 1] == memberArrData[i]) {
+                    reportCheckDuplicate.push(memberArrData[i]);
+                }
+            }
+            reportCheckDuplicate.forEach(key => {
+               if(key != 'default'){
+                  alert('Please set a unique section name')
+               }
+           });
+        })
+    }
 });

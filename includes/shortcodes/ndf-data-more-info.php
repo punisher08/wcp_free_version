@@ -579,8 +579,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 					$output .= $ndf_summary_divider;
 				}
 
-				// $output.="<div class='categories-row'>";
-				$output.="<div class='cat-rows'>";
+				// $output.="<div class='cat-rows'>";
 				$output.="
 				<div class='col-one-half'>
 					<div class='cat-title'>".$get_cat_1_label."</div>
@@ -622,7 +621,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 					<div class='cat-title'>".$get_cat_2_label."</div>
 					<div class='cat-values'>".do_shortcode($data_cat_2_value)."</div>
 				</div>";
-				$output.="</div>";/* end row-1 */
+				// $output.="</div>";/* end row-1 */
 			}
 		}
 
@@ -652,7 +651,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 					$output .= $ndf_summary_divider;
 				}
 
-				$output.="<div class='cat-rows'>";
+				// $output.="<div class='cat-rows'>";
 				$output.="
 				<div class='col-one-half'>
 					<div class='cat-title'>".$get_cat_3_label."</div>
@@ -691,7 +690,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 					<div class='cat-title'>".$get_cat_4_label."</div>
 					<div class='cat-values'>".do_shortcode($data_cat_4_value)."</div>
 				</div>";
-				$output.="</div>";//end div row-2
+				// $output.="</div>";//end div row-2
 			}
 		}
 
@@ -720,7 +719,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 				else{
 					$output .= $ndf_summary_divider;
 				}
-				$output.="<div class='cat-rows'>";
+				// $output.="<div class='cat-rows'>";
 				$output.="
 				<div class='col-one-half'>
 					<div class='cat-title'>".$get_cat_5_label."</div>
@@ -728,7 +727,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 				</div>";
 			}
 			$output .= "</div>";
-			$output .= "</div>";//end summary content
+			// $output .= "</div>";//end summary content
 			
 		
 		}
@@ -816,47 +815,29 @@ function ndf_data_more_info_shortcode( $atts ) {
 			//if no field group set
 			if(!empty($field_rows_has)){
 				echo '<div class="ndf_more_info_field_groups">';
-					// require_once NDF_BASE_DIR . '/includes/templates/default.php';
-					echo '<div class="field-group-title">More Info Fields</div>';
-					echo '<div id="default" class="tab-content">';
-						ndf_section_templates($field_rows);
-					echo '</div>';
+					require_once NDF_BASE_DIR . '/includes/templates/default.php';
+					// echo '<div class="field-group-title">More Info Fields</div>';
+					// echo '<div id="default" class="tab-content">';
+					// 	ndf_section_templates($field_rows);
+					// echo '</div>';
 				echo '</div>';
 			}
 			//layout for section 1
 			if(!empty($ndf_meta_field_data1_has)){
 				echo '<div class="ndf_more_info_field_groups">';
-					// require_once NDF_BASE_DIR . '/includes/templates/section1.php';
-					echo '<div id="tab2" class="tab-content">';
-						if($ndf_meta_field_data1_has){
-							echo '<div class="field-group-title">'.$register_section_1_name.'</div>';	
-						}
-						ndf_section_templates($field_rows_section1);
-					echo '</div>';
+					require_once NDF_BASE_DIR . '/includes/templates/section1.php';
 				echo '</div>';
 			}
 			//layout for section 2
 			if(!empty($ndf_meta_field_data2_has)){
 				echo '<div class="ndf_more_info_field_groups">';
-					// require_once NDF_BASE_DIR . '/includes/templates/section2.php';
-					echo '<div id="tab3" class="tab-content">';
-						if($ndf_meta_field_data2_has){
-							echo '<div class="field-group-title">'.$register_section_2_name.'</div>';
-						}
-						ndf_section_templates($field_rows_section2);
-					echo '</div>';
+					require_once NDF_BASE_DIR . '/includes/templates/section2.php';
 				echo '</div>';
 			}
 			//layout for section 3
 			if(!empty($ndf_meta_field_data3_has)){
 				echo '<div class="ndf_more_info_field_groups">';
-				// require_once NDF_BASE_DIR . '/includes/templates/section3.php';
-					echo '<div id="tab4" class="tab-content">';
-						if($ndf_meta_field_data3_has){
-							echo '<div class="field-group-title">'.$register_section_3_name.'</div>';
-						}
-						ndf_section_templates($field_rows_section3);
-					echo '</div>';
+				require_once NDF_BASE_DIR . '/includes/templates/section3.php';
 				echo '</div>';
 			}
 		?>
@@ -868,7 +849,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 	<?php
 	return ob_get_clean();
 }
-
+// replcae template folder file to this single function
 function ndf_section_templates($field_rows){
 
 	if( !empty(  $field_rows ) )

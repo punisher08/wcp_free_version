@@ -1,6 +1,6 @@
 <?php
 /**
- * Request Quotes Form Settings
+ * Field Section Group Settings
  * 
  * @package 	Wordpress_Comparison_Plugin
  * @subpackage 	Wordpress_Comparison_Plugin/admin

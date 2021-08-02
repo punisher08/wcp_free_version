@@ -165,6 +165,8 @@ $ndf_load_more_button_padding_top = get_option( 'ndf_load_more_button_padding_to
 $ndf_load_more_button_padding_bottom = get_option( 'ndf_load_more_button_padding_bottom', 10 );
 $ndf_load_more_button_padding_left = get_option( 'ndf_load_more_button_padding_left', 40 );
 $ndf_load_more_button_padding_right = get_option( 'ndf_load_more_button_padding_right', 40 );
+$ndf_load_more_button_lineheight = get_option( 'ndf_load_more_button_lineheight', '1.2' );
+$ndf_load_more_button_margin_top = get_option( 'ndf_load_more_button_margin_top', 20 );
 
 /* Tooltip Style */
 $ndf_tooltip_icon_color = get_option( 'ndf_tooltip_icon_color', '#444444' );
@@ -209,7 +211,7 @@ $email_request_quotes_popup_align = get_option( 'email_request_quotes_popup_alig
 $ndf_filters_show_filter_table = get_option( 'ndf_filters_show_filter_table', 0 );
 $request_quotes_form_single_popup_padding =  get_option( 'request_quotes_form_single_popup_padding','10px' );
 $request_quotes_form_single_popup_line_height =  get_option( 'request_quotes_form_single_popup_line_height','inherit' );
-$request_quotes_form_single_popup_font_size =  get_option( 'request_quotes_form_single_popup_font_size','inherit' );
+$request_quotes_form_single_popup_font_size =  get_option( 'request_quotes_form_single_popup_font_size','14px' );
 $request_quotes_form_single_popup_font_weight = get_option( 'request_quotes_form_single_popup_font_weight', 'inherit' );
 
 $request_quotes_form_font_size =  get_option( 'request_quotes_form_font_size','14px' );
@@ -932,6 +934,8 @@ if( $ndf_data_results_h_layout_options == 'tight-view' ){
 	padding-bottom: <?php echo $ndf_load_more_button_padding_bottom; ?>px;
 	padding-left: <?php echo $ndf_load_more_button_padding_left; ?>px;
 	padding-right: <?php echo $ndf_load_more_button_padding_right; ?>px;
+	margin-top:<?php echo $ndf_load_more_button_margin_top; ?>px;
+	line-height:<?php echo $ndf_load_more_button_lineheight; ?>em;
 }
 #ndf_load_more:hover{
 	background-color: <?php echo $ndf_load_more_button_hover_background_color; ?>;
