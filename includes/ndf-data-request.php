@@ -365,6 +365,7 @@ function ndf_filter_data_request() {
 				}
 			}
 		}
+		/* check if it is a free version and limit the data on search */
 		$total_ndf_data = wp_count_posts('ndf_data')->publish;
 		$query_id_results = $wpdb->get_col("SELECT * FROM `wp_posts` WHERE post_type = 'ndf_data' AND post_status = 'publish' ORDER BY ID DESC");
 		if(count($query_id_results) > 10){
@@ -376,7 +377,7 @@ function ndf_filter_data_request() {
 		else{
 			$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ), 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
 		}
-		// $ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ), 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
+		
 		$ndf_args['meta_query'][] = array( 'ndf_sort_order_clause' => array( 'key' => 'ndf_data_settings_sort_order' ));
 
 		if( $ndf_order_by == 'ratings' && ( class_exists( 'MR_Rating_Form' ) || class_exists( 'MRP_Rating_form' ) ) ){

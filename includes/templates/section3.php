@@ -4,7 +4,7 @@
  * @since 1.7.3.2
  * 
  */
-    $register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
+$register_section_3_name = get_option( 'register_section_3_name', 'Section 3' );
 ?>
 <div id="tab4" class="tab-content">
     

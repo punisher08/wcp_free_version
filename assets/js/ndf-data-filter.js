@@ -9,25 +9,8 @@
  
 var $ = jQuery.noConflict();
 
-// $(document).ready( function($) {}
 $(function($) {
-	// var ndf_cat_children_height =parseInt( $('#ndf_filter_grid_cat_1').height());
-	// h_1 = $('#ndf_filter_grid_cat_1').height();
-	// h_2 = $('#ndf_filter_grid_cat_2').height()
-	// h_3 = parseInt($('#ndf_filter_grid_cat_3').height());
-	// h_4 = parseInt($('#ndf_filter_grid_cat_4').height());
-	// h_5 = parseInt($('#ndf_filter_grid_cat_5').height());
-	// check = Array(
-	// 	h_1,
-	// 	h_2,
-	// 	h_3,
-	// 	h_4,
-	// 	h_5
-	// );
 
-	// var maxValueInArray = Math.max.apply(Math, check);
-	// console.log(maxValueInArray);
-	
 
 	$( ".ndf_filters_wrapper .ndf_filter_container:last-child" ).addClass('ndf_last_filter');
 
@@ -644,20 +627,24 @@ $(function($) {
 			if( $(this).hasClass('show') ){
 				$(this).removeClass('show');
 				$('.ndf_filters_show_more.cat_'+ndf_taxonomy).html('Show More <i class="frxp-icon-chevron-down"></i>');
+				// $('.ndf_grid_output ').children().css('min-height','261px');
 			}
 			else{
 				$(this).addClass('show');
 				$('.ndf_filters_show_more.cat_'+ndf_taxonomy).html('Show Less <i class="frxp-icon-chevron-up"></i>');
 			}
 		});
-		//fix height of filter table
-
-		var ndf_cat_children_height =parseInt( $('#ndf_filter_grid_cat_'+ndf_taxonomy).height());
-		h_1 = parseInt($('#ndf_filter_grid_cat_1').height());
-		h_2 = parseInt($('#ndf_filter_grid_cat_2').height());
-		h_3 = parseInt($('#ndf_filter_grid_cat_3').height());
-		h_4 = parseInt($('#ndf_filter_grid_cat_4').height());
-		h_5 = parseInt($('#ndf_filter_grid_cat_5').height());
+		
+		/**
+		* Adjust Filter Table height
+		*/
+		var ndf_cat_children_height =parseInt( $('#ndf_filter_grid_cat_'+ndf_taxonomy).css('height'));
+		setTimeout(()=>{
+		h_1 = parseInt($('#ndf_filter_grid_cat_1').css('height'),10);
+		h_2 = parseInt($('#ndf_filter_grid_cat_2').css('height'),10);
+		h_3 = parseInt($('#ndf_filter_grid_cat_3').css('height'),10);
+		h_4 = parseInt($('#ndf_filter_grid_cat_4').css('height'),10);
+		h_5 = parseInt($('#ndf_filter_grid_cat_5').css('height'),10);
 		check = Array(
 			h_1,
 			h_2,
@@ -665,21 +652,25 @@ $(function($) {
 			h_4,
 			h_5
 		);
-		var maxValueInArray = Math.max.apply(Math, check);
+		var maxValueInArray = Math.max.apply(Math, check)
 		// console.log(maxValueInArray);
-		// // console.log(ndf_cat_children_height);
+		$('#ndf_filter_grid_cat_1').css('min-height',maxValueInArray+'px')
+		$('#ndf_filter_grid_cat_2').css('min-height',maxValueInArray+'px')
+		$('#ndf_filter_grid_cat_3').css('min-height',maxValueInArray+'px')
+		$('#ndf_filter_grid_cat_4').css('min-height',maxValueInArray+'px')
+		// $('#ndf_filter_grid_cat_5').css('min-height',maxValueInArray+'px')
+		},100)
 
-		if(maxValueInArray > ndf_cat_children_height){
-			// $('.ndf_grid_output ').children().css('min-height','261px');
-			// console.log('max is');
-			// console.log( maxValueInArray);
-		}
-		else{
-			set_height = parseInt(ndf_cat_children_height);
-			$('.ndf_grid_output ').children().css('min-height',set_height+'px');
-			
-		}
-		/////////////////////////////////////////////////////////////////////////////////////////
+		var defult = $('#ndf_filter_grid_cat_'+ndf_taxonomy).css('height');
+		$('#ndf_filter_grid_cat_1').css('min-height',defult)
+		initial_height = $('#ndf_filter_grid_cat_'+ndf_taxonomy).css('height');
+		$('#ndf_filter_grid_cat_1').css('min-height',initial_height)
+		$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
+		$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
+		$('#ndf_filter_grid_cat_4').css('min-height',initial_height)
+	
+		//EO fixing height
+
 		$('#filters_slider .slick-slide').css('height', 'auto');
 		
 		var ndf_height = [];
@@ -732,8 +723,6 @@ $(function($) {
 
 	$("#quotes-form-container-single").css("display","block");
 	$("#quotes-form-container-single").css("overflow","scroll");
-
-
 	});	
 
 	$(document).on('click', '#request-quotes', function(e) {
@@ -754,11 +743,9 @@ $(function($) {
 		$('.tabs-nav li').removeClass('active');
 		$(this).parent().addClass('active');
 		$('html').css("scroll-behavior","smooth");
-		// html { scroll-behavior: smooth !important; }
-
 	  });
-	//   end tab content function
-	// for generating 2 columns on fields
+
+	/** NDF MORE INFO PAGE LAYOUT 2 COLUMNS */
 	var tabscontent2 = $('#tab2 >.frxp-grid');
 	for (var i = 0; i < tabscontent2.length; i += 2) {
     tabscontent2.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
@@ -1130,5 +1117,5 @@ $(function($) {
 	  for (var i = 0; i < summary_content_count.length; i += 2) {
 		summary_content_count.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
 	  }
-	//   console.log(ndf_data_filter_vars.ndf_limit_results);
+		
 });

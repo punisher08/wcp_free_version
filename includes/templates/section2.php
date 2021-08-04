@@ -5,7 +5,7 @@
  * 
  */
 
-    $register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
+$register_section_2_name = get_option( 'register_section_2_name', 'Section 2' );
 ?>
 
 <div id="tab3" class="tab-content">

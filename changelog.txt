@@ -5,7 +5,7 @@
 2.Set hidden fields only for simple fields.
 3.Add options for popup button styling.
 4.Added title "Request" on enquiry email.
-
+5.Fix filter height when showing more data.
 
 
 ==1.7.3.7==

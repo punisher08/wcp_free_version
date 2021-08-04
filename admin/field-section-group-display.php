@@ -10,7 +10,7 @@
 	<form method="post" action="options.php" enctype="multipart/form-data"> 
         <?php
 		/**
-		 * Reset Field Groups if get duplicated 
+		 * Reset Field Groups if gets duplicated 
 		 */
 		$register_section_1_name = get_option( 'register_section_1_name', 'default' );
 		$register_section_2_name = get_option( 'register_section_2_name', 'default' );

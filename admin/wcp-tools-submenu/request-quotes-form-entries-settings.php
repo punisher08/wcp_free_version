@@ -10,6 +10,7 @@
 
 
 /**
+ * create_quotesentry_cpt 
  * Register Quotes Entry Post Type
  *
  * @return void
@@ -292,7 +293,10 @@ function quotesentry_entries_columns_content( $column_name, $post_ID )
     
 add_action('manage_quotesentry_posts_custom_column','quotesentry_entries_columns_content',10,2);
 // end Quotes Entry Functions
-//update hidden simple fields only
+
+/**
+ * update hidden simple fields only
+*/
 add_action('save_post_ndf_data', 'save_hidden_fields_value');
 function save_hidden_fields_value($post){
 	global $wpdb;

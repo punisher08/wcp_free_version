@@ -165,8 +165,8 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_section'
 	);
 	/**
-	 * Added styleing options for buttons
-	 */
+	* Added styleing options for buttons
+	*/
 	add_settings_field(
 		'request_quotes_form_single_popup_padding',
 		'Popup Button padding',
@@ -218,9 +218,9 @@ function request_quotes_form_register_settings() {
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_single_popup_font_size' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_single_popup_font_weight' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_font_size' );
-	 /**
-	  * EO button stylings
-	  */
+	/**
+	* EO button stylings
+	*/
 		
 	register_setting( 'request_quotes_form_settings_option', 'show_request_quotes_form' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_title' );
@@ -240,8 +240,8 @@ function request_quotes_form_register_settings() {
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_submit_button_color' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_submit_button_width' );
 } 
-/**
- *  Added styleing options for buttons
+ /**
+ *  Added styling options for buttons
  */
 function request_quotes_form_single_popup_padding_callback(){
 	$request_quotes_form_single_popup_padding =  get_option( 'request_quotes_form_single_popup_padding','10px' );
@@ -304,7 +304,7 @@ function email_request_quotes_form_title_button_callback($args){
 	$html = '<input type="text" id="email_request_quotes_form_title_button" name="email_request_quotes_form_title_button" value="'.$email_request_quotes_form_title_button.'" />'; 
 	echo $html;
 }
-//////////////////////////////////////
+
 function email_request_quotes_popup_align_callback($args){
 	$email_request_quotes_popup_align = get_option( 'email_request_quotes_popup_align', 'center' );
 	$html = "<select name='email_request_quotes_popup_align' class='ndf_dropdown'>";
@@ -314,7 +314,7 @@ function email_request_quotes_popup_align_callback($args){
 	$html .= "</select>";
 	echo $html;
 }
-//////////////////////////////////////
+
 function single_email_request_quotes_form_title_button_callback($args){
 	$single_email_request_quotes_form_title_button = get_option( 'single_email_request_quotes_form_title_button', 'Request A Quotes' );
 	$html = '<input type="text" id="single_email_request_quotes_form_title_button" name="single_email_request_quotes_form_title_button" value="'.$single_email_request_quotes_form_title_button.'" />'; 
@@ -397,13 +397,5 @@ function request_quotes_form_submit_button_width_callback($args){
 	echo $html;
 }
 
-
-// Callback Function When success sending Form Email
-function request_quotes_thank_you(){ ?>
-	<script>
-		alert('Thank you. We will get back to you as soon as posible!');
-	</script>
-<?php
-}
 
 
