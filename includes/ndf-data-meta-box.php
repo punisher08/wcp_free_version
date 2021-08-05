@@ -194,13 +194,11 @@ function ndf_data_more_info_html( $post) {
 		global $wpdb;
 		$NDFFieldGenerator = new NDFFieldGenerator();
 		$ndf_data_filtering_saved_fields = $wpdb->prefix.'ndf_data_filtering_saved_fields';
-		// $field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields WHERE hidden = '0' ORDER BY field_order ASC" );
 		$field_rows = $wpdb->get_results( "SELECT * FROM $ndf_data_filtering_saved_fields  ORDER BY field_order ASC" );
 
 		if( empty(  $field_rows ) ){
 			?>
 			<tr>
-				<!-- <td><em><a href="< ?php echo admin_url('admin.php?page=ndf-more-info-settings'); ?>">Add fields here</a></em></td> -->
 				<td><em><a href="<?php echo admin_url('admin.php?page=wcp-more-info-settings'); ?>">Add fields here</a></em></td>
 			</tr>
 			<?php
@@ -234,13 +232,8 @@ function ndf_data_more_info_html( $post) {
 								echo $generated_field = $NDFFieldGenerator->generateField( 
 									'name',  'ndf_fields_'.$field_row->ID, $field_values, $field_row->default_value, $field_row->required, $ndf_meta_field_data, $ndf_meta_field_data
 								);
-								// print_r($generated_field)
+								
 							}
-							/*else if( $field_row->field_type == 'list' ){
-								echo $generated_field = $NDFFieldGenerator->generateField( 
-									'list',  'ndf_fields_'.$field_row->ID, $field_values, $field_row->default_value, $field_row->required, $ndf_meta_field_data, $ndf_meta_field_data
-								);
-							}*/
 							else if( $field_row->field_type == 'checkbox' ){
 								$ndf_meta_field_data = get_post_meta( $post->ID, 'ndf_fields_'.$field_row->ID, false );
 								
@@ -474,13 +467,11 @@ function ndf_data_settings_save( $post_id ) {
 	if ( isset( $_POST['ndf_data_recipient_email'] ) ){
 		update_post_meta( $post_id, 'ndf_data_recipient_email', sanitize_email( $_POST['ndf_data_recipient_email'] ) );
 	}
-	//check box enable email request on each wcp data
+	//update check box enable email request on each wcp data
 	if ( isset( $_POST['ndf_data_enable_request_form_meta_box'] ) ){
 		update_post_meta( $post_id, 'ndf_data_enable_request_form_meta_box',1 );
-		// update_post_meta($post->ID,'ndf_data_enable_request_form_meta_box',$_POST['ndf_data_enable_request_form_meta_box']);
 	}
 	else{
-		// $check_box = $_POST['ndf_data_enable_request_form_meta_box'] ;
 		update_post_meta( $post_id, 'ndf_data_enable_request_form_meta_box',0);
 	}
 
@@ -614,19 +605,11 @@ function ndf_data_more_info_field_settings_save( $post_id ){
 		else if( $field_row->field_type == 'name' ){
 			if( is_array( $meta_value )){
 				foreach( $meta_value as $field_value ){
-				
-					// add_post_meta( $post_id, $ndf_meta_field_data, trim( $field_value ) );
 					update_post_meta($post_id,$ndf_meta_field_data,serialize($meta_value));
 				}
-				
 			}
 			else{
-				// $meta_value = json_decode($meta_value, true);
-				// add_post_meta( $post_id, $ndf_meta_field_data, $meta_value );
-				echo '<pre>';
-				print_r($meta_value);
-				echo '<pre>';
-				die();
+				//..
 			}
 		}
 		else{

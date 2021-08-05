@@ -119,5 +119,4 @@ if( !empty(  $field_rows_section1 ) )
 }
 ?>
     </div>
-<!-- </div>end field group box -->
 

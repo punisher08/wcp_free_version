@@ -19,11 +19,11 @@
  * @author 		Netseek Pty Ltd
  */
 function ndf_enqueue(){
+	// this loaded on plugin only
 	wp_deregister_script( 'jquery' );
-    // // Change the URL if you want to load a local copy of jQuery from your own server.
     wp_register_script( 'jquery', "https://code.jquery.com/jquery-1.12.4.js", array(), '3.3.2' );
     wp_register_script( 'jquery', "https://code.jquery.com/jquery-migrate-1.4.1.js", array(), '3.3.2' );
-	// // this loaded on plugin only
+
 	wp_register_style( 'ndf-uikit-tooltip-style',  NDF_BASE_URL . '/vendor/uikit/css/components/tooltip.min.css', array(), '2.27.2', 'all' );
 	wp_enqueue_style( 'ndf-uikit-tooltip-style' );
 	wp_register_style( 'ndf-slick-style',  NDF_BASE_URL . '/vendor/slick/slick.css', array(), '1.6', 'all' );
@@ -69,7 +69,6 @@ function ndf_enqueue(){
 			'ndf_limit_results_step' => get_option( 'ndf_query_results_step', 5 )
 		) 
 	);
-	//////////////////////////////////////////////////////////////////////////
 	//for vertical and bullet line separator and image loader
 	$ndf_more_info_summary_category_separator = get_option( 'ndf_more_info_summary_category_separator', 'vertical_line' );
 	wp_enqueue_script('ndf-image-loader', NDF_BASE_URL . '/assets/images', array( 'jquery' ));
@@ -80,7 +79,7 @@ function ndf_enqueue(){
 			) 
 		);
 	wp_script_add_data( 'ndf-image-loader', 'async/defer' , true );
-	////////////////////////////////////////////////////////////////////////
+	// EO for vertical and bullet line separator and image loader
 
 	$ndf_outbound_clicks_track = get_option( 'ndf_outbound_clicks_track', 0 );
 

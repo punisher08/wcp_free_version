@@ -627,7 +627,6 @@ $(function($) {
 			if( $(this).hasClass('show') ){
 				$(this).removeClass('show');
 				$('.ndf_filters_show_more.cat_'+ndf_taxonomy).html('Show More <i class="frxp-icon-chevron-down"></i>');
-				// $('.ndf_grid_output ').children().css('min-height','261px');
 			}
 			else{
 				$(this).addClass('show');
@@ -638,37 +637,45 @@ $(function($) {
 		/**
 		* Adjust Filter Table height
 		*/
-		var ndf_cat_children_height =parseInt( $('#ndf_filter_grid_cat_'+ndf_taxonomy).css('height'));
-		setTimeout(()=>{
-		h_1 = parseInt($('#ndf_filter_grid_cat_1').css('height'),10);
-		h_2 = parseInt($('#ndf_filter_grid_cat_2').css('height'),10);
-		h_3 = parseInt($('#ndf_filter_grid_cat_3').css('height'),10);
-		h_4 = parseInt($('#ndf_filter_grid_cat_4').css('height'),10);
-		h_5 = parseInt($('#ndf_filter_grid_cat_5').css('height'),10);
-		check = Array(
-			h_1,
-			h_2,
-			h_3,
-			h_4,
-			h_5
-		);
-		var maxValueInArray = Math.max.apply(Math, check)
-		// console.log(maxValueInArray);
-		$('#ndf_filter_grid_cat_1').css('min-height',maxValueInArray+'px')
-		$('#ndf_filter_grid_cat_2').css('min-height',maxValueInArray+'px')
-		$('#ndf_filter_grid_cat_3').css('min-height',maxValueInArray+'px')
-		$('#ndf_filter_grid_cat_4').css('min-height',maxValueInArray+'px')
-		// $('#ndf_filter_grid_cat_5').css('min-height',maxValueInArray+'px')
-		},100)
-
-		var defult = $('#ndf_filter_grid_cat_'+ndf_taxonomy).css('height');
-		$('#ndf_filter_grid_cat_1').css('min-height',defult)
 		initial_height = $('#ndf_filter_grid_cat_'+ndf_taxonomy).css('height');
-		$('#ndf_filter_grid_cat_1').css('min-height',initial_height)
-		$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
-		$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
-		$('#ndf_filter_grid_cat_4').css('min-height',initial_height)
-	
+		
+		setTimeout(()=>{
+			console.log( $('#ndf_filter_grid_cat_1').css('height'));
+			$('.ndf_grid_output').children().css('height','auto')
+		},1500)
+		if(ndf_taxonomy == 1){
+			$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_4').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_5').css('min-height',initial_height)
+		}
+		else if(ndf_taxonomy == 2){
+			$('#ndf_filter_grid_cat_1').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_4').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_5').css('min-height',initial_height)
+		}
+		else if(ndf_taxonomy == 3){
+			$('#ndf_filter_grid_cat_1').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_5').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_4').css('min-height',initial_height)
+		}
+		else if(ndf_taxonomy == 4){
+			$('#ndf_filter_grid_cat_1').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_5').css('min-height',initial_height)
+		}
+		else if(ndf_taxonomy == 5){
+			$('#ndf_filter_grid_cat_1').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
+			$('#ndf_filter_grid_cat_4').css('min-height',initial_height)
+		
+		}else{
+
+		}
 		//EO fixing height
 
 		$('#filters_slider .slick-slide').css('height', 'auto');
@@ -676,17 +683,16 @@ $(function($) {
 		var ndf_height = [];
 		$('.slick-slide').each( function(){
 			ndf_height.push( parseInt( $( this ).css('height') ) );
-	
+			
 		});
-		
+		// console.log(Math.max.apply(Math,ndf_height));
 		var max_ndf_height = Math.max.apply(Math,ndf_height);
 		
 		$('.slick-slide').each( function(){
 			$( this ).css( 'height', max_ndf_height );
-	
 		});
-	});
-	
+		// console.log(ndf_height);
+	});	
 	$('#filters_slider').slick({
 		appendArrows: $('.ndf_slider_navigation'),
 		prevArrow: '<button class="uk-button ndf-slider-nav"><i class="frxp-icon-caret-left"></i></button>',
@@ -704,6 +710,7 @@ $(function($) {
 
 	$('#filters_slider').on('afterChange', function(event, slick, currentSlide){
 		$('#filters_slider .slick-slide').css('height', 'auto');
+	
 		
 		var ndf_height = [];
 		$('.slick-slide').each( function(){
@@ -887,7 +894,6 @@ $(function($) {
 		e.preventDefault();
 		$(".modal-horizontal").css("display","none");
 	});	
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	/**AJAX FOR SENDING # RANDOM EMAILS */
 	$(document).on('keypress', '#client-phonne-number', function(evt) {
 		var ASCIICode = (evt.which) ? evt.which : evt.keyCode
@@ -950,8 +956,6 @@ $(function($) {
 					$("#before-send-popup").css('display','none');
 				  },
 				success:function(res){
-						// $("#request-quotes-btn-popup").html("your request has been sent in popup");
-						// $("#quotes-form-container").css("display","none");
 						$("#quotes-form-content > input[type=text],input[type=email],textarea").val("");
 				},
 				complete: function(){
@@ -998,11 +1002,8 @@ $(function($) {
 		var phone =  $('#client-phonne-number-default').val();
 		var request =  $('#request-description-default').val();
 		
-		
 		if(name != ''){
 			var validated_name = true;
-		
-		
 		}
 		else{
 			$('#name-required-default').css('display','inline-block');
@@ -1013,7 +1014,6 @@ $(function($) {
 		var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
 		if (testEmail.test(email)){
 			var validated_email = true;
-		
 		}
 		else {
 			$('#email-required-default').css('display','inline-block');
@@ -1047,8 +1047,6 @@ $(function($) {
 					$("#before-send-default").css('display','none');
 				  },
 				success:function(res){
-						// $("#request-quotes-btn-popup").html("your request has been sent in popup");
-						// $("#quotes-form-container").css("display","none");
 						$("#quotes-form-content-default > input[type=text],input[type=email],textarea").val("");
 						$('#client-message-required-default').css('display','none');
 						$('#email-required-default').css('display','none');

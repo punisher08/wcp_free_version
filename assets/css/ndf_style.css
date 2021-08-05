@@ -19,6 +19,9 @@
  * @author      Netseek Pty Ltd
  */
  /* start Request Quotes css */
+ .frxp-modal-close{
+  float: right !important;
+ } 
  .error{
    background-color: inherit !important;
  }

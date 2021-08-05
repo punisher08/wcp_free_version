@@ -56,28 +56,31 @@ function register_field_groups_settings() {
 
 function register_field_groups_section_callback(){
     echo '<p></p>';
-}
+} // EO register_field_groups_section_callback
+
 function register_section_1_name_callback(){
     $register_section_1_name = get_option( 'register_section_1_name', 'default' );
 
 	$html = '<input type="text" id="register_section_1_name" name="register_section_1_name" value="'.$register_section_1_name.'" />'; 
 	echo $html;
-}
+} // EO register_section_1_name_callback
+
 function register_section_2_name_callback(){
     $register_section_2_name = get_option( 'register_section_2_name', 'default' );
 	$html = '<input type="text" id="register_section_2_name" name="register_section_2_name" value="'.$register_section_2_name.'" />'; 
 	echo $html;
-}
+} // EO register_section_2_name_callback
+
 function register_section_3_name_callback(){
     $register_section_3_name = get_option( 'register_section_3_name', 'default' );
 	$html = '<input type="text" id="register_section_3_name" name="register_section_3_name" value="'.$register_section_3_name.'" />'; 
 	echo $html;
-}
+} // EO register_section_3_name_callback
+
 function reset_field_groups_callback(){
 	$html = '';
 	$html .= '<button class="button button-primary" id="reset-field-groups" >Reset</button>';
 	echo $html;
-}
-
+} // EO reset_field_groups_callback
 
 }

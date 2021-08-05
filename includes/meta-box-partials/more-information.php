@@ -143,10 +143,10 @@
 				<td><strong>Enable Request Form</strong></td>
 				<td>
 					<?php
+						// Checkbox to enable request quotes
 						global $post;
 						$ndf_data_enable_request_form_meta_box = get_post_meta($post->ID);
 						$html = '<input type="checkbox" id="ndf_data_enable_request_form_meta_box" name="ndf_data_enable_request_form_meta_box" value="1" ' . checked( 1, $ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0], false ) . '/>'; 
-						// $html = '<input type="text" id="ndf_data_enable_request_form_meta_box" name="ndf_data_enable_request_form_meta_box" />'; 
 						echo $html;
 					?>
 				</td>
