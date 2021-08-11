@@ -165,7 +165,7 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_section'
 	);
 	/**
-	* Added styleing options for buttons
+	* Added styling options for buttons
 	*/
 	add_settings_field(
 		'request_quotes_form_single_popup_padding',

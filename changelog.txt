@@ -1,11 +1,13 @@
 == Changelog ==
 
-==1.7.3.8==
+==1.7.3.8== 
 1.Set search limit for Free version to only the latest 10 wcp data.
 2.Set hidden fields only for simple fields.
 3.Add options for popup button styling.
 4.Added title "Request" on enquiry email.
 5.Fix filter height when showing more data.
+6.Additional setting for enquiry form button and enquiry submit button ( Padding, Fontsize and Border radius).
+
 
 
 ==1.7.3.7==

@@ -110,6 +110,9 @@
  }
 
 @media screen and (max-width: 600px) {
+	.sidenav{
+		flex-wrap: wrap;
+	}
 	.custom-card{
 		display: inline !important;
 	 }

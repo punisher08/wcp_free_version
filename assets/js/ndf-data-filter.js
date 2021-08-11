@@ -618,31 +618,42 @@ $(function($) {
 			}
 		});
 	});
+	
 	$(document).on('click', '.ndf_filters_show_more', function(e){
 		e.stopPropagation();
 		e.preventDefault();
+		
 		var ndf_taxonomy = $(this).data('ndf-filter-set');
-
-		$('.ndf_category_'+ndf_taxonomy+'_content .ndf_show_option_hidden').each( function(){
+	
+		/**
+		* Adjust Filter Table height
+		*/	
+		for(var i =1; i<=5; i++){
+		$('.ndf_category_'+i+'_content .ndf_show_option_hidden').each( function(){
+		if(i == ndf_taxonomy){
 			if( $(this).hasClass('show') ){
 				$(this).removeClass('show');
 				$('.ndf_filters_show_more.cat_'+ndf_taxonomy).html('Show More <i class="frxp-icon-chevron-down"></i>');
 			}
 			else{
 				$(this).addClass('show');
-				$('.ndf_filters_show_more.cat_'+ndf_taxonomy).html('Show Less <i class="frxp-icon-chevron-up"></i>');
+				$('.ndf_filters_show_more.cat_'+ndf_taxonomy).html('Show Less <i class="frxp-icon-chevron-up"></i>')
 			}
+		}
+		else{
+			$(this).removeClass('show');
+			$('.ndf_filters_show_more.cat_'+i).html('Show More <i class="frxp-icon-chevron-down"></i>');
+		
+			$('#ndf_filter_grid_cat_1').css('min-height','auto')
+			$('#ndf_filter_grid_cat_2').css('min-height','auto')
+			$('#ndf_filter_grid_cat_3').css('min-height','auto')
+			$('#ndf_filter_grid_cat_4').css('min-height','auto')
+			$('#ndf_filter_grid_cat_5').css('min-height','auto')
+		}
 		});
-		
-		/**
-		* Adjust Filter Table height
-		*/
+	}
 		initial_height = $('#ndf_filter_grid_cat_'+ndf_taxonomy).css('height');
-		
-		setTimeout(()=>{
-			console.log( $('#ndf_filter_grid_cat_1').css('height'));
-			$('.ndf_grid_output').children().css('height','auto')
-		},1500)
+			
 		if(ndf_taxonomy == 1){
 			$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
 			$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
@@ -667,14 +678,12 @@ $(function($) {
 			$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
 			$('#ndf_filter_grid_cat_5').css('min-height',initial_height)
 		}
-		else if(ndf_taxonomy == 5){
+		else {
 			$('#ndf_filter_grid_cat_1').css('min-height',initial_height)
 			$('#ndf_filter_grid_cat_2').css('min-height',initial_height)
 			$('#ndf_filter_grid_cat_3').css('min-height',initial_height)
 			$('#ndf_filter_grid_cat_4').css('min-height',initial_height)
 		
-		}else{
-
 		}
 		//EO fixing height
 
