@@ -355,7 +355,7 @@ function ndf_filter_data_request() {
 					$category[] = array( 'taxonomy' => 'ndf_category_4', 'include_children' => false, 'field' => 'slug', 'terms' => $ndf_fc_4 );
 				}
 			}
-		}
+		} 
 		if ( ! empty( $get_cat_5_terms ) && ! is_wp_error( $get_cat_5_terms ) ){
 			/* Add Category 5 Filter to Query */
 			if( $ndf_fc_5 != 'view-all' ){
@@ -366,15 +366,20 @@ function ndf_filter_data_request() {
 			}
 		}
 		/* check if it is a free version and limit the data on search */
-		$total_ndf_data = wp_count_posts('ndf_data')->publish;
-		$query_id_results = $wpdb->get_col("SELECT * FROM `wp_posts` WHERE post_type = 'ndf_data' AND post_status = 'publish' ORDER BY ID DESC");
-		if(count($query_id_results) > 10){
-			for($remove_counter = 0; $remove_counter < 10; $remove_counter++ ){
-				unset($query_id_results[$remove_counter]);
+		if ( wcp_fs()->is_free_plan() || wcp_fs()->is_not_paying() ) {
+			$total_ndf_data = wp_count_posts('ndf_data')->publish;
+			$table_name = $wpdb->prefix.'posts' ;
+			$query_id_results = $wpdb->get_col("SELECT * FROM $table_name WHERE post_type = 'ndf_data' AND post_status = 'publish' ORDER BY ID DESC");
+			if(count($query_id_results) > 10){
+				for($remove_counter = 0; $remove_counter < 10; $remove_counter++ ){
+					unset($query_id_results[$remove_counter]);
+				}
+				$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ),'post__not_in' => $query_id_results, 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
 			}
-			$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ),'post__not_in' => $query_id_results, 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
-		}
-		else{
+			else{
+				$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ), 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
+			}
+		}else{
 			$ndf_args = array( 'post_type' => array( 'ndf_data' ), 'post_status' => array( 'publish' ), 'posts_per_page' => $load_limit, 'orderby' => array( 'ndf_data_settings_featured_data_' => 'DESC', 'ndf_sort_order_clause' => 'ASC', $ndf_order_by => $ndf_order, ), 'meta_key' => 'ndf_data_settings_featured_data_' );
 		}
 		
@@ -934,8 +939,8 @@ function ndf_outbound_clicks_record(){
 			update_post_meta( $outbound_clicks_ID, 'wcp_data_ID', $ID );
 			update_post_meta( $outbound_clicks_ID, 'wcp_source_tag', $source_tag );
 		endif;
-
-		$check_timestamp =$wpdb->get_results("SELECT * FROM `wp_postmeta` WHERE `meta_key` = 'wcp_timestamp' AND post_id = '$outbound_clicks_ID'");
+		$table_name = $wpdb->prefix.'postmeta' ;
+		$check_timestamp =$wpdb->get_results("SELECT * FROM $table_name WHERE `meta_key` = 'wcp_timestamp' AND post_id = '$outbound_clicks_ID'");
 		$existed = count($check_timestamp);
 		if($existed != 1){
 			$add_timestamp = array(

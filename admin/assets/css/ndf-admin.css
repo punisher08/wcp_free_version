@@ -12,6 +12,9 @@
  * @author 		Netseek Pty Ltd
  */
 /* Request Quote Form Entries */
+.wcp-shortcode{
+	width: 35%;
+}
 #request-quotes{
 	max-width: 100% !important;
 }
@@ -109,7 +112,16 @@
 	 
  }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+	.ndf_shortcode{
+		width: 100%  !important;
+	}
+	#ndf_filter_cat_1,#ndf_filter_cat_2,#ndf_filter_cat_3,#ndf_filter_cat_4,#ndf_filter_cat_5{
+		width: 19%;
+	}
+	#ndf_shortcode_parameter{
+		width: 100% !important;
+	}
 	.sidenav{
 		flex-wrap: wrap;
 	}
@@ -120,6 +132,7 @@
 		width: 100%;
 	}
   }
+
  .custom-card{
 	margin-top: 3rem!important;
  }

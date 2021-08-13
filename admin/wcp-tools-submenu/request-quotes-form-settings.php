@@ -293,8 +293,8 @@ function show_request_quotes_form_callback($args) {
 	?>
 <div id="show-shortcode" class="quotes_shortcode">
 	<label for="male"> Use the shortcode below to show  Request Quotes Form</label><br><br>
-	<input style="width:20%;" type="text" name="gender" disabled id="male" value="[wcpquote]">
-	<input style="width:20%;" type="text" name="gender" disabled id="male" value="[wcpquote type='popup']">
+	<input class="wcp-shortcode" type="text" disabled value="[wcpquote]">
+	<input class="wcp-shortcode" type="text" disabled  value="[wcpquote type='popup']">
 </div>
 <?php
 } // EO show_request_quotes_form_callback

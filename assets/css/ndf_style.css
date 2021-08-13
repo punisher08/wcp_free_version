@@ -25,8 +25,11 @@
  .error{
    background-color: inherit !important;
  }
+ .ndf_grid_output{
+  margin-bottom: 10px;
+ }
  .ndf_filter_container{
-   border-bottom: none;
+   padding-bottom: 10px;
  }
  .quotes-form-content{
    text-align: center;

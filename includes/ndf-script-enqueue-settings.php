@@ -214,7 +214,7 @@ $request_quotes_form_single_popup_font_size =  get_option( 'request_quotes_form_
 $request_quotes_form_single_popup_font_weight = get_option( 'request_quotes_form_single_popup_font_weight', 'inherit' );
 
 $request_quotes_form_font_size =  get_option( 'request_quotes_form_font_size','14px' );
-
+$ndf_filters_show_filter_table = get_option( 'ndf_filters_show_filter_table', 0 );
 
 if($ndf_filters_show_filter_table == 1 ){
 	$ndf_filters_show_filter_table_settings = "none";
@@ -240,8 +240,8 @@ $ndf_enquiry_submit_button_font_border_radius = get_option( 'ndf_enquiry_submit_
 	<?=$slick_nav;?>
 }
 .ndf_enquiry_submit{
-	font-size:<?=$ndf_enquiry_submit_button_padding ;?>px !important;
-	padding:<?=$ndf_enquiry_submit_button_font_size  ;?>px !important;
+	font-size:<?=$ndf_enquiry_submit_button_font_size ;?>px !important;
+	padding:<?=$ndf_enquiry_submit_button_padding  ;?>px !important;
 	border-radius:<?=$ndf_enquiry_submit_button_font_border_radius;?>px !important;
 }
 .ndf_more_info_enquiry{
