@@ -228,8 +228,8 @@ else{
 							<label for="button_generator_track_oc_yes"><input type="radio" id="button_generator_track_oc_yes" value="yes" name="button_generator_track_oc"> Yes</label>
 							<label for="button_generator_track_oc_no"><input type="radio" id="button_generator_track_oc_no" value="no" name="button_generator_track_oc" checked> No</label>
 						</div>
-						<div class="button_generator_label">
-							<p>Linked Filter Data</p>
+						<div class="button_generator_label link-field">
+							<p class="link-field-p">Linked Filter Data</p>
 						</div>
 						<div class="button_generator_fields">
 							<?php
@@ -297,7 +297,7 @@ else{
 					</div>
 				</div>
 			</td>
-			<td style="vertical-align: top;">
+			<td style="vertical-align: top;" class="desktop-button-preview-code">
 				<p><strong>Code:</strong></p>
 				<textarea style="width: 100%" rows="3" id="ndf_generated_button_code"></textarea>
 				
@@ -311,6 +311,18 @@ else{
 				</div>
 			</td>
 		</tr>
+		<div class="mobile-button-code">
+			<p><strong>Code:</strong></p>
+			<textarea style="width: 100%" rows="3" id="ndf_generated_button_code_2"></textarea>	
+			<p id="ndf_generated_button_preview_label_2"><strong>Preview:</strong></p>
+			<div id="ndf_generated_button">
+				<a role="button" class="ndf_generated_button ndf_button_style_1">Button</a>
+				<a role="button" class="ndf_generated_button ndf_button_style_2">Button</a>
+				<a role="button" class="ndf_generated_button ndf_button_style_3">Button</a>
+				<a role="button" class="ndf_generated_button ndf_button_style_4">Button</a>
+				<a role="button" class="ndf_generated_button ndf_button_style_5">Button</a>
+			</div>
+		</div>
 	</table>
 	<?php
 }

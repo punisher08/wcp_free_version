@@ -390,6 +390,7 @@ jQuery(document).ready( function($) {
             $('.ndf_button_style_4').text(button_generator_text);
             $('.ndf_button_style_5').text(button_generator_text);
             $('#ndf_generated_button_code').html('<a href="'+button_generator_link+'"'+target+' role="button" class="ndf_button_style_'+button_generator_style+'"'+track+button_generator_linked_data+button_generator_source_tag+'>'+button_generator_text+'</a>');
+            $('#ndf_generated_button_code_2').html('<a href="'+button_generator_link+'"'+target+' role="button" class="ndf_button_style_'+button_generator_style+'"'+track+button_generator_linked_data+button_generator_source_tag+'>'+button_generator_text+'</a>');
         }
     });
 

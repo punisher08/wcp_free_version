@@ -20,9 +20,9 @@
  */
 function ndf_enqueue(){
 	// this loaded on plugin only
-	wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', "https://code.jquery.com/jquery-1.12.4.js", array(), '3.3.2' );
-    wp_register_script( 'jquery', "https://code.jquery.com/jquery-migrate-1.4.1.js", array(), '3.3.2' );
+	// wp_deregister_script( 'jquery' );
+    // wp_register_script( 'jquery', "https://code.jquery.com/jquery-1.12.4.js", array(), '3.3.2' );
+    // wp_register_script( 'jquery', "https://code.jquery.com/jquery-migrate-1.4.1.js", array(), '3.3.2' );
 
 	wp_register_style( 'ndf-uikit-tooltip-style',  NDF_BASE_URL . '/vendor/uikit/css/components/tooltip.min.css', array(), '2.27.2', 'all' );
 	wp_enqueue_style( 'ndf-uikit-tooltip-style' );

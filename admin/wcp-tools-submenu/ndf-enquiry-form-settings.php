@@ -55,28 +55,6 @@ function ndf_enquiry_form_register_settings() {
 	 * @since 1.7.3.8 
 	*/
 	add_settings_field(
-		'ndf_enquiry_button_padding',
-		'Enquiry Button Padding',
-		'ndf_enquiry_button_padding_callback',
-		'ndf_enquiry_form_settings_option',
-		'ndf_enquiry_form_settings_section'
-	);
-	add_settings_field(
-		'ndf_enquiry_button_font_size',
-		'Enquiry Button Font size',
-		'ndf_enquiry_button_font_size_callback',
-		'ndf_enquiry_form_settings_option',
-		'ndf_enquiry_form_settings_section'
-	);
-	add_settings_field(
-		'ndf_enquiry_button_font_border_radius',
-		'Enquiry Button Border Radius',
-		'ndf_enquiry_button_font_border_radius_callback',
-		'ndf_enquiry_form_settings_option',
-		'ndf_enquiry_form_settings_section'
-	);
-	//
-	add_settings_field(
 		'ndf_enquiry_submit_button_padding',
 		'Enquiry Submit Button Padding',
 		'ndf_enquiry_submit_button_padding_callback',
@@ -98,10 +76,6 @@ function ndf_enquiry_form_register_settings() {
 		'ndf_enquiry_form_settings_section'
 	);
 	/**Button style options */
-	register_setting( 'ndf_enquiry_form_settings_option', 'ndf_enquiry_button_padding' );
-	register_setting( 'ndf_enquiry_form_settings_option', 'ndf_enquiry_button_font_size' );
-	register_setting( 'ndf_enquiry_form_settings_option', 'ndf_enquiry_button_font_border_radius' );
-	//
 	register_setting( 'ndf_enquiry_form_settings_option', 'ndf_enquiry_submit_button_padding' );
 	register_setting( 'ndf_enquiry_form_settings_option', 'ndf_enquiry_submit_button_font_size' );
 	register_setting( 'ndf_enquiry_form_settings_option', 'ndf_enquiry_submit_button_font_border_radius' );
@@ -163,24 +137,6 @@ function ndf_enquiry_button_style_callback($args) {
 	}
 	echo $html;
 } /* end ndf_enquiry_button_style_callback */
-function ndf_enquiry_button_padding_callback($args){
-	$ndf_enquiry_button_padding = get_option( 'ndf_enquiry_button_padding', '10' );
-	$html = '<input type="number" style="width:8%;" id="ndf_enquiry_button_padding" name="ndf_enquiry_button_padding" value="'.esc_attr__( $ndf_enquiry_button_padding ).'" />px';
-	echo $html;
-
-}// EO ndf_enquiry_button_padding_callback
-function ndf_enquiry_button_font_size_callback($args){
-	$ndf_enquiry_button_font_size = get_option( 'ndf_enquiry_button_font_size', '10' );
-	$html = '<input type="number" style="width:8%;" id="ndf_enquiry_button_font_size" name="ndf_enquiry_button_font_size" value="'.esc_attr__( $ndf_enquiry_button_font_size ).'" />px';
-	echo $html;
-
-}// EO ndf_enquiry_button_font_size_callback
-function ndf_enquiry_button_font_border_radius_callback($args){
-	$ndf_enquiry_button_font_border_radius = get_option( 'ndf_enquiry_button_font_border_radius', '0' );
-	$html = '<input type="number" style="width:8%;" id="ndf_enquiry_button_font_border_radius" name="ndf_enquiry_button_font_border_radius" value="'.esc_attr__( $ndf_enquiry_button_font_border_radius ).'" />px';
-	echo $html;
-
-}// EO ndf_enquiry_button_font_border_radius_callback
 function ndf_enquiry_submit_button_padding_callback($args){
 	$ndf_enquiry_submit_button_padding = get_option( 'ndf_enquiry_submit_button_padding', '10' );
 	$html = '<input type="number" style="width:8%;" id="ndf_enquiry_submit_button_padding" name="ndf_enquiry_submit_button_padding" value="'.esc_attr__( $ndf_enquiry_submit_button_padding ).'" />px';

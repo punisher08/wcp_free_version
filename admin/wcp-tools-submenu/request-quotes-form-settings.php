@@ -158,6 +158,13 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_section'
 	);
 	add_settings_field(
+		'request_quotes_form_submit_button_hover_color',
+		'Button Hover Color',
+		'request_quotes_form_submit_button_hover_color_callback',
+		'request_quotes_form_settings_option',
+		'request_quotes_form_settings_section'
+	);
+	add_settings_field(
 		'request_quotes_form_submit_button_width',
 		'Button Width',
 		'request_quotes_form_submit_button_width_callback',
@@ -213,11 +220,19 @@ function request_quotes_form_register_settings() {
 		'request_quotes_form_settings_option',
 		'request_quotes_form_settings_section'
 	);
+	add_settings_field(
+		'request_quotes_form_border_radius',
+		'Popup form border radius',
+		'request_quotes_form_border_radius_callback',
+		'request_quotes_form_settings_option',
+		'request_quotes_form_settings_section'
+	);
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_single_popup_padding' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_single_popup_line_height' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_single_popup_font_size' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_single_popup_font_weight' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_font_size' );
+	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_border_radius' );
 	/**
 	* EO button stylings
 	*/
@@ -238,6 +253,7 @@ function request_quotes_form_register_settings() {
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_input_width' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_submit_button_text' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_submit_button_color' );
+	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_submit_button_hover_color' );
 	register_setting( 'request_quotes_form_settings_option', 'request_quotes_form_submit_button_width' );
 } 
  /**
@@ -276,6 +292,11 @@ function request_quotes_form_font_size_callback(){
 	$html = '<input type="text" id="request_quotes_form_font_size" name="request_quotes_form_font_size" value="'.$request_quotes_form_font_size.'" />'; 
 	echo $html;
 } // EO request_quotes_form_font_size_callback
+function request_quotes_form_border_radius_callback(){
+	$request_quotes_form_border_radius =  get_option( 'request_quotes_form_border_radius','0px' );
+	$html = '<input type="text"  id="request_quotes_form_border_radius" name="request_quotes_form_border_radius" value="'.$request_quotes_form_border_radius.'" />'; 
+	echo $html;
+} // EO request_quotes_form_border_radius_callback
 
 /**
  * Register Request Quotes Setting Callbacks
@@ -405,6 +426,11 @@ function request_quotes_form_submit_button_color_callback($args){
 	$html = '<input  type="text" id="request_quotes_form_submit_button_color" name="request_quotes_form_submit_button_color" value="'.$request_quotes_form_submit_button_color.'"  class="ndf_colorpicker"/>'; 
 	echo $html;
 } // EO request_quotes_form_submit_button_color_callback
+function request_quotes_form_submit_button_hover_color_callback($args){
+	$request_quotes_form_submit_button_hover_color = get_option( 'request_quotes_form_submit_button_hover_color', '#0366d6' );
+	$html = '<input  type="text" id="request_quotes_form_submit_button_hover_color" name="request_quotes_form_submit_button_hover_color" value="'.$request_quotes_form_submit_button_hover_color.'"  class="ndf_colorpicker"/>'; 
+	echo $html;
+} // EO request_quotes_form_submit_button_hover_color_callback
 
 function request_quotes_form_submit_button_width_callback($args){
 	$request_quotes_form_submit_button_width = get_option( 'request_quotes_form_submit_button_width', '80%' );

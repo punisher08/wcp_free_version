@@ -12,6 +12,12 @@
  * @author 		Netseek Pty Ltd
  */
 /* Request Quote Form Entries */
+.wcp-logo{
+	max-width: 156px;
+}
+.mobile-button-code{
+	display: none;
+}
 .wcp-shortcode{
 	width: 35%;
 }
@@ -111,8 +117,55 @@
 	 width: -moz-available;
 	 
  }
+ /* Admin mobile responsive */
+ @media screen and (max-width: 767px) {
+	.inside input[type="text"], textarea{
+		width: 100% !important;
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
 
 @media screen and (max-width: 768px) {
+	#ndf_enquiry_submit_button_padding,#ndf_enquiry_submit_button_font_size,#ndf_enquiry_submit_button_font_border_radius{
+		width: 20% !important;
+	}
+	.ndf_grid_col_1_3{
+		width: auto !important;
+	}
+	.ui-sortable-handle  .ui-accordion-content  form  table  tbody  tr  td{
+		padding-top: 10px;
+	}
+	#button_generator_oc_linked_data{
+		width: 100%;
+	}
+	.link-field-p{
+		text-align: left !important;
+	}
+	.link-field{
+		width: 100% !important;
+		margin-top: 20px;
+	}
+	.button_generator_fields label{
+		padding-top: 10px;
+	}
+	.button_generator_fields{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.mobile-button-code{
+		display: block;
+	}
+	.desktop-button-preview-code{
+		display: none;
+	}
+	.fields-first-section{
+		width: 100%;
+		margin: 0;
+	}
+	.fields-row{
+		flex-wrap: wrap;
+	}
 	.ndf_shortcode{
 		width: 100%  !important;
 	}
@@ -166,7 +219,7 @@
 	margin-left: 25px;
  }
 .navigation-bar-wcp-settings{
-	background-color:#B70922;
+	background-color:#C0272C;
 	height: auto;
     color: white;
 	margin-left: -20px;

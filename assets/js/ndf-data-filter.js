@@ -269,7 +269,7 @@ $(function($) {
 						}
 						else if( ndf_table_layout == 'horizontal' ){
 							if( viewportWidth <= 768 ){
-								$('#ndf_plugin_html table.horizontal tr').addClass('frxp-flex frxp-flex-column');								
+								$('#ndf_plugin_html table.horizontal tr').addClass('frxp-flex frxp-flex-column');        
 							}
 							$('.horizontal .wcp_cell_wrap').matchHeight();
 							// $('.ndf_header_logo').load(function(){
@@ -282,6 +282,15 @@ $(function($) {
 						$( ".ndf_results_count" ).html( response.ndf_results_count );
 						$( ".ndf_results_count_all" ).html( response.ndf_results_count_all );
 						$(this).ndfMatchHeight();
+
+						if(ndf_table_layout == 'horizontal'){
+							$('.ndf_more_info_section').addClass('more-info-buttons-align');
+						}
+						else{
+							$('.ndf_more_info_section').removeClass('more-info-buttons-align');
+							$('button.request-quotes-single').css('width','100%');
+						}
+						
 					}
 				},
                 complete: function (data) {
@@ -465,6 +474,22 @@ $(function($) {
 				ndf_data_modal.show();
             },
 			success: function(response) {
+			setTimeout(()=>{
+			//smooth scroll
+			$('.tabs-nav a').click(function() {
+				$('.tabs-nav li').removeClass('active');
+				$(this).parent().addClass('active');
+				$('#modal-spinner').css("scroll-behavior","smooth");
+			 });
+			//START SUMMARY FIX DISPLAY 
+			var summary_content_count = $('.ndf_more_info_summary').find('.summary-contents').children();
+			if(summary_content_count.length < 1){
+				$('.ndf_more_info_summary').find('.summary-contents').append('<div style="text-align:center;">No results found</div>')
+			}
+			for (var i = 0; i < summary_content_count.length; i += 2) {
+				summary_content_count.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
+			}
+			},100)
 				$('.ndf_modal_content').html('<a href="" class="frxp-modal-close frxp-close frxp-close-alt"></a>'+response.ndf_data+'<div class="frxp-modal-footer frxp-text-right"><strong><span href="" class="frxp-modal-close ndf_close_modal">Close</span> or Esc Key</strong></div>');
 				
 				var ratingForms = jQuery(".ndf_modal_content .rating-form form");
@@ -751,7 +776,7 @@ $(function($) {
 		e.preventDefault();
 		$("#quotes-form-container").css("display","none");
 		$("#quotes-form-container-single").css("display","none");
-		$("#form-success-message-popup").css('display','none');
+		$("#form-success-message-popup").css('display','none'); 
 	});	
 	// end request form-quotes
 
@@ -778,6 +803,7 @@ $(function($) {
 	for (var i = 0; i < defaultContent.length; i += 2) {
     defaultContent.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
 	}
+
 	/**EO NDF MORE INFO PAGE LAYOUT */
 
 	/**AJAX FOR SINGLE EMAIL QUOTES ON EACH WCP DATA */
@@ -1124,5 +1150,13 @@ $(function($) {
 	  for (var i = 0; i < summary_content_count.length; i += 2) {
 		summary_content_count.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
 	  }
+// setTimeout(()=>{
+// 	if(ndf_table_layout == 'horizontal'){
+// 		$('.ndf_more_info_section').addClass('more-info-buttons-align');
+// 	}
+// 	else{
+// 		$('.ndf_more_info_section').removeClass('more-info-buttons-align');
+// 	}
+// },5000)
 		
 });

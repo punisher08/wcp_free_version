@@ -8258,7 +8258,7 @@ a.frxp-thumbnail:focus {
     display: none !important ;
   }
   .frxp-hidden-medium {
-    display: none !important;
+    display: block;
   }
 }
 /* Phone landscape and smaller*/

@@ -6,7 +6,7 @@
 3.Add options for popup button styling.
 4.Added title "Request" on enquiry email.
 5.Fix filter height when showing more data.
-6.Additional setting for enquiry form button and enquiry submit button ( Padding, Fontsize and Border radius).
+6.Additional setting for enquiry submit button ( Padding, Fontsize and Border radius).
 
 
 

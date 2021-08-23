@@ -51,6 +51,25 @@ function ndf_data_more_info_shortcode( $atts ) {
 	$ndf_star_rating_color = get_option( 'ndf_star_rating_color', '#f9f922' );
 	?>
 	<style type="text/css">
+	.more-info-page-quotes{
+		float:right;
+		width:auto !important;
+	}
+	.ndf_more_info_summary li{
+		line-height:<?=$ndf_more_info_fields_summary_label_lineheight;?>em;
+		font-size:<?=$ndf_more_info_fields_summary_table_header_font_size;?>;
+	}
+	.summary-contents .cat-title{
+		color:<?=$ndf_more_info_fields_summary_table_header_fontcolor;?>;
+	font-size: <?php echo $ndf_more_info_fields_header_font_size; ?>;
+}
+	.ndf_data_sections a{
+		color:black;
+}
+	.ndf_data_sections .active a{
+
+	color:<?=$ndf_more_info_fields_summary_label_fontcolor;?>;
+}
 	.ndf_more_info_summary{
 		padding:<?=$remove_padding;?>;
 		border:<?=$remove_border;?>;
@@ -179,9 +198,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 	.ndf_more_info_summary ul.frxp-list li div{
 		word-break: break-word;
 	}
-	.ndf_more_info_summary li{
-		line-height: 1em;
-	}
+	
 	.ndf_more_info_summary ul.frxp-list > li{
 		padding: 5px;
 		padding-left:0px;
@@ -367,17 +384,15 @@ function ndf_data_more_info_shortcode( $atts ) {
 	}
 	.ndf_data_sections a:hover{
 	text-decoration:none !important;
-	color:#FF6600;
 	
 	}
 	.ndf_data_sections a{
-	color:#000000;
 	font-weight:700;
 	text-decoration:none !important;
 	}
-	.ndf_data_sections .active a{
+	/* .ndf_data_sections .active a{
 		color:#FF6600;
-	}
+	} */
 	.ndf_data_sections .active::after{
 	    content: '';
 		border-bottom: 3px solid #C4C4C4;
@@ -483,7 +498,7 @@ function ndf_data_more_info_shortcode( $atts ) {
 		$ndf_data_enable_request_form_meta_box = get_post_meta($post->ID);
 		if(!empty($ndf_data_enable_request_form_meta_box['ndf_data_recipient_email'][0])):
 			if($ndf_data_enable_request_form_meta_box['ndf_data_enable_request_form_meta_box'][0] == 1){
-				echo '<button class="request-quotes-single get-quotes-buttons"  btn-title="'.$request_quotes_form_submit_button_text.'" data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$post->ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
+				echo '<button class="request-quotes-single get-quotes-buttons more-info-page-quotes"  btn-title="'.$request_quotes_form_submit_button_text.'" data-title="'.$request_quotes_form_title.'" subtitle="'.$request_quotes_form_subtitle.'" id="request-quotes-single-horizontal" data-modal="'.$post->ID.'" >'.$single_email_request_quotes_form_title_button.'</button>';
 				echo '<div id="quotes-modal"></div>';
 			}
 		endif;
