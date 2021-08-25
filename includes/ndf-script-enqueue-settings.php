@@ -1045,8 +1045,9 @@ h6.ndf_filters_heading, h6.ndf_data_results_heading, .ndf_table_cell h6{
 	margin: 0;
 }
 .frxp-modal-close.frxp-close{
-	background-color: <?php echo $ndf_more_info_fields_table_header_background_color; ?>;
-	color: <?php echo $ndf_more_info_fields_header_fontcolor; ?> !important;
+	/* background-color: < ?php echo $ndf_more_info_fields_table_header_background_color; ?>; */
+	/* color: < ?php echo $ndf_more_info_fields_header_fontcolor; ?> !important; */
+	color:#000 !important;
 	margin: 0px;
 	-webkit-box-shadow: none;
 	box-shadow: none;

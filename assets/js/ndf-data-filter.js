@@ -296,11 +296,11 @@ $(function($) {
                 complete: function (data) {
                     //  $('#ndf_filtered_data_content *').load(function(){
                      $('#ndf_filtered_data_content *').on("load",function(){
-                         //if( last_width == '' ){
+                         if( last_width == '' ){
     						last_width = parseInt( $('#ndf_filtered_data_content thead th:not(.tablesaw-cell-hidden):last .label_wrapper').parent().css('width') );
     						
     						$('#ndf_filtered_data_content thead th:not(.tablesaw-cell-hidden):last .label_wrapper').css('width', last_width+'px');
-    					//} 
+    					} 
                      });
                 }
 			});
@@ -417,11 +417,11 @@ $(function($) {
 
 	$(this).ndfMatchHeight();
 	
-	$(window).on("load",function(){
+	// $(window).on("load",function(){
 		$(this).ndfcheckwidth();
 		$(this).ndfMatchHeight();
 		$( "#ndf_filtered_data_content.tabular" ).trigger( "enhance.tablesaw" );
-	});
+	// });
 	$(window).resize(function(){
 		$(this).ndfMatchHeight();
 		$( "#ndf_filtered_data_content.tabular" ).trigger( "enhance.tablesaw" );

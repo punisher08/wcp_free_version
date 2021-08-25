@@ -661,7 +661,7 @@ jQuery(document).ready( function($) {
 
     $(document).on('click', '#reset-field-groups', function(e){
         e.preventDefault();
-        if(confirm('are you sure you want to reset')){
+        if(confirm('Are you sure you want to clear field groups?')){
             $('#register_section_1_name').val('default');
             $('#register_section_2_name').val('default');
             $('#register_section_3_name').val('default');
