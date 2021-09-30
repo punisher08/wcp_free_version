@@ -289,6 +289,9 @@ $request_quotes_form_border_radius =  get_option( 'request_quotes_form_border_ra
 .ndf_filters_heading{
 	display:<?=$ndf_filters_show_filter_table_settings;?> !important;
 }
+.ndf_filters_heading_description{
+	display:<?=$ndf_filters_show_filter_table_settings;?> !important;
+}
 
 .quotes-form-content > #button-holder{
 	text-align:<?=$request_quotes_form_content_position;?>!important;

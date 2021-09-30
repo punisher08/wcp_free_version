@@ -338,7 +338,7 @@ function ndf_show_filters_hierarchy( $taxonomy, $parent = 0, $term_slug = array(
 				$output_start = '<ul class="frxp-list">';
 				if( $parent != 0 && $style == 3 ){
 					// $output_start = '<ul class="">';
-					$output_start = '<ul class="">';
+					$output_start = '<ul class="group-text">';
 				}
 				$output_end = "</ul>";
 				$output = $output_start . $output . $output_end;

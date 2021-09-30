@@ -489,6 +489,22 @@ $(function($) {
 			for (var i = 0; i < summary_content_count.length; i += 2) {
 				summary_content_count.slice(i, i + 2).wrapAll('<div class="group-frxp" />');
 			}
+			// for append bullet or vertical on popup
+			var ndf_content_list_type = ndf_data_image_loader.ndf_summary_content_list_type;
+			if(ndf_content_list_type == 'vertical_line'){
+				$(".cat-values > .frxp-list > .text > div > ul > .text > div").append("<span id='appended-el'> |</span>");
+				$(".ndf_list_pill > li").append("<span id='appended-bullet'> |</span>");
+				$('ul.group-text').each(function(){
+					$(this).find('span#appended-el').last().remove()
+				})
+			}
+			else if(ndf_content_list_type == 'bullet'){
+				$(".cat-values > .frxp-list > .text > div > ul > .text >div").prepend("<span id='appended-bullet'>&#8226;</span>");
+				$(".ndf_list_pill > li").prepend("<span id='appended-bullet'>&#8226;</span>");
+			}
+			else{
+				 
+				}
 			},100)
 				$('.ndf_modal_content').html('<a href="" class="frxp-modal-close frxp-close frxp-close-alt"></a>'+response.ndf_data+'<div class="frxp-modal-footer frxp-text-right"><strong><span href="" class="frxp-modal-close ndf_close_modal">Close</span> or Esc Key</strong></div>');
 				
@@ -1115,7 +1131,13 @@ $(function($) {
 	var ndf_content_list_type = ndf_data_image_loader.ndf_summary_content_list_type;
 	if(ndf_content_list_type == 'vertical_line'){
 		$(".cat-values > .frxp-list > .text > div > ul > .text > div").append("<span id='appended-el'> |</span>");
-		$(".ndf_list_pill > li").append("<span id='appended-bullet'> |</span>");
+		$(".ndf_list_pill > li").append("<span id='appended-bullet'>|</span>");
+		
+	$('ul.group-text').each(function(){
+		$(this).find('span#appended-el').last().remove()
+	})
+	
+	
 	}
 	else if(ndf_content_list_type == 'bullet'){
 		$(".cat-values > .frxp-list > .text > div > ul > .text >div").prepend("<span id='appended-bullet'>&#8226;</span>");

@@ -102,11 +102,13 @@
 2.Fix filter table not showing on Wordpress 5.7.1.
 3.Fix More Info fields redirecting to 404 page.
 4.Fix Table results not fitted on the screen when resize.
-5.Fix swithching table ( when tabular selected horizontal settings should hide).
+5.Fix switching table ( when tabular selected horizontal settings should hide).
 
 = 1.7.2.6 =
 1. Update deprecated functions
 2. Update jQuery framework js files.
+
+
 
 = 1.7.2.5 =
 1. Improve category column structure.
